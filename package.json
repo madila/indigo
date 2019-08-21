@@ -10,5 +10,8 @@
     "wordpress"
   ],
   "author": "Ruben Madila for Ollie Ford & Co",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "css-vars": "^2.2.0"
+  }
 }
