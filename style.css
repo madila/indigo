@@ -28,7 +28,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --base-font-family: quiche-sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --base-font-size: 14px;
   --base-font-weight: 300;
-  --headings-font-family: quiche-sans, inherit; }
+  --headings-font-family: quiche-sans, inherit;
+  --base-border-radius: false; }
 
 /*
  * Typography
