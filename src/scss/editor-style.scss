@@ -1,0 +1,12 @@
+$css-vars-use-native: true;
+@import "variables";
+@import "~css-vars";
+@import "css-variables";
+@import "scaffold/base";
+@import "common/common";
+
+
+.site {
+	max-width: 1200px;
+	margin: 0 auto;
+}

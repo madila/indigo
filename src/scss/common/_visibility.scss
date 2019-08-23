@@ -1,0 +1,15 @@
+//
+// Visibility utilities
+//
+
+.visible {
+  @include invisible(visible);
+}
+
+.invisible {
+  @include invisible(hidden);
+}
+
+.screen-reader-text {
+  @include sr-only;
+}

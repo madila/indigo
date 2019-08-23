@@ -1,0 +1,23 @@
+@mixin validity {
+  &:invalid {
+    border-color: $danger;
+  }
+  &:placeholder-shown {
+    border-color: $input-border-colour;
+  }
+  &:hover {
+    border-color: lighten($input-border-colour-focus, 25%);
+  }
+  &:valid {
+    border-color: $success;
+  }
+  &:focus {
+    border: $input-border-width solid $input-border-colour-focus;
+  }
+}
+
+@mixin focus {
+  &:focus {
+    outline: none;
+  }
+}

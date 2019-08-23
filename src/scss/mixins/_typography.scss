@@ -1,0 +1,12 @@
+// Typography
+
+@mixin lead() {
+  font-size: $lead-font-size;
+  font-weight: $lead-font-weight;
+  margin-bottom: $spacer * 0.7;
+}
+
+@mixin small() {
+  font-size: $small-font-size;
+  font-weight: $font-weight-base;
+}

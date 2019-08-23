@@ -1,0 +1,10 @@
+$css-vars-use-native: true;
+@import "variables";
+@import "~css-vars";
+@import "css-variables";
+@import "common/common";
+
+
+.wp-block {
+	max-width: 1200px;
+}

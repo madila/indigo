@@ -1,0 +1,240 @@
+// Variables
+//
+//
+
+@import "../../node_modules/css-vars/css-vars";
+
+// Table of Contents
+//
+// Utilities
+// Reset
+// Defaults
+// Colours
+// Spacers
+// Media Breakpoints
+// Grid Layouts
+// Colours
+// Buttons
+
+// Utilities
+
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+// Replace `$search` with `$replace` in `$string`
+// @author Hugo Giraudel
+// @param {String} $string - Initial string
+// @param {String} $search - Substring to replace
+// @param {String} $replace ('') - New value
+// @return {String} - Updated string
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin _assert-starts-at-zero($map) {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$media-breakpoints` must start at 0, but starts at #{$first-value}.";
+  }
+}
+
+// Colours
+
+$colours: (
+        black: #000,
+        grey-dark: #333333,
+        grey: #535353,
+        grey-light: #999999,
+        off-white: #f5f5f5,
+        white: #ffffff,
+        red: #e32759,
+        yellow: #f9d74c,
+        teal: #2bb6cc,
+        green: #88c611,
+        purple: #8429b5,
+        primary: #e32759,
+        secondary: #f9d74c,
+        facebook: #3b5997,
+        twitter: #0084b4
+) !default;
+
+$gradients: (
+        primary: (map-get($colours, primary), map-get($colours, secondary)),
+) !default;
+
+$danger: map-get($colours, red) !default;
+$success: map-get($colours, green) !default;
+$black: map-get($colours, black) !default;
+
+// Reset
+
+$body-color: map-get($colours, grey-dark) !default;
+$body-bg: #e4e4e4 !default;
+
+// Defaults
+
+$default-border-width: 1px !default;
+$default-border-colour: lighten($black, 50%) !default;
+$default-border-radius: false !default;
+$disallow-overflow: true !default; // For responsive images by default
+
+// Spacers
+
+$spacer: 1rem !default;
+$spacers: (
+        0: 0,
+        1: ($spacer * .5),
+        2: $spacer,
+        3: ($spacer * 2),
+        xl: ($spacer * 6)
+) !default;
+$responsive-spacer: true !default;
+
+$use-important:                 true !default;
+$paddings-use-important:        $use-important !default;
+$margins-use-important:         $use-important !default;
+$important-paddings:            if($paddings-use-important, " !important", "") !default;
+$important-margins:             if($margins-use-important, " !important", "") !default;
+
+//
+// Media Breakpoints
+//
+
+$media-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+) !default;
+@include _assert-ascending($media-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($media-breakpoints);
+
+//
+// Grid Layout
+//
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 1rem !default;
+
+$container-max-widths: (
+        xs: 370px,
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+) !default;
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+$container-default-width: map-get($container-max-widths, lg) !default;
+
+/*
+ * Typography
+ */
+
+$default-font-stack: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-base: 'geomanistregular', $default-font-stack !default;
+$root-font-size: 14px !default;
+$font-size-base: 1rem !default;
+$font-weight-base: 300 !default;
+$font-color: $body-color !default;
+$line-height-base: 1.5 !default;
+
+$font-weights: (
+      'ultra-light': 100,
+      'light': 200,
+      'thin': 300,
+      'regular': 400,
+      'book': 500,
+      'medium': 600,
+      'bold': 700,
+      'black': 800,
+      'ultra': 900
+) !default;
+
+$font-size-h1: 2.5rem !default;
+$font-size-h2: 2rem !default;
+$font-size-h3: 1.75rem !default;
+$font-size-h4: 1.5rem !default;
+$font-size-h5: 1.25rem !default;
+$font-size-h6: 1rem !default;
+
+$headings-margin-top: .75em !default;
+$headings-margin-bottom: .75em !default;
+$headings-font-family:   inherit !default;
+$headings-font-weight:   600 !default;
+$headings-line-height:   1.1 !default;
+$headings-color:         inherit !default;
+
+$display-sizes: (
+        1: 6rem,
+        2: 5.5rem,
+        3: 4.5rem,
+        4: 3.5rem
+) !default;
+
+$responsive-displays: (
+        xs: 0.5,
+        sm: 0.66,
+        md: 0.83,
+        lg: 0.95,
+        xl: 1
+) !default;
+
+$display-weights: (
+        1: 600,
+        2: 600,
+        3: 600,
+        4: 600
+) !default;
+
+$display-line-height: $headings-line-height !default;
+
+$lead-font-size:   1.25rem !default;
+$lead-font-weight: 400 !default;
+
+$small-font-size: 85% !default;
+
+$hr-border-color: rgba($black,.1) !default;
+$hr-border-width: 1px !default;
+
+
+// Forms & Inputs
+
+$add-validity: false !default;
+$input-border-width: $default-border-width !default;
+$input-border-colour: transparent !default;
+$input-border-colour-focus: $default-border-colour !default;
+$input-line-height: 1.35 !default;
+$label-font-weight:  $headings-font-weight !default;
+
+
+// Buttons
+
+$btn-border-width: $default-border-width !default;
+$btn-border-color: $default-border-colour !default;
+$btn-padding: map-get($spacers, 1) map-get($spacers, 2) !default;
+
+// Tables
+
+$default-table-border: $default-border-width solid !default;

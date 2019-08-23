@@ -1,0 +1,36 @@
+.v-align {
+  &:after {
+    .min-height-full > & {
+      @include viewport-unit(min-height, 100vh);
+    }
+    .min-height-two-thirds > & {
+      @include viewport-unit(min-height, 66vh);
+    }
+    .min-height-half > & {
+      @include viewport-unit(min-height, 50vh);
+    }
+    .min-height-third > & {
+      @include viewport-unit(min-height, 33vh);
+    }
+  }
+}
+
+.full-height {
+  height: 100%;
+  @include viewport-unit(height, 100vh, !important);
+}
+
+.two-thirds-height {
+  height: 66%;
+  @include viewport-unit(height, 66vh, !important);
+}
+
+.half-height {
+  height: 50%;
+  @include viewport-unit(height, 50vh, !important);
+}
+
+.third-height {
+  height: 33%;
+  @include viewport-unit(height, 33vh, !important);
+}

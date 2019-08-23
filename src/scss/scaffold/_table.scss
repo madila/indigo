@@ -1,0 +1,27 @@
+//
+// Tables
+//
+
+table {
+  width: 100%;
+  border-collapse: collapse; // Prevent double borders
+  border: $default-table-border;
+}
+
+td, th {
+  padding: $spacer / 2;
+  border: $default-table-border;
+}
+
+caption {
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+  text-align: left;
+  caption-side: bottom;
+  font-size: 75%;
+}
+
+th {
+  // Matches default `<td>` alignment
+  text-align: left;
+}

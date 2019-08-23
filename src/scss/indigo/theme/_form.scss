@@ -1,0 +1,87 @@
+//
+// Forms
+//
+
+$validity: false;
+
+input {
+  transition: all .35s linear;
+  @if($validity) {
+    @include validity();
+  }
+  @include focus();
+}
+
+textarea {
+  transition: all .2s linear;
+  @if($validity) {
+    @include validity();
+  }
+  @include focus();
+}
+
+select {
+  transition: all .2s linear;
+  @if($validity) {
+    @include validity();
+  }
+  @include focus();
+}
+
+
+/**
+ * Start by hiding the checkboxes
+.checkbox {
+  position: relative;
+  > input[type=checkbox] {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    &:checked {
+      + label {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  > label {
+    font-size: 1rem;
+    position: relative;
+    &:before {
+      background: #eee;
+      border: 1px solid #ddd;
+      content: "";
+      display: inline-block;
+      height: 2em;
+      margin-right: .7rem;
+      position: relative;
+      vertical-align: middle;
+      width: 2em;
+      @include border-radius();
+    }
+    &:hover {
+      &:after {
+        opacity: 0.5;
+      }
+    }
+    &:after {
+      background: transparent;
+      border: 2px solid #333;
+      border-right: none;
+      border-top: none;
+      content: "";
+      height: 0.5em;
+      opacity: .2;
+      position: absolute;
+      top: .4em;
+      transform: rotate(-45deg) translate(-50%,-50%);
+      transition: all .2s linear;
+      width: .5em;
+      left: 1em;
+      padding: 0 .5em;
+      margin: 0;
+    }
+  }
+}
+*/

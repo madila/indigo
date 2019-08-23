@@ -1,0 +1,31 @@
+@function check-color($color) {
+  @if (lightness($color) > 70) {
+    @return darken($color, 75%);
+  } @else {
+    @return #ffffff;
+  }
+}
+
+@mixin colour-classes($colour-name, $colour-hex) {
+  .bg-#{$colour-name} {
+    @include background-class($colour-hex);
+  }
+  .text-#{$colour-name} {
+    @include text-class($colour-hex);
+  }
+  .btn {
+    &.btn-#{$colour-name} {
+      @include button-class($colour-hex);
+    }
+    &.btn-text-#{$colour-name} {
+      @include button-text-class($colour-hex);
+    }
+    &.btn-border-#{$colour-name} {
+      @include button-text-hover-solid-class($colour-hex);
+    }
+  }
+}
+
+@function get-colour($colour_name) {
+  @return map-get($colours, $colour_name);
+}

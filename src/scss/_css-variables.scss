@@ -1,0 +1,9 @@
+@include css-vars((
+	--base-color: $body-color,
+	--base-bg-color: $body-bg,
+	--base-font-family: $base-font-family,
+	--base-font-size: $root-font-size,
+	--base-font-weight: $font-weight-base,
+
+	--headings-font-family: $headings-font-family,
+));

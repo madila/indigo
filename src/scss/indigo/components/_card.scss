@@ -1,0 +1,72 @@
+$card-bg: white;
+$card-color: get-colour(grey-dark);
+$card-dark-bg: get-colour(grey-dark);
+$card-dark-color: white;
+$card-border-radius: ($default-border-radius / 4);
+
+.card {
+  background-color: $card-bg;
+  color: $card-color;
+  box-shadow: 0 0 30px rgba($card-color,0.1);
+  border: 1px solid rgba($card-color,0.15);
+  border-radius: $card-border-radius;
+  h1, h2, h3, h4, h5, h6, p, small, label, span {
+    color: $card-color;
+  }
+  a {
+    color: darken($card-color, 10%);
+  }
+  input, textarea {
+    background-color: rgba($card-color,.065);
+    border-right: 1px solid rgba($card-color,0.15);
+    border-bottom: 1px solid rgba($card-color,0.15);
+    border-top: 1px solid rgba($card-color,0.08);
+    border-left: 1px solid rgba($card-color,0.08);
+  }
+  > header {
+    border-bottom: 1px solid rgba($card-color,0.05);
+    background-color: rgba($card-color, 0.02);
+  }
+  .card-sidebar {
+    background-color: rgba(0,0,0,0.03);
+    .btn {
+      background-color: transparent;
+      transition: all 300ms linear;
+    }
+    & .active .btn, & .btn:hover {
+      background-color: rgba($card-bg,0.1);
+    }
+  }
+
+  // Dark Theme
+  &.card-dark {
+    background: $card-dark-bg; /* Old browsers */
+    color: $card-dark-color;
+    box-shadow: 0 0 30px rgba($card-dark-bg,0.5);
+    border-right: 1px solid rgba($card-dark-color,0.05);
+    border-bottom: 1px solid rgba($card-dark-color,0.05);
+    border-radius: $card-border-radius;
+    h1, h2, h3, h4, h5, h6, p, small, label, span {
+      color: $card-dark-color;
+    }
+    a {
+      color: lighten($card-color, 10%);
+    }
+    > header {
+      border-top-left-radius: $card-border-radius;
+      border-top-right-radius: $card-border-radius;
+      border-bottom: 1px solid rgba($card-dark-color,0.05);
+      background-color: rgba($card-dark-color, 0.02);
+    }
+    .card-sidebar {
+      background-color: rgba($card-dark-bg,0.03);
+      .btn {
+        background-color: transparent;
+        transition: all 300ms linear;
+      }
+      & .active .btn, & .btn:hover {
+        background-color: rgba($card-dark-bg,0.1);
+      }
+    }
+  }
+}

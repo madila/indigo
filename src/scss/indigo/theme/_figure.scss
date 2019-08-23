@@ -1,0 +1,21 @@
+figcaption {
+  margin-top: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 80%;
+  display: inline-block;
+  background-color: rgba(0,0,0,0.05);
+  &.overlay {
+    position: absolute;
+    bottom: 1rem;
+    opacity: 0.5;
+    color: rgba(255,255,255,0.5);
+    right: 0;
+    transition: opacity 200ms linear, background-color 200ms linear;
+    &:hover {
+      opacity: 1;
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+    }
+  }
+}

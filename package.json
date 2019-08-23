@@ -4,14 +4,31 @@
   "description": "Blog Theme for Wordpress",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production"
   },
   "keywords": [
     "wordpress"
   ],
   "author": "Ruben Madila for Ollie Ford & Co",
   "license": "ISC",
-  "dependencies": {
-    "css-vars": "^2.2.0"
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "css-vars": "^2.2.0",
+    "cssnano": "^4.1.10",
+    "lodash": "^4.17.15",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^1.0.0",
+    "sugarss": "^2.0.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-fix-style-only-entries": "^0.3.0"
   }
 }

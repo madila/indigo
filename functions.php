@@ -35,6 +35,31 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		 */
 		add_theme_support( 'title-tag' );
 
+		add_theme_support( 'align-wide' );
+
+		add_theme_support( 'editor-color-palette', array(
+			array(
+				'name' => __( 'strong magenta', 'themeLangDomain' ),
+				'slug' => 'strong-magenta',
+				'color' => '#a156b4',
+			),
+			array(
+				'name' => __( 'light grayish magenta', 'themeLangDomain' ),
+				'slug' => 'light-grayish-magenta',
+				'color' => '#d0a5db',
+			),
+			array(
+				'name' => __( 'very light gray', 'themeLangDomain' ),
+				'slug' => 'very-light-gray',
+				'color' => '#eee',
+			),
+			array(
+				'name' => __( 'very dark gray', 'themeLangDomain' ),
+				'slug' => 'very-dark-gray',
+				'color' => '#444',
+			),
+		) );
+
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
@@ -83,6 +108,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'indigo_setup' );
 
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -94,7 +120,7 @@ function indigo_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'indigo_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'indigo_content_width', 780 );
 }
 add_action( 'after_setup_theme', 'indigo_content_width', 0 );
 
@@ -120,17 +146,28 @@ add_action( 'widgets_init', 'indigo_widgets_init' );
  * Enqueue scripts and styles.
  */
 function indigo_scripts() {
+
 	wp_enqueue_style( 'indigo-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'indigo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	//wp_enqueue_script( 'indigo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'indigo-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'indigo-script', get_template_directory_uri() . '/assets/scripts.js', array(), '20151215', true );
+
+	wp_enqueue_style( 'indigo-fonts', 'https://fonts.googleapis.com/css?family=Hepta+Slab:200,300,400,500,600&display=swap', array(), null, true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'indigo_scripts' );
+
+/**
+ * Enqueue block editor style
+ */
+function indigo_block_editor_styles() {
+	wp_enqueue_style( 'block-editor-styles', get_theme_file_uri( '/block-editor-style.css' ), false, '1.0', 'screen' );
+}
+add_action( 'enqueue_block_editor_assets', 'indigo_block_editor_styles' );
 
 /**
  * Implement the Custom Header feature.

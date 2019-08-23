@@ -1,0 +1,35 @@
+//
+// Headings
+//
+
+.lead {
+  @include lead();
+}
+
+.small {
+  @include small();
+}
+
+.link-reset {
+  &, &:hover, &:visited, &:active, &:focus {
+    text-decoration: none;
+  }
+}
+
+@each $display, $size in $display-sizes {
+  @each $breakpoint in map-keys($media-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .display-#{$display} {
+        margin-top: $headings-margin-top;
+        margin-bottom: $headings-margin-bottom;
+        font-size: ($size * map-get($responsive-displays, $breakpoint));
+      }
+    }
+  }
+}
+
+@each $name, $weight in $font-weights {
+  .text-#{$name} {
+    font-weight: $weight !important;
+  }
+}

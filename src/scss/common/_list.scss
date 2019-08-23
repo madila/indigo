@@ -1,0 +1,63 @@
+.list-inline {
+  li, dt, dd {
+    display: inline;
+  }
+  dd {
+    border: none;
+    padding-left: 0;
+    &:after {
+      content: "";
+      display: block;
+    }
+  }
+}
+
+.list-inline-block {
+  li, dt, dd {
+    display: inline-block;
+  }
+  dd {
+    border: none;
+    padding-left: 0;
+    &:after {
+      content: "";
+      display: block;
+    }
+  }
+}
+
+
+.list-table {
+  dt {
+    float: left;
+    clear: left;
+    font-size: 1em;
+    width: 30%;
+    &:after {
+      content: ":";
+    }
+  }
+
+  dd {
+    margin: 0 0 1em 30%;
+  }
+}
+
+.list-unstyled {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list-roman {
+  list-style: lower-roman;
+  &.upper {
+    list-style: upper-roman;
+  }
+}
+
+.list-latin {
+  list-style: lower-latin;
+  &.upper {
+    list-style: upper-latin;
+  }
+}

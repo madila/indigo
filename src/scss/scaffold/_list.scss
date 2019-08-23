@@ -1,0 +1,32 @@
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  padding-left: 1.55em;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+
+dl {
+  dt {
+    font-weight: 500;
+    font-size: 1.25em;
+    color: #777777;
+  }
+  dd {
+    margin-bottom: .5rem;
+    margin-left: 0; // Undo browser default
+    padding-left: 8px;
+    border-left: 3px solid #c7c7c7;
+  }
+}
