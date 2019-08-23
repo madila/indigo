@@ -129,13 +129,14 @@ input[type="submit"] {
 }
 
 .menu-toggle {
-	border: 1px solid;
-	width: 2.5rem;
+	opacity: 0;
+	width: 2rem;
 	min-height: calc(2rem + 2px);
 	position: relative;
-	padding: 2.5rem;
+	padding: 2rem;
 	color: inherit;
 	margin-left: 1rem;
+	border: none;
 	@include media-breakpoint-up(sm) {
 		display: none;
 	}
@@ -144,7 +145,7 @@ input[type="submit"] {
 			background: var(--base-color, $base-color);
 			cursor: pointer;
 			height: 0.05rem;
-			width: 2.5rem;
+			width: 2rem;
 			position: absolute;
 			display: block;
 			content: '';
@@ -168,22 +169,11 @@ input[type="submit"] {
 		.menu-container {
 			display: flex;
 			flex: 1;
-			border: 1px solid;
 			margin-left: 2rem;
 			overflow: visible;
 			justify-content: center;
-			&:after {
-				content: "";
-				pointer-events: none;
-				height: 100%;
-				width: 2rem;
-				position: absolute;
-				right: 0;
-				top: 0;
-				z-index: 20;
-				background-image: linear-gradient(-90deg, rgba(0,0,0,0.1), transparent);
-			}
 			> .menu {
+				border: 1px solid;
 				margin-left: -8.5rem;
 				@include media-breakpoint-up(sm) {
 					margin-left: -2rem;
@@ -334,8 +324,7 @@ textarea {
 .logged-in-as {
  > a {
 	text-decoration: none;
-	 font-weight: 600;
-	 @include pill();
+	font-weight: 600;
  }
 }
 
