@@ -2018,7 +2018,8 @@ a {
   margin-top: 2rem; }
 
 .site-title {
-  line-height: 1.1; }
+  line-height: 1.1;
+  margin: 0; }
   .site-title a {
     font-size: 3.25rem;
     font-weight: 400;
@@ -2032,6 +2033,9 @@ a {
   padding: 2rem 0;
   text-align: center; }
 
+.site-info {
+  padding: 0 2rem; }
+
 .widget {
   flex: 1;
   padding: 0 1rem;
@@ -2040,7 +2044,7 @@ a {
   .widget-area {
     margin-top: 3rem;
     display: flex;
-    padding: 3rem;
+    padding: 2rem;
     flex-wrap: wrap;
     background-color: #27164b;
     color: #fff; }
@@ -2057,7 +2061,8 @@ a {
     font-weight: 500; }
   .widget_search .search-field {
     margin-top: 1rem;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    border-radius: 2rem; }
   .widget_search .search-submit {
     margin-bottom: 1rem;
     width: 100%; }
@@ -2071,40 +2076,80 @@ input[type="submit"] {
   margin: 0 auto; }
 
 .menu-toggle {
-  border: none;
-  padding: 0;
-  width: 35px;
-  height: 32px;
-  position: relative; }
+  border: 1px solid;
+  width: 2.5rem;
+  min-height: calc(2rem + 2px);
+  position: relative;
+  padding: 2.5rem; }
+  @media (min-width: 576px) {
+    .menu-toggle {
+      display: none; } }
   .menu-toggle span, .menu-toggle span:before, .menu-toggle span:after {
-    cursor: pointer;
-    border-radius: 1px;
-    height: 5px;
-    width: 35px;
     background: var(--base-color, #23282d);
+    cursor: pointer;
+    height: 0.05rem;
+    width: 2.5rem;
     position: absolute;
     display: block;
-    content: ''; }
+    content: '';
+    left: 50%;
+    transform: translateX(-50%); }
   .menu-toggle span:before {
-    top: -10px; }
+    top: -1rem; }
   .menu-toggle span:after {
-    bottom: -10px; }
+    bottom: -1rem; }
 
 .main-navigation {
-  display: flex; }
-  .main-navigation .menu {
-    flex: 1; }
-    .main-navigation .menu > ul {
+  display: flex;
+  align-items: center;
+  position: relative; }
+  .main-navigation .menu-container {
+    display: flex;
+    flex: 1;
+    border: 1px solid;
+    margin-left: 2rem;
+    overflow: visible;
+    justify-content: center; }
+    .main-navigation .menu-container:after {
+      content: "";
+      pointer-events: none;
+      height: 100%;
+      width: 2rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 20;
+      background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0.1), transparent); }
+    .main-navigation .menu-container > .menu {
       margin-bottom: 0;
       list-style-type: none;
       padding-left: 0;
       display: flex; }
+      .main-navigation .menu-container > .menu li.current_page_item a {
+        background-color: #333;
+        color: #fff; }
+      .main-navigation .menu-container > .menu li a {
+        padding: 2rem;
+        line-height: 1em;
+        display: inline-block;
+        text-decoration: none;
+        white-space: nowrap; }
+        .main-navigation .menu-container > .menu li a:hover {
+          background-color: #333;
+          color: #fff; }
+
+.page-header {
+  padding: 0 2rem; }
+
+.archive .page-title {
+  font-size: 1.5rem; }
 
 .entry-title {
   font-size: 4.5rem;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.4;
+  padding: 0 2rem;
   border-bottom: 1px solid; }
   .entry-title a {
     text-decoration: none; }
@@ -2115,14 +2160,16 @@ input[type="submit"] {
 .entry-content {
   font-size: 1.7rem;
   font-weight: 100;
-  padding: 2rem 0; }
+  padding: 2rem; }
   .entry-content p {
     margin-bottom: 2em; }
 
 .entry-meta, .entry-footer {
-  padding: 1rem 0; }
+  padding: 1rem 2rem; }
   .entry-meta > span, .entry-footer > span {
     margin-right: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid;
     border-radius: 5rem;
@@ -2159,6 +2206,8 @@ input[type="submit"] {
 
 .comment .reply {
   margin-right: 1rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
   padding: .5rem 1rem;
   border: 1px solid;
   border-radius: 5rem;
@@ -2182,6 +2231,8 @@ input[type="submit"] {
   margin-top: .5rem; }
   .comment-metadata > a, .comment-metadata > span {
     margin-right: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid;
     border-radius: 5rem;
@@ -2231,6 +2282,8 @@ textarea {
   text-decoration: none;
   font-weight: 600;
   margin-right: 1rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
   padding: .5rem 1rem;
   border: 1px solid;
   border-radius: 5rem;

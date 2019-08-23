@@ -46,17 +46,19 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+		<nav id="site-navigation" class="main-navigation alignfull">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<span></span>
 				<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'indigo' ); ?></span>
 			</button>
 			<?php
 			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
+				'theme_location' => 'site-navigation',
 				'menu_id'        => 'primary-menu',
-				'menu_class'     => 'menu'
+				'menu_class'     => 'menu',
+				'container_class' => 'menu-container'
 			) );
+			// Supply fallback as the default WordPress Fallback has different structure
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

@@ -21,6 +21,7 @@ a {
 	}
 	&-title {
 		line-height: 1.1;
+		margin: 0;
 		a {
 			font-size: 3.25rem;
 			font-weight: 400;
@@ -36,6 +37,9 @@ a {
 		padding: 2rem 0;
 		text-align: center;
 	}
+	&-info {
+		padding: 0 2rem;
+	}
 }
 
 .widget {
@@ -46,7 +50,7 @@ a {
 	&-area {
 		margin-top: 3rem;
 		display: flex;
-		padding: 3rem;
+		padding: 2rem;
 		flex-wrap: wrap;
 		background-color: #27164b;
 		color: #fff;
@@ -71,6 +75,7 @@ a {
 		.search-field {
 			margin-top: 1rem;
 			margin-bottom: 0;
+			border-radius: 2rem;
 		}
 		.search-submit {
 			margin-bottom: 1rem;
@@ -90,6 +95,8 @@ a {
 
 @mixin pill() {
 	margin-right: 1rem;
+	margin-top: .5rem;
+	margin-bottom: .5rem;
 	padding: .5rem 1rem;
 	border: 1px solid;
 	border-radius: 5rem;
@@ -114,27 +121,31 @@ input[type="submit"] {
 }
 
 .menu-toggle {
-	border: none;
-	padding: 0;
-	width: 35px;
-	height: 32px;
+	border: 1px solid;
+	width: 2.5rem;
+	min-height: calc(2rem + 2px);
 	position: relative;
+	padding: 2.5rem;
+	@include media-breakpoint-up(sm) {
+		display: none;
+	}
 	span {
 		&, &:before, &:after {
-			cursor: pointer;
-			border-radius: 1px;
-			height: 5px;
-			width: 35px;
 			background: var(--base-color, $base-color);
+			cursor: pointer;
+			height: 0.05rem;
+			width: 2.5rem;
 			position: absolute;
 			display: block;
 			content: '';
+			left: 50%;
+			transform: translateX(-50%);
 		}
 		&:before {
-			top: -10px;
+			top: -1rem;
 		}
 		&:after {
-			bottom: -10px;
+			bottom: -1rem;
 		}
 	}
 }
@@ -142,14 +153,63 @@ input[type="submit"] {
 .main {
 	&-navigation {
 		display: flex;
-		.menu {
+		align-items: center;
+		position: relative;
+		.menu-container {
+			display: flex;
 			flex: 1;
-			> ul {
+			border: 1px solid;
+			margin-left: 2rem;
+			overflow: visible;
+			justify-content: center;
+			&:after {
+				content: "";
+				pointer-events: none;
+				height: 100%;
+				width: 2rem;
+				position: absolute;
+				right: 0;
+				top: 0;
+				z-index: 20;
+				background-image: linear-gradient(-90deg, rgba(0,0,0,0.1), transparent);
+			}
+			> .menu {
 				margin-bottom: 0;
 				list-style-type: none;
 				padding-left: 0;
 				display: flex;
+				li {
+					&.current_page_item {
+						a {
+							background-color: #333;
+							color: #fff;
+
+						}
+					}
+					a {
+						padding: 2rem;
+						line-height: 1em;
+						display: inline-block;
+						text-decoration: none;
+						white-space: nowrap;
+						&:hover {
+							background-color: #333;
+							color: #fff;
+						}
+					}
+				}
 			}
+		}
+	}
+}
+
+.page {
+	&-header {
+		padding: 0 2rem;
+	}
+	&-title {
+		.archive & {
+			font-size: 1.5rem;
 		}
 	}
 }
@@ -160,6 +220,7 @@ input[type="submit"] {
 		margin-top: 0;
 		margin-bottom: 0;
 		line-height: 1.4;
+		padding: 0 2rem;
 		border-bottom: 1px solid;
 		a {
 			text-decoration: none;
@@ -171,13 +232,13 @@ input[type="submit"] {
 	&-content {
 		font-size: 1.7rem;
 		font-weight: 100;
-		padding: 2rem 0;
+		padding: 2rem;
 		p {
 			margin-bottom: 2em;
 		}
 	}
 	&-meta, &-footer {
-		padding: 1rem 0;
+		padding: 1rem 2rem;
 		> span {
 			@include pill();
 		}
