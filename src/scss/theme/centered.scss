@@ -1,5 +1,11 @@
 html {
-	font-size: 20px;
+	font-size: 14px;
+	@include media-breakpoint-up(sm) {
+		font-size: 16px;
+	}
+	@include media-breakpoint-up(lg) {
+		font-size: 20px;
+	}
 }
 
 a {
@@ -12,6 +18,7 @@ a {
 
 .site {
 	&-header {
+		color: var(--base-color, inherit);
 		text-align: center;
 		padding: 2rem 0;
 	}
@@ -34,6 +41,7 @@ a {
 	}
 
 	&-footer {
+		color: var(--base-color, inherit);
 		padding: 2rem 0;
 		text-align: center;
 	}
@@ -52,7 +60,7 @@ a {
 		display: flex;
 		padding: 2rem;
 		flex-wrap: wrap;
-		background-color: #27164b;
+		background-color: var(--base-color);
 		color: #fff;
 		a {
 			color: #fff;
@@ -75,7 +83,7 @@ a {
 		.search-field {
 			margin-top: 1rem;
 			margin-bottom: 0;
-			border-radius: 2rem;
+			@include border-radius;
 		}
 		.search-submit {
 			margin-bottom: 1rem;
@@ -85,7 +93,7 @@ a {
 }
 
 @mixin button() {
-	border-radius: 2rem;
+	@include border-radius;
 	background-color: #333;
 	color: #fff;
 	display: block;
@@ -99,7 +107,7 @@ a {
 	margin-bottom: .5rem;
 	padding: .5rem 1rem;
 	border: 1px solid;
-	border-radius: 5rem;
+	@include border-radius;
 	display: inline-block;
 	font-size: 80%;
 	a {
@@ -126,6 +134,8 @@ input[type="submit"] {
 	min-height: calc(2rem + 2px);
 	position: relative;
 	padding: 2.5rem;
+	color: inherit;
+	margin-left: 1rem;
 	@include media-breakpoint-up(sm) {
 		display: none;
 	}
@@ -174,6 +184,10 @@ input[type="submit"] {
 				background-image: linear-gradient(-90deg, rgba(0,0,0,0.1), transparent);
 			}
 			> .menu {
+				margin-left: -8.5rem;
+				@include media-breakpoint-up(sm) {
+					margin-left: -2rem;
+				}
 				margin-bottom: 0;
 				list-style-type: none;
 				padding-left: 0;
@@ -217,10 +231,10 @@ input[type="submit"] {
 .entry {
 	&-title {
 		font-size: 4.5rem;
-		margin-top: 0;
-		margin-bottom: 0;
-		line-height: 1.4;
-		padding: 0 2rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		line-height: 1.2;
+		padding: 2rem;
 		border-bottom: 1px solid;
 		a {
 			text-decoration: none;
@@ -252,6 +266,10 @@ input[type="submit"] {
 
 
 .comment {
+	&s-area {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 	&-list {
 		padding-left: 2rem;
 		font-size: 2rem;
@@ -276,10 +294,12 @@ input[type="submit"] {
 	}
 	&-metadata {
 		font-size: 80%;
-		margin-top: .5rem;
+		margin-top: 0;
 		> a, > span {
 			@include pill();
 			margin-right: 0;
+			margin-top: 0;
+			margin-bottom: 0;
 		}
 	}
 	&-author {

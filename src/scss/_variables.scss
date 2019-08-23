@@ -95,7 +95,7 @@ $body-bg: #e4e4e4 !default;
 
 $default-border-width: 1px !default;
 $default-border-colour: lighten($black, 50%) !default;
-$default-border-radius: false !default;
+$default-border-radius: 3rem !default;
 $disallow-overflow: true !default; // For responsive images by default
 
 // Spacers

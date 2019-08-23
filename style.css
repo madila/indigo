@@ -29,15 +29,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --base-font-size: 14px;
   --base-font-weight: 300;
   --headings-font-family: quiche-sans, inherit;
-  --base-border-radius: false; }
+  --base-border-radius: 3rem; }
 
-/*
- * Typography
- */
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: var(--base-font-family, quiche-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   font-size: var(--base-font-size, 14px);
+  background-color: var(--base-bg-color, #e4e4e4);
+  color: var(--base-color, #23282d);
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -57,12 +56,12 @@ article, aside, dialog, figcaption, figure, footer, header, main, nav, section {
 
 body {
   margin: 0;
-  font-family: var(--base-font-family, quiche-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  font-family: inherit;
   font-size: inherit;
   font-weight: 300;
   line-height: 1.5;
-  color: var(--base-color, #333333);
-  background-color: var(--base-bg-color, #e4e4e4);
+  color: inherit;
+  background-color: inherit;
   overflow-x: hidden; }
 
 [tabindex="-1"]:focus {
@@ -189,6 +188,7 @@ p {
   margin-bottom: 0.7rem; }
 
 a {
+  color: inherit;
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
 
@@ -209,9 +209,7 @@ small {
   font-weight: 300; }
 
 a {
-  transition: color 300ms ease-out; }
-  a, a:hover, a:active, a:focus, a:visited {
-    color: #333333; }
+  transition: all 300ms ease-out; }
 
 blockquote {
   padding-left: 1rem;
@@ -259,20 +257,23 @@ input {
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
   margin-bottom: 1rem;
-  width: 100%; }
+  width: 100%;
+  border-radius: var(--base-border-radius, 3rem); }
 
 textarea {
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
   margin-bottom: 1rem;
-  width: 100%; }
+  width: 100%;
+  border-radius: var(--base-border-radius, 3rem); }
 
 select {
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
   margin-bottom: 1rem;
   width: 100%;
-  line-height: 1.35; }
+  line-height: 1.35;
+  border-radius: var(--base-border-radius, 3rem); }
 
 option {
   padding: 0.5rem 1rem; }
@@ -286,7 +287,8 @@ button {
   padding: 0.5rem 1rem;
   background: none;
   border: 1px solid;
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: var(--base-border-radius, 3rem); }
   button:focus {
     outline: 1px dotted;
     outline: 5px auto -webkit-focus-ring-color; }
@@ -2002,7 +2004,13 @@ th {
   margin: 0 auto; }
 
 html {
-  font-size: 20px; }
+  font-size: 14px; }
+  @media (min-width: 576px) {
+    html {
+      font-size: 16px; } }
+  @media (min-width: 992px) {
+    html {
+      font-size: 20px; } }
 
 a {
   font-weight: 600;
@@ -2011,6 +2019,7 @@ a {
     text-decoration: underline; }
 
 .site-header {
+  color: var(--base-color, inherit);
   text-align: center;
   padding: 2rem 0; }
 
@@ -2031,6 +2040,7 @@ a {
   justify-content: center; }
 
 .site-footer {
+  color: var(--base-color, inherit);
   padding: 2rem 0;
   text-align: center; }
 
@@ -2047,7 +2057,7 @@ a {
     display: flex;
     padding: 2rem;
     flex-wrap: wrap;
-    background-color: #27164b;
+    background-color: var(--base-color);
     color: #fff; }
     .widget-area a {
       color: #fff; }
@@ -2063,13 +2073,13 @@ a {
   .widget_search .search-field {
     margin-top: 1rem;
     margin-bottom: 0;
-    border-radius: 2rem; }
+    border-radius: var(--base-border-radius, 3rem); }
   .widget_search .search-submit {
     margin-bottom: 1rem;
     width: 100%; }
 
 input[type="submit"] {
-  border-radius: 2rem;
+  border-radius: var(--base-border-radius, 3rem);
   background-color: #333;
   color: #fff;
   display: block;
@@ -2081,7 +2091,9 @@ input[type="submit"] {
   width: 2.5rem;
   min-height: calc(2rem + 2px);
   position: relative;
-  padding: 2.5rem; }
+  padding: 2.5rem;
+  color: inherit;
+  margin-left: 1rem; }
   @media (min-width: 576px) {
     .menu-toggle {
       display: none; } }
@@ -2122,10 +2134,14 @@ input[type="submit"] {
       z-index: 20;
       background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0.1), transparent); }
     .main-navigation .menu-container > .menu {
+      margin-left: -8.5rem;
       margin-bottom: 0;
       list-style-type: none;
       padding-left: 0;
       display: flex; }
+      @media (min-width: 576px) {
+        .main-navigation .menu-container > .menu {
+          margin-left: -2rem; } }
       .main-navigation .menu-container > .menu li.current_page_item a {
         background-color: #333;
         color: #fff; }
@@ -2147,10 +2163,10 @@ input[type="submit"] {
 
 .entry-title {
   font-size: 4.5rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.4;
-  padding: 0 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  padding: 2rem;
   border-bottom: 1px solid; }
   .entry-title a {
     text-decoration: none; }
@@ -2173,7 +2189,7 @@ input[type="submit"] {
     margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid;
-    border-radius: 5rem;
+    border-radius: var(--base-border-radius, 3rem);
     display: inline-block;
     font-size: 80%; }
     .entry-meta > span a, .entry-footer > span a {
@@ -2188,6 +2204,10 @@ input[type="submit"] {
 
 .entry-date + time {
   display: none; }
+
+.comments-area {
+  padding-left: 2rem;
+  padding-right: 2rem; }
 
 .comment-list {
   padding-left: 2rem;
@@ -2211,7 +2231,7 @@ input[type="submit"] {
   margin-bottom: .5rem;
   padding: .5rem 1rem;
   border: 1px solid;
-  border-radius: 5rem;
+  border-radius: var(--base-border-radius, 3rem);
   display: inline-block;
   font-size: 80%; }
   .comment .reply a {
@@ -2229,17 +2249,19 @@ input[type="submit"] {
 
 .comment-metadata {
   font-size: 80%;
-  margin-top: .5rem; }
+  margin-top: 0; }
   .comment-metadata > a, .comment-metadata > span {
     margin-right: 1rem;
     margin-top: .5rem;
     margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid;
-    border-radius: 5rem;
+    border-radius: var(--base-border-radius, 3rem);
     display: inline-block;
     font-size: 80%;
-    margin-right: 0; }
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0; }
     .comment-metadata > a a, .comment-metadata > span a {
       transition: all 300ms linear;
       text-decoration: none; }
@@ -2287,7 +2309,7 @@ textarea {
   margin-bottom: .5rem;
   padding: .5rem 1rem;
   border: 1px solid;
-  border-radius: 5rem;
+  border-radius: var(--base-border-radius, 3rem);
   display: inline-block;
   font-size: 80%; }
   .logged-in-as > a a {
@@ -2310,6 +2332,8 @@ textarea {
     width: 1200px; }
   .wp-block-cover h2, .wp-block-cover h3, .wp-block-cover h4, .wp-block-cover h5, .wp-block-cover h6, .wp-block-cover p {
     margin: 0 auto; }
+
+/*@import "theme/sidebar";*/
 
 
 /*# sourceMappingURL=style.css.map*/

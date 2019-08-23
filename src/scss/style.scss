@@ -20,9 +20,13 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 $css-vars-use-native: true;
-@import "variables";
 @import "~css-vars";
+
+@import "mixins/mixins";
+
+@import "_variables";
 @import "css-variables";
+
 @import "scaffold/base";
 @import "common/common";
 

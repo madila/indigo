@@ -1,5 +1,6 @@
 $css-vars-use-native: true;
-@import "variables";
+@import "_variables";
+@import "mixins/_mixins";
 @import "~css-vars";
 @import "css-variables";
 @import "scaffold/base";

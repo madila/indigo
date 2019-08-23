@@ -16,8 +16,10 @@
 
 html {
 	box-sizing: border-box; // 1
-	font-family: sans-serif; // 2
+	font-family: var(--base-font-family, $base-font-family); // 2
 	font-size: var(--base-font-size, $root-font-size);
+	background-color: var(--base-bg-color, $body-bg);
+	color: var(--base-color, $base-color);
 	line-height: 1.15; // 3
 	-webkit-text-size-adjust: 100%; // 4
 	-ms-text-size-adjust: 100%; // 4
@@ -48,13 +50,12 @@ article, aside, dialog, figcaption, figure, footer, header, main, nav, section {
 
 body {
 	margin: 0; // 1
-	font-family: var(--base-font-family, $base-font-family);
+	font-family: inherit;;
 	font-size: inherit;
 	font-weight: 300;
 	line-height: 1.5;
-	color: var(--base-color, $body-color);
-
-	background-color: var(--base-bg-color, $body-bg); // 2
+	color: inherit;;
+	background-color: inherit; // 2
 	overflow-x: hidden;
 }
 
