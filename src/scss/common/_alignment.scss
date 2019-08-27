@@ -33,6 +33,11 @@
   text-align: center;
 }
 
+.aligncenter {
+  width: var(--content-width, $container-default-width);
+
+}
+
 .alignfull,
 .alignwide {
   margin-left  : calc( -100vw / 2 + 100% / 2 );
@@ -41,7 +46,7 @@
   width: auto;
 }
 
-@media only screen and ( min-width: 950px ) {
+@media only screen and ( min-width: $container-default-width ) {
   .alignwide {
     margin-left  : -125px;
     margin-right : -125px;

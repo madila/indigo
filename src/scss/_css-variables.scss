@@ -1,10 +1,12 @@
 @include css-vars((
 	--base-color: $body-color,
+	--base-color-darker: $body-color-darker,
 	--base-bg-color: $body-bg,
 	--base-font-family: $base-font-family,
 	--base-font-size: $root-font-size,
 	--base-font-weight: $font-weight-base,
 
+	--content-width: $container-default-width,
 	--headings-font-family: $headings-font-family,
 	--base-border-radius: $default-border-radius
 ));

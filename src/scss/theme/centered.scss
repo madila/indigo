@@ -60,11 +60,6 @@ a {
 		display: flex;
 		padding: 2rem;
 		flex-wrap: wrap;
-		background-color: var(--base-color);
-		color: #fff;
-		a {
-			color: #fff;
-		}
 	}
 	&-title {
 		margin: .8rem 0;
@@ -94,7 +89,7 @@ a {
 
 @mixin button() {
 	@include border-radius;
-	background-color: #333;
+	background-color: var(--base-color, $body-color);
 	color: #fff;
 	display: block;
 	width: auto;
@@ -185,9 +180,8 @@ input[type="submit"] {
 				li {
 					&.current_page_item {
 						a {
-							background-color: #333;
-							color: #fff;
-
+							background-color: var(--base-color, $body-color);
+							color: var(--base-bg-color, $body-bg);
 						}
 					}
 					a {
@@ -197,8 +191,8 @@ input[type="submit"] {
 						text-decoration: none;
 						white-space: nowrap;
 						&:hover {
-							background-color: #333;
-							color: #fff;
+							background-color: var(--base-color, $body-color);
+							color: var(--base-bg-color, $body-bg);
 						}
 					}
 				}
@@ -214,6 +208,14 @@ input[type="submit"] {
 	&-title {
 		.archive & {
 			font-size: 1.5rem;
+		}
+	}
+	&-content {
+		font-size: 1.7rem;
+		font-weight: 100;
+		padding: 2rem;
+		p {
+			margin-bottom: 2em;
 		}
 	}
 }
@@ -238,7 +240,15 @@ input[type="submit"] {
 		font-weight: 100;
 		padding: 2rem;
 		p {
-			margin-bottom: 2em;
+			margin-bottom: 1em;
+		}
+	}
+	&-summary {
+		font-size: 1.2rem;
+		font-weight: 100;
+		padding: 2rem 2rem 0;
+		p {
+			margin-bottom: 1em;
 		}
 	}
 	&-meta, &-footer {
@@ -312,6 +322,9 @@ input[type="submit"] {
 	&-respond {
 		font-size: 1rem;
 	}
+	&-submit {
+		@include button();
+	}
 }
 
 textarea {
@@ -336,10 +349,23 @@ textarea {
 		padding: 2rem 0;
 		.wp-block-cover__inner-container {
 			max-width: 100%;
-			width:	1200px;
+			width: var(--content-width, $container-default-width);
 		}
 		h2, h3, h4, h5, h6, p{
 			margin: 0 auto;
+		}
+	}
+}
+
+.area {
+	&-inverted {
+		background-color: var(--base-color, $body-color);
+		color: var(--base-bg-color, $body-bg);
+		a {
+			color: var(--base-bg-color, $body-bg);
+		}
+		button, [type="submit"] {
+			background-color: var(--base-color-darker, $body-color-darker);
 		}
 	}
 }

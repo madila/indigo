@@ -72,7 +72,8 @@ $colours: (
 	teal: #2bb6cc,
 	green: #88c611,
 	purple: #8429b5,
-	primary: #e32759,
+	primary: #23171d,
+	primary-dark: darken(#23171d, 20%),
 	secondary: #f9d74c,
 	facebook: #3b5997,
 	twitter: #0084b4
@@ -88,8 +89,9 @@ $black: map-get($colours, black) !default;
 
 // Reset
 
-$body-color: map-get($colours, grey-dark) !default;
-$body-bg: #e4e4e4 !default;
+$body-color: map-get($colours, primary) !default;
+$body-color-darker: map-get($colours, primary-dark) !default;
+$body-bg: map-get($colours, off-white) !default;
 
 // Defaults
 
@@ -122,7 +124,7 @@ $important-margins:             if($margins-use-important, " !important", "") !d
 
 $media-breakpoints: (
 	xs: 0,
-	sm: 576px,
+	sm: 600px,
 	md: 768px,
 	lg: 992px,
 	xl: 1200px
