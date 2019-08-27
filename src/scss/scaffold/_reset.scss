@@ -21,6 +21,7 @@ html {
 	background-color: var(--base-bg-color, $body-bg);
 	color: var(--base-color, $base-color);
 	line-height: 1.15; // 3
+	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	-webkit-text-size-adjust: 100%; // 4
 	-ms-text-size-adjust: 100%; // 4
 	-ms-overflow-style: scrollbar; // 5

@@ -26,20 +26,22 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --base-color: #23171d;
   --base-color-darker: black;
   --base-bg-color: #f5f5f5;
-  --base-font-family: quiche-sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --base-font-family: miller-display, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --base-font-size: 14px;
   --base-font-weight: 300;
   --content-width: 960px;
-  --headings-font-family: quiche-sans, inherit;
+  --headings-font-family: jubilat, sans-serif;
+  --headings-letter-spacing: 0.015em;
   --base-border-radius: 3rem; }
 
 html {
   box-sizing: border-box;
-  font-family: var(--base-font-family, quiche-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  font-family: var(--base-font-family, miller-display, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   font-size: var(--base-font-size, 14px);
   background-color: var(--base-bg-color, #f5f5f5);
   color: var(--base-color, #23282d);
   line-height: 1.15;
+  letter-spacing: var(--base-letter-spacing, 0.0175em);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
@@ -154,10 +156,11 @@ iframe, object {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-family: var(--headings-font-family, quiche-sans, inherit);
-  font-weight: 600;
+  font-family: var(--headings-font-family, jubilat, sans-serif);
+  font-weight: 500;
   line-height: 1.1;
-  color: inherit; }
+  color: inherit;
+  letter-spacing: var(--headings-letter-spacing, 0.015em); }
 
 h1, .h1 {
   font-size: 2.5rem; }
@@ -251,7 +254,7 @@ label {
   cursor: pointer;
   display: block;
   margin-bottom: .5rem;
-  font-weight: 600; }
+  font-weight: 500; }
 
 input {
   line-height: 1.35;
@@ -2018,7 +2021,7 @@ html {
       font-size: 20px; } }
 
 a {
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
@@ -2029,6 +2032,7 @@ a {
   padding: 2rem 0; }
 
 .site-branding {
+  font-family: var(--headings-font-family, jubilat, sans-serif);
   margin-bottom: 2rem;
   margin-top: 2rem; }
 
@@ -2050,7 +2054,8 @@ a {
   text-align: center; }
 
 .site-info {
-  padding: 0 2rem; }
+  padding: 0 2rem;
+  font-size: .8rem; }
 
 .widget {
   flex: 1;
@@ -2082,6 +2087,8 @@ a {
 input[type="submit"] {
   border-radius: var(--base-border-radius, 3rem);
   background-color: var(--base-color, #23171d);
+  font-family: var(--headings-font-family, jubilat, sans-serif);
+  letter-spacing: var(--headings-letter-spacing, 0.015em);
   color: #fff;
   display: block;
   width: auto;
@@ -2142,7 +2149,8 @@ input[type="submit"] {
         line-height: 1em;
         display: inline-block;
         text-decoration: none;
-        white-space: nowrap; }
+        white-space: nowrap;
+        font-family: var(--headings-font-family, jubilat, sans-serif); }
         .main-navigation .menu-container > .menu li a:hover {
           background-color: var(--base-color, #23171d);
           color: var(--base-bg-color, #f5f5f5); }
@@ -2155,7 +2163,6 @@ input[type="submit"] {
 
 .page-content {
   font-size: 1.7rem;
-  font-weight: 100;
   padding: 2rem; }
   .page-content p {
     margin-bottom: 2em; }
@@ -2195,6 +2202,9 @@ input[type="submit"] {
     margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid;
+    font-weight: 400;
+    font-family: var(--headings-font-family, jubilat, sans-serif);
+    letter-spacing: var(--headings-letter-spacing, 0.015em);
     border-radius: var(--base-border-radius, 3rem);
     display: inline-block;
     font-size: 80%; }
@@ -2237,6 +2247,9 @@ input[type="submit"] {
   margin-bottom: .5rem;
   padding: .5rem 1rem;
   border: 1px solid;
+  font-weight: 400;
+  font-family: var(--headings-font-family, jubilat, sans-serif);
+  letter-spacing: var(--headings-letter-spacing, 0.015em);
   border-radius: var(--base-border-radius, 3rem);
   display: inline-block;
   font-size: 80%; }
@@ -2262,6 +2275,9 @@ input[type="submit"] {
     margin-bottom: .5rem;
     padding: .5rem 1rem;
     border: 1px solid;
+    font-weight: 400;
+    font-family: var(--headings-font-family, jubilat, sans-serif);
+    letter-spacing: var(--headings-letter-spacing, 0.015em);
     border-radius: var(--base-border-radius, 3rem);
     display: inline-block;
     font-size: 80%;
@@ -2291,10 +2307,10 @@ input[type="submit"] {
 
 .comment-author a, .comment-metadata a {
   text-decoration: none;
-  font-weight: 600; }
+  font-weight: 500; }
 
 .comment-body {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
   padding: 1rem; }
 
@@ -2304,6 +2320,8 @@ input[type="submit"] {
 .comment-submit {
   border-radius: var(--base-border-radius, 3rem);
   background-color: var(--base-color, #23171d);
+  font-family: var(--headings-font-family, jubilat, sans-serif);
+  letter-spacing: var(--headings-letter-spacing, 0.015em);
   color: #fff;
   display: block;
   width: auto;

@@ -9,7 +9,7 @@ html {
 }
 
 a {
-	font-weight: 600;
+	font-weight: 500;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
@@ -23,6 +23,7 @@ a {
 		padding: 2rem 0;
 	}
 	&-branding {
+		font-family: var(--headings-font-family, $headings-font-family);
 		margin-bottom: 2rem;
 		margin-top: 2rem;
 	}
@@ -47,6 +48,7 @@ a {
 	}
 	&-info {
 		padding: 0 2rem;
+		font-size: .8rem;
 	}
 }
 
@@ -90,6 +92,8 @@ a {
 @mixin button() {
 	@include border-radius;
 	background-color: var(--base-color, $body-color);
+	font-family: var(--headings-font-family, $headings-font-family);
+	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
 	color: #fff;
 	display: block;
 	width: auto;
@@ -102,6 +106,9 @@ a {
 	margin-bottom: .5rem;
 	padding: .5rem 1rem;
 	border: 1px solid;
+	font-weight: 400;
+	font-family: var(--headings-font-family, $headings-font-family);
+	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
 	@include border-radius;
 	display: inline-block;
 	font-size: 80%;
@@ -190,6 +197,7 @@ input[type="submit"] {
 						display: inline-block;
 						text-decoration: none;
 						white-space: nowrap;
+						font-family: var(--headings-font-family, $headings-font-family);
 						&:hover {
 							background-color: var(--base-color, $body-color);
 							color: var(--base-bg-color, $body-bg);
@@ -212,7 +220,6 @@ input[type="submit"] {
 	}
 	&-content {
 		font-size: 1.7rem;
-		font-weight: 100;
 		padding: 2rem;
 		p {
 			margin-bottom: 2em;
@@ -311,11 +318,11 @@ input[type="submit"] {
 	&-author, &-metadata {
 		a {
 			text-decoration: none;
-			font-weight: 600;
+			font-weight: 500;
 		}
 	}
 	&-body {
-		font-size: 1rem;
+		font-size: 1.3rem;
 		margin-bottom: 1rem;
 		padding: 1rem;
 	}
