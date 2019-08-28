@@ -1,0 +1,13 @@
+@mixin root() {
+  box-sizing: border-box; // 1
+  font-family: var(--base-font-family, $base-font-family); // 2
+  font-size: var(--base-font-size, $root-font-size);
+  background-color: var(--base-bg-color, $body-bg);
+  color: var(--base-color, $base-color);
+  line-height: 1.15; // 3
+  letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
+  -webkit-text-size-adjust: 100%; // 4
+  -ms-text-size-adjust: 100%; // 4
+  -ms-overflow-style: scrollbar; // 5
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 6
+}

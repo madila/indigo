@@ -167,7 +167,7 @@ $default-font-stack: 	// Safari for OS X and iOS (San Francisco)
 		// Emoji fonts
 	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $base-font-family: miller-display, $default-font-stack !default;
-$base-letter-spacing: 0.0175em;
+$base-letter-spacing: 0.0175em !default;
 $root-font-size: 14px !default;
 $font-size-base: 1rem !default;
 $font-weight-base: 300 !default;

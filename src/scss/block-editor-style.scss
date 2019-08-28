@@ -3,9 +3,15 @@ $css-vars-use-native: true;
 @import "mixins/_mixins";
 @import "~css-vars";
 @import "css-variables";
-@import "scaffold/base";
-@import "common/common";
+
 
 .wp-block {
-	max-width: 1200px;
+	max-width: var(--content-width, $container-default-width);
+}
+
+#editor {
+	.editor-styles-wrapper {
+		@include root();
+		@import "scaffold/typography";
+	}
 }
