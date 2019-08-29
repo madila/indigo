@@ -13,5 +13,9 @@ $css-vars-use-native: true;
 	.editor-styles-wrapper {
 		@include root();
 		@import "scaffold/typography";
+		p {
+			font-size: 1.7rem;
+			font-weight: var(--base-font-weight, $font-weight-base);
+		}
 	}
 }

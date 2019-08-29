@@ -14,7 +14,13 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+        <?php if ( is_active_sidebar( 'pre-footer' ) ) { ?>
+            <aside id="secondary" class="widget-area">
+                <?php dynamic_sidebar( 'pre-footer' ); ?>
+            </aside><!-- #secondary -->
+        <?php } ?>
+
+        <div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'indigo' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */

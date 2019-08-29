@@ -23,10 +23,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * Typography
  */
 :root {
-  --base-color: #23171d;
-  --base-color-darker: black;
-  --base-bg-color: #f5f5f5;
-  --base-font-family: miller-display, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --base-color: #263744;
+  --base-color-darker: #0b0f13;
+  --base-bg-color: #f6f7f9;
+  --base-font-family: miller-banner, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --base-font-size: 14px;
   --base-font-weight: 300;
   --base-letter-spacing: 0.0175em;
@@ -37,9 +37,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 html {
   box-sizing: border-box;
-  font-family: var(--base-font-family, miller-display, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  font-family: var(--base-font-family, miller-banner, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   font-size: var(--base-font-size, 14px);
-  background-color: var(--base-bg-color, #f5f5f5);
+  background-color: var(--base-bg-color, #f6f7f9);
   color: var(--base-color, #23282d);
   line-height: 1.15;
   letter-spacing: var(--base-letter-spacing, 0.0175em);
@@ -451,7 +451,16 @@ th {
   text-align: center; }
 
 .aligncenter {
-  width: var(--content-width, 960px); }
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.aligncontainer {
+  width: var(--content-width, 960px);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
 
 .alignfull,
 .alignwide {
@@ -2027,6 +2036,9 @@ a {
   a:hover {
     text-decoration: underline; }
 
+.site-main {
+  padding-bottom: 3rem; }
+
 .site-header {
   color: var(--base-color, inherit);
   text-align: center;
@@ -2064,7 +2076,6 @@ a {
   flex-basis: auto;
   margin: .5rem; }
   .widget-area {
-    margin-top: 3rem;
     display: flex;
     padding: 2rem;
     flex-wrap: wrap; }
@@ -2087,7 +2098,7 @@ a {
 
 input[type="submit"] {
   border-radius: var(--base-border-radius, 3rem);
-  background-color: var(--base-color, #23171d);
+  background-color: var(--base-color, #263744);
   font-family: var(--headings-font-family, jubilat, sans-serif);
   letter-spacing: var(--headings-letter-spacing, 0.015em);
   color: #fff;
@@ -2143,18 +2154,20 @@ input[type="submit"] {
         .main-navigation .menu-container > .menu {
           margin-left: -2rem; } }
       .main-navigation .menu-container > .menu li.current_page_item a {
-        background-color: var(--base-color, #23171d);
-        color: var(--base-bg-color, #f5f5f5); }
+        background-color: var(--base-color, #263744);
+        color: var(--base-bg-color, #f6f7f9); }
       .main-navigation .menu-container > .menu li a {
-        padding: 2rem;
+        padding: .5rem 1.5rem;
         line-height: 1em;
         display: inline-block;
         text-decoration: none;
         white-space: nowrap;
+        font-weight: 400;
+        font-size: 0.9rem;
         font-family: var(--headings-font-family, jubilat, sans-serif); }
         .main-navigation .menu-container > .menu li a:hover {
-          background-color: var(--base-color, #23171d);
-          color: var(--base-bg-color, #f5f5f5); }
+          background-color: var(--base-color, #263744);
+          color: var(--base-bg-color, #f6f7f9); }
 
 .page-header {
   padding: 0 2rem; }
@@ -2169,11 +2182,11 @@ input[type="submit"] {
     margin-bottom: 2em; }
 
 .entry-title {
-  font-size: 4.5rem;
+  font-size: 4rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  line-height: 1.2;
-  padding: 2rem;
+  line-height: 1.1;
+  padding: 1rem 2rem;
   border-bottom: 1px solid; }
   .entry-title a {
     text-decoration: none; }
@@ -2183,7 +2196,7 @@ input[type="submit"] {
 
 .entry-content {
   font-size: 1.7rem;
-  font-weight: 100;
+  font-weight: var(--base-font-weight, 300);
   padding: 2rem; }
   .entry-content p {
     margin-bottom: 1em; }
@@ -2191,12 +2204,12 @@ input[type="submit"] {
 .entry-summary {
   font-size: 1.2rem;
   font-weight: 100;
-  padding: 2rem 2rem 0; }
+  padding: .5rem 2rem; }
   .entry-summary p {
     margin-bottom: 1em; }
 
 .entry-meta, .entry-footer {
-  padding: 1rem 2rem; }
+  padding: 0 2rem; }
   .entry-meta > span, .entry-footer > span {
     margin-right: 1rem;
     margin-top: .5rem;
@@ -2320,7 +2333,7 @@ input[type="submit"] {
 
 .comment-submit {
   border-radius: var(--base-border-radius, 3rem);
-  background-color: var(--base-color, #23171d);
+  background-color: var(--base-color, #263744);
   font-family: var(--headings-font-family, jubilat, sans-serif);
   letter-spacing: var(--headings-letter-spacing, 0.015em);
   color: #fff;
@@ -2350,12 +2363,12 @@ textarea {
     margin: 0 auto; }
 
 .area-inverted {
-  background-color: var(--base-color, #23171d);
-  color: var(--base-bg-color, #f5f5f5); }
+  background-color: var(--base-color, #263744);
+  color: var(--base-bg-color, #f6f7f9); }
   .area-inverted a {
-    color: var(--base-bg-color, #f5f5f5); }
+    color: var(--base-bg-color, #f6f7f9); }
   .area-inverted button, .area-inverted [type="submit"] {
-    background-color: var(--base-color-darker, black); }
+    background-color: var(--base-color-darker, #0b0f13); }
 
 /*@import "theme/sidebar";*/
 

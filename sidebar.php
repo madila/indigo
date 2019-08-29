@@ -7,11 +7,13 @@
  * @package Indigo
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'entry-sidebar' ) ) {
 	return;
 }
 ?>
 
 <aside id="secondary" class="widget-area area-inverted alignfull">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+    <div class="aligncontainer">
+        <?php dynamic_sidebar( 'entry-sidebar' ); ?>
+    </div>
 </aside><!-- #secondary -->

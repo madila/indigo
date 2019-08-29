@@ -65,15 +65,15 @@ $colours: (
 	grey-dark: #333333,
 	grey: #535353,
 	grey-light: #999999,
-	off-white: #f5f5f5,
+	off-white: #f6f7f9,
 	white: #ffffff,
 	red: #e32759,
 	yellow: #f9d74c,
 	teal: #2bb6cc,
 	green: #88c611,
 	purple: #8429b5,
-	primary: #23171d,
-	primary-dark: darken(#23171d, 20%),
+	primary: #263744,
+	primary-dark: darken(#263744, 15%),
 	secondary: #f9d74c,
 	facebook: #3b5997,
 	twitter: #0084b4
@@ -166,7 +166,7 @@ $default-font-stack: 	// Safari for OS X and iOS (San Francisco)
 	"Helvetica Neue", Arial, sans-serif,
 		// Emoji fonts
 	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-family: miller-display, $default-font-stack !default;
+$base-font-family: miller-banner, $default-font-stack !default;
 $base-letter-spacing: 0.0175em !default;
 $root-font-size: 14px !default;
 $font-size-base: 1rem !default;

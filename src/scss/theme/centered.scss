@@ -17,6 +17,9 @@ a {
 }
 
 .site {
+	&-main {
+		padding-bottom: 3rem;
+	}
 	&-header {
 		color: var(--base-color, inherit);
 		text-align: center;
@@ -58,7 +61,6 @@ a {
 	flex-basis: auto;
 	margin: .5rem;
 	&-area {
-		margin-top: 3rem;
 		display: flex;
 		padding: 2rem;
 		flex-wrap: wrap;
@@ -192,11 +194,13 @@ input[type="submit"] {
 						}
 					}
 					a {
-						padding: 2rem;
+						padding: .5rem 1.5rem;
 						line-height: 1em;
 						display: inline-block;
 						text-decoration: none;
 						white-space: nowrap;
+						font-weight: 400;
+						font-size: 0.9rem;
 						font-family: var(--headings-font-family, $headings-font-family);
 						&:hover {
 							background-color: var(--base-color, $body-color);
@@ -229,11 +233,11 @@ input[type="submit"] {
 
 .entry {
 	&-title {
-		font-size: 4.5rem;
+		font-size: 4rem;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
-		line-height: 1.2;
-		padding: 2rem;
+		line-height: 1.1;
+		padding: 1rem 2rem;
 		border-bottom: 1px solid;
 		a {
 			text-decoration: none;
@@ -244,7 +248,7 @@ input[type="submit"] {
 	}
 	&-content {
 		font-size: 1.7rem;
-		font-weight: 100;
+		font-weight: var(--base-font-weight, $font-weight-base);
 		padding: 2rem;
 		p {
 			margin-bottom: 1em;
@@ -253,13 +257,13 @@ input[type="submit"] {
 	&-summary {
 		font-size: 1.2rem;
 		font-weight: 100;
-		padding: 2rem 2rem 0;
+		padding: .5rem 2rem;
 		p {
 			margin-bottom: 1em;
 		}
 	}
 	&-meta, &-footer {
-		padding: 1rem 2rem;
+		padding: 0 2rem;
 		> span {
 			@include pill();
 		}
