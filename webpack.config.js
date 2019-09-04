@@ -7,6 +7,7 @@ const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 const config = {
 	entry: {
 		"scripts": './src/js/index.js',
+		"customizer": './src/js/customizer.js',
 		"style": './src/scss/style.scss',
 		"rtl": './src/scss/rtl.scss',
 		"block-editor-style": './src/scss/block-editor-style.scss',
@@ -14,7 +15,7 @@ const config = {
 	},
 	output: {
 		filename: '[name].min.js',
-		path: path.resolve(__dirname, 'assets')
+		path: path.resolve(__dirname, 'js')
 	},
 	plugins: [],
 	module: {

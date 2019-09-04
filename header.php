@@ -43,6 +43,7 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
+		<?php if(has_nav_menu('site-navigation')) : ?>
 		<nav id="site-navigation" class="main-navigation alignfull">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<span></span>
@@ -53,11 +54,12 @@
 				'theme_location' => 'site-navigation',
 				'menu_id'        => 'primary-menu',
 				'menu_class'     => 'menu',
-				'container_class' => 'menu-container'
+				'container_class' => 'menu-container',
+				'fallback' => false
 			) );
-			// Supply fallback as the default WordPress Fallback has different structure
 			?>
 		</nav><!-- #site-navigation -->
+		<?php endif; ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

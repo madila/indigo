@@ -39,22 +39,22 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 
 		add_theme_support( 'editor-color-palette', array(
 			array(
-				'name' => __( 'strong magenta', 'themeLangDomain' ),
-				'slug' => 'strong-magenta',
-				'color' => '#a156b4',
+				'name' => __( 'vivid red', 'indigo' ),
+				'slug' => 'vivid-red',
+				'color' => '#cf2e2e',
 			),
 			array(
-				'name' => __( 'light grayish magenta', 'themeLangDomain' ),
-				'slug' => 'light-grayish-magenta',
-				'color' => '#d0a5db',
+				'name' => __( 'vivid cyan blue', 'indigo' ),
+				'slug' => 'pale-cyan-blue',
+				'color' => '#0693e3',
 			),
 			array(
-				'name' => __( 'very light gray', 'themeLangDomain' ),
+				'name' => __( 'very light gray', 'indigo' ),
 				'slug' => 'very-light-gray',
 				'color' => '#eee',
 			),
 			array(
-				'name' => __( 'very dark gray', 'themeLangDomain' ),
+				'name' => __( 'very dark gray', 'indigo' ),
 				'slug' => 'very-dark-gray',
 				'color' => '#444',
 			),
@@ -160,7 +160,7 @@ function indigo_scripts() {
 
 	//wp_enqueue_script( 'indigo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'indigo-script', get_template_directory_uri() . '/assets/scripts.js', array(), '20151215', true );
+	wp_enqueue_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

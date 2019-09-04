@@ -45,6 +45,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 			return;
 		}
 
+		var_dump($header_text_color);
 		// If we get this far, we have custom styles. Let's do this.
 		?>
 		<style type="text/css">
