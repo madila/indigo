@@ -2018,7 +2018,8 @@ th {
       height: 105.6px !important; } }
 
 .site {
-  max-width: 1200px;
+  width: var(--content-width, 1200px);
+  max-width: 100%;
   margin: 0 auto; }
 
 html {
@@ -2048,6 +2049,8 @@ a {
   font-family: var(--headings-font-family, jubilat, sans-serif);
   margin-bottom: 2rem;
   margin-top: 2rem; }
+  .site-branding .custom-logo-link {
+    display: block; }
 
 .site-title {
   line-height: 1.1;

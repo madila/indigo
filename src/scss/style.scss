@@ -32,7 +32,8 @@ $css-vars-use-native: true;
 
 
 .site {
-	max-width: 1200px;
+	width: var(--content-width, 1200px);
+	max-width: 100%;
 	margin: 0 auto;
 }
 

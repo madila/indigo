@@ -29,6 +29,9 @@ a {
 		font-family: var(--headings-font-family, $headings-font-family);
 		margin-bottom: 2rem;
 		margin-top: 2rem;
+		.custom-logo-link {
+			display:block;
+		}
 	}
 	&-title {
 		line-height: 1.1;

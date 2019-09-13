@@ -115,6 +115,21 @@
 		} );
 	} );
 
+	// Logo Max Width
+	wp.customize( 'logo_width', function( value ) {
+		value.bind( function( to ) {
+			$( '.custom-logo-link' ).css( {'max-width': to+'px'} );
+		} );
+	} );
+
+	// Content Width
+	wp.customize( 'content_width', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--content-width', to+'px');
+		} );
+	} );
+
 	// Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
