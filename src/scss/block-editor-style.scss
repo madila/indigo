@@ -4,6 +4,7 @@ $css-vars-use-native: true;
 @import "~css-vars";
 @import "css-variables";
 
+@import "common/common";
 
 .wp-block {
 	max-width: var(--content-width, $container-default-width);

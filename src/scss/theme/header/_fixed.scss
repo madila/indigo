@@ -1,0 +1,40 @@
+.site {
+	&-header {
+		top: 0;
+		@include when-admin-bar {
+			top: 46px;
+		}
+		@include when-admin-bar-desktop {
+			top: 32px;
+		}
+		z-index: 20;
+		position: fixed;
+		padding: 1em 2em;
+		display: flex;
+		left: 0;
+		right: 0;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	&-description {
+		margin-left: .4em;
+	}
+	&-branding {
+		display: inline-flex;
+		align-items: baseline;
+	}
+	&-navigation {
+		display: inline-flex;
+	}
+	padding-top: 6rem;
+
+	.entry {
+		&-content {
+			> .wp-block-cover {
+				&:first-child {
+					margin-top: -6rem;
+				}
+			}
+		}
+	}
+}

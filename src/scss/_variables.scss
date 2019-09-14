@@ -166,7 +166,7 @@ $default-font-stack: 	// Safari for OS X and iOS (San Francisco)
 	"Helvetica Neue", Arial, sans-serif,
 		// Emoji fonts
 	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-family: miller-banner, $default-font-stack !default;
+$base-font-family: realist, $default-font-stack !default;
 $base-letter-spacing: 0.0175em !default;
 $root-font-size: 14px !default;
 $font-size-base: 1rem !default;
@@ -195,7 +195,7 @@ $font-size-h6: 1rem !default;
 
 $headings-margin-top: .75em !default;
 $headings-margin-bottom: .75em !default;
-$headings-font-family:   jubilat, sans-serif !default;
+$headings-font-family:   realist, sans-serif !default;
 $headings-font-weight:   500 !default;
 $headings-line-height:   1.1 !default;
 $headings-color:         inherit !default;

@@ -44,11 +44,11 @@
 		</div><!-- .site-branding -->
 
 		<?php if(has_nav_menu('site-navigation')) : ?>
-		<nav id="site-navigation" class="main-navigation alignfull">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-				<span></span>
-				<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'indigo' ); ?></span>
-			</button>
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+			<span></span>
+			<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'indigo' ); ?></span>
+		</button>
+		<nav id="site-navigation" class="main-navigation">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'site-navigation',

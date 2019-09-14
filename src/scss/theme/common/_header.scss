@@ -1,0 +1,23 @@
+
+.site-title, .site-description {
+	margin-bottom: 0;
+	.sr-only-header & {
+		@extend .screen-reader-text;
+	}
+}
+
+.site {
+	&-header {
+		color: var(--header-text-color, inherit);
+		.menu-toggled & {
+			background-color: rgba(0,0,0,0.9);
+		}
+	}
+	&-branding {
+		align-self: center;
+		max-width: calc(100vw - 4em);
+		.custom-logo-link {
+			max-width: 100%;
+		}
+	}
+}

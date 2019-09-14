@@ -35,3 +35,13 @@ function indigo_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'indigo_pingback_header' );
+
+
+function display_site_title_class($classes) {
+	if(!display_header_text()) {
+		$classes[] = 'sr-only-header';
+	}
+	return $classes;
+}
+
+add_filter('body_class', 'display_site_title_class');

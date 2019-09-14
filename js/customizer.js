@@ -130,22 +130,39 @@
 		} );
 	} );
 
+	// Border Radius
+	wp.customize( 'base_border_radius', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-border-radius', to+'em');
+		} );
+	} );
+
+	wp.customize( 'text_color', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-color', to);
+		} );
+	} );
+
+	wp.customize( 'primary_color', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--primary-color', to);
+		} );
+	} );
+
 	// Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
+			console.log(to);
 			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
-					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
-				} );
+				$( 'body' ).addClass('sr-only-header');
 			} else {
-				$( '.site-title, .site-description' ).css( {
-					'clip': 'auto',
-					'position': 'relative'
-				} );
-				document.documentElement.style
-					.setProperty('--base-color', to);
+				$( 'body' ).removeClass('sr-only-header');
 			}
+			document.documentElement.style
+				.setProperty('--header-text-color', to);
 		} );
 	} );
 } )( jQuery );

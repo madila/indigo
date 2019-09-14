@@ -1,0 +1,116 @@
+.menu-toggle {
+	width: 2rem;
+	min-height: calc(2rem + 2px);
+	position: relative;
+	padding: 2rem;
+	color: inherit;
+	margin-left: 1rem;
+	border: 1px solid transparent;
+	&:focus {
+		outline: none;
+		border: 1px solid;
+	}
+	@include media-breakpoint-up(md) {
+		display: none;
+	}
+	&[aria-expanded="true"] {
+
+	}
+	span {
+		transition: all 300ms linear;
+		&, &:before, &:after {
+			background: var(--header-text-color, $base-color);
+			cursor: pointer;
+			height: 0.05rem;
+			width: 2rem;
+			position: absolute;
+			display: block;
+			content: '';
+			left: 50%;
+			transition: all 300ms linear;
+			transform: translateX(-50%);
+		}
+		&:before {
+			top: -1rem;
+		}
+		&:after {
+			bottom: -1rem;
+		}
+		.menu-toggled & {
+			transform: rotate(45deg) translate(-35%, 0.6rem);
+			transform-origin: center;
+			&:before {
+				top: 0;
+				transform: translateX(-50%) rotate(90deg);
+			}
+			&:after {
+				width: 0;
+			}
+		}
+	}
+}
+
+
+.main {
+	&-navigation {
+		display: inline-flex;
+		align-items: center;
+		text-transform: uppercase;
+		position: relative;
+		.menu {
+			&-container {
+				display: flex;
+				flex: 1;
+				overflow: visible;
+				justify-content: center;
+			}
+			margin-bottom: 0;
+			list-style-type: none;
+			padding-left: 0;
+			display: flex;
+			li {
+				&.current_page_item {
+					a {
+						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
+					}
+				}
+				a {
+					padding: .5rem 1.5rem;
+					line-height: 1em;
+					display: inline-block;
+					text-decoration: none;
+					text-transform: uppercase;
+					white-space: nowrap;
+					font-weight: 100;
+					font-size: 0.9rem;
+					font-family: var(--headings-font-family, $headings-font-family);
+					&:hover {
+						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
+					}
+				}
+			}
+		}
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+			.menu-toggled & {
+				max-height: none;
+			}
+			.menu {
+				flex-direction: column;
+				width: 100%;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+				li {
+					a {
+						display: block;
+						font-size: 2rem;
+						font-weight: 100;
+						padding: 1em;
+					}
+				}
+			}
+		}
+	}
+}

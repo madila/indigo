@@ -1,0 +1,13 @@
+@mixin when-admin-bar() {
+	.admin-bar & {
+		@content;
+	}
+}
+
+@mixin when-admin-bar-desktop() {
+	.admin-bar & {
+		@media screen and (min-width: 783px) {
+			@content;
+		}
+	}
+}

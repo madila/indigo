@@ -87,6 +87,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'indigo_custom_background_args', array(
 			'default-color' => 'ffffff',
+			'wp-head-callback' => '_custom_background_cb',
 			'default-image' => '',
 		) ) );
 

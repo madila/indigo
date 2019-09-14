@@ -1,0 +1,16 @@
+.entry {
+	&-content {
+		> .wp-block-cover {
+			&:first-child {
+				height: 100vh;
+				min-height: unset !important;
+				@include when-admin-bar {
+					height: calc(100vh - 46px);
+				}
+				@include when-admin-bar-desktop {
+					height: calc(100vh - 32px);
+				}
+			}
+		}
+	}
+}

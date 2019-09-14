@@ -13,14 +13,50 @@
 function indigo_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-
-	$wp_customize->add_setting( 'Text Color' , array(
+	/**
+	 * Typography Color
+	 */
+	$wp_customize->add_setting( 'text_color' , array(
 		'default' => '#000',
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
 	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
+		'label'      => __( 'Typography Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
+	/**
+	 * Primary Color
+	 */
+	$wp_customize->add_setting( 'primary_color' , array(
+		'default' => '#db2372',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
+		'label'      => __( 'Primary Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
+	/**
+	 * Secondary Color
+	 */
+	$wp_customize->add_setting( 'secondary_color' , array(
+		'default' => '#000',
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
+		'label'      => __( 'Secondary Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
 
 	/**
 	 * Logo width
@@ -47,6 +83,40 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
+	$wp_customize->add_section( 'ui',
+		array(
+			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section
+			'priority'    => 30, //Determines what order this appears in
+			'capability'  => 'edit_theme_options', //Capability needed to tweak
+			'description' => __('Allows you to define to way the User Interface is displayed.', 'mytheme'), //Descriptive tooltip
+		)
+	);
+
+
+	/**
+	 * Border Radius
+	 */
+	$wp_customize->add_setting(
+		'base_border_radius',
+		array(
+			'default'           => '0',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_em_units',
+		)
+	);
+
+	$wp_customize->add_control( 'base_border_radius', array(
+		'type' => 'range',
+		'section' => 'ui',
+		'label' => __( 'Border Radius' ),
+		'description' => __( 'Define the roundness of UI elements, such as button, inputs...' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 2.5,
+			'step' => 0.05,
+			'value' => get_theme_mod('base_border_radius')
+		),
+	) );
 
 	/**
 	 * Content Max Width
@@ -110,6 +180,15 @@ function indigo_customize_partial_blogdescription() {
  */
 function indigo_sanitize_px_units($px) {
 	return absint( $px ).'px';
+}
+
+/**
+ * Adds px units before saving the value
+ *
+ * @return string
+ */
+function indigo_sanitize_em_units($em) {
+	return $em.'em';
 }
 
 
