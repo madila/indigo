@@ -18346,6 +18346,7 @@ class AnimateHeader {
     } = this;
     this.navBar = document.querySelector('.site-header');
     this.footer = document.querySelector('.site-footer');
+    this.isHome = document.body.classList.contains('home');
     this.isNavBarFixed = this.getPosition(document.querySelector('.site-header')) === "fixed";
     this.isFooterFixed = this.getPosition(document.querySelector('.site-footer')) === "fixed";
 
@@ -18353,7 +18354,7 @@ class AnimateHeader {
       document.documentElement.classList.add('has-fixed-header');
     }
 
-    if (this.isFooterFixed) {
+    if (this.isFooterFixed && this.isHome) {
       document.documentElement.classList.add('has-fixed-footer');
     }
 

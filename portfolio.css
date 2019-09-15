@@ -28,7 +28,13 @@
   .site .entry-content > .wp-block-cover:first-child {
     margin-top: -6rem; }
 
-.site-footer {
+body:not(.home) .site-footer {
+  margin-left: calc( -100vw / 2 + 100% / 2);
+  margin-right: calc( -100vw / 2 + 100% / 2);
+  max-width: 100vw;
+  width: auto; }
+
+.home .site-footer {
   position: fixed;
   bottom: 0;
   z-index: 30;
@@ -172,14 +178,13 @@ input[type="submit"] {
 .entry-date + time {
   display: none; }
 
-.entry-footer {
+.entry-footer .edit-link {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 100;
-  padding: 1rem; }
-  .entry-footer span {
+  z-index: 100; }
+  .entry-footer .edit-link span {
     margin: 0; }
 
 .comments-area {

@@ -179,13 +179,14 @@ input[type="submit"] {
 		}
 	}
 	&-footer {
-		position: absolute;
-		right: 0;
-		top: 50%;
-		transform: translateY(-50%);
-		z-index: 100;
-		padding: 1rem;
-		span {margin:0;}
+		.edit-link {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 100;
+			span {margin:0;}
+		}
 	}
 }
 
