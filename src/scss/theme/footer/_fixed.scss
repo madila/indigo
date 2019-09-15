@@ -1,0 +1,10 @@
+.site {
+	&-footer {
+		position: fixed;
+		bottom: 0;
+		z-index: 30;
+		left: 0;
+		right: 0;
+		opacity: 0.7;
+	}
+}

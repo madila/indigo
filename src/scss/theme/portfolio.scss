@@ -2,11 +2,9 @@
 
 
 @import "header/fixed";
+@import "footer/fixed";
 
 .site {
-	&-main {
-		padding-bottom: 3rem;
-	}
 	&-branding {
 		display: inline-flex;
 		font-family: var(--headings-font-family, $headings-font-family);
