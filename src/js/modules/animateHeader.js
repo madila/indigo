@@ -1,6 +1,4 @@
 import onScrolling from './onScrolling';
-import {debounce} from 'lodash';
-
 
 class AnimateHeader {
 
