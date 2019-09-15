@@ -37,7 +37,8 @@ $css-vars-use-native: true;
 	margin: 0 auto;
 }
 
+@import "theme/common/all";
 
-@import "theme/portfolio";
+/*@import "theme/portfolio";*/
 /*@import "theme/centered";*/
 /*@import "theme/sidebar";*/

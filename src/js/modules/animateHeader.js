@@ -50,10 +50,12 @@ class AnimateHeader {
 			document.documentElement.classList.add('has-fixed-footer');
 		}
 
-		animateHeader();
-		onScrolling(function() {
+		if(this.isNavBarFixed || this.isFooterFixed) {
 			animateHeader();
-		});
+			onScrolling(function () {
+				animateHeader();
+			});
+		}
 
 	}
 

@@ -26,18 +26,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --base-color: #263744;
   --base-color-darker: #0b0f13;
   --base-bg-color: #f6f7f9;
-  --base-font-family: realist, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --base-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --base-font-size: 14px;
   --base-font-weight: 300;
   --base-letter-spacing: 0.0175em;
   --content-width: 960px;
-  --headings-font-family: realist, sans-serif;
+  --headings-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --headings-letter-spacing: 0.015em;
   --base-border-radius: 3rem; }
 
 html {
   box-sizing: border-box;
-  font-family: var(--base-font-family, realist, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  font-family: var(--base-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   font-size: var(--base-font-size, 14px);
   background-color: var(--base-bg-color, #f6f7f9);
   color: var(--base-color, #23282d);
@@ -157,7 +157,7 @@ iframe, object {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-family: var(--headings-font-family, realist, sans-serif);
+  font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -2032,7 +2032,7 @@ th {
   margin: 0 auto; }
 
 .site-title, .site-description {
-  margin-bottom: 0; }
+  margin: 0; }
 
 .site-header {
   color: var(--header-text-color, inherit); }
@@ -2134,7 +2134,7 @@ a {
       border-bottom: 1px solid transparent;
       letter-spacing: .075em;
       font-size: 1rem;
-      font-family: var(--headings-font-family, realist, sans-serif); }
+      font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"); }
       .main-navigation .menu li a:hover {
         letter-spacing: .2em;
         border-bottom: 1px solid var(--primary-color, #263744); }
@@ -2170,311 +2170,7 @@ a {
     .admin-bar .entry-content > .wp-block-cover:first-child {
       height: calc(100vh - 32px); } }
 
-.site {
-  padding-top: 6rem; }
-  .site-header {
-    top: 0;
-    z-index: 20;
-    position: fixed;
-    padding: 1em 2em;
-    display: flex;
-    left: 0;
-    right: 0;
-    justify-content: space-between;
-    flex-wrap: wrap; }
-    .admin-bar .site-header {
-      top: 46px; }
-    @media screen and (min-width: 783px) {
-      .admin-bar .site-header {
-        top: 32px; } }
-  .site-description {
-    margin-left: .4em; }
-  .site-branding {
-    display: inline-flex;
-    align-items: baseline; }
-  .site-navigation {
-    display: inline-flex; }
-  .site .entry-content > .wp-block-cover:first-child {
-    margin-top: -6rem; }
-
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  z-index: 30;
-  left: 0;
-  right: 0;
-  opacity: 0.7; }
-
-body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
-  background-color: transparent;
-  box-shadow: none; }
-
-.site-branding {
-  display: inline-flex;
-  font-family: var(--headings-font-family, realist, sans-serif); }
-  .site-branding .custom-logo-link {
-    display: block; }
-
-.site-title {
-  line-height: 1.1;
-  margin: 0; }
-  .site-title a {
-    font-size: 2.25rem;
-    font-weight: 300;
-    text-decoration: none; }
-
-.site-description {
-  font-weight: 100; }
-
-.site-navigation {
-  display: flex;
-  justify-content: center; }
-
-.site-footer {
-  color: var(--base-color, inherit);
-  padding: 2rem 0;
-  text-align: center; }
-
-.site-info {
-  padding: 0 2rem;
-  font-size: .8rem; }
-
-.widget {
-  flex: 1;
-  padding: 0 1rem;
-  flex-basis: auto;
-  margin: .5rem; }
-  .widget-area {
-    display: flex;
-    padding: 2rem;
-    flex-wrap: wrap; }
-  .widget-title {
-    margin: .8rem 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding-bottom: .5rem;
-    border-bottom: 1px solid; }
-  .widget a {
-    text-decoration: none;
-    font-weight: 500; }
-  .widget_search .search-field {
-    margin-top: 1rem;
-    margin-bottom: 0;
-    border-radius: var(--base-border-radius, 3rem); }
-  .widget_search .search-submit {
-    margin-bottom: 1rem;
-    width: 100%; }
-
-input[type="submit"] {
-  border-radius: var(--base-border-radius, 3rem);
-  background-color: var(--base-color, #263744);
-  font-family: var(--headings-font-family, realist, sans-serif);
-  letter-spacing: var(--headings-letter-spacing, 0.015em);
-  color: #fff;
-  display: block;
-  width: auto;
-  margin: 0 auto; }
-
-.page-header {
-  padding: 0 2rem; }
-
-.archive .page-title {
-  font-size: 1.5rem; }
-
-.page-content {
-  font-size: 1.7rem;
-  padding: 2rem; }
-  .page-content p {
-    margin-bottom: 2rem; }
-
-.entry-title {
-  font-size: 4rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid; }
-  .entry-title a {
-    text-decoration: none; }
-
-.entry-header {
-  margin-bottom: 1rem; }
-
-.entry-content {
-  font-size: 1.7rem;
-  font-weight: var(--base-font-weight, 300);
-  padding: 0 2rem; }
-  .entry-content p {
-    margin-bottom: 1rem; }
-
-.entry-summary {
-  font-size: 1.2rem;
-  font-weight: 100;
-  padding: .5rem 2rem; }
-  .entry-summary p {
-    margin-bottom: 1em; }
-
-.entry-meta, .entry-footer {
-  padding: 0 2rem; }
-  .entry-meta > span, .entry-footer > span {
-    margin-right: 1rem;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    padding: .5rem 1rem;
-    border: 1px solid;
-    font-weight: 400;
-    font-family: var(--headings-font-family, realist, sans-serif);
-    letter-spacing: var(--headings-letter-spacing, 0.015em);
-    border-radius: var(--base-border-radius, 3rem);
-    display: inline-block;
-    font-size: 80%; }
-    .entry-meta > span a, .entry-footer > span a {
-      transition: all 300ms linear;
-      text-decoration: none; }
-    .entry-meta > span:hover, .entry-footer > span:hover {
-      background-color: var(--base-color);
-      color: var(--base-bg-color); }
-      .entry-meta > span:hover a, .entry-footer > span:hover a {
-        color: var(--base-bg-color);
-        letter-spacing: .04em; }
-
-.entry-date + time {
-  display: none; }
-
-.entry-footer {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  padding: 1rem; }
-  .entry-footer span {
-    margin: 0; }
-
-.comments-area {
-  padding-left: 2rem;
-  padding-right: 2rem; }
-
-.comment-list {
-  padding-left: 2rem;
-  font-size: 2rem; }
-
-.comments-title {
-  border-bottom: 1px solid;
-  padding-bottom: 1rem; }
-
-.comment-content {
-  padding: 1rem;
-  display: block;
-  margin: 1rem 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: .35rem;
-  background-color: rgba(255, 255, 255, 0.6); }
-
-.comment .reply {
-  margin-right: 1rem;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-  padding: .5rem 1rem;
-  border: 1px solid;
-  font-weight: 400;
-  font-family: var(--headings-font-family, realist, sans-serif);
-  letter-spacing: var(--headings-letter-spacing, 0.015em);
-  border-radius: var(--base-border-radius, 3rem);
-  display: inline-block;
-  font-size: 80%; }
-  .comment .reply a {
-    transition: all 300ms linear;
-    text-decoration: none; }
-  .comment .reply:hover {
-    background-color: var(--base-color);
-    color: var(--base-bg-color); }
-    .comment .reply:hover a {
-      color: var(--base-bg-color);
-      letter-spacing: .04em; }
-
-.comment-meta {
-  display: flex; }
-
-.comment-metadata {
-  font-size: 80%;
-  margin-top: 0; }
-  .comment-metadata > a, .comment-metadata > span {
-    margin-right: 1rem;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    padding: .5rem 1rem;
-    border: 1px solid;
-    font-weight: 400;
-    font-family: var(--headings-font-family, realist, sans-serif);
-    letter-spacing: var(--headings-letter-spacing, 0.015em);
-    border-radius: var(--base-border-radius, 3rem);
-    display: inline-block;
-    font-size: 80%;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0; }
-    .comment-metadata > a a, .comment-metadata > span a {
-      transition: all 300ms linear;
-      text-decoration: none; }
-    .comment-metadata > a:hover, .comment-metadata > span:hover {
-      background-color: var(--base-color);
-      color: var(--base-bg-color); }
-      .comment-metadata > a:hover a, .comment-metadata > span:hover a {
-        color: var(--base-bg-color);
-        letter-spacing: .04em; }
-
-.comment-author {
-  flex: 1; }
-  .comment-author .avatar {
-    margin-right: .5rem; }
-  .comment-author .fn {
-    font-weight: 600;
-    display: inline-block; }
-  .comment-author .says {
-    font-size: 80%;
-    display: inline-block; }
-
-.comment-author a, .comment-metadata a {
-  text-decoration: none;
-  font-weight: 500; }
-
-.comment-body {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  padding: 1rem; }
-
-.comment-respond {
-  font-size: 1rem; }
-
-.comment-submit {
-  border-radius: var(--base-border-radius, 3rem);
-  background-color: var(--base-color, #263744);
-  font-family: var(--headings-font-family, realist, sans-serif);
-  letter-spacing: var(--headings-letter-spacing, 0.015em);
-  color: #fff;
-  display: block;
-  width: auto;
-  margin: 0 auto; }
-
-textarea {
-  overflow: auto;
-  resize: vertical;
-  border-radius: 1rem;
-  background-color: #fbfbfb45; }
-
-.logged-in-as > a {
-  text-decoration: none;
-  font-weight: 600; }
-
-.area-inverted {
-  background-color: var(--base-color, #263744);
-  color: var(--base-bg-color, #f6f7f9); }
-  .area-inverted a {
-    color: var(--base-bg-color, #f6f7f9); }
-  .area-inverted button, .area-inverted [type="submit"] {
-    background-color: var(--base-color-darker, #0b0f13); }
-
+/*@import "theme/portfolio";*/
 /*@import "theme/centered";*/
 /*@import "theme/sidebar";*/
 

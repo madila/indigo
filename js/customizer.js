@@ -141,6 +141,16 @@
     value.bind(function (to) {
       document.documentElement.style.setProperty('--primary-color', to);
     });
+  });
+  wp.customize('base_font_family', function (value) {
+    value.bind(function (to) {
+      document.documentElement.style.setProperty('--base-font-family', to);
+    });
+  });
+  wp.customize('headings_font_family', function (value) {
+    value.bind(function (to) {
+      document.documentElement.style.setProperty('--headings-font-family', to);
+    });
   }); // Header text color.
 
   wp.customize('header_textcolor', function (value) {

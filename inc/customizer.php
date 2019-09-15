@@ -59,6 +59,28 @@ function indigo_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
+	 * Theme
+	 */
+	$wp_customize->add_setting( 'indigo_theme_style', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'blog',
+	) );
+
+	$wp_customize->add_control( 'indigo_theme_style', array(
+		'type' => 'select',
+		'section' => 'title_tagline', // Add a default or your own section
+		'label' => __( 'Theme Style' ),
+		'description' => __( 'Change the appear of the theme for specific purposes.' ),
+		'choices' => array(
+			'none' => __( 'None' ),
+			'blog' => __( 'Blog' ),
+			'portfolio' => __( 'Portfolio' )
+		),
+	) );
+
+
+	/**
 	 * Logo width
 	 */
 	$wp_customize->add_setting(
@@ -92,6 +114,55 @@ function indigo_customize_register( $wp_customize ) {
 		)
 	);
 
+	/**
+	 * Base Typography
+	 */
+	$wp_customize->add_setting(
+		'base_font_family',
+		array(
+			'default'           => 'Helvetica',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'base_font_family', array(
+		'type' => 'text',
+		'section' => 'ui', // Add a default or your own section
+		'label' => __( 'Base Font Family' ),
+		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
+	) );
+
+	/**
+	 * Base Typography
+	 */
+	$wp_customize->add_setting(
+		'headings_font_family',
+		array(
+			'default'           => 'Helvetica',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'headings_font_family', array(
+		'type' => 'text',
+		'section' => 'ui', // Add a default or your own section
+		'label' => __( 'Headings Font Family' ),
+		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
+	) );
+
+	/**
+	 * Border Radius
+	 */
+	$wp_customize->add_setting(
+		'base_border_radius',
+		array(
+			'default'           => '0',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_em_units',
+		)
+	);
 
 	/**
 	 * Border Radius
@@ -191,6 +262,22 @@ function indigo_sanitize_em_units($em) {
 	return $em.'em';
 }
 
+/**
+ * Sanitize the selected option
+ *
+ * @return string
+ */
+function indigo_sanitize_select( $input, $setting ) {
+
+	// Ensure input is a slug.
+	$input = sanitize_key( $input );
+
+	// Get list of choices from the control associated with the setting.
+	$choices = $setting->manager->get_control( $setting->id )->choices;
+
+	// If the input is a valid key, return it; otherwise, return the default.
+	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+}
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

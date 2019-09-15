@@ -41,6 +41,31 @@ function indigo_set_color_mod_css_var($option_id, $variable_name = null) {
 	<?php }
 }
 
+function indigo_set_font_family_mod_css_var($option_id, $variable_name = null) {
+	if(get_theme_mod($option_id)) { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo add_default_font_stack(get_theme_mod($option_id)); ?>;
+	<?php }
+}
+
+function add_default_font_stack($fontFamily) {
+	$default_fonts = apply_filters('indigo_default_font_stack', array(
+		$fontFamily,
+		'-apple-system',
+		'BlinkMacSystemFont',
+		'Segoe UI',
+		'Roboto',
+		'Helvetica Neue',
+		'Arial',
+		'sans-serif',
+		'Apple Color Emoji',
+		'Segoe UI Emoji',
+		'Segoe UI Symbol'
+	));
+	return implode(',', $default_fonts);
+}
+
+add_action('admin_head', 'indigo_header_style');
+
 if ( ! function_exists( 'indigo_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
@@ -48,15 +73,6 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 	 * @see indigo_custom_header_setup().
 	 */
 	function indigo_header_style() {
-		$header_text_color = get_header_textcolor();
-
-		/*
-		 * If no custom options for text are set, let's bail.
-		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
-		 */
-		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
-			return;
-		}
 
 		// If we get this far, we have custom styles. Let's do this.
 		?>
@@ -78,8 +94,9 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_color_mod_css_var('secondary_color', 'secondary-color'); ?>
 				<?php indigo_set_theme_mod_css_var('base_border_radius', 'base-border-radius'); ?>
 				<?php indigo_set_color_mod_css_var('header_textcolor', 'header-text-color'); ?>
+				<?php indigo_set_font_family_mod_css_var('base_font_family', 'base-font-family'); ?>
+				<?php indigo_set_font_family_mod_css_var('headings_font_family', 'headings-font-family'); ?>
 			}
-
 		</style>
 		<?php
 	}

@@ -18357,10 +18357,12 @@ class AnimateHeader {
       document.documentElement.classList.add('has-fixed-footer');
     }
 
-    animateHeader();
-    Object(_onScrolling__WEBPACK_IMPORTED_MODULE_0__["default"])(function () {
+    if (this.isNavBarFixed || this.isFooterFixed) {
       animateHeader();
-    });
+      Object(_onScrolling__WEBPACK_IMPORTED_MODULE_0__["default"])(function () {
+        animateHeader();
+      });
+    }
   }
 
 }

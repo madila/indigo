@@ -1,6 +1,5 @@
-
 .site-title, .site-description {
-	margin-bottom: 0;
+	margin: 0;
 	.sr-only-header & {
 		@extend .screen-reader-text;
 	}

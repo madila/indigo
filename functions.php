@@ -152,6 +152,11 @@ function indigo_widgets_init() {
 }
 add_action( 'widgets_init', 'indigo_widgets_init' );
 
+function indigo_get_theme_style() {
+	$theme = (get_theme_mod('indigo_theme_style')) ? get_theme_mod('indigo_theme_style') : 'blog';
+	return get_template_directory_uri() . '/'.$theme.'.css';
+}
+
 /**
  * Enqueue scripts and styles.
  */
@@ -159,7 +164,7 @@ function indigo_scripts() {
 
 	wp_enqueue_style( 'indigo-style', get_stylesheet_uri() );
 
-	//wp_enqueue_script( 'indigo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_style( 'indigo-theme', indigo_get_theme_style(), array(), '20151215' );
 
 	wp_enqueue_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), '20151215', true );
 
