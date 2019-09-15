@@ -9,8 +9,12 @@
 .site {
 	&-header {
 		color: var(--header-text-color, inherit);
+		@include media-breakpoint-down(sm) {
+			transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+		}
 		.menu-toggled & {
-			background-color: rgba(0,0,0,0.9);
+			transition: background-color 50ms cubic-bezier(0.4, 0, 0.2, 1);
+			background-color: rgba(0,0,0,0.9) !important;
 		}
 	}
 	&-branding {

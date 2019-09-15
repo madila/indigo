@@ -72,6 +72,7 @@
 			li {
 				&.current_page_item {
 					a {
+						font-weight: 400;
 						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
 					}
 				}
@@ -82,21 +83,27 @@
 					text-decoration: none;
 					text-transform: uppercase;
 					white-space: nowrap;
-					font-weight: 100;
-					font-size: 0.9rem;
+					font-weight: 300;
+					border-bottom: 1px solid transparent;
+					letter-spacing: .075em;
+					font-size: 1rem;
 					font-family: var(--headings-font-family, $headings-font-family);
 					&:hover {
+						letter-spacing: .2em;
 						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
 					}
 				}
 			}
 		}
 		@include media-breakpoint-down(sm) {
+			transition: max-height 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms linear;
 			width: 100%;
 			max-height: 0;
 			overflow: hidden;
+			align-items: flex-start;
 			.menu-toggled & {
-				max-height: none;
+				transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 100ms linear 100ms;
+				max-height: 100vh;
 			}
 			.menu {
 				flex-direction: column;

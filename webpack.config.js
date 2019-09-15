@@ -34,6 +34,13 @@ module.exports = (env, argv) => {
 		})
 	];
 	config.module.rules.push({
+		test: /\.js/,
+		exclude: /(node_modules|bower_components)/,
+		use: [{
+			loader: 'babel-loader'
+		}]
+	});
+	config.module.rules.push({
 		test: /\.scss$/i,
 		use: [
 			// Creates `style` nodes from JS strings
@@ -48,7 +55,7 @@ module.exports = (env, argv) => {
 			'sass-loader',
 			'postcss-loader'
 		],
-	})
+	});
 	if (argv.mode === 'development') {
 		config.devtool = 'source-map';
 		config.output.filename = '[name].js';
