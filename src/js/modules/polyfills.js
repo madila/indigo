@@ -1,3 +1,11 @@
+
+if (CSS.supports('color', 'var(--body-color)')) {
+	import('css-vars-ponyfill')
+		.then((cssVars) => {
+			cssVars();
+		});
+}
+
 // From
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Polyfill
 // 1. String.prototype.trim polyfill
