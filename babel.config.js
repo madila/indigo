@@ -8,6 +8,7 @@ const presets = [
 ];
 
 const plugins = [
+	"@babel/plugin-transform-runtime",
 	[require("@babel/plugin-proposal-class-properties"), { loose: true }]
 ];
 
