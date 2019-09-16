@@ -1,4 +1,5 @@
 if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
+	let promise = Promise.resolve();
 	import(
 		/* webpackChunkName: "css-vars-ponyfill" */
 		'css-vars-ponyfill'
