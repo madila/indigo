@@ -166,7 +166,7 @@ function indigo_scripts() {
 
 	wp_enqueue_style( 'indigo-theme', indigo_get_theme_style(), array(), '20190916' );
 
-	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.min.js', array(), '20190916', true );
+	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), '20190916', true );
 
 	wp_localize_script('indigo-script', 'indigo', array(
 		'assets_url' => get_template_directory_uri().'/js/'
