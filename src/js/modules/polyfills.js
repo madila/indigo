@@ -1,5 +1,4 @@
-
-if (CSS.supports('color', 'let(--body-color)')) {
+if (!CSS.supports('color', 'let(--body-color)')) {
 	import('css-vars-ponyfill')
 		.then((cssVars) => {
 			console.log(cssVars);

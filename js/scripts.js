@@ -2546,7 +2546,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-if (CSS.supports('color', 'let(--body-color)')) {
+if (!CSS.supports('color', 'let(--body-color)')) {
   __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! css-vars-ponyfill */ "./node_modules/css-vars-ponyfill/dist/css-vars-ponyfill.esm.js")).then(cssVars => {
     console.log(cssVars);
     cssVars();
