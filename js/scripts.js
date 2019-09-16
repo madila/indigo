@@ -3744,7 +3744,7 @@ __webpack_require__.r(__webpack_exports__);
 if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
   var promise = Promise.resolve();
   __webpack_require__.e(/*! import() | css-vars-ponyfill */ "vendors~css-vars-ponyfill").then(__webpack_require__.bind(null, /*! css-vars-ponyfill */ "./node_modules/css-vars-ponyfill/dist/css-vars-ponyfill.esm.js")).then(function (cssVars) {
-    console.log(cssVars["default"]);
+    cssVars["default"]();
   });
 } // From
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Polyfill

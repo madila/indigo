@@ -5,7 +5,7 @@ if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
 		'css-vars-ponyfill'
 		)
 		.then(cssVars => {
-			console.log(cssVars.default);
+			cssVars.default();
 		});
 }
 
