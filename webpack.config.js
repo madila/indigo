@@ -16,7 +16,7 @@ const config = {
 		"editor-style": './src/scss/editor-style.scss'
 	},
 	output: {
-		filename: '[name].min.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, 'js')
 	},
 	plugins: [],
