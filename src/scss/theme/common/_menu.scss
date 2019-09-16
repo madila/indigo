@@ -21,7 +21,7 @@
 		&, &:before, &:after {
 			background: var(--header-text-color, $base-color);
 			cursor: pointer;
-			height: 0.05rem;
+			height: 1px;
 			width: 2rem;
 			position: absolute;
 			display: block;
@@ -31,10 +31,10 @@
 			transform: translateX(-50%);
 		}
 		&:before {
-			top: -1rem;
+			top: -.7rem;
 		}
 		&:after {
-			bottom: -1rem;
+			bottom: -.7rem;
 		}
 		.menu-toggled & {
 			transform: rotate(45deg) translate(-35%, 0.6rem);
@@ -56,7 +56,6 @@
 	&-navigation {
 		display: inline-flex;
 		align-items: center;
-		text-transform: uppercase;
 		position: relative;
 		.menu {
 			&-container {
@@ -81,7 +80,6 @@
 					line-height: 1em;
 					display: inline-block;
 					text-decoration: none;
-					text-transform: uppercase;
 					white-space: nowrap;
 					font-weight: 300;
 					border-bottom: 1px solid transparent;

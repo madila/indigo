@@ -65,7 +65,8 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
 
 .site-navigation {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  text-transform: uppercase; }
 
 .site-footer {
   color: var(--base-color, inherit);
