@@ -31,8 +31,8 @@ module.exports = (env, argv) => {
 		new CleanWebpackPlugin(),
 		new FixStyleOnlyEntriesPlugin(),
 		new MiniCssExtractPlugin({
-			filename: argv.mode === 'development' ? './../[name].css' : './../[name].min.css',
-			chunkFilename: argv.mode === 'development' ? './../[id].css' : './../[id].min.css'
+			filename: './../[name].css',
+			chunkFilename: './../[id].css'
 		})
 	];
 	config.module.rules.push({
