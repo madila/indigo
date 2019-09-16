@@ -1,5 +1,5 @@
-import "./modules/publicPath";
 import "@babel/polyfill";
+import "./modules/publicPath";
 
 import './modules/polyfills';
 import "./modules/navigation";
