@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
@@ -19,7 +20,9 @@ const config = {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'js')
 	},
-	plugins: [],
+	plugins: [ new webpack.ProvidePlugin({
+		Promise: ['es6-promise', 'Promise']
+	})],
 	module: {
 		rules: [],
 	}
