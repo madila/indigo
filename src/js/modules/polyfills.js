@@ -1,7 +1,8 @@
 
-if (CSS.supports('color', 'var(--body-color)')) {
+if (CSS.supports('color', 'let(--body-color)')) {
 	import('css-vars-ponyfill')
 		.then((cssVars) => {
+			console.log(cssVars);
 			cssVars();
 		});
 }
@@ -12,7 +13,7 @@ if (CSS.supports('color', 'var(--body-color)')) {
 if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+|[\s﻿]+$/g, ''); };
 (function(window){"use strict"; // prevent global namespace pollution
 	if(!window.DOMException) (DOMException = function(reason){this.message = reason}).prototype = new Error;
-	var wsRE = /[\11\12\14\15\40]/, wsIndex = 0, checkIfValidClassListEntry = function(O, V) {
+	let wsRE = /[\11\12\14\15\40]/, wsIndex = 0, checkIfValidClassListEntry = function(O, V) {
 		if (V === "") throw new DOMException(
 			"Failed to execute '" + O + "' on 'DOMTokenList': The token provided must not be empty." );
 		if((wsIndex=V.search(wsRE))!==-1) throw new DOMException("Failed to execute '"+O+"' on 'DOMTokenList': " +
@@ -20,25 +21,25 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
 	}
 // 2. Implement the barebones DOMTokenList livelyness polyfill
 	if (typeof DOMTokenList !== "function") (function(window){
-		var document = window.document, Object = window.Object, hasOwnProp = Object.prototype.hasOwnProperty;
-		var defineProperty = Object.defineProperty, allowTokenListConstruction = 0, skipPropChange = 0;
+		let document = window.document, Object = window.Object, hasOwnProp = Object.prototype.hasOwnProperty;
+		let defineProperty = Object.defineProperty, allowTokenListConstruction = 0, skipPropChange = 0;
 		function DOMTokenList(){
 			if (!allowTokenListConstruction) throw TypeError("Illegal constructor"); // internally let it through
 		}
 		DOMTokenList.prototype.toString = DOMTokenList.prototype.toLocaleString = function(){return this.value};
 		DOMTokenList.prototype.add = function(){
-			a: for(var v=0, argLen=arguments.length,val="",ele=this[" uCL"],proto=ele[" uCLp"]; v!==argLen; ++v) {
+			a: for(let v=0, argLen=arguments.length,val="",ele=this[" uCL"],proto=ele[" uCLp"]; v!==argLen; ++v) {
 				val = arguments[v] + "", checkIfValidClassListEntry("add", val);
-				for (var i=0, Len=proto.length, resStr=val; i !== Len; ++i)
+				for (let i=0, Len=proto.length, resStr=val; i !== Len; ++i)
 					if (this[i] === val) continue a; else resStr += " " + this[i];
 				this[Len] = val, proto.length += 1, proto.value = resStr;
 			}
 			skipPropChange = 1, ele.className = proto.value, skipPropChange = 0;
 		};
 		DOMTokenList.prototype.remove = function(){
-			for (var v=0, argLen=arguments.length,val="",ele=this[" uCL"],proto=ele[" uCLp"]; v !== argLen; ++v) {
+			for (let v=0, argLen=arguments.length,val="",ele=this[" uCL"],proto=ele[" uCLp"]; v !== argLen; ++v) {
 				val = arguments[v] + "", checkIfValidClassListEntry("remove", val);
-				for (var i=0, Len=proto.length, resStr="", is=0; i !== Len; ++i)
+				for (let i=0, Len=proto.length, resStr="", is=0; i !== Len; ++i)
 					if(is){ this[i-1]=this[i] }else{ if(this[i] !== val){ resStr+=this[i]+" "; }else{ is=1; } }
 				if (!is) continue;
 				delete this[Len], proto.length -= 1, proto.value = resStr;
@@ -47,16 +48,16 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
 		};
 		window.DOMTokenList = DOMTokenList;
 		function whenPropChanges(){
-			var evt = window.event, prop = evt.propertyName;
+			let evt = window.event, prop = evt.propertyName;
 			if ( !skipPropChange && (prop==="className" || (prop==="classList" && !defineProperty)) ) {
-				var target = evt.srcElement, protoObjProto = target[" uCLp"], strval = "" + target[prop];
-				var tokens=strval.trim().split(wsRE), resTokenList=target[prop==="classList"?" uCL":"classList"];
-				var oldLen = protoObjProto.length;
-				a: for(var cI = 0, cLen = protoObjProto.length = tokens.length, sub = 0; cI !== cLen; ++cI){
-					for(var innerI=0; innerI!==cI; ++innerI) if(tokens[innerI]===tokens[cI]) {sub++; continue a;}
+				let target = evt.srcElement, protoObjProto = target[" uCLp"], strval = "" + target[prop];
+				let tokens=strval.trim().split(wsRE), resTokenList=target[prop==="classList"?" uCL":"classList"];
+				let oldLen = protoObjProto.length;
+				a: for(let cI = 0, cLen = protoObjProto.length = tokens.length, sub = 0; cI !== cLen; ++cI){
+					for(let innerI=0; innerI!==cI; ++innerI) if(tokens[innerI]===tokens[cI]) {sub++; continue a;}
 					resTokenList[cI-sub] = tokens[cI];
 				}
-				for (var i=cLen-sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
+				for (let i=cLen-sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
 				if(prop !== "classList") return;
 				skipPropChange = 1, target.classList = resTokenList, target.className = strval;
 				skipPropChange = 0, resTokenList.length = tokens.length - sub;
@@ -68,9 +69,9 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
 			allowTokenListConstruction = 1;
 			try{ function protoObj(){} protoObj.prototype = new DOMTokenList(); }
 			finally { allowTokenListConstruction = 0 }
-			var protoObjProto = protoObj.prototype, resTokenList = new protoObj();
-			a: for(var toks=ele.className.trim().split(wsRE), cI=0, cLen=toks.length, sub=0; cI !== cLen; ++cI){
-				for (var innerI=0; innerI !== cI; ++innerI) if (toks[innerI] === toks[cI]) { sub++; continue a; }
+			let protoObjProto = protoObj.prototype, resTokenList = new protoObj();
+			a: for(let toks=ele.className.trim().split(wsRE), cI=0, cLen=toks.length, sub=0; cI !== cLen; ++cI){
+				for (let innerI=0; innerI !== cI; ++innerI) if (toks[innerI] === toks[cI]) { sub++; continue a; }
 				this[cI-sub] = toks[cI];
 			}
 			protoObjProto.length = cLen-sub, protoObjProto.value = ele.className, protoObjProto[" uCL"] = ele;
@@ -78,12 +79,12 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
 				enumerable:   1, get: function(){return resTokenList},
 				configurable: 0, set: function(newVal){
 					skipPropChange = 1, ele.className = protoObjProto.value = (newVal += ""), skipPropChange = 0;
-					var toks = newVal.trim().split(wsRE), oldLen = protoObjProto.length;
-					a: for(var cI = 0, cLen = protoObjProto.length = toks.length, sub = 0; cI !== cLen; ++cI){
-						for(var innerI=0; innerI!==cI; ++innerI) if(toks[innerI]===toks[cI]) {sub++; continue a;}
+					let toks = newVal.trim().split(wsRE), oldLen = protoObjProto.length;
+					a: for(let cI = 0, cLen = protoObjProto.length = toks.length, sub = 0; cI !== cLen; ++cI){
+						for(let innerI=0; innerI!==cI; ++innerI) if(toks[innerI]===toks[cI]) {sub++; continue a;}
 						resTokenList[cI-sub] = toks[cI];
 					}
-					for (var i=cLen-sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
+					for (let i=cLen-sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
 				}
 			}); defineProperty(ele, " uCLp", { // for accessing the hidden prototype
 				enumerable: 0, configurable: 0, writeable: 0, value: protoObj.prototype
@@ -117,37 +118,37 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
 		};
 		if (!DOMTokenListProto.toggle || testClass.toggle("a",0)!==false) DOMTokenListProto.toggle=function(val){
 			if (arguments.length > 1) return (this[arguments[1] ? "add" : "remove"](val), !!arguments[1]);
-			var oldValue = this.value;
+			let oldValue = this.value;
 			return (this.remove(oldValue), oldValue === this.value && (this.add(val), true) /*|| false*/);
 		};
 		if (!DOMTokenListProto.replace || typeof testClass.replace("a", "b") !== "boolean")
 			DOMTokenListProto.replace = function(oldToken, newToken){
 				checkIfValidClassListEntry("replace", oldToken), checkIfValidClassListEntry("replace", newToken);
-				var oldValue = this.value;
+				let oldValue = this.value;
 				return (this.remove(oldToken), this.value !== oldValue && (this.add(newToken), true));
 			};
 		if (!DOMTokenListProto.contains) DOMTokenListProto.contains = function(value){
-			for (var i=0,Len=this.length; i !== Len; ++i) if (this[i] === value) return true;
+			for (let i=0,Len=this.length; i !== Len; ++i) if (this[i] === value) return true;
 			return false;
 		};
 		if (!DOMTokenListProto.forEach) DOMTokenListProto.forEach = function(f){
-			if (arguments.length === 1) for (var i = 0, Len = this.length; i !== Len; ++i) f( this[i], i, this);
-			else for (var i=0,Len=this.length,tArg=arguments[1]; i !== Len; ++i) f.call(tArg, this[i], i, this);
+			if (arguments.length === 1) for (let i = 0, Len = this.length; i !== Len; ++i) f( this[i], i, this);
+			else for (let i=0,Len=this.length,tArg=arguments[1]; i !== Len; ++i) f.call(tArg, this[i], i, this);
 		};
 		if (!DOMTokenListProto.entries) DOMTokenListProto.entries = function(){
-			var nextIndex = 0, that = this;
+			let nextIndex = 0, that = this;
 			return {next: function() {
 					return nextIndex<that.length ? {value: [nextIndex, that[nextIndex]], done: false} : {done: true};
 				}};
 		};
 		if (!DOMTokenListProto.values) DOMTokenListProto.values = function(){
-			var nextIndex = 0, that = this;
+			let nextIndex = 0, that = this;
 			return {next: function() {
 					return nextIndex<that.length ? {value: that[nextIndex], done: false} : {done: true};
 				}};
 		};
 		if (!DOMTokenListProto.keys) DOMTokenListProto.keys = function(){
-			var nextIndex = 0, that = this;
+			let nextIndex = 0, that = this;
 			return {next: function() {
 					return nextIndex<that.length ? {value: nextIndex, done: false} : {done: true};
 				}};

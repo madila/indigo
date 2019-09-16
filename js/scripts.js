@@ -2072,9 +2072,12 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_polyfills__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/polyfills */ "./src/js/modules/polyfills.js");
-/* harmony import */ var _modules_navigation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/navigation */ "./src/js/modules/navigation.js");
-/* harmony import */ var _modules_animateHeader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/animateHeader */ "./src/js/modules/animateHeader.js");
+/* harmony import */ var _modules_publicPath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/publicPath */ "./src/js/modules/publicPath.js");
+/* harmony import */ var _modules_publicPath__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_publicPath__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_polyfills__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/polyfills */ "./src/js/modules/polyfills.js");
+/* harmony import */ var _modules_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/navigation */ "./src/js/modules/navigation.js");
+/* harmony import */ var _modules_animateHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/animateHeader */ "./src/js/modules/animateHeader.js");
+
 
 
 
@@ -2543,8 +2546,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-if (CSS.supports('color', 'var(--body-color)')) {
+if (CSS.supports('color', 'let(--body-color)')) {
   __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! css-vars-ponyfill */ "./node_modules/css-vars-ponyfill/dist/css-vars-ponyfill.esm.js")).then(cssVars => {
+    console.log(cssVars);
     cssVars();
   });
 } // From
@@ -2563,7 +2567,7 @@ if (!"".trim) String.prototype.trim = function () {
     this.message = reason;
   }).prototype = new Error();
 
-  var wsRE = /[\11\12\14\15\40]/,
+  let wsRE = /[\11\12\14\15\40]/,
       wsIndex = 0,
       checkIfValidClassListEntry = function checkIfValidClassListEntry(O, V) {
     if (V === "") throw new DOMException("Failed to execute '" + O + "' on 'DOMTokenList': The token provided must not be empty.");
@@ -2572,10 +2576,10 @@ if (!"".trim) String.prototype.trim = function () {
 
 
   if (typeof DOMTokenList !== "function") (function (window) {
-    var document = window.document,
+    let document = window.document,
         Object = window.Object,
         hasOwnProp = Object.prototype.hasOwnProperty;
-    var defineProperty = Object.defineProperty,
+    let defineProperty = Object.defineProperty,
         allowTokenListConstruction = 0,
         skipPropChange = 0;
 
@@ -2588,10 +2592,10 @@ if (!"".trim) String.prototype.trim = function () {
     };
 
     DOMTokenList.prototype.add = function () {
-      a: for (var v = 0, argLen = arguments.length, val = "", ele = this[" uCL"], proto = ele[" uCLp"]; v !== argLen; ++v) {
+      a: for (let v = 0, argLen = arguments.length, val = "", ele = this[" uCL"], proto = ele[" uCLp"]; v !== argLen; ++v) {
         val = arguments[v] + "", checkIfValidClassListEntry("add", val);
 
-        for (var i = 0, Len = proto.length, resStr = val; i !== Len; ++i) if (this[i] === val) continue a;else resStr += " " + this[i];
+        for (let i = 0, Len = proto.length, resStr = val; i !== Len; ++i) if (this[i] === val) continue a;else resStr += " " + this[i];
 
         this[Len] = val, proto.length += 1, proto.value = resStr;
       }
@@ -2600,10 +2604,10 @@ if (!"".trim) String.prototype.trim = function () {
     };
 
     DOMTokenList.prototype.remove = function () {
-      for (var v = 0, argLen = arguments.length, val = "", ele = this[" uCL"], proto = ele[" uCLp"]; v !== argLen; ++v) {
+      for (let v = 0, argLen = arguments.length, val = "", ele = this[" uCL"], proto = ele[" uCLp"]; v !== argLen; ++v) {
         val = arguments[v] + "", checkIfValidClassListEntry("remove", val);
 
-        for (var i = 0, Len = proto.length, resStr = "", is = 0; i !== Len; ++i) if (is) {
+        for (let i = 0, Len = proto.length, resStr = "", is = 0; i !== Len; ++i) if (is) {
           this[i - 1] = this[i];
         } else {
           if (this[i] !== val) {
@@ -2623,19 +2627,19 @@ if (!"".trim) String.prototype.trim = function () {
     window.DOMTokenList = DOMTokenList;
 
     function whenPropChanges() {
-      var evt = window.event,
+      let evt = window.event,
           prop = evt.propertyName;
 
       if (!skipPropChange && (prop === "className" || prop === "classList" && !defineProperty)) {
-        var target = evt.srcElement,
+        let target = evt.srcElement,
             protoObjProto = target[" uCLp"],
             strval = "" + target[prop];
-        var tokens = strval.trim().split(wsRE),
+        let tokens = strval.trim().split(wsRE),
             resTokenList = target[prop === "classList" ? " uCL" : "classList"];
-        var oldLen = protoObjProto.length;
+        let oldLen = protoObjProto.length;
 
-        a: for (var cI = 0, cLen = protoObjProto.length = tokens.length, sub = 0; cI !== cLen; ++cI) {
-          for (var innerI = 0; innerI !== cI; ++innerI) if (tokens[innerI] === tokens[cI]) {
+        a: for (let cI = 0, cLen = protoObjProto.length = tokens.length, sub = 0; cI !== cLen; ++cI) {
+          for (let innerI = 0; innerI !== cI; ++innerI) if (tokens[innerI] === tokens[cI]) {
             sub++;
             continue a;
           }
@@ -2643,7 +2647,7 @@ if (!"".trim) String.prototype.trim = function () {
           resTokenList[cI - sub] = tokens[cI];
         }
 
-        for (var i = cLen - sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
+        for (let i = cLen - sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
 
 
         if (prop !== "classList") return;
@@ -2666,11 +2670,11 @@ if (!"".trim) String.prototype.trim = function () {
         allowTokenListConstruction = 0;
       }
 
-      var protoObjProto = protoObj.prototype,
+      let protoObjProto = protoObj.prototype,
           resTokenList = new protoObj();
 
-      a: for (var toks = ele.className.trim().split(wsRE), cI = 0, cLen = toks.length, sub = 0; cI !== cLen; ++cI) {
-        for (var innerI = 0; innerI !== cI; ++innerI) if (toks[innerI] === toks[cI]) {
+      a: for (let toks = ele.className.trim().split(wsRE), cI = 0, cLen = toks.length, sub = 0; cI !== cLen; ++cI) {
+        for (let innerI = 0; innerI !== cI; ++innerI) if (toks[innerI] === toks[cI]) {
           sub++;
           continue a;
         }
@@ -2690,11 +2694,11 @@ if (!"".trim) String.prototype.trim = function () {
           configurable: 0,
           set: function set(newVal) {
             skipPropChange = 1, ele.className = protoObjProto.value = newVal += "", skipPropChange = 0;
-            var toks = newVal.trim().split(wsRE),
+            let toks = newVal.trim().split(wsRE),
                 oldLen = protoObjProto.length;
 
-            a: for (var cI = 0, cLen = protoObjProto.length = toks.length, sub = 0; cI !== cLen; ++cI) {
-              for (var innerI = 0; innerI !== cI; ++innerI) if (toks[innerI] === toks[cI]) {
+            a: for (let cI = 0, cLen = protoObjProto.length = toks.length, sub = 0; cI !== cLen; ++cI) {
+              for (let innerI = 0; innerI !== cI; ++innerI) if (toks[innerI] === toks[cI]) {
                 sub++;
                 continue a;
               }
@@ -2702,7 +2706,7 @@ if (!"".trim) String.prototype.trim = function () {
               resTokenList[cI - sub] = toks[cI];
             }
 
-            for (var i = cLen - sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
+            for (let i = cLen - sub; i < oldLen; ++i) delete resTokenList[i]; //remove trailing indexs
 
           }
         });
@@ -2760,26 +2764,26 @@ if (!"".trim) String.prototype.trim = function () {
     };
     if (!DOMTokenListProto.toggle || testClass.toggle("a", 0) !== false) DOMTokenListProto.toggle = function (val) {
       if (arguments.length > 1) return this[arguments[1] ? "add" : "remove"](val), !!arguments[1];
-      var oldValue = this.value;
+      let oldValue = this.value;
       return this.remove(oldValue), oldValue === this.value && (this.add(val), true)
       /*|| false*/
       ;
     };
     if (!DOMTokenListProto.replace || typeof testClass.replace("a", "b") !== "boolean") DOMTokenListProto.replace = function (oldToken, newToken) {
       checkIfValidClassListEntry("replace", oldToken), checkIfValidClassListEntry("replace", newToken);
-      var oldValue = this.value;
+      let oldValue = this.value;
       return this.remove(oldToken), this.value !== oldValue && (this.add(newToken), true);
     };
     if (!DOMTokenListProto.contains) DOMTokenListProto.contains = function (value) {
-      for (var i = 0, Len = this.length; i !== Len; ++i) if (this[i] === value) return true;
+      for (let i = 0, Len = this.length; i !== Len; ++i) if (this[i] === value) return true;
 
       return false;
     };
     if (!DOMTokenListProto.forEach) DOMTokenListProto.forEach = function (f) {
-      if (arguments.length === 1) for (var i = 0, Len = this.length; i !== Len; ++i) f(this[i], i, this);else for (var i = 0, Len = this.length, tArg = arguments[1]; i !== Len; ++i) f.call(tArg, this[i], i, this);
+      if (arguments.length === 1) for (let i = 0, Len = this.length; i !== Len; ++i) f(this[i], i, this);else for (let i = 0, Len = this.length, tArg = arguments[1]; i !== Len; ++i) f.call(tArg, this[i], i, this);
     };
     if (!DOMTokenListProto.entries) DOMTokenListProto.entries = function () {
-      var nextIndex = 0,
+      let nextIndex = 0,
           that = this;
       return {
         next: function next() {
@@ -2793,7 +2797,7 @@ if (!"".trim) String.prototype.trim = function () {
       };
     };
     if (!DOMTokenListProto.values) DOMTokenListProto.values = function () {
-      var nextIndex = 0,
+      let nextIndex = 0,
           that = this;
       return {
         next: function next() {
@@ -2807,7 +2811,7 @@ if (!"".trim) String.prototype.trim = function () {
       };
     };
     if (!DOMTokenListProto.keys) DOMTokenListProto.keys = function () {
-      var nextIndex = 0,
+      let nextIndex = 0,
           that = this;
       return {
         next: function next() {
@@ -2849,6 +2853,17 @@ if (!"".trim) String.prototype.trim = function () {
     clearTimeout(id);
   };
 })();
+
+/***/ }),
+
+/***/ "./src/js/modules/publicPath.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/publicPath.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__.p = window.indigo.assets_url;
 
 /***/ })
 
