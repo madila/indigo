@@ -1,10 +1,10 @@
-if (!('CSS' in window && CSS.supports('color', 'let(--body-color)'))) {
+if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
 	import(
 		/* webpackChunkName: "css-vars-ponyfill" */
 		'css-vars-ponyfill'
 		)
 		.then(cssVars => {
-			cssVars();
+			console.log(cssVars.default);
 		});
 }
 
