@@ -185,8 +185,7 @@ input[type="submit"] {
 .entry-footer .edit-link {
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 2rem;
   z-index: 100; }
   .entry-footer .edit-link span {
     margin: 0; }

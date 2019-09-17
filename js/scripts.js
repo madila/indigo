@@ -3278,19 +3278,37 @@ function () {
 
       if (scrolled > 10 && scrolled < _threshold) {
         var fadeIn = scrolled / _threshold;
-        navBar.style.backgroundColor = 'rgba(0,0,0,' + fadeIn + ')';
-        footer.style.backgroundColor = 'rgba(0,0,0,' + fadeIn + ')';
         document.documentElement.classList.add('scrolling');
         document.documentElement.classList.remove('scrolled');
+
+        if (_this.isNavBarFixed) {
+          navBar.style.backgroundColor = 'rgba(0,0,0,' + fadeIn + ')';
+        }
+
+        if (_this.isFooterFixed) {
+          footer.style.backgroundColor = 'rgba(0,0,0,' + fadeIn + ')';
+        }
       } else if (scrolled > _threshold) {
-        navBar.style.backgroundColor = 'rgba(0,0,0,1)';
-        footer.style.backgroundColor = 'rgba(0,0,0,1)';
         document.documentElement.classList.remove('scrolling');
         document.documentElement.classList.add('scrolled');
+
+        if (_this.isNavBarFixed) {
+          navBar.style.backgroundColor = 'rgba(0,0,0,1)';
+        }
+
+        if (_this.isFooterFixed) {
+          footer.style.backgroundColor = 'rgba(0,0,0,1)';
+        }
       } else {
         document.documentElement.classList.remove('scrolling');
-        navBar.style.backgroundColor = 'rgba(0,0,0,0)';
-        footer.style.backgroundColor = 'rgba(0,0,0,0)';
+
+        if (_this.isNavBarFixed) {
+          navBar.style.backgroundColor = 'rgba(0,0,0,0)';
+        }
+
+        if (_this.isFooterFixed) {
+          footer.style.backgroundColor = 'rgba(0,0,0,0)';
+        }
       }
     };
 
@@ -3299,6 +3317,7 @@ function () {
     this.footer = document.querySelector('.site-footer');
     this.isHome = document.body.classList.contains('home');
     this.isNavBarFixed = this.getPosition(document.querySelector('.site-header')) === "fixed";
+    console.log(this.getPosition(document.querySelector('.site-footer')));
     this.isFooterFixed = this.getPosition(document.querySelector('.site-footer')) === "fixed";
 
     if (this.isNavBarFixed) {
