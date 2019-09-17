@@ -4,8 +4,15 @@
 		@include when-admin-bar {
 			top: 46px;
 		}
+		@media screen and (max-width: 600px) {
+			@include when-admin-bar {
+				.scrolled &, .scrolling & {
+					top: 0 !important;
+				}
+			}
+		}
 		@include when-admin-bar-desktop {
-			top: 32px;
+			top: 32px !important;
 		}
 		z-index: 20;
 		position: fixed;

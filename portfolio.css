@@ -15,9 +15,12 @@
     flex-wrap: wrap; }
     .admin-bar .site-header {
       top: 46px; }
+    @media screen and (max-width: 600px) {
+      .scrolled .admin-bar .site-header, .scrolling .admin-bar .site-header {
+        top: 0 !important; } }
     @media screen and (min-width: 783px) {
       .admin-bar .site-header {
-        top: 32px; } }
+        top: 32px !important; } }
   .site-description {
     margin-left: .4em; }
   .site-branding {
