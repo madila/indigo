@@ -1,0 +1,12 @@
+.single {
+	.entry {
+		&-content {
+			// Forcing all direct block childs that are alignfull or alignwide to not touch the borders
+			// It is safe for the moment as most real fullwidth blocks won't utilise the padding, like the .wp-block-cover
+			> div[class^='wp-block'].alignfull {
+				padding-left: 1rem;
+				padding-right: 2rem;
+			}
+		}
+	}
+}

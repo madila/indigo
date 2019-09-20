@@ -172,6 +172,14 @@ function indigo_scripts() {
 		'assets_url' => get_template_directory_uri().'/js/'
 	));
 
+	if ( is_post_type_archive('jetpack-portfolio') ) {
+
+		wp_enqueue_style( 'fullpage-style', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', array(), '20190916' );
+		wp_enqueue_script( 'fullpage-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', array(), '20190916', true );
+		wp_enqueue_script( 'fullpage-overflow-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/vendors/scrolloverflow.min.js', array('fullpage-script'), '20190916', true );
+
+	}
+
 	wp_enqueue_script( 'indigo-script' );
 
 

@@ -3227,6 +3227,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_polyfills__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/polyfills */ "./src/js/modules/polyfills.js");
 /* harmony import */ var _modules_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/navigation */ "./src/js/modules/navigation.js");
 /* harmony import */ var _modules_animateHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/animateHeader */ "./src/js/modules/animateHeader.js");
+/* harmony import */ var _modules_fullPageInit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/fullPageInit */ "./src/js/modules/fullPageInit.js");
+/* harmony import */ var _modules_fullPageInit__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_fullPageInit__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -3340,6 +3343,29 @@ function () {
 }();
 
 new AnimateHeader();
+
+/***/ }),
+
+/***/ "./src/js/modules/fullPageInit.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/fullPageInit.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.addEventListener('DOMContentLoaded', function () {
+  var fullPageElement = document.getElementById('full-page');
+  console.log(fullPageElement);
+
+  if (fullPageElement && 'fullPageLicense' in window.indigo && 'fullpage' in window) {
+    new fullpage(fullPageElement, {
+      //options here
+      licenseKey: '',
+      autoScrolling: false,
+      scrollHorizontally: true
+    });
+  }
+});
 
 /***/ }),
 

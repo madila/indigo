@@ -49,8 +49,34 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
   background-color: transparent;
   box-shadow: none; }
 
+#full-page {
+  width: 100%;
+  margin-top: -6rem; }
+  #full-page .section {
+    overflow: hidden;
+    position: relative; }
+    #full-page .section .post-thumbnail {
+      display: block;
+      max-height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0; }
+      #full-page .section .post-thumbnail img {
+        top: 50vh;
+        display: block;
+        position: relative;
+        transform: translateY(-50%); }
+    #full-page .section-content {
+      position: relative;
+      width: var(--content-width);
+      margin: 0 auto; }
+
 .single-jetpack-portfolio .entry-content > .wp-block-cover:first-child {
   max-height: 50vh; }
+
+.single .entry-content > div[class^='wp-block'].alignfull {
+  padding-left: 1rem;
+  padding-right: 2rem; }
 
 .site-branding {
   display: inline-flex;
