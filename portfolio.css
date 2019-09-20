@@ -49,6 +49,9 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
   background-color: transparent;
   box-shadow: none; }
 
+.single-jetpack-portfolio .entry-content > .wp-block-cover:first-child {
+  max-height: 50vh; }
+
 .site-branding {
   display: inline-flex;
   font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"); }

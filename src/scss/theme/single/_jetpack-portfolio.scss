@@ -1,0 +1,17 @@
+.single {
+	&-jetpack-portfolio {
+		.entry {
+			&-content {
+				> .wp-block {
+					&-cover {
+						&:first-child {
+							max-height: 50vh;
+						}
+					}
+				}
+			}
+		}
+
+
+	}
+}
