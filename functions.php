@@ -110,6 +110,10 @@ endif;
 add_action( 'after_setup_theme', 'indigo_setup' );
 
 
+function get_indigo_version() {
+	return wp_get_theme()->get('version');
+}
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -162,11 +166,11 @@ function indigo_get_theme_style() {
  */
 function indigo_scripts() {
 
-	wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), '20190916' );
+	wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
 
-	wp_enqueue_style( 'indigo-theme', indigo_get_theme_style(), array(), '20190916' );
+	wp_enqueue_style( 'indigo-theme', indigo_get_theme_style(), array('indigo-style'), get_indigo_version() );
 
-	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), '20190916', true );
+	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), get_indigo_version(), true );
 
 	wp_localize_script('indigo-script', 'indigo', array(
 		'assets_url' => get_template_directory_uri().'/js/'
@@ -174,9 +178,9 @@ function indigo_scripts() {
 
 	if ( is_post_type_archive('jetpack-portfolio') ) {
 
-		wp_enqueue_style( 'fullpage-style', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', array(), '20190916' );
-		wp_enqueue_script( 'fullpage-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', array(), '20190916', true );
-		wp_enqueue_script( 'fullpage-overflow-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/vendors/scrolloverflow.min.js', array('fullpage-script'), '20190916', true );
+		wp_enqueue_style( 'fullpage-style', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', array(), get_indigo_version() );
+		wp_enqueue_script( 'fullpage-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', array(), get_indigo_version(), true );
+		wp_enqueue_script( 'fullpage-overflow-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/vendors/scrolloverflow.min.js', array('fullpage-script'), get_indigo_version(), true );
 
 	}
 
