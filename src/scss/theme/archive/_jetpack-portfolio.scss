@@ -1,26 +1,4 @@
-#full-page {
+#covers-archive {
 	width: 100%;
 	margin-top: -6rem;
-	.section {
-		overflow: hidden;
-		position: relative;
-		.post-thumbnail {
-			display: block;
-			max-height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			img {
-				top: 50vh;
-				display: block;
-				position: relative;
-				transform: translateY(-50%);
-			}
-		}
-		&-content {
-			position: relative;
-			width: var(--content-width);
-			margin: 0 auto;
-		}
-	}
 }

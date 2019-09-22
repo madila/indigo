@@ -1,0 +1,45 @@
+.post-navigation {
+	width: 100%;
+	.nav-links {
+		display: flex;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		justify-content: space-around;
+		.nav {
+			&-next, &-previous {
+				flex-basis: 100%;
+				a {
+					font-weight: 200;
+					text-decoration: none;
+					padding-left: 1rem;
+				}
+			}
+			&-previous {
+				a {
+					&:before {
+						content: "";
+						display: inline-block;
+						border-top: 6px solid transparent;
+						margin-right: 1rem;
+						border-right: 10px solid;
+						border-bottom: 6px solid transparent;
+					}
+				}
+			}
+			&-next {
+				justify-content: flex-end;
+				display: flex;
+				a {
+					&:after {
+						content: "";
+						display: inline-block;
+						border-top: 6px solid transparent;
+						margin-left: 1rem;
+						border-left: 10px solid;
+						border-bottom: 6px solid transparent;
+					}
+				}
+			}
+		}
+	}
+}
