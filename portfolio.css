@@ -114,6 +114,7 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
     top: 0;
     left: 0; }
     .section-cover .post-thumbnail img {
+      width: 100%;
       will-change: opacity;
       top: 50vh;
       display: block;
