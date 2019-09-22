@@ -29,7 +29,8 @@
   .site-navigation {
     display: inline-flex; }
   .site .entry-content > .wp-block-cover:first-child {
-    margin-top: -6rem; }
+    margin-top: -6rem;
+    padding-top: 7rem; }
 
 body:not(.home) .site-footer {
   margin-left: calc( -100vw / 2 + 100% / 2);
