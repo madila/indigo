@@ -111,6 +111,12 @@ if ( ! function_exists( 'indigo_entry_footer' ) ) :
 	}
 endif;
 
+if( ! function_exists('lazysizes_enabled') ) :
+	function lazysizes_enabled() {
+		return class_exists('Lazysizes');
+	}
+endif;
+
 if ( ! function_exists( 'indigo_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
@@ -118,9 +124,14 @@ if ( ! function_exists( 'indigo_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function indigo_post_thumbnail() {
+	function indigo_post_thumbnail($asBg = false) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
+		}
+
+		if($asBg && lazysizes_enabled()) { ?>
+			<div class="post-thumbnail lazyload" data-bg="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'large')[0]; ?>"></div><!-- .post-thumbnail -->
+		<?php return;
 		}
 
 		if ( is_singular() ) :

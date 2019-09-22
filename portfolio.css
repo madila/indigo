@@ -72,7 +72,8 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
       .post-navigation .nav-links .nav-next a, .post-navigation .nav-links .nav-previous a {
         font-weight: 200;
         text-decoration: none;
-        padding-left: 1rem; }
+        padding-left: 1rem;
+        padding-right: 1rem; }
     .post-navigation .nav-links .nav-previous a:before {
       content: "";
       display: inline-block;
@@ -112,17 +113,12 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
     max-height: 100%;
     position: absolute;
     top: 0;
-    left: 0; }
-    .section-cover .post-thumbnail img {
-      width: 100%;
-      will-change: opacity;
-      top: 50vh;
-      display: block;
-      position: relative;
-      transform: translateY(-50%); }
+    left: 0;
+    bottom: 0;
+    right: 0; }
   .section-cover .section-content {
     position: relative;
-    width: var(--content-width);
+    max-width: var(--content-width);
     margin: 0 auto;
     text-shadow: 0.1em 0.1em 0 rgba(0, 0, 0, 0.3);
     text-decoration: none; }
@@ -133,7 +129,7 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
       margin-left: 50%;
       width: 0;
       transform: translateX(-50%);
-      transition: all 200ms ease-in; }
+      transition: all 400ms ease-in 100ms; }
     .section-cover .section-content:hover hr {
       border-color: rgba(255, 255, 255, 0.5);
       width: 50%; }
@@ -142,14 +138,16 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
   position: absolute;
   left: 0;
   right: 0;
-  opacity: 0;
-  transform: translateY(5%);
-  transition: transform 200ms linear 100ms, opacity 300ms ease-out 100ms; }
+  opacity: 0.5;
+  font-weight: 200;
+  transform: translateY(-2rem);
+  padding-left: 2rem;
+  padding-right: 2rem;
+  transition: transform 200ms linear, opacity 300ms ease-out; }
 
 .section:hover .section-description {
   opacity: 1;
-  transform: none;
-  font-weight: 200; }
+  transform: none; }
 
 .site-branding {
   display: inline-flex;

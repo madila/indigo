@@ -24,18 +24,12 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			img {
-				width: 100%;
-				will-change: opacity;
-				top: 50vh;
-				display: block;
-				position: relative;
-				transform: translateY(-50%);
-			}
+			bottom: 0;
+			right: 0;
 		}
 		.section-content {
 			position: relative;
-			width: var(--content-width);
+			max-width: var(--content-width);
 			margin: 0 auto;
 			text-shadow: 0.1em 0.1em 0 rgba(0,0,0,0.3);
 			text-decoration: none;
@@ -46,7 +40,7 @@
 				margin-left: 50%;
 				width: 0;
 				transform: translateX(-50%);
-				transition: all 200ms ease-in;
+				transition: all 400ms ease-in 100ms;
 			}
 			&:hover {
 				hr {
@@ -60,15 +54,17 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		opacity: 0;
-		transform: translateY(5%);
-		transition: transform 200ms linear 100ms, opacity 300ms ease-out 100ms;
+		opacity: 0.5;
+		font-weight: 200;
+		transform: translateY(-2rem);
+		padding-left: 2rem;
+		padding-right: 2rem;
+		transition: transform 200ms linear, opacity 300ms ease-out;
 	}
 	&:hover {
 		.section-description {
 			opacity: 1;
 			transform: none;
-			font-weight: 200;
 		}
 	}
 }

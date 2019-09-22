@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('section section-cover two-thirds-height'); ?>>
 
-	<?php indigo_post_thumbnail(); ?>
+	<?php indigo_post_thumbnail(true); ?>
 	<div class="section-overlay">
 		<a class="section-content v-align text-center" href="<?php the_permalink(); ?>">
 			<div class="v-align-middle">
