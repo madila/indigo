@@ -120,3 +120,5 @@ function indigo_custom_background_cb($args) {
 		</style>
 	<?php }
 }
+
+add_action( 'admin_head', 'indigo_custom_background_cb' );

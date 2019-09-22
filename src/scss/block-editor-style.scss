@@ -11,7 +11,9 @@ $css-vars-use-native: true;
 }
 
 #editor {
-	.editor-styles-wrapper {
+	.editor-block-list__layout {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 		@include root();
 		@import "scaffold/typography";
 		p {
