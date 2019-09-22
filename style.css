@@ -2162,13 +2162,12 @@ a {
           letter-spacing: 0.1em; } }
 
 .entry-content > .wp-block-cover:first-child {
-  height: 100vh;
-  min-height: unset !important; }
+  min-height: 100vh; }
   .admin-bar .entry-content > .wp-block-cover:first-child {
-    height: calc(100vh - 46px); }
+    min-height: calc(100vh - 46px); }
   @media screen and (min-width: 783px) {
     .admin-bar .entry-content > .wp-block-cover:first-child {
-      height: calc(100vh - 32px); } }
+      min-height: calc(100vh - 32px); } }
 
 .site-main {
   min-height: calc(88vh - 8rem);
