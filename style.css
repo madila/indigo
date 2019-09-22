@@ -2178,6 +2178,38 @@ a {
   .site-main article, .site-main #comments {
     width: 100%; }
 
+.post-navigation {
+  width: 100%; }
+  .post-navigation .nav-links {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    justify-content: space-around; }
+    .post-navigation .nav-links .nav-next, .post-navigation .nav-links .nav-previous {
+      flex-basis: 100%; }
+      .post-navigation .nav-links .nav-next a, .post-navigation .nav-links .nav-previous a {
+        font-weight: 200;
+        text-decoration: none;
+        padding-left: 1rem;
+        padding-right: 1rem; }
+    .post-navigation .nav-links .nav-previous a:before {
+      content: "";
+      display: inline-block;
+      border-top: 6px solid transparent;
+      margin-right: 1rem;
+      border-right: 10px solid;
+      border-bottom: 6px solid transparent; }
+    .post-navigation .nav-links .nav-next {
+      justify-content: flex-end;
+      display: flex; }
+      .post-navigation .nav-links .nav-next a:after {
+        content: "";
+        display: inline-block;
+        border-top: 6px solid transparent;
+        margin-left: 1rem;
+        border-left: 10px solid;
+        border-bottom: 6px solid transparent; }
+
 /*@import "theme/portfolio";*/
 /*@import "theme/centered";*/
 /*@import "theme/sidebar";*/
