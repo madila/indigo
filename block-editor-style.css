@@ -1619,8 +1619,7 @@
 
 .wp-block-cover .wp-block-cover__inner-container {
   max-width: var(--content-width, 960px);
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  width: calc(100% - 4rem); }
 
 .wp-block {
   max-width: var(--content-width, 960px); }
