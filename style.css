@@ -33,6 +33,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --base-letter-spacing: 0.0175em;
   --content-width: 960px;
   --headings-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --headings-font-weight: 600;
   --headings-letter-spacing: 0.015em;
   --base-border-radius: 3rem;
   --footer-height: 6rem; }

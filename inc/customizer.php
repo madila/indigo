@@ -134,7 +134,34 @@ function indigo_customize_register( $wp_customize ) {
 	) );
 
 	/**
-	 * Base Typography
+	 * Font Weight
+	 */
+	$wp_customize->add_setting( 'base_font_weight', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => '300',
+	) );
+
+	$wp_customize->add_control( 'base_font_weight', array(
+		'type' => 'select',
+		'section' => 'ui', // Add a default or your own section
+		'label' => __( 'Default Font Weight' ),
+		'description' => __( 'Change the thinness of the font you use for the body copy' ),
+		'choices' => array(
+			'100' => __( 'Hairline' ),
+			'200' => __( 'Thin' ),
+			'300' => __( 'Light' ),
+			'400' => __( 'Regular' ),
+			'500' => __( 'Medium' ),
+			'600' => __( 'Bold' ),
+			'700' => __( 'ExtraBold' ),
+			'800' => __( 'UltraBold' ),
+			'900' => __( 'Black' )
+		),
+	) );
+
+	/**
+	 * Headings Typography
 	 */
 	$wp_customize->add_setting(
 		'headings_font_family',
@@ -150,6 +177,33 @@ function indigo_customize_register( $wp_customize ) {
 		'section' => 'ui', // Add a default or your own section
 		'label' => __( 'Headings Font Family' ),
 		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
+	) );
+
+	/**
+	 * Headings Weight
+	 */
+	$wp_customize->add_setting( 'headings_font_weight', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => '300',
+	) );
+
+	$wp_customize->add_control( 'headings_font_weight', array(
+		'type' => 'select',
+		'section' => 'ui', // Add a default or your own section
+		'label' => __( 'Headings Font Weight' ),
+		'description' => __( 'Change the thinness of the font you use for the body copy' ),
+		'choices' => array(
+			'100' => __( 'Hairline' ),
+			'200' => __( 'Thin' ),
+			'300' => __( 'Light' ),
+			'400' => __( 'Regular' ),
+			'500' => __( 'Medium' ),
+			'600' => __( 'Bold' ),
+			'700' => __( 'ExtraBold' ),
+			'800' => __( 'UltraBold' ),
+			'900' => __( 'Black' )
+		),
 	) );
 
 	/**
