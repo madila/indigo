@@ -224,7 +224,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_border_radius',
 		array(
-			'default'           => '0',
+			'default'           => 0,
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'indigo_sanitize_em_units',
 		)
@@ -249,7 +249,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'content_width',
 		array(
-			'default'           => 'default',
+			'default'           => 800,
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'indigo_sanitize_px_units',
 		)
