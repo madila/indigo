@@ -311,6 +311,7 @@ textarea {
   padding: 2rem 0; }
   .wp-block-cover .wp-block-cover__inner-container {
     max-width: 100%;
+    padding: 0 2rem;
     width: var(--content-width, 960px); }
   .wp-block-cover h2, .wp-block-cover h3, .wp-block-cover h4, .wp-block-cover h5, .wp-block-cover h6, .wp-block-cover p {
     margin: 0 auto; }
