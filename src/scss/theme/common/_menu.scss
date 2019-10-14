@@ -88,7 +88,9 @@
 					font-size: 1rem;
 					font-family: var(--headings-font-family, $headings-font-family);
 					&:hover {
-						letter-spacing: .2em;
+						@include media-breakpoint-up(md) {
+							letter-spacing: .2em;
+						}
 						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
 					}
 				}
