@@ -165,7 +165,6 @@ input[type="submit"] {
 						@include media-breakpoint-up(md) {
 							padding: .5rem 1.5rem;
 							display: inline-block;
-							white-space: nowrap;
 							font-weight: 400;
 							font-size: 0.9rem;
 							font-family: var(--headings-font-family, $headings-font-family);

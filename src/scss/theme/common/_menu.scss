@@ -79,7 +79,9 @@
 					line-height: 1em;
 					display: inline-block;
 					text-decoration: none;
-					white-space: nowrap;
+					@include media-breakpoint-up(md) {
+						white-space: nowrap;
+					}
 					font-weight: 300;
 					border-bottom: 1px solid transparent;
 					letter-spacing: .075em;
