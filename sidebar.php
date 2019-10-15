@@ -12,8 +12,8 @@ if ( ! is_active_sidebar( 'entry-sidebar' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area area-inverted alignfull">
-    <div class="aligncontainer">
+<aside id="secondary" class="area-inverted alignfull">
+    <div class="aligncontainer widget-area">
         <?php dynamic_sidebar( 'entry-sidebar' ); ?>
     </div>
 </aside><!-- #secondary -->

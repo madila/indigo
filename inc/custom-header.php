@@ -29,6 +29,22 @@ function indigo_custom_header_setup() {
 
 add_action( 'after_setup_theme', 'indigo_custom_header_setup' );
 
+function get_theme_mod_defaults() {
+	return apply_filters('indigo_theme_mod_defaults', array(
+		'content_width' => '1200',
+		'header_textcolor' => (get_theme_mod('text_color')) ? get_theme_mod('text_color') : '#fff',
+		'primary_color' => '#4b0082',
+		'secondary_color' => '#000',
+		'text_color' => '#000',
+		'header_bg_color' => '#000'
+	));
+}
+
+function get_theme_mod_default($key) {
+	$defaults = get_theme_mod_defaults();
+	return (array_key_exists($key, $defaults)) ? $defaults[$key] : false;
+}
+
 function indigo_set_theme_mod_css_var($option_id, $variable_name = null) {
 	if(get_theme_mod($option_id)) { ?>
 		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo get_theme_mod($option_id); ?>;
@@ -36,8 +52,10 @@ function indigo_set_theme_mod_css_var($option_id, $variable_name = null) {
 }
 
 function indigo_set_color_mod_css_var($option_id, $variable_name = null) {
-	if(get_theme_mod($option_id)) { ?>
+	if(get_theme_mod($option_id) && get_theme_mod($option_id) !== 'blank') { ?>
 		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo maybe_hash_hex_color(get_theme_mod($option_id)); ?>;
+	<?php } else { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo maybe_hash_hex_color(get_theme_mod_default($option_id)); ?>;
 	<?php }
 }
 
@@ -90,6 +108,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 			:root {
 				<?php indigo_set_theme_mod_css_var('content_width', 'content-width'); ?>
 				<?php indigo_set_color_mod_css_var('text_color', 'base-color'); ?>
+				<?php indigo_set_color_mod_css_var('header_bg_color', 'header-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('primary_color', 'primary-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_color', 'secondary-color'); ?>
 				<?php indigo_set_theme_mod_css_var('base_border_radius', 'base-border-radius'); ?>

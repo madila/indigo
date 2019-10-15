@@ -2038,6 +2038,8 @@ th {
 
 .site-header {
   color: var(--header-text-color, inherit); }
+  .header-scroll-bg .site-header {
+    background-color: transparent; }
   @media (max-width: 767px) {
     .site-header {
       transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 100ms; } }

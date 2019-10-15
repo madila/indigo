@@ -17,6 +17,10 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+	if(intval(get_theme_mod('header_bg_on_scroll'))) {
+		$classes[] = 'header-scroll-bg';
+	}
+
 	// Adds a class of no-sidebar when there is no sidebar present.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-sidebar';

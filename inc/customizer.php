@@ -16,11 +16,12 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+
 	/**
 	 * Typography Color
 	 */
 	$wp_customize->add_setting( 'text_color' , array(
-		'default' => '#000',
+		'default' => get_theme_mod_default('text_color'),
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
 	) );
@@ -31,10 +32,39 @@ function indigo_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
+	 * Header Background Color
+	 */
+	$wp_customize->add_setting( 'header_bg_color' , array(
+		'default' => get_theme_mod_default('header_bg_color'),
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_bg_color', array(
+		'label'      => __( 'Header Background', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'header_bg_on_scroll', array(
+		'default'    => '0',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'header_bg_on_scroll', array(
+		'label'      => __( 'Apply background colour only on scroll', 'documentation' ),
+		'section'    => 'colors',
+		'type'       => 'checkbox',
+		'std'        => '1'
+	) );
+
+	/**
 	 * Primary Color
 	 */
 	$wp_customize->add_setting( 'primary_color' , array(
-		'default' => '#db2372',
+		'default' => get_theme_mod_default('primary_color'),
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
 	) );
@@ -48,7 +78,7 @@ function indigo_customize_register( $wp_customize ) {
 	 * Secondary Color
 	 */
 	$wp_customize->add_setting( 'secondary_color' , array(
-		'default' => '#000',
+		'default' =>  get_theme_mod_default('secondary_color'),
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
 	) );

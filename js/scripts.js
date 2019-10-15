@@ -3226,120 +3226,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_publicPath__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_publicPath__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_polyfills__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/polyfills */ "./src/js/modules/polyfills.js");
 /* harmony import */ var _modules_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/navigation */ "./src/js/modules/navigation.js");
-/* harmony import */ var _modules_animateHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/animateHeader */ "./src/js/modules/animateHeader.js");
+/* harmony import */ var _modules_pageOnScroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/pageOnScroll */ "./src/js/modules/pageOnScroll.js");
 
 
 
  //import "./modules/fullPageInit";
-
-/***/ }),
-
-/***/ "./src/js/modules/animateHeader.js":
-/*!*****************************************!*\
-  !*** ./src/js/modules/animateHeader.js ***!
-  \*****************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _onScrolling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onScrolling */ "./src/js/modules/onScrolling.js");
-
-
-
-
-var AnimateHeader =
-/*#__PURE__*/
-function () {
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(AnimateHeader, [{
-    key: "getPosition",
-    value: function getPosition(element) {
-      return window.getComputedStyle(element, null).getPropertyValue("position");
-    }
-  }]);
-
-  function AnimateHeader() {
-    var _this = this;
-
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, AnimateHeader);
-
-    this.animateHeader = function () {
-      var navBar = _this.navBar,
-          footer = _this.footer;
-
-      var doc = document.documentElement,
-          scrolled = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
-          _windowHeight = window.innerHeight,
-          _threshold = _windowHeight / 2;
-
-      if (scrolled > 10 && scrolled < _threshold) {
-        var fadeIn = scrolled / _threshold;
-        document.documentElement.classList.add('scrolling');
-        document.documentElement.classList.remove('scrolled');
-
-        if (_this.isNavBarFixed) {
-          navBar.style.backgroundColor = 'rgba(0,0,0,' + fadeIn + ')';
-        }
-
-        if (_this.isFooterFixed) {
-          footer.style.backgroundColor = 'rgba(0,0,0,' + fadeIn + ')';
-        }
-      } else if (scrolled > _threshold) {
-        document.documentElement.classList.remove('scrolling');
-        document.documentElement.classList.add('scrolled');
-
-        if (_this.isNavBarFixed) {
-          navBar.style.backgroundColor = 'rgba(0,0,0,1)';
-        }
-
-        if (_this.isFooterFixed) {
-          footer.style.backgroundColor = 'rgba(0,0,0,1)';
-        }
-      } else {
-        document.documentElement.classList.remove('scrolling');
-
-        if (_this.isNavBarFixed) {
-          navBar.style.backgroundColor = 'rgba(0,0,0,0)';
-        }
-
-        if (_this.isFooterFixed) {
-          footer.style.backgroundColor = 'rgba(0,0,0,0)';
-        }
-      }
-    };
-
-    var animateHeader = this.animateHeader;
-    this.navBar = document.querySelector('.site-header');
-    this.footer = document.querySelector('.site-footer');
-    this.isHome = document.body.classList.contains('home');
-    this.isNavBarFixed = this.getPosition(document.querySelector('.site-header')) === "fixed";
-    console.log(this.getPosition(document.querySelector('.site-footer')));
-    this.isFooterFixed = this.getPosition(document.querySelector('.site-footer')) === "fixed";
-
-    if (this.isNavBarFixed) {
-      document.documentElement.classList.add('has-fixed-header');
-    }
-
-    if (this.isFooterFixed && this.isHome) {
-      document.documentElement.classList.add('has-fixed-footer');
-    }
-
-    if (this.isNavBarFixed || this.isFooterFixed) {
-      animateHeader();
-      Object(_onScrolling__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
-        animateHeader();
-      });
-    }
-  }
-
-  return AnimateHeader;
-}();
-
-new AnimateHeader();
 
 /***/ }),
 
@@ -3711,6 +3602,151 @@ onScrolling.remove = function (direction, fn) {
 
 onScrolling.off = onScrolling.remove;
 /* harmony default export */ __webpack_exports__["default"] = (onScrolling);
+
+/***/ }),
+
+/***/ "./src/js/modules/pageOnScroll.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/pageOnScroll.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _onScrolling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onScrolling */ "./src/js/modules/onScrolling.js");
+
+
+
+
+var pageOnScroll =
+/*#__PURE__*/
+function () {
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(pageOnScroll, [{
+    key: "getCSSVar",
+
+    /**
+     * hexToRgb
+     * @param  string  hex  Hexadicimal value
+     * @return number       Color of selected chanel Red, Green or Blue
+     * @usage  //alert( hexToRgb("#0033ff").g ); // "51";
+     * @usage  //alert( hexToRgb("0033ff").g );  // "51";
+     */
+    value: function getCSSVar(property) {
+      return getComputedStyle(document.documentElement).getPropertyValue(property);
+    }
+  }, {
+    key: "getPosition",
+    value: function getPosition(element) {
+      return window.getComputedStyle(element, null).getPropertyValue("position");
+    }
+  }]);
+
+  function pageOnScroll() {
+    var _this = this;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, pageOnScroll);
+
+    this.hexToRgb = function (hex) {
+      var r = hex >> 16;
+      var g = hex >> 8 & 0xFF;
+      var b = hex & 0xFF;
+      return [r, g, b];
+    };
+
+    this.rgb2rgba = function (r, g, b) {
+      var alpha = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 1;
+      return "rgba(".concat(r, ",").concat(g, ",").concat(b, ",").concat(alpha, ")");
+    };
+
+    this.headerScrollBg = function () {
+      var navBar = _this.navBar,
+          headerBgColor = _this.headerBgColor,
+          rgb2rgba = _this.rgb2rgba;
+
+      var docEle = document.documentElement,
+          scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
+          _windowHeight = window.innerHeight,
+          _threshold = _windowHeight / 2;
+
+      if (scrolled > 10 && scrolled < _threshold) {
+        var fadeIn = scrolled / _threshold;
+        navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], fadeIn);
+        docEle.style.setProperty('--header-text-color', _this.headerTextColor);
+      } else if (scrolled > _threshold) {
+        navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], 1);
+        docEle.style.setProperty('--header-text-color', _this.headerTextColor);
+      } else {
+        navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], 0);
+        docEle.style.setProperty('--header-text-color', _this.baseTextColor);
+      }
+    };
+
+    this.bodyScrolled = function () {
+      var doc = document.documentElement,
+          scrolled = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
+          _windowHeight = window.innerHeight,
+          _threshold = _windowHeight / 2;
+
+      if (scrolled > 10 && scrolled < _threshold) {
+        document.documentElement.classList.add('scrolling');
+        document.documentElement.classList.remove('scrolled');
+      } else if (scrolled > _threshold) {
+        document.documentElement.classList.remove('scrolling');
+        document.documentElement.classList.add('scrolled');
+      } else {
+        document.documentElement.classList.remove('scrolling');
+      }
+    };
+
+    var _docEle = document.documentElement;
+    var headerScrollBg = this.headerScrollBg,
+        bodyScrolled = this.bodyScrolled,
+        hexToRgb = this.hexToRgb,
+        getCSSVar = this.getCSSVar,
+        getPosition = this.getPosition;
+    this.navBar = document.querySelector('.site-header');
+    this.footer = document.querySelector('.site-footer');
+    var headerHexColor = hexToRgb(getCSSVar('--header-bg-color'));
+    this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
+    this.headerTextColor = getCSSVar('--header-text-color');
+    this.baseTextColor = getCSSVar('--base-color');
+    this.isHome = document.body.classList.contains('home');
+    this.isHeaderScrollBg = document.body.classList.contains('header-scroll-bg');
+    this.isNavBarFixed = getPosition(document.querySelector('.site-header')) === "fixed";
+    this.isFooterFixed = getPosition(document.querySelector('.site-footer')) === "fixed";
+
+    if (this.isNavBarFixed) {
+      _docEle.classList.add('has-fixed-header');
+    }
+
+    if (this.isFooterFixed && this.isHome) {
+      _docEle.classList.add('has-fixed-footer');
+    }
+
+    bodyScrolled();
+    Object(_onScrolling__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
+      bodyScrolled();
+    });
+
+    if (this.isHeaderScrollBg) {
+      _docEle.style.setProperty('--header-text-color', this.baseTextColor);
+
+      headerScrollBg();
+      Object(_onScrolling__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
+        headerScrollBg();
+      });
+    }
+  }
+
+  return pageOnScroll;
+}();
+
+new pageOnScroll();
 
 /***/ }),
 
