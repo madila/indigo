@@ -15,12 +15,27 @@
 
 	<footer id="colophon" class="site-footer">
         <?php if ( is_active_sidebar( 'pre-footer' ) ) { ?>
-            <aside id="secondary" class="widget-area">
+            <aside id="se   condary" class="widget-area">
                 <?php dynamic_sidebar( 'pre-footer' ); ?>
             </aside><!-- #secondary -->
         <?php } ?>
-
-        <div class="site-info">
+		<?php
+			$copyright_notice = sprintf('Copyright &copy; %1s',
+				date( 'Y' )
+			);
+			echo sprintf( '<p><small>%1s %2s</small></p>',
+				(get_theme_mod('indigo_display_copyright') == '1') ? $copyright_notice : '',
+				apply_filters( 'indigo_site_info', get_theme_mod( 'indigo_site_info' ) )
+			);
+		 ?>
+		<?php if($site_info = get_option('indigo_site_info')) { ?>
+		<p>
+			<small class="site-info">
+				<?php echo apply_filters('indigo_site_info', $site_info); ?>
+			</small><!-- .site-info -->
+		</p>
+		<?php } ?>
+        <small class="site-theme-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'indigo' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
@@ -32,7 +47,7 @@
 				/* translators: 1: Theme name, 2: Theme author. */
 				printf( esc_html__( 'Theme: %1$s by %2$s.', 'indigo' ), 'indigo', '<a href="http://underscores.me/">Ruben Madila for Ollie Ford & Co</a>' );
 				?>
-		</div><!-- .site-info -->
+		</small><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

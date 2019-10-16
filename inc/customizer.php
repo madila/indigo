@@ -16,6 +16,35 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	/**
+	 * Site Info
+	 */
+
+	$wp_customize->add_setting( 'indigo_site_info', array(
+		'capability' => 'edit_theme_options',
+		'default' => 'All rights reserved unless otherwise stated.',
+		'sanitize_callback' => 'sanitize_textarea_field',
+	) );
+
+	$wp_customize->add_control( 'indigo_site_info', array(
+		'type' => 'textarea',
+		'section' => 'title_tagline',
+		'label' => __( 'Additional Footer Information' ),
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_display_copyright', array(
+		'default'    => '0',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_display_copyright', array(
+		'label'      => __( 'Display copyright notice?', 'indigo' ),
+		'section'    => 'title_tagline',
+		'type'       => 'checkbox',
+		'std'        => '1'
+	) );
 
 	/**
 	 * Typography Color
