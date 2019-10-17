@@ -11,14 +11,16 @@ $css-vars-use-native: true;
 }
 
 #editor {
-	/*.editor-block-list__layout {
-		padding-top: 2rem;
-		padding-bottom: 2rem;
-		@include root();
+	.editor-block-list__layout {
+		box-sizing: border-box;
+		font-family: var(--base-font-family, $base-font-family);
+		font-size: var(--base-font-size, $root-font-size);
+		line-height: 1.1;
+		letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 		@import "scaffold/typography";
 		p {
 			font-size: 1.7rem;
 			font-weight: var(--base-font-weight, $font-weight-base);
 		}
-	}*/
+	}
 }
