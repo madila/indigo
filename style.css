@@ -2123,7 +2123,7 @@ a {
       justify-content: center; }
     .main-navigation .menu li.current_page_item a {
       font-weight: 400;
-      border-bottom: 1px solid var(--primary-color, #263744); }
+      border-bottom: 1px solid var(--header-text-color, --base-color); }
     .main-navigation .menu li a {
       padding: .5rem 1.5rem;
       line-height: 1em;
@@ -2138,7 +2138,7 @@ a {
         .main-navigation .menu li a {
           white-space: nowrap; } }
       .main-navigation .menu li a:hover {
-        border-bottom: 1px solid var(--primary-color, #263744); }
+        border-bottom: 1px solid var(--header-text-color, --base-color); }
         @media (min-width: 768px) {
           .main-navigation .menu li a:hover {
             letter-spacing: .2em; } }

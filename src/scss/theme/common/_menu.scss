@@ -71,7 +71,7 @@
 				&.current_page_item {
 					a {
 						font-weight: 400;
-						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
+						border-bottom: 1px solid var(--header-text-color, --base-color);
 					}
 				}
 				a {
@@ -91,7 +91,7 @@
 						@include media-breakpoint-up(md) {
 							letter-spacing: .2em;
 						}
-						border-bottom: 1px solid var(--primary-color, map-get($colours, primary));
+						border-bottom: 1px solid var(--header-text-color, --base-color);
 					}
 				}
 			}
