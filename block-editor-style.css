@@ -1625,77 +1625,17 @@
 .wp-block {
   max-width: var(--content-width, 960px); }
 
-#editor .editor-block-list__layout {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  box-sizing: border-box;
-  font-family: var(--base-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
-  font-size: var(--base-font-size, 14px);
-  background-color: var(--base-bg-color, #f6f7f9);
-  color: var(--base-color, #23282d);
-  line-height: 1.15;
-  letter-spacing: var(--base-letter-spacing, 0.0175em);
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-  #editor .editor-block-list__layout h1, #editor .editor-block-list__layout .h1, #editor .editor-block-list__layout h2, #editor .editor-block-list__layout .h2, #editor .editor-block-list__layout h3, #editor .editor-block-list__layout .h3, #editor .editor-block-list__layout h4, #editor .editor-block-list__layout .h4, #editor .editor-block-list__layout h5, #editor .editor-block-list__layout .h5, #editor .editor-block-list__layout h6, #editor .editor-block-list__layout .h6 {
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-    font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
-    font-weight: 600;
-    line-height: 1.1;
-    color: inherit;
-    letter-spacing: var(--headings-letter-spacing, 0.015em); }
-  #editor .editor-block-list__layout h1, #editor .editor-block-list__layout .h1 {
-    font-size: 2.5rem; }
-  #editor .editor-block-list__layout h2, #editor .editor-block-list__layout .h2 {
-    font-size: 2rem; }
-  #editor .editor-block-list__layout h3, #editor .editor-block-list__layout .h3 {
-    font-size: 1.75rem; }
-  #editor .editor-block-list__layout h4, #editor .editor-block-list__layout .h4 {
-    font-size: 1.5rem; }
-  #editor .editor-block-list__layout h5, #editor .editor-block-list__layout .h5 {
-    font-size: 1.25rem; }
-  #editor .editor-block-list__layout h6, #editor .editor-block-list__layout .h6 {
-    font-size: 1rem; }
-  #editor .editor-block-list__layout header p {
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 0.7rem; }
-  #editor .editor-block-list__layout strong {
-    font-weight: 600; }
-  #editor .editor-block-list__layout p {
-    margin-top: 0;
-    margin-bottom: 0.7rem; }
-  #editor .editor-block-list__layout a {
-    color: inherit;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects; }
-  #editor .editor-block-list__layout a:not([href]):not([tabindex]) {
-    color: inherit;
-    text-decoration: none; }
-    #editor .editor-block-list__layout a:not([href]):not([tabindex]):focus {
-      outline: 0; }
-  #editor .editor-block-list__layout hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  #editor .editor-block-list__layout small {
-    font-size: 85%;
-    font-weight: 300; }
-  #editor .editor-block-list__layout a {
-    transition: all 300ms ease-out; }
-  #editor .editor-block-list__layout blockquote {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-left: .2rem solid; }
-    #editor .editor-block-list__layout blockquote footer {
-      font-size: 80%; }
-  #editor .editor-block-list__layout p {
-    font-size: 1.7rem;
-    font-weight: var(--base-font-weight, 300); }
+#editor {
+  /*.editor-block-list__layout {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		@include root();
+		@import "scaffold/typography";
+		p {
+			font-size: 1.7rem;
+			font-weight: var(--base-font-weight, $font-weight-base);
+		}
+	}*/ }
 
 
 /*# sourceMappingURL=block-editor-style.css.map*/

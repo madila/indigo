@@ -11,7 +11,7 @@ $css-vars-use-native: true;
 }
 
 #editor {
-	.editor-block-list__layout {
+	/*.editor-block-list__layout {
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 		@include root();
@@ -20,5 +20,5 @@ $css-vars-use-native: true;
 			font-size: 1.7rem;
 			font-weight: var(--base-font-weight, $font-weight-base);
 		}
-	}
+	}*/
 }
