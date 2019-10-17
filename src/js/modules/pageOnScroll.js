@@ -10,10 +10,20 @@ class pageOnScroll {
 	 * @usage  //alert( hexToRgb("0033ff").g );  // "51";
 	 */
 	hexToRgb = (hex) => {
-		var r = hex >> 16;
-		var g = hex >> 8 & 0xFF;
-		var b = hex & 0xFF;
-		return [r,g,b];
+		// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+		let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+		hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+			return r + r + g + g + b + b;
+		});
+
+		console.log(hex);
+
+		let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+		return result ? {
+			r: parseInt(result[1], 16),
+			g: parseInt(result[2], 16),
+			b: parseInt(result[3], 16)
+		} : null;
 	};
 
 
@@ -32,13 +42,13 @@ class pageOnScroll {
 
 		if (scrolled > 10 && scrolled < _threshold) {
 			let fadeIn = scrolled / _threshold;
-			navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], fadeIn);
+			navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
 			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		} else if (scrolled > _threshold) {
-			navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], 1);
+			navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
 			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		} else {
-			navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], 0);
+			navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
 			docEle.style.setProperty('--header-text-color', this.baseTextColor);
 		}
 	};
@@ -63,11 +73,16 @@ class pageOnScroll {
 
 	getCSSVar(property) {
 		return getComputedStyle(document.documentElement)
-			.getPropertyValue(property);
+			.getPropertyValue(property).trim();
 	}
 
 	getPosition(element) {
 		return window.getComputedStyle(element, null).getPropertyValue("position");
+	}
+
+	setHeaderBgColor() {
+		let { hexToRgb, getCSSVar } = this;
+		this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
 	}
 
 	constructor() {
@@ -76,9 +91,7 @@ class pageOnScroll {
 		this.navBar = document.querySelector('.site-header');
 		this.footer = document.querySelector('.site-footer');
 
-		const headerHexColor = hexToRgb(getCSSVar('--header-bg-color'));
-
-		this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
+		this.setHeaderBgColor();
 		this.headerTextColor = getCSSVar('--header-text-color');
 		this.baseTextColor = getCSSVar('--base-color');
 

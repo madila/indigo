@@ -3614,11 +3614,17 @@ onScrolling.off = onScrolling.remove;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _onScrolling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onScrolling */ "./src/js/modules/onScrolling.js");
+/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.regexp.replace */ "./node_modules/core-js/modules/es6.regexp.replace.js");
+/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es6_string_trim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es6.string.trim */ "./node_modules/core-js/modules/es6.string.trim.js");
+/* harmony import */ var core_js_modules_es6_string_trim__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_string_trim__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _onScrolling__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./onScrolling */ "./src/js/modules/onScrolling.js");
+
+
 
 
 
@@ -3626,7 +3632,7 @@ __webpack_require__.r(__webpack_exports__);
 var pageOnScroll =
 /*#__PURE__*/
 function () {
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(pageOnScroll, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(pageOnScroll, [{
     key: "getCSSVar",
 
     /**
@@ -3637,25 +3643,40 @@ function () {
      * @usage  //alert( hexToRgb("0033ff").g );  // "51";
      */
     value: function getCSSVar(property) {
-      return getComputedStyle(document.documentElement).getPropertyValue(property);
+      return getComputedStyle(document.documentElement).getPropertyValue(property).trim();
     }
   }, {
     key: "getPosition",
     value: function getPosition(element) {
       return window.getComputedStyle(element, null).getPropertyValue("position");
     }
+  }, {
+    key: "setHeaderBgColor",
+    value: function setHeaderBgColor() {
+      var hexToRgb = this.hexToRgb,
+          getCSSVar = this.getCSSVar;
+      this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
+    }
   }]);
 
   function pageOnScroll() {
     var _this = this;
 
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, pageOnScroll);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, pageOnScroll);
 
     this.hexToRgb = function (hex) {
-      var r = hex >> 16;
-      var g = hex >> 8 & 0xFF;
-      var b = hex & 0xFF;
-      return [r, g, b];
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+      console.log(hex);
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
     };
 
     this.rgb2rgba = function (r, g, b) {
@@ -3675,13 +3696,13 @@ function () {
 
       if (scrolled > 10 && scrolled < _threshold) {
         var fadeIn = scrolled / _threshold;
-        navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], fadeIn);
+        navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
         docEle.style.setProperty('--header-text-color', _this.headerTextColor);
       } else if (scrolled > _threshold) {
-        navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], 1);
+        navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
         docEle.style.setProperty('--header-text-color', _this.headerTextColor);
       } else {
-        navBar.style.backgroundColor = rgb2rgba(headerBgColor[0], headerBgColor[1], headerBgColor[2], 0);
+        navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
         docEle.style.setProperty('--header-text-color', _this.baseTextColor);
       }
     };
@@ -3711,8 +3732,7 @@ function () {
         getPosition = this.getPosition;
     this.navBar = document.querySelector('.site-header');
     this.footer = document.querySelector('.site-footer');
-    var headerHexColor = hexToRgb(getCSSVar('--header-bg-color'));
-    this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
+    this.setHeaderBgColor();
     this.headerTextColor = getCSSVar('--header-text-color');
     this.baseTextColor = getCSSVar('--base-color');
     this.isHome = document.body.classList.contains('home');
@@ -3729,7 +3749,7 @@ function () {
     }
 
     bodyScrolled();
-    Object(_onScrolling__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
+    Object(_onScrolling__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
       bodyScrolled();
     });
 
@@ -3737,7 +3757,7 @@ function () {
       _docEle.style.setProperty('--header-text-color', this.baseTextColor);
 
       headerScrollBg();
-      Object(_onScrolling__WEBPACK_IMPORTED_MODULE_2__["default"])(function () {
+      Object(_onScrolling__WEBPACK_IMPORTED_MODULE_4__["default"])(function () {
         headerScrollBg();
       });
     }
