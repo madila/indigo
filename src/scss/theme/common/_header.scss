@@ -16,15 +16,20 @@
 		}
 		.menu-toggled & {
 			color: var(--header-text-color, -base-color);
-			background-color: var(--header-bg-color, transparent) !important;
+			background-color: var(--header-bg-color, --base-bg-color) !important;
 			transition: background-color 50ms cubic-bezier(0.4, 0, 0.2, 1);
 		}
 	}
 	&-branding {
 		align-self: center;
 		max-width: calc(100vw - 4em);
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 		.custom-logo-link {
 			max-width: 100%;
 		}
+	}
+	&-description {
+		transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 	}
 }
