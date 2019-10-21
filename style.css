@@ -2202,7 +2202,8 @@ a {
 .entry-content > .wp-block-embed.is-type-video:first-child {
   margin-top: -6rem;
   width: 100vw !important;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  position: relative; }
 
 .site-main {
   min-height: calc(88vh - 8rem);
