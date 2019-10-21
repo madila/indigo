@@ -1302,118 +1302,138 @@
 .display-1 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-size: 3rem; }
+  font-size: 3rem;
+  font-weight: var(--headings-font-weight); }
 
 @media (min-width: 600px) {
   .display-1 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 3.96rem; } }
+    font-size: 3.96rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 768px) {
   .display-1 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 4.98rem; } }
+    font-size: 4.98rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 992px) {
   .display-1 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 5.7rem; } }
+    font-size: 5.7rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 1200px) {
   .display-1 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 6rem; } }
+    font-size: 6rem;
+    font-weight: var(--headings-font-weight); } }
 
 .display-2 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-size: 2.75rem; }
+  font-size: 2.75rem;
+  font-weight: var(--headings-font-weight); }
 
 @media (min-width: 600px) {
   .display-2 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 3.63rem; } }
+    font-size: 3.63rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 768px) {
   .display-2 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 4.565rem; } }
+    font-size: 4.565rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 992px) {
   .display-2 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 5.225rem; } }
+    font-size: 5.225rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 1200px) {
   .display-2 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 5.5rem; } }
+    font-size: 5.5rem;
+    font-weight: var(--headings-font-weight); } }
 
 .display-3 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-size: 2.25rem; }
+  font-size: 2.25rem;
+  font-weight: var(--headings-font-weight); }
 
 @media (min-width: 600px) {
   .display-3 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 2.97rem; } }
+    font-size: 2.97rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 768px) {
   .display-3 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 3.735rem; } }
+    font-size: 3.735rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 992px) {
   .display-3 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 4.275rem; } }
+    font-size: 4.275rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 1200px) {
   .display-3 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 4.5rem; } }
+    font-size: 4.5rem;
+    font-weight: var(--headings-font-weight); } }
 
 .display-4 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-size: 1.75rem; }
+  font-size: 1.75rem;
+  font-weight: var(--headings-font-weight); }
 
 @media (min-width: 600px) {
   .display-4 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 2.31rem; } }
+    font-size: 2.31rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 768px) {
   .display-4 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 2.905rem; } }
+    font-size: 2.905rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 992px) {
   .display-4 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 3.325rem; } }
+    font-size: 3.325rem;
+    font-weight: var(--headings-font-weight); } }
 
 @media (min-width: 1200px) {
   .display-4 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
-    font-size: 3.5rem; } }
+    font-size: 3.5rem;
+    font-weight: var(--headings-font-weight); } }
 
 .text-ultra-light {
   font-weight: 100 !important; }

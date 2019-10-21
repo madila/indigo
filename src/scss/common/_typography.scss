@@ -23,6 +23,7 @@
         margin-top: $headings-margin-top;
         margin-bottom: $headings-margin-bottom;
         font-size: ($size * map-get($responsive-displays, $breakpoint));
+		font-weight: var(--headings-font-weight);
       }
     }
   }
