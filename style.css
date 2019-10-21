@@ -1855,85 +1855,85 @@ strong, b {
   min-height: 100vh; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
     .min-height-full > .v-align:after {
-      min-height: 1024px ""; } }
+      min-height: 1024px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
     .min-height-full > .v-align:after {
-      min-height: 768px ""; } }
+      min-height: 768px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
     .min-height-full > .v-align:after {
-      min-height: 480px ""; } }
+      min-height: 480px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
     .min-height-full > .v-align:after {
-      min-height: 320px ""; } }
+      min-height: 320px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
     .min-height-full > .v-align:after {
-      min-height: 568px ""; } }
+      min-height: 568px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
     .min-height-full > .v-align:after {
-      min-height: 320px ""; } }
+      min-height: 320px; } }
 
 .min-height-two-thirds > .v-align:after {
   min-height: 66vh; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
     .min-height-two-thirds > .v-align:after {
-      min-height: 675.84px ""; } }
+      min-height: 675.84px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
     .min-height-two-thirds > .v-align:after {
-      min-height: 506.88px ""; } }
+      min-height: 506.88px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
     .min-height-two-thirds > .v-align:after {
-      min-height: 316.8px ""; } }
+      min-height: 316.8px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
     .min-height-two-thirds > .v-align:after {
-      min-height: 211.2px ""; } }
+      min-height: 211.2px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
     .min-height-two-thirds > .v-align:after {
-      min-height: 374.88px ""; } }
+      min-height: 374.88px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
     .min-height-two-thirds > .v-align:after {
-      min-height: 211.2px ""; } }
+      min-height: 211.2px; } }
 
 .min-height-half > .v-align:after {
   min-height: 50vh; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
     .min-height-half > .v-align:after {
-      min-height: 512px ""; } }
+      min-height: 512px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
     .min-height-half > .v-align:after {
-      min-height: 384px ""; } }
+      min-height: 384px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
     .min-height-half > .v-align:after {
-      min-height: 240px ""; } }
+      min-height: 240px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
     .min-height-half > .v-align:after {
-      min-height: 160px ""; } }
+      min-height: 160px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
     .min-height-half > .v-align:after {
-      min-height: 284px ""; } }
+      min-height: 284px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
     .min-height-half > .v-align:after {
-      min-height: 160px ""; } }
+      min-height: 160px; } }
 
 .min-height-third > .v-align:after {
   min-height: 33vh; }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
     .min-height-third > .v-align:after {
-      min-height: 337.92px ""; } }
+      min-height: 337.92px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {
     .min-height-third > .v-align:after {
-      min-height: 253.44px ""; } }
+      min-height: 253.44px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: portrait) {
     .min-height-third > .v-align:after {
-      min-height: 158.4px ""; } }
+      min-height: 158.4px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 480px) and (orientation: landscape) {
     .min-height-third > .v-align:after {
-      min-height: 105.6px ""; } }
+      min-height: 105.6px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: portrait) {
     .min-height-third > .v-align:after {
-      min-height: 187.44px ""; } }
+      min-height: 187.44px; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 1) and (device-width: 320px) and (device-height: 568px) and (orientation: landscape) {
     .min-height-third > .v-align:after {
-      min-height: 105.6px ""; } }
+      min-height: 105.6px; } }
 
 .full-height {
   height: 100%;
@@ -2143,7 +2143,7 @@ a {
       border-bottom: 1px solid transparent;
       letter-spacing: .075em;
       font-size: 1rem;
-      font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"); }
+      font-family: var(--headings-font-family, --base-font-family); }
       @media (min-width: 768px) {
         .main-navigation .menu li a {
           white-space: nowrap; } }

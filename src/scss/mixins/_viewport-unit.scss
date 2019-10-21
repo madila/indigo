@@ -1,4 +1,4 @@
-@mixin viewport-unit($property, $value, $important: '') {
+@mixin viewport-unit($property, $value, $important: null) {
   #{$property}: $value;
 
   $unit: unit($value);
