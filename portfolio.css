@@ -42,7 +42,7 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
   width: 100%;
   margin-top: -6rem; }
 
-.single-jetpack-portfolio .entry-content > .wp-block-cover:first-child {
+.single-jetpack-portfolio .entry-content > .wp-block-cover:first-child, .single-case-study .entry-content > .wp-block-cover:first-child {
   max-height: 50vh; }
 
 .single .entry-content > div[class^='wp-block'].alignfull {
@@ -52,6 +52,16 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
 .section-cover {
   overflow: hidden;
   position: relative; }
+  @media (min-width: 992px) {
+    .section-cover.section-cover-size-2 {
+      width: 50%;
+      display: block;
+      float: left; } }
+  @media (min-width: 1200px) {
+    .section-cover.section-cover-size-3 {
+      width: 33.333%;
+      display: block;
+      float: left; } }
   .section-cover.section-padded {
     margin: 10px;
     overflow: hidden;

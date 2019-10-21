@@ -49,3 +49,20 @@ function display_site_title_class($classes) {
 }
 
 add_filter('body_class', 'display_site_title_class');
+
+
+function archive_columns_class($classes) {
+	if(is_post_type_archive(array('jetpack-portfolio', 'case-study'))) {
+		$classes[] = 'section-cover-size-'.apply_filters('archive_cover_columns', '1');
+	}
+	return $classes;
+}
+
+add_filter('post_class', 'archive_columns_class');
+
+
+function archive_cover_columns() {
+	return '2';
+}
+
+add_filter('archive_cover_columns', 'archive_cover_columns');
