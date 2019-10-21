@@ -57,3 +57,14 @@ function indigo_infinite_scroll_render() {
 		endif;
 	}
 }
+
+function indigo_background_oembed ( $provider, $url, $args ) {
+
+	if(strpos( $url, 'background=1' )) {
+		$provider = add_query_arg('background', 1, $provider);
+	}
+
+	return $provider;
+}
+
+add_filter( 'oembed_fetch_url', 'indigo_background_oembed', 10, 3);
