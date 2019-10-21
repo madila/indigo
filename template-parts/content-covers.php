@@ -14,7 +14,7 @@
 	<div class="section-overlay">
 		<a class="section-content v-align text-center" href="<?php the_permalink(); ?>">
 			<div class="v-align-middle">
-				<?php the_title('<h2 class="display-4 text-light my-0">', '</h2>'); ?>
+				<?php the_title('<h2 class="display-4 my-0">', '</h2>'); ?>
 				<?php if(has_excerpt(get_the_ID())) { ?>
 					<hr/>
 					<div class="section-description">
