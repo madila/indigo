@@ -190,10 +190,8 @@ input[type="submit"] {
   font-size: 1.5rem; }
 
 .page-content {
-  font-size: 1.7rem;
-  padding: 2rem; }
-  .page-content p {
-    margin-bottom: 2rem; }
+  font-size: 1rem;
+  padding: 2em; }
 
 .entry-title {
   font-size: 4rem;
@@ -212,8 +210,6 @@ input[type="submit"] {
   font-size: 1.7rem;
   font-weight: var(--base-font-weight, 300);
   padding: 0 2rem; }
-  .entry-content p {
-    margin-bottom: 1rem; }
 
 .entry-summary {
   font-size: 1.2rem;

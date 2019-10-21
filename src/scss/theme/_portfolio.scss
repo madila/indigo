@@ -133,11 +133,8 @@ input[type="submit"] {
 		}
 	}
 	&-content {
-		font-size: 1.7rem;
-		padding: 2rem;
-		p {
-			margin-bottom: 2rem;
-		}
+		font-size: 1rem;
+		padding: 2em;
 	}
 }
 
@@ -160,9 +157,6 @@ input[type="submit"] {
 		font-size: 1.7rem;
 		font-weight: var(--base-font-weight, $font-weight-base);
 		padding: 0 2rem;
-		p {
-			margin-bottom: 1rem;
-		}
 	}
 	&-summary {
 		font-size: 1.2rem;

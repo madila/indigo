@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Ruben Madila for Ollie Ford & Co
 Author URI: http://underscores.me/
 Description: Custom theme: Indigo, developed by Ruben Madila for Ollie Ford & Co
-Version: 1.0.5.0
+Version: 1.0.5.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: indigo
@@ -2143,7 +2143,7 @@ a {
       border-bottom: 1px solid transparent;
       letter-spacing: .075em;
       font-size: 1rem;
-      font-family: var(--headings-font-family, --base-font-family); }
+      font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"); }
       @media (min-width: 768px) {
         .main-navigation .menu li a {
           white-space: nowrap; } }
@@ -2176,37 +2176,46 @@ a {
           text-align: center;
           letter-spacing: 0.1em; } }
 
-.entry-content > .wp-block-cover:first-child {
-  min-height: 100vh; }
-  .admin-bar .entry-content > .wp-block-cover:first-child {
-    min-height: calc(100vh - 46px); }
-  @media screen and (min-width: 783px) {
+.entry-content {
+  font-size: 1.7rem;
+  font-weight: var(--base-font-weight, 300);
+  padding: 0 2rem; }
+  .entry-content > .wp-block-cover:first-child {
+    min-height: 100vh; }
     .admin-bar .entry-content > .wp-block-cover:first-child {
-      min-height: calc(100vh - 32px); } }
+      min-height: calc(100vh - 46px); }
+    @media screen and (min-width: 783px) {
+      .admin-bar .entry-content > .wp-block-cover:first-child {
+        min-height: calc(100vh - 32px); } }
+  .entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
+    padding-top: 42.8571%; }
+  .entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+    padding-top: 56.25%; }
+  .entry-content > .wp-block-embed.is-type-video .jetpack-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0; }
+    .entry-content > .wp-block-embed.is-type-video .jetpack-video-wrapper iframe {
+      width: 100% !important;
+      max-width: 100%;
+      height: 100% !important; }
+  .entry-content > .wp-block-embed.is-type-video:first-child {
+    margin-top: -6rem;
+    width: 100vw !important;
+    margin-bottom: 0;
+    position: relative; }
+  .entry-content p {
+    margin-bottom: 1em; }
 
-.entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
-  padding-top: 42.8571%; }
-
-.entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
-  padding-top: 56.25%; }
-
-.entry-content > .wp-block-embed.is-type-video .jetpack-video-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-bottom: 0; }
-  .entry-content > .wp-block-embed.is-type-video .jetpack-video-wrapper iframe {
-    width: 100% !important;
-    max-width: 100%;
-    height: 100% !important; }
-
-.entry-content > .wp-block-embed.is-type-video:first-child {
-  margin-top: -6rem;
-  width: 100vw !important;
-  margin-bottom: 0;
-  position: relative; }
+.entry-summary {
+  font-size: 1.2rem;
+  font-weight: 100;
+  padding: .5rem 2rem; }
+  .entry-summary p {
+    margin-bottom: 1em; }
 
 .site-main {
   min-height: calc(88vh - 8rem);
