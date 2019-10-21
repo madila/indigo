@@ -63,6 +63,9 @@ function indigo_background_oembed ( $provider, $url, $args ) {
 	if(strpos( $url, 'background=1' )) {
 		$provider = add_query_arg('background', 1, $provider);
 	}
+	if(strpos($url, 'loop=0')) {
+		$provider = add_query_arg('loop', 0, $provider);
+	}
 
 	return $provider;
 }
