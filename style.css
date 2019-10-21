@@ -2181,22 +2181,28 @@ a {
     .admin-bar .entry-content > .wp-block-cover:first-child {
       min-height: calc(100vh - 32px); } }
 
-.entry-content > .wp-block-embed.is-type-video:first-child {
-  margin-top: -6rem;
-  width: 100vw !important; }
-  .entry-content > .wp-block-embed.is-type-video:first-child .wp-block-embed__wrapper {
-    padding-top: 56.6%; }
-  .entry-content > .wp-block-embed.is-type-video:first-child .jetpack-video-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-bottom: 0; }
-  .entry-content > .wp-block-embed.is-type-video:first-child iframe {
+.entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
+  padding-top: 42.8571%; }
+
+.entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+  padding-top: 56.25%; }
+
+.entry-content > .wp-block-embed.is-type-video .jetpack-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0; }
+  .entry-content > .wp-block-embed.is-type-video .jetpack-video-wrapper iframe {
     width: 100% !important;
     max-width: 100%;
     height: 100% !important; }
+
+.entry-content > .wp-block-embed.is-type-video:first-child {
+  margin-top: -6rem;
+  width: 100vw !important;
+  margin-bottom: 0; }
 
 .site-main {
   min-height: calc(88vh - 8rem);
