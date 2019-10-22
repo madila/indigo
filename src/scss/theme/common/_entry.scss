@@ -64,7 +64,9 @@
 				}
 			}
 			&:first-child {
-				margin-top: -6rem;
+				@include media-breakpoint-up(md) {
+					margin-top: -6rem;
+				}
 				width: 100vw !important;
 				margin-bottom: 0;
 				position: relative;
