@@ -6,6 +6,24 @@
 }
 
 .site {
+	.has-fixed-header & {
+		&:before {
+			content: "";
+			width: 100%;
+			height: 200px;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			z-index: 2;
+			opacity: 1;
+			transition: opacity 200ms linear;
+			background-image: linear-gradient(180deg, rgba(0,0,0,0.4), transparent);
+		}
+	}
+	.has-fixed-header.scrolling {
+		opacity: 0;
+	}
 	&-header {
 		.header-scroll-bg & {
 			background-color: transparent;
