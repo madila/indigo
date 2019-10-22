@@ -2270,12 +2270,13 @@ a {
       max-width: 100%;
       height: 100% !important; }
   .entry-content > .wp-block-embed.is-type-video:first-child {
+    margin-top: -8rem;
     width: 100vw !important;
     margin-bottom: 0;
     position: relative; }
     @media (min-width: 768px) {
       .entry-content > .wp-block-embed.is-type-video:first-child {
-        margin-top: -6rem; } }
+        margin-top: -7rem; } }
   .entry-content p {
     margin-bottom: 1em; }
 

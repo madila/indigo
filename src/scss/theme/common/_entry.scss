@@ -64,9 +64,7 @@
 				}
 			}
 			&:first-child {
-				@include media-breakpoint-up(md) {
-					margin-top: -6rem;
-				}
+				@include pushBelowHeader();
 				width: 100vw !important;
 				margin-bottom: 0;
 				position: relative;
