@@ -7,7 +7,6 @@
 		}
 		> .wp-block-cover {
 			&:first-child {
-				@include pushBelowHeader();
 				min-height: 100vh;
 				@include when-admin-bar {
 					min-height: calc(100vh - 46px);
