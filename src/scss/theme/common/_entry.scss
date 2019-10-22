@@ -24,7 +24,7 @@
 					height: calc(75vh - 32px);
 				}
 			}
-			&__gm-container {
+			& &__gm-container {
 				max-height: 100%;
 				.mapboxgl-ctrl-top-right {
 					position: absolute;
