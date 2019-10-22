@@ -25,11 +25,21 @@
     @media screen and (min-width: 783px) {
       .admin-bar .site-header {
         top: 32px !important; } }
+    @media (max-width: 991px) {
+      .site-header {
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important; } }
   .site-description {
     margin-left: .4em; }
   .site-branding {
     display: inline-flex;
     align-items: baseline; }
+    @media (max-width: 767px) {
+      .site-branding {
+        max-width: 20%;
+        min-width: 100px;
+        padding-left: 1rem;
+        padding-right: 1rem; } }
   .site-navigation {
     display: inline-flex; }
 
