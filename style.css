@@ -2232,7 +2232,7 @@ a {
       .admin-bar .entry-content > .wp-block-cover:first-child {
         min-height: calc(100vh - 32px); } }
     .entry-content > .wp-block-cover:first-child .wp-block-cover__inner-container {
-      padding: 10rem 1rem; }
+      padding: 10rem 0; }
   .entry-content > .wp-block-jetpack-map:first-child {
     margin-top: -10rem;
     min-height: 100%;
