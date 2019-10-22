@@ -3,13 +3,15 @@
 		> .wp-block-cover {
 			&:first-child {
 				@include pushBelowHeader();
-
 				min-height: 100vh;
 				@include when-admin-bar {
 					min-height: calc(100vh - 46px);
 				}
 				@include when-admin-bar-desktop {
 					min-height: calc(100vh - 32px);
+				}
+				.wp-block-cover__inner-container {
+					padding: 10rem 2rem;
 				}
 			}
 		}
