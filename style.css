@@ -2276,6 +2276,12 @@ a {
     width: 100vw !important;
     margin-bottom: 0;
     position: relative; }
+    @media (min-width: 768px) {
+      .entry-content > .wp-block-embed.is-type-video:first-child {
+        margin-top: -8rem; } }
+  @media (min-width: 768px) and (min-width: 768px) {
+    .entry-content > .wp-block-embed.is-type-video:first-child {
+      margin-top: -7rem; } }
   .entry-content p {
     margin-bottom: 1em; }
 
