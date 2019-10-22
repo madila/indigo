@@ -2,6 +2,8 @@
 	&-content {
 		> .wp-block-cover {
 			&:first-child {
+				@include pushBelowHeader();
+
 				min-height: 100vh;
 				@include when-admin-bar {
 					min-height: calc(100vh - 46px);
@@ -13,10 +15,10 @@
 		}
 		> .wp-block-jetpack-map {
 			&:first-child {
+				@include pushBelowHeader();
 				min-height: 100%;
 				height: 50vh;
 				pointer-events: none;
-				margin-top: -6rem;
 				opacity: 0.6;
 				@include when-admin-bar {
 					height: calc(75vh - 46px);

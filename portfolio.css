@@ -2,7 +2,10 @@
  * Typography
  */
 .site {
-  padding-top: 6rem; }
+  padding-top: 10rem; }
+  @media (min-width: 768px) {
+    .site {
+      padding-top: 6rem; } }
   .site-header {
     background-color: var(--header-bg-color);
     top: 0;
@@ -29,10 +32,6 @@
     align-items: baseline; }
   .site-navigation {
     display: inline-flex; }
-  .site .entry-content > .wp-block-cover:first-child {
-    margin-top: -6rem;
-    padding-top: 7rem;
-    padding-bottom: 7rem; }
 
 body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
   background-color: transparent;
@@ -40,7 +39,10 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
 
 #covers-archive {
   width: 100%;
-  margin-top: -6rem; }
+  margin-top: -10rem; }
+  @media (min-width: 768px) {
+    #covers-archive {
+      margin-top: -6rem; } }
 
 .single-jetpack-portfolio .entry-content > .wp-block-cover:first-child, .single-case-study .entry-content > .wp-block-cover:first-child {
   max-height: 50vh; }
@@ -139,7 +141,7 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
 
 .site-footer {
   color: var(--base-color, inherit);
-  padding: 2rem 0;
+  padding: 2rem;
   text-align: center; }
 
 .site-info {

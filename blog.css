@@ -43,7 +43,7 @@
   max-width: 100vw;
   width: auto;
   color: var(--base-color, inherit);
-  padding: 2rem 0;
+  padding: 2rem;
   text-align: center; }
 
 .site-info {

@@ -1,0 +1,6 @@
+@mixin pushBelowHeader() {
+	margin-top: -10rem;
+	@include media-breakpoint-up(md) {
+		margin-top: -6rem;
+	}
+}
