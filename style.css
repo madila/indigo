@@ -2051,6 +2051,10 @@ strong, b {
   max-width: var(--content-width, 960px);
   width: calc(100% - 4rem); }
 
+.wp-block-media-text__content {
+  padding-top: 3rem;
+  padding-bottom: 1rem; }
+
 .site {
   width: var(--content-width, 1200px);
   max-width: 100%;

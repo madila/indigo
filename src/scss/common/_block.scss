@@ -9,4 +9,10 @@
 			width: calc(100% - 4rem);
 		}
 	}
+	&-media-text {
+		&__content {
+			padding-top: 3rem;
+			padding-bottom: 1rem;
+		}
+	}
 }
