@@ -84,7 +84,11 @@ input[type="submit"] {
   color: var(--base-bg-color);
   display: block;
   width: auto;
-  margin: 0 auto; }
+  margin: 0 auto;
+  transition: all 300ms linear; }
+  input[type="submit"]:hover, input[type="submit"]:active {
+    background-color: var(--base-bg-color, #263744);
+    color: var(--base-color); }
 
 .menu-toggle {
   width: 2rem;
@@ -277,7 +281,11 @@ input[type="submit"] {
   color: var(--base-bg-color);
   display: block;
   width: auto;
-  margin: 0 auto; }
+  margin: 0 auto;
+  transition: all 300ms linear; }
+  .comment-submit:hover, .comment-submit:active {
+    background-color: var(--base-bg-color, #263744);
+    color: var(--base-color); }
 
 textarea {
   overflow: auto;
