@@ -2233,6 +2233,8 @@ a {
         min-height: calc(100vh - 32px); } }
     .entry-content > .wp-block-cover:first-child .wp-block-cover__inner-container {
       padding: 10rem 2rem; }
+    .entry-content > .wp-block-cover:first-child .has-huge-font-size {
+      font-weight: var(--headings-font-weight); }
   .entry-content > .wp-block-jetpack-map:first-child {
     margin-top: -10rem;
     min-height: 100%;
