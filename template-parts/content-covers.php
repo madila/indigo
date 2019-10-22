@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('section section-cover two-thirds-height'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('section section-cover half-height'); ?>>
 	<?php indigo_post_thumbnail(true); ?>
 	<div class="section-overlay">
 		<a class="section-content v-align text-<?php echo apply_filters('section_cover_horizontal_align', 'center'); ?>" href="<?php the_permalink(); ?>">

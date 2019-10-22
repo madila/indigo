@@ -1,5 +1,6 @@
 .section {
 	&-cover {
+		min-height: 400px;
 		overflow: hidden;
 		position: relative;
 		@include media-breakpoint-up(lg) {

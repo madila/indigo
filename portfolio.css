@@ -50,6 +50,7 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
   padding-right: 2rem; }
 
 .section-cover {
+  min-height: 400px;
   overflow: hidden;
   position: relative; }
   @media (min-width: 992px) {
