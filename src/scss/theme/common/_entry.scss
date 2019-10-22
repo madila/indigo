@@ -13,16 +13,11 @@
 		}
 		> .wp-block-jetpack-map {
 			&:first-child {
-				min-height: 500px;
-				height: 50vh;
+				min-height: 100%;
+				max-height: 50vh;
 				pointer-events: none;
 				margin-top: -6rem;
-				@include when-admin-bar {
-					height: calc(75vh - 46px);
-				}
-				@include when-admin-bar-desktop {
-					height: calc(75vh - 32px);
-				}
+				opacity: 0.6;
 			}
 			.wp-block-jetpack-map__gm-container {
 				max-height: 100%;

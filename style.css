@@ -2224,15 +2224,11 @@ a {
       .admin-bar .entry-content > .wp-block-cover:first-child {
         min-height: calc(100vh - 32px); } }
   .entry-content > .wp-block-jetpack-map:first-child {
-    min-height: 500px;
-    height: 50vh;
+    min-height: 100%;
+    max-height: 50vh;
     pointer-events: none;
-    margin-top: -6rem; }
-    .admin-bar .entry-content > .wp-block-jetpack-map:first-child {
-      height: calc(75vh - 46px); }
-    @media screen and (min-width: 783px) {
-      .admin-bar .entry-content > .wp-block-jetpack-map:first-child {
-        height: calc(75vh - 32px); } }
+    margin-top: -6rem;
+    opacity: 0.6; }
   .entry-content > .wp-block-jetpack-map .wp-block-jetpack-map__gm-container {
     max-height: 100%; }
     .entry-content > .wp-block-jetpack-map .wp-block-jetpack-map__gm-container .mapboxgl-ctrl-top-right {
