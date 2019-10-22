@@ -79,6 +79,7 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
       background-color: rgba(0, 0, 0, 0.1); }
   .section-cover .post-thumbnail {
     display: block;
+    display: flex;
     width: 100%;
     max-height: 100%;
     position: absolute;
@@ -86,6 +87,8 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
     left: 0;
     bottom: 0;
     right: 0; }
+    .section-cover .post-thumbnail img {
+      object-fit: cover; }
   .section-cover .section-content {
     position: relative;
     max-width: var(--content-width);
