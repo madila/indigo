@@ -2,10 +2,10 @@
  * Typography
  */
 .site {
-  padding-top: 7rem; }
+  padding-top: 8rem; }
   @media (min-width: 768px) {
     .site {
-      padding-top: 6rem; } }
+      padding-top: 7rem; } }
   .site-header {
     background-color: var(--header-bg-color);
     top: 0;
@@ -49,10 +49,10 @@ body #slb_viewer_wrap .slb_theme_slb_black .slb_container {
 
 #covers-archive {
   width: 100%;
-  margin-top: -7rem; }
+  margin-top: -8rem; }
   @media (min-width: 768px) {
     #covers-archive {
-      margin-top: -6rem; } }
+      margin-top: -7rem; } }
 
 .single-jetpack-portfolio .entry-content > .wp-block-cover:first-child, .single-case-study .entry-content > .wp-block-cover:first-child {
   max-height: 50vh; }
