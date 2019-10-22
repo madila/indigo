@@ -2223,6 +2223,15 @@ a {
     @media screen and (min-width: 783px) {
       .admin-bar .entry-content > .wp-block-cover:first-child {
         min-height: calc(100vh - 32px); } }
+  .entry-content > .wp-block-jetpack-map:first-child {
+    min-height: 500px;
+    height: 50vh;
+    pointer-events: none; }
+    .admin-bar .entry-content > .wp-block-jetpack-map:first-child {
+      height: calc(75vh - 46px); }
+    @media screen and (min-width: 783px) {
+      .admin-bar .entry-content > .wp-block-jetpack-map:first-child {
+        height: calc(75vh - 32px); } }
   .entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
     padding-top: 42.8571%; }
   .entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-16-9 .wp-block-embed__wrapper {

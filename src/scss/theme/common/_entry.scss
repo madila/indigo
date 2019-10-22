@@ -11,6 +11,19 @@
 				}
 			}
 		}
+		> .wp-block-jetpack-map {
+			&:first-child {
+				min-height: 500px;
+				height: 50vh;
+				pointer-events: none;
+				@include when-admin-bar {
+					height: calc(75vh - 46px);
+				}
+				@include when-admin-bar-desktop {
+					height: calc(75vh - 32px);
+				}
+			}
+		}
 		> .wp-block-embed.is-type-video {
 			&.wp-embed-aspect-21-9 {
 				.wp-block-embed__wrapper {
