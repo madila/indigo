@@ -81,7 +81,7 @@ input[type="submit"] {
   background-color: var(--base-color, #263744);
   font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   letter-spacing: var(--headings-letter-spacing, 0.015em);
-  color: #fff;
+  color: var(--base-bg-color);
   display: block;
   width: auto;
   margin: 0 auto; }
@@ -274,7 +274,7 @@ input[type="submit"] {
   background-color: var(--base-color, #263744);
   font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   letter-spacing: var(--headings-letter-spacing, 0.015em);
-  color: #fff;
+  color: var(--base-bg-color);
   display: block;
   width: auto;
   margin: 0 auto; }

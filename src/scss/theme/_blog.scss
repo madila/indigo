@@ -90,7 +90,7 @@
 	background-color: var(--base-color, $body-color);
 	font-family: var(--headings-font-family, $headings-font-family);
 	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
-	color: #fff;
+	color: var(--base-bg-color);
 	display: block;
 	width: auto;
 	margin: 0 auto;
