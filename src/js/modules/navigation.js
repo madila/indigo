@@ -1,3 +1,5 @@
+import debounce from "lodash/debounce";
+
 /**
  * File navigation.js.
  *
@@ -31,6 +33,18 @@
 		menu.className += ' nav-menu';
 	}
 
+	window.addEventListener('resize', debounce(function() {
+		if(window.innerWidth < 768) return;
+
+		let body = document.body;
+		if(-1!== body.className.indexOf('toggled')) {
+			body.className = body.className.replace(' menu-toggled', '');
+			button.setAttribute('aria-expanded', 'false');
+			menu.setAttribute('aria-expanded', 'false');
+		}
+
+	}, 100));
+
 	button.onclick = function() {
 		let body = document.body;
 		if ( -1 !== body.className.indexOf( 'toggled' ) ) {
@@ -45,7 +59,7 @@
 	};
 
 	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
+	links = menu.getElementsByTagName( 'a' );
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {
