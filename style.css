@@ -2220,6 +2220,9 @@ a {
   font-size: 1.7rem;
   font-weight: var(--base-font-weight, 300);
   padding: 0 2rem; }
+  @media (max-width: 991px) {
+    .entry-content .wp-block-cover, .entry-content .wp-block-cover-image {
+      min-height: unset; } }
   .entry-content > .wp-block-cover:first-child {
     margin-top: -8rem;
     min-height: 100vh; }

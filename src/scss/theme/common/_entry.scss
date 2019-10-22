@@ -1,5 +1,10 @@
 .entry {
 	&-content {
+		@include media-breakpoint-down(md) {
+			.wp-block-cover, .wp-block-cover-image {
+				min-height: unset;
+			}
+		}
 		> .wp-block-cover {
 			&:first-child {
 				@include pushBelowHeader();
