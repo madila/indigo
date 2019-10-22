@@ -248,9 +248,12 @@ input[type="submit"] {
   position: absolute;
   right: 0;
   bottom: 2rem;
+  transition: opacity 0.3s linear;
   z-index: 100; }
   .entry-footer .edit-link span {
     margin: 0; }
+  .scrolling .entry-footer .edit-link, .scrolled .entry-footer .edit-link {
+    opacity: 0; }
 
 .comments-area {
   padding-left: 2rem;

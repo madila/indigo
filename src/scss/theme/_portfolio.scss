@@ -182,8 +182,12 @@ input[type="submit"] {
 			position: absolute;
 			right: 0;
 			bottom: 2rem;
+			transition: opacity 0.3s linear;
 			z-index: 100;
 			span {margin:0;}
+			.scrolling &, .scrolled & {
+				opacity: 0;
+			}
 		}
 	}
 }
