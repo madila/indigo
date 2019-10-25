@@ -4428,7 +4428,9 @@ function () {
   return pageOnScroll;
 }();
 
-new pageOnScroll();
+window.addEventListener('load', function () {
+  new pageOnScroll();
+});
 
 /***/ }),
 
