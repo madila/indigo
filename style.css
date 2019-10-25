@@ -2262,6 +2262,8 @@ blockquote p {
       bottom: 2rem;
       top: auto;
       right: 2rem; }
+  .entry-content > .wp-block-embed.is-type-video .wp-block-embed__wrapper {
+    position: relative; }
   .entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-21-9 .wp-block-embed__wrapper {
     padding-top: 42.8571%; }
   .entry-content > .wp-block-embed.is-type-video.wp-embed-aspect-16-9 .wp-block-embed__wrapper {

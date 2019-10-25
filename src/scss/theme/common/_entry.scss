@@ -45,6 +45,9 @@
 			}
 		}
 		> .wp-block-embed.is-type-video {
+			.wp-block-embed__wrapper {
+				position: relative;
+			}
 			&.wp-embed-aspect-21-9 {
 				.wp-block-embed__wrapper {
 					padding-top: 42.8571%;

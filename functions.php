@@ -111,7 +111,7 @@ add_action( 'after_setup_theme', 'indigo_setup' );
 
 
 function get_indigo_version() {
-	return wp_get_theme('indigo')->get('version');
+	return wp_get_theme('indigo')->get('Version');
 }
 
 /**
