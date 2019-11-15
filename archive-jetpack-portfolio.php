@@ -38,13 +38,15 @@ get_header();
 
 				</div>
 				<?php
-				the_posts_navigation();
 
 			else :
 
 				get_template_part( 'template-parts/content', 'none' );
 
 			endif;
+
+			the_posts_navigation();
+
 			?>
 
 		</main><!-- #main -->
