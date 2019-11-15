@@ -50,7 +50,9 @@ add_action( 'after_setup_theme', 'indigo_jetpack_setup' );
 function indigo_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
-		if ( is_search() ) :
+		if ( is_post_type_archive(['case-study', 'jetpack-portfolio'])) :
+			get_template_part( 'template-parts/content', 'covers' );
+		elseif ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
 			get_template_part( 'template-parts/content', get_post_type() );
