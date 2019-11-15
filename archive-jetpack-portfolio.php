@@ -21,7 +21,7 @@ get_header();
 					the_archive_description( '<div class="archive-description">', '</div>' );
 					?>
 				</header><!-- .page-header -->
-				<div id="covers-archive" class="archive-content">
+				<div id="archive-content">
 				<?php
 				/* Start the Loop */
 				while ( have_posts() ) :

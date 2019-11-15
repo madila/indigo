@@ -1,4 +1,6 @@
-#covers-archive {
-	width: 100%;
-	@include pushBelowHeader();
+#archive-content {
+	.post-type-archive-case-study &, .post-type-archive-jetpack-portfolio & {
+		width: 100%;
+		@include pushBelowHeader();
+	}
 }
