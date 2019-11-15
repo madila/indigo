@@ -17,7 +17,7 @@
 function indigo_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
+		'container' => '.archive-content',
 		'render'    => 'indigo_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
