@@ -19,7 +19,7 @@ function indigo_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => '.archive-content',
 		'render'    => 'indigo_infinite_scroll_render',
-		'footer'    => 'page',
+		'footer'    => false,
 	) );
 
 	// Add theme support for Responsive Videos.
