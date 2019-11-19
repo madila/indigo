@@ -88,8 +88,8 @@ class pageOnScroll {
 	constructor() {
 		let docEle = document.documentElement;
 		let {headerScrollBg, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
-		this.navBar = document.querySelector('.site-header');
-		this.footer = document.querySelector('.site-footer');
+		this.navBar = document.querySelector('[data-header-bg]');
+		this.footer = document.querySelector('[data-header-footer]');
 
 		this.setHeaderBgColor();
 		this.headerTextColor = getCSSVar('--header-text-color');
