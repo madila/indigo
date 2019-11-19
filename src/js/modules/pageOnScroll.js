@@ -33,7 +33,7 @@ class pageOnScroll {
 
 
 	headerScrollBg = () => {
-		const {navBar, headerBgColor, rgb2rgba} = this;
+		const {headerBgElements, headerBgColor, rgb2rgba} = this;
 
 		let docEle = document.documentElement,
 			scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
@@ -42,13 +42,13 @@ class pageOnScroll {
 
 		if (scrolled > 10 && scrolled < _threshold) {
 			let fadeIn = scrolled / _threshold;
-			navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
+			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
 			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		} else if (scrolled > _threshold) {
-			navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
+			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
 			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		} else {
-			navBar.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
+			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
 			docEle.style.setProperty('--header-text-color', this.baseTextColor);
 		}
 	};
@@ -88,8 +88,11 @@ class pageOnScroll {
 	constructor() {
 		let docEle = document.documentElement;
 		let {headerScrollBg, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
-		this.navBar = document.querySelector('[data-header-bg]');
-		this.footer = document.querySelector('[data-header-footer]');
+		this.navBar = document.querySelector('.site-header');
+		this.footer = document.querySelector('.site-footer');
+
+		this.headerBgElements = document.querySelector('[data-header-bg]');
+		this.footerBgElements = document.querySelector('[data-header-footer]');
 
 		this.setHeaderBgColor();
 		this.headerTextColor = getCSSVar('--header-text-color');
@@ -98,8 +101,8 @@ class pageOnScroll {
 		this.isHome = document.body.classList.contains('home');
 		this.isHeaderScrollBg = document.body.classList.contains('header-scroll-bg');
 
-		this.isNavBarFixed = (getPosition(document.querySelector('.site-header')) === "fixed");
-		this.isFooterFixed = (getPosition(document.querySelector('.site-footer')) === "fixed");
+		this.isNavBarFixed = (getPosition(this.navBar) === "fixed");
+		this.isFooterFixed = (getPosition(this.footer) === "fixed");
 
 		if(this.isNavBarFixed) {
 			docEle.classList.add('has-fixed-header');
