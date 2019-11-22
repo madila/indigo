@@ -6,6 +6,12 @@
 }
 
 .site {
+	.has-header-contained & {
+		.site-header-container {
+			max-width: var(--content-width, 100%);
+			margin: 0 auto;
+		}
+	}
 	.has-fixed-header & {
 		&:before {
 			content: "";

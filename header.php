@@ -24,6 +24,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'indigo' ); ?></a>
 
 	<header id="masthead" class="site-header">
+		<div class="site-header-container">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -60,6 +61,7 @@
 			?>
 		</nav><!-- #site-navigation -->
 		<?php endif; ?>
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

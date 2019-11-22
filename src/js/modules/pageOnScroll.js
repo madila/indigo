@@ -98,6 +98,7 @@ class pageOnScroll {
 		this.headerTextColor = getCSSVar('--header-text-color');
 		this.baseTextColor = getCSSVar('--base-color');
 
+		this.isContainedHeader = document.body.classList.contains('has-header-contained');
 		this.isHome = document.body.classList.contains('home');
 		this.isHeaderScrollBg = document.body.classList.contains('header-scroll-bg');
 
