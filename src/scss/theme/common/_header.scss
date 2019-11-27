@@ -32,6 +32,7 @@
 		opacity: 0;
 	}
 	&-header {
+		z-index: 300;
 		background-color: var(--header-bg-color, transparent);
 		display: flex;
 		width: 100%;
