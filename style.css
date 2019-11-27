@@ -2066,8 +2066,8 @@ strong, b {
   margin: 0; }
 
 .has-header-contained .site .site-header-container {
-  max-width: var(--content-width, 100%);
-  margin: 0 auto; }
+  width: var(--content-width, 100%);
+  max-width: 100%; }
 
 .has-fixed-header .site:before {
   content: "";

@@ -8,8 +8,8 @@
 .site {
 	.has-header-contained & {
 		.site-header-container {
-			max-width: var(--content-width, 100%);
-			margin: 0 auto;
+			width: var(--content-width, 100%);
+			max-width: 100%;
 		}
 	}
 	.has-fixed-header & {

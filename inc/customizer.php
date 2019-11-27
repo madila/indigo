@@ -278,6 +278,32 @@ function indigo_customize_register( $wp_customize ) {
 	);
 
 	/**
+	 * Font Size
+	 */
+	$wp_customize->add_setting(
+		'base_font_size',
+		array(
+			'default'           => '15px',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_px_units',
+		)
+	);
+
+	$wp_customize->add_control( 'base_font_size', array(
+		'type' => 'range',
+		'section' => 'ui',
+		'label' => __( 'Base Font Size' ),
+		'description' => __( 'Define the default font size of the page.' ),
+		'input_attrs' => array(
+			'min' => 12,
+			'max' => 25,
+			'step' => 1,
+			'value' => get_theme_mod('base_font_size')
+		),
+	) );
+
+
+	/**
 	 * Border Radius
 	 */
 	$wp_customize->add_setting(
@@ -337,7 +363,7 @@ function indigo_customize_register( $wp_customize ) {
 		'label'      => __( 'Contain the header content?', 'indigo' ),
 		'section'    => 'title_tagline',
 		'type'       => 'checkbox',
-		'std'        => '1'
+		'std'        => get_theme_mod('indigo_contain_header')
 	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
