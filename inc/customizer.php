@@ -266,24 +266,12 @@ function indigo_customize_register( $wp_customize ) {
 	) );
 
 	/**
-	 * Border Radius
-	 */
-	$wp_customize->add_setting(
-		'base_border_radius',
-		array(
-			'default'           => '0',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_em_units',
-		)
-	);
-
-	/**
 	 * Font Size
 	 */
 	$wp_customize->add_setting(
 		'base_font_size',
 		array(
-			'default'           => '15px',
+			'default'           => 15,
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'indigo_sanitize_px_units',
 		)

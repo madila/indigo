@@ -60,7 +60,7 @@
 	wp.customize( 'base_font_size', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
-				.setProperty('--base-font-size', to);
+				.setProperty('--base-font-size', to+'px');
 		} );
 	} );
 
