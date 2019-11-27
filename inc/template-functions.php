@@ -22,7 +22,7 @@ function indigo_body_classes( $classes ) {
 	}
 
 	if(intval(get_theme_mod('indigo_contain_header'))) {
-		$classes[] = 'header-contained';
+		$classes[] = 'has-header-contained';
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.

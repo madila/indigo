@@ -328,7 +328,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_contain_header', array(
-		'default'    => '1',
+		'default'    => '0',
 		'capability' => 'edit_theme_options'
 	) );
 
