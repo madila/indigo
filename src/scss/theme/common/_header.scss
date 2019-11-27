@@ -10,6 +10,7 @@
 		.site-header-container {
 			width: var(--content-width, 100%);
 			max-width: 100%;
+			margin: 0 auto;
 		}
 	}
 	.has-fixed-header & {
