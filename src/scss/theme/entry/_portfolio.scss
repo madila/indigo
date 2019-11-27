@@ -1,0 +1,53 @@
+.entry {
+	&-content {
+		> .wp-block-cover {
+			&:first-child {
+
+				@include pushBelowHeader();
+				min-height: 100vh;
+				@include when-admin-bar {
+					min-height: calc(100vh - 46px);
+				}
+				@include when-admin-bar-desktop {
+					min-height: calc(100vh - 32px);
+				}
+
+				.wp-block-cover__inner-container {
+					padding: 10rem 0;
+				}
+
+			}
+		}
+
+		> .wp-block-jetpack-map {
+			&:first-child {
+
+				min-height: 100%;
+				height: 50vh;
+				pointer-events: none;
+				opacity: 0.6;
+				@include pushBelowHeader();
+				@include when-admin-bar {
+					height: calc(75vh - 46px);
+				}
+				@include when-admin-bar-desktop {
+					height: calc(75vh - 32px);
+				}
+			}
+
+		}
+
+		> .wp-block-embed.is-type-video {
+			&:first-child {
+				@include media-breakpoint-up(md) {
+
+					@include pushBelowHeader();
+
+				}
+				width: 100vw !important;
+				margin-bottom: 0;
+				position: relative;
+			}
+		}
+	}
+}
