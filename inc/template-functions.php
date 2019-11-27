@@ -21,6 +21,10 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'header-scroll-bg';
 	}
 
+	if(get_theme_mod('indigo_theme_style')) {
+		$classes[] = 'indigo-'get_theme_mod('indigo_theme_style');
+	}
+
 	if(intval(get_theme_mod('indigo_contain_header'))) {
 		$classes[] = 'has-header-contained';
 	}
