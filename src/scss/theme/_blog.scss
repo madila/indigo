@@ -268,7 +268,8 @@ textarea {
 		padding: 2rem 0;
 		.wp-block-cover__inner-container {
 			max-width: 100%;
-			padding: 0 2rem;
+			padding-left: 1rem;
+			padding-right: 1rem;
 			width: var(--content-width, $container-default-width);
 		}
 		h2, h3, h4, h5, h6, p{

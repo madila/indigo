@@ -39,7 +39,7 @@
 		display: inline-flex;
 		align-items: baseline;
 		@include media-breakpoint-down(sm) {
-			max-width: 20%;
+			max-width: 200px;
 			min-width: 100px;
 			padding-left: 1rem;
 			padding-right: 1rem;

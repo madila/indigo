@@ -7,7 +7,10 @@
 		& &__inner-container {
 			max-width: var(--content-width, $container-default-width);
 			width: calc(100% - 4rem);
-			padding: 3rem 2rem;
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+			padding-left: 1rem;
+			padding-right: 1rem;
 		}
 	}
 	&-media-text {
