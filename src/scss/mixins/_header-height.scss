@@ -1,6 +1,8 @@
 @mixin pushBelowHeader() {
-	margin-top: -$header-height;
-	@include media-breakpoint-up(md) {
-		margin-top: -$header-height-md;
+	.margin-below-header & {
+		margin-top: -$header-height;
+		@include media-breakpoint-up(md) {
+			margin-top: -$header-height-md;
+		}
 	}
 }

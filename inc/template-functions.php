@@ -25,6 +25,10 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'indigo-'.get_theme_mod('indigo_theme_style');
 	}
 
+	if(get_theme_mod('indigo_overlay_header')) {
+		$classes[] = 'margin-below-header';
+	}
+
 	if(intval(get_theme_mod('indigo_contain_header'))) {
 		$classes[] = 'has-header-contained';
 	}

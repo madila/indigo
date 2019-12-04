@@ -354,6 +354,20 @@ function indigo_customize_register( $wp_customize ) {
 		'std'        => get_theme_mod('indigo_contain_header')
 	) );
 
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_overlay_header', array(
+		'default'    => '0',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_overlay_header', array(
+		'label'      => __( 'Push content to the top of the page? (Below the header)', 'indigo' ),
+		'section'    => 'title_tagline',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_overlay_header')
+	) );
+
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',
