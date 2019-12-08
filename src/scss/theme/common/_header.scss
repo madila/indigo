@@ -6,19 +6,20 @@
 }
 
 .site {
-	.has-header-contained & {
-		.site-header-container {
+	.site-header-container {
+		width: 100%;
+		.has-header-contained & {
 			width: var(--content-width, 100%);
 			max-width: 100%;
-			margin: 0 auto;
-			display: flex;
-			justify-content: space-between;
-			@include media-breakpoint-down(sm) {
-				flex-wrap: wrap;
-				.main-navigation {
-					flex-grow: 1;
-					width: 100%;
-				}
+		}
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		@include media-breakpoint-down(sm) {
+			flex-wrap: wrap;
+			.main-navigation {
+				flex-grow: 1;
+				width: 100%;
 			}
 		}
 	}
