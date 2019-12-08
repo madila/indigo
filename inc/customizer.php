@@ -5,6 +5,15 @@
  * @package Indigo
  */
 
+
+function indigo_get_theme_style() {
+	return (get_theme_mod('indigo_theme_style')) ? get_theme_mod('indigo_theme_style') : 'blog';
+}
+
+function indigo_style_is_default() {
+	return (indigo_get_theme_style() === 'blog');
+}
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -356,7 +365,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_overlay_header', array(
-		'default'    => '0',
+		'default'    => indigo_style_is_default() ? '0' : '1',
 		'capability' => 'edit_theme_options'
 	) );
 
