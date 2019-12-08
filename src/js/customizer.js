@@ -78,6 +78,15 @@
 		} );
 	} );
 
+
+	// Header text color.
+	wp.customize( 'header_bg_color', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-bg-color', to);
+		} );
+	} );
+
 	// Header text color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
