@@ -1,3 +1,4 @@
+@import "header/centered";
 
 .site {
 	&-main {
@@ -5,13 +6,8 @@
 	}
 	&-header {
 		@include alignfull();
-		display: flex;
-		justify-content: space-between;
 		color: var(--header-text-color, inherit);
 		background-color: var(--header-bg-color, --base-bg-color);
-		text-align: center;
-		flex-direction: column;
-		position: relative;
 	}
 	&-branding {
 		font-family: var(--headings-font-family, $headings-font-family);
