@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Ruben Madila for Ollie Ford & Co
 Author URI: http://underscores.me/
 Description: Custom theme: Indigo, developed by Ruben Madila for Ollie Ford & Co
-Version: 1.0.7.4
+Version: 1.0.7.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: indigo
@@ -427,6 +427,12 @@ th {
 
 .menu-item.menu-item-has-children:hover .sub-menu, .menu-item.menu-item-has-children:focus-within .sub-menu {
   overflow: visible; }
+  .menu-item.menu-item-has-children:hover .sub-menu li, .menu-item.menu-item-has-children:focus-within .sub-menu li {
+    background-color: var(--header-bg-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 40; }
+    .menu-item.menu-item-has-children:hover .sub-menu li a, .menu-item.menu-item-has-children:focus-within .sub-menu li a {
+      display: block; }
 
 .menu-item .sub-menu {
   list-style: none;
@@ -435,7 +441,10 @@ th {
     .menu-item .sub-menu {
       max-height: 0;
       overflow: hidden;
-      position: absolute; } }
+      position: absolute; }
+      .menu-item .sub-menu li {
+        position: relative;
+        z-index: 10; } }
 
 /*
  * Typography

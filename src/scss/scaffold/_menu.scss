@@ -3,6 +3,14 @@
 		&:hover, &:focus-within {
 			.sub-menu {
 				overflow: visible;
+				li {
+					background-color: var(--header-bg-color);
+					box-shadow: 0 0 10px rgba(0,0,0,0.1);
+					z-index: 40;
+					a {
+						display: block;
+					}
+				}
 			}
 		}
 	}
@@ -13,6 +21,10 @@
 			max-height: 0;
 			overflow: hidden;
 			position: absolute;
+			li {
+				position: relative;
+				z-index: 10;
+			}
 		}
 	}
 }
