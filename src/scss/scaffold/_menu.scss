@@ -1,0 +1,18 @@
+.menu-item {
+	&.menu-item-has-children {
+		&:hover, &:focus-within {
+			.sub-menu {
+				overflow: visible;
+			}
+		}
+	}
+	.sub-menu {
+		list-style: none;
+		padding-left: 0;
+		@include media-breakpoint-up(md) {
+			max-height: 0;
+			overflow: hidden;
+			position: absolute;
+		}
+	}
+}

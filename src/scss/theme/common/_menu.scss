@@ -88,9 +88,6 @@
 					font-size: 1rem;
 					font-family: var(--headings-font-family, $headings-font-family);
 					&:hover {
-						@include media-breakpoint-up(md) {
-							letter-spacing: .2em;
-						}
 						border-bottom: 1px solid var(--header-text-color, --base-color);
 					}
 				}
@@ -119,7 +116,6 @@
 						font-weight: 100;
 						padding: 1em 0;
 						text-align: center;
-						letter-spacing: 0.1em;
 					}
 				}
 			}
