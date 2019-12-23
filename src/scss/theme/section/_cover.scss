@@ -54,8 +54,7 @@
 			text-decoration: none;
 			hr {
 				border-color: transparent;
-				margin-top: 1rem;
-				margin-bottom: 1rem;
+				margin: 0;
 				margin-left: 0;
 				width: 0;
 				transition: all 400ms ease-in 100ms;
@@ -97,6 +96,10 @@
 				opacity: 1;
 				transform: none;
 				margin-top: 0 !important;
+				hr {
+					margin-top: 1rem;
+					margin-bottom: 1rem;
+				}
 			}
 
 		}
