@@ -73,4 +73,4 @@ function indigo_background_oembed ( $provider, $url, $args ) {
 	return $provider;
 }
 
-add_filter( 'oembed_fetch_url', 'indigo_background_oembed', 10, 3);
+//add_filter( 'oembed_fetch_url', 'indigo_background_oembed', 10, 3);

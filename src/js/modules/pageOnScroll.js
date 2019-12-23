@@ -42,13 +42,19 @@ class pageOnScroll {
 
 		if (scrolled > 10 && scrolled < _threshold) {
 			let fadeIn = scrolled / _threshold;
-			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
+			if(headerBgElements) {
+				headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
+			}
 			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		} else if (scrolled > _threshold) {
-			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
+			if(headerBgElements) {
+				headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
+			}
 			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		} else {
-			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
+			if(headerBgElements) {
+				headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
+			}
 			docEle.style.setProperty('--header-text-color', this.baseTextColor);
 		}
 	};

@@ -231,6 +231,12 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Oembed functions.
+ */
+require get_template_directory() . '/inc/oembed.php';
+
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
