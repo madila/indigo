@@ -90,7 +90,7 @@
 }
 
 @mixin background-class($colour-hex) {
-  background-color: $colour-hex;
+  background-color: $colour-hex !important;
   color: check-color($colour-hex);
   &, & a {
     color: check-color($colour-hex);
