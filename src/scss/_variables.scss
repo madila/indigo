@@ -77,7 +77,7 @@ $colours: (
 
 $gradients: (
 	default: (map-get($colours, primary), map-get($colours, secondary)),
-	default-darl: (map-get($colours, primary-dark), map-get($colours, secondary-dark)),
+	default-dark: (map-get($colours, primary-dark), map-get($colours, secondary-dark)),
 	primary: (map-get($colours, primary), map-get($colours, primary-dark)),
 	secondary: (map-get($colours, secondary), map-get($colours, secondary-dark)),
 ) !default;
