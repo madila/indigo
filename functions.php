@@ -72,6 +72,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			))
 		);
 
+
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *

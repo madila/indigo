@@ -1,0 +1,4 @@
+@each $colour in map-keys($colours) {
+	$value: map-get($colours, $colour);
+	@include colour-classes($colour, $value);
+}
