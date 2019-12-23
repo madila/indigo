@@ -40,25 +40,35 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		add_theme_support( 'editor-color-palette',
 			apply_filters('indigo_color_palette', array(
 				array(
-					'name' => __( 'solid teal', 'indigo' ),
-					'slug' => 'solid-red',
-					'color' => '#cf2e2e',
+					'name' => __( 'black', 'indigo' ),
+					'slug' => 'black',
+					'color' => '#000000',
 				),
 				array(
-					'name' => __( 'vivid cyan blue', 'indigo' ),
-					'slug' => 'pale-cyan-blue',
-					'color' => '#0693e3',
+					'name' => __( 'dark grey', 'indigo' ),
+					'slug' => 'dark-grey',
+					'color' => '#333333',
 				),
 				array(
-					'name' => __( 'very light gray', 'indigo' ),
-					'slug' => 'very-light-gray',
-					'color' => '#eee',
+					'name' => __( 'grey', 'indigo' ),
+					'slug' => 'grey',
+					'color' => '#535353',
 				),
 				array(
-					'name' => __( 'very dark gray', 'indigo' ),
-					'slug' => 'very-dark-gray',
-					'color' => '#444',
-				)
+					'name' => __( 'light grey', 'indigo' ),
+					'slug' => 'light-grey',
+					'color' => '#999999',
+				),
+				array(
+					'name' => __( 'off white', 'indigo' ),
+					'slug' => 'off-white',
+					'color' => '#f6f7f9',
+				),
+				array(
+					'name' => __( 'white', 'indigo' ),
+					'slug' => 'white',
+					'color' => '#ffffff',
+				),
 			))
 		);
 

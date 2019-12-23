@@ -1,5 +1,8 @@
 .entry {
 	&-content {
+		.wp-block-cover, .wp-block-cover-image {
+			background-color: var(--base-bg-color, #ffffff);
+		}
 		@include media-breakpoint-down(md) {
 			.wp-block-cover, .wp-block-cover-image {
 				min-height: unset;
