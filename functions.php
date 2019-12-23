@@ -37,28 +37,30 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 
 		add_theme_support( 'align-wide' );
 
-		add_theme_support( 'editor-color-palette', array(
-			array(
-				'name' => __( 'vivid red', 'indigo' ),
-				'slug' => 'vivid-red',
-				'color' => '#cf2e2e',
-			),
-			array(
-				'name' => __( 'vivid cyan blue', 'indigo' ),
-				'slug' => 'pale-cyan-blue',
-				'color' => '#0693e3',
-			),
-			array(
-				'name' => __( 'very light gray', 'indigo' ),
-				'slug' => 'very-light-gray',
-				'color' => '#eee',
-			),
-			array(
-				'name' => __( 'very dark gray', 'indigo' ),
-				'slug' => 'very-dark-gray',
-				'color' => '#444',
-			),
-		) );
+		add_theme_support( 'editor-color-palette',
+			apply_filters('indigo_color_palette', array(
+				array(
+					'name' => __( 'solid teal', 'indigo' ),
+					'slug' => 'solid-red',
+					'color' => '#cf2e2e',
+				),
+				array(
+					'name' => __( 'vivid cyan blue', 'indigo' ),
+					'slug' => 'pale-cyan-blue',
+					'color' => '#0693e3',
+				),
+				array(
+					'name' => __( 'very light gray', 'indigo' ),
+					'slug' => 'very-light-gray',
+					'color' => '#eee',
+				),
+				array(
+					'name' => __( 'very dark gray', 'indigo' ),
+					'slug' => 'very-dark-gray',
+					'color' => '#444',
+				)
+			))
+		);
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -105,6 +107,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'indigo_setup' );

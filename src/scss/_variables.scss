@@ -67,20 +67,20 @@ $colours: (
 	grey-light: #999999,
 	off-white: #f6f7f9,
 	white: #ffffff,
-	red: #e32759,
-	yellow: #f9d74c,
-	teal: #2bb6cc,
-	green: #88c611,
-	purple: #8429b5,
-	primary: #263744,
-	primary-dark: darken(#263744, 15%),
-	secondary: #f9d74c,
+	solid-pink: #e85296,
+	solid-yellow: #f9d74c,
+	solid-teal: #67c0c1,
+	solid-purple: #8164a6,
+	primary: #67c0c1,
+	primary-dark: darken(#67c0c1, 15%),
+	secondary: #8164a6,
 	facebook: #3b5997,
 	twitter: #0084b4
 ) !default;
 
 $gradients: (
-	primary: (map-get($colours, primary), map-get($colours, secondary)),
+	primary: (map-get($colours, primary), map-get($colours, primary-dark)),
+	secondary: (map-get($colours, primary), map-get($colours, secondary)),
 ) !default;
 
 $danger: map-get($colours, red) !default;

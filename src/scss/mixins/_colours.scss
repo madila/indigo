@@ -7,10 +7,10 @@
 }
 
 @mixin colour-classes($colour-name, $colour-hex) {
-  .bg-#{$colour-name} {
+  .has-#{$colour-name}-background-color {
     @include background-class($colour-hex);
   }
-  .text-#{$colour-name} {
+  .has-#{$colour-name}-color {
     @include text-class($colour-hex);
   }
   .btn {
