@@ -37,7 +37,9 @@
 	&-footer {
 		color: var(--base-color, inherit);
 		padding: 2rem;
-		text-align: center;
+		.copyright-notice {
+			text-align: center;
+		}
 	}
 	&-info {
 		padding: 0 2rem;
