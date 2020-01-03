@@ -22,5 +22,8 @@ $css-vars-use-native: true;
 			font-size: var(--base-font-size, $root-font-size);
 			font-weight: var(--base-font-weight, $font-weight-base);
 		}
+
+		@import "block-editor/common";
+
 	}
 }

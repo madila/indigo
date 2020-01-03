@@ -24,9 +24,12 @@
 			padding-bottom: 1rem;
 		}
 	}
-}
 
-.ghostkit-carousel {
-	padding-left: 1rem;
-	padding-right: 1rem;
+	&-cover__inner-container {
+		> .wp-block-group {
+			@include media-breakpoint-up(md) {
+				max-width: 50%;
+			}
+		}
+	}
 }
