@@ -35,7 +35,7 @@
 			</small><!-- .site-info -->
 		</p>
 	<?php } ?>
-	<small class="site-theme-info">
+	<small class="site-theme-info has-text-align-center d-block">
 		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'indigo' ) ); ?>">
 			<?php
 			/* translators: %s: CMS name, i.e. WordPress. */
