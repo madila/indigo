@@ -15,11 +15,11 @@ $css-vars-use-native: true;
 		box-sizing: border-box;
 		font-family: var(--base-font-family, $base-font-family);
 		font-size: var(--base-font-size, $root-font-size);
-		line-height: 1.1;
+		line-height: var(--base-line-height, $line-height-base);
 		letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 		@import "scaffold/typography";
 		p {
-			font-size: 1.7rem;
+			font-size: var(--base-font-size, $root-font-size);
 			font-weight: var(--base-font-weight, $font-weight-base);
 		}
 	}

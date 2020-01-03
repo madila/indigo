@@ -166,12 +166,12 @@ $default-font-stack: 	// Safari for OS X and iOS (San Francisco)
 		// Emoji fonts
 	"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $base-font-family: $default-font-stack !default;
-$base-letter-spacing: 0.0175em !default;
-$root-font-size: 14px !default;
+$base-letter-spacing: 0em !default;
+$root-font-size: 16px !default;
 $font-size-base: 1rem !default;
 $font-weight-base: 300 !default;
 $font-color: $body-color !default;
-$line-height-base: 1.5 !default;
+$line-height-base: 1.15 !default;
 
 $font-weights: (
 	'ultra-light': 100,
@@ -185,9 +185,9 @@ $font-weights: (
 	'ultra': 900
 ) !default;
 
-$font-size-h1: 2.5rem !default;
-$font-size-h2: 2rem !default;
-$font-size-h3: 1.75rem !default;
+$font-size-h1: 3rem !default;
+$font-size-h2: 2.5rem !default;
+$font-size-h3: 2rem !default;
 $font-size-h4: 1.5rem !default;
 $font-size-h5: 1.25rem !default;
 $font-size-h6: 1rem !default;
@@ -196,33 +196,25 @@ $headings-margin-top: .75em !default;
 $headings-margin-bottom: .75em !default;
 $headings-font-family:   $default-font-stack !default;
 $headings-font-weight:   600 !default;
-$headings-line-height:   1.1 !default;
+$headings-line-height:   1.2 !default;
 $headings-color:         inherit !default;
-$headings-letter-spacing: 0.015em !default;
+$headings-letter-spacing: 0em !default;
 
-$display-sizes: (
-	1: 6rem,
-	2: 5.5rem,
-	3: 4.5rem,
-	4: 3.5rem
+$paragraph-sizes: (
+	huge: 2rem,
+	large: 1.65rem,
+	medium: 1.35rem,
+	normal: 1rem,
+	small: .85rem
 ) !default;
 
-$responsive-displays: (
-	xs: 0.5,
-	sm: 0.66,
-	md: 0.83,
-	lg: 0.95,
-	xl: 1
+$responsive-paragraph: (
+	xs: 1,
+	sm: 1.02,
+	md: 1.05,
+	lg: 1.08,
+	xl: 1.1
 ) !default;
-
-$display-weights: (
-	1: 600,
-	2: 600,
-	3: 600,
-	4: 600
-) !default;
-
-$display-line-height: $headings-line-height !default;
 
 $lead-font-size:   1.25rem !default;
 $lead-font-weight: 400 !default;

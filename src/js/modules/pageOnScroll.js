@@ -35,6 +35,8 @@ class pageOnScroll {
 	headerScrollBg = () => {
 		const {headerBgElements, headerBgColor, rgb2rgba} = this;
 
+		console.log(headerBgElements);
+
 		let docEle = document.documentElement,
 			scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
 			_windowHeight = window.innerHeight,
@@ -98,7 +100,7 @@ class pageOnScroll {
 		this.footer = document.querySelector('.site-footer');
 
 		this.headerBgElements = document.querySelector('[data-header-bg]');
-		this.footerBgElements = document.querySelector('[data-header-footer]');
+		this.footerBgElements = document.querySelector('[data-footer-bg]');
 
 		this.setHeaderBgColor();
 		this.headerTextColor = getCSSVar('--header-text-color');

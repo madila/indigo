@@ -16,14 +16,11 @@
   }
 }
 
-@each $display, $size in $display-sizes {
+@each $size_name, $size in $paragraph-sizes {
   @each $breakpoint in map-keys($media-breakpoints) {
     @include media-breakpoint-up($breakpoint) {
-      .display-#{$display} {
-        margin-top: $headings-margin-top;
-        margin-bottom: $headings-margin-bottom;
-        font-size: ($size * map-get($responsive-displays, $breakpoint));
-		font-weight: var(--headings-font-weight);
+      p.has-#{$size_name}-font-size {
+        font-size: ($size * map-get($responsive-paragraph, $breakpoint)) !important;
       }
     }
   }
