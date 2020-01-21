@@ -21,9 +21,7 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'header-scroll-bg';
 	}
 
-	if(get_theme_mod('indigo_theme_style')) {
-		$classes[] = 'indigo-'.get_theme_mod('indigo_theme_style');
-	}
+	$classes[] = 'indigo-'.indigo_get_theme_style();
 
 	if(get_theme_mod('indigo_overlay_header')) {
 		$classes[] = 'margin-below-header';
@@ -78,3 +76,12 @@ function archive_cover_columns() {
 }
 
 add_filter('archive_cover_columns', 'archive_cover_columns');
+
+
+function indigo_conditional_class($theme_mod, $prefix, $classes) {
+	if($value = get_theme_mod($theme_mod)) {
+		$value = $prefix . '-' . get_theme_mod( $theme_mod );
+		$classes[] = $value;
+	}
+	echo implode(' ', $classes);
+}

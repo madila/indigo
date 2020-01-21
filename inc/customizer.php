@@ -7,11 +7,11 @@
 
 
 function indigo_get_theme_style() {
-	return (get_theme_mod('indigo_theme_style')) ? get_theme_mod('indigo_theme_style') : 'blog';
+	return 'default';
 }
 
 function indigo_style_is_default() {
-	return (indigo_get_theme_style() === 'blog');
+	return (indigo_get_theme_style() === 'default');
 }
 
 /**
@@ -127,28 +127,6 @@ function indigo_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
-	 * Theme
-	 */
-	$wp_customize->add_setting( 'indigo_theme_style', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'blog',
-	) );
-
-	$wp_customize->add_control( 'indigo_theme_style', array(
-		'type' => 'select',
-		'section' => 'title_tagline', // Add a default or your own section
-		'label' => __( 'Theme Style' ),
-		'description' => __( 'Change the appear of the theme for specific purposes.' ),
-		'choices' => array(
-			'none' => __( 'None' ),
-			'blog' => __( 'Blog' ),
-			'portfolio' => __( 'Portfolio' )
-		),
-	) );
-
-
-	/**
 	 * Logo width
 	 */
 	$wp_customize->add_setting(
@@ -173,6 +151,28 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
+
+	/**
+	 * Theme
+	 */
+	$wp_customize->add_setting( 'indigo_header_alignment', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'center',
+	) );
+
+	$wp_customize->add_control( 'indigo_header_alignment', array(
+		'type' => 'select',
+		'section' => 'title_tagline', // Add a default or your own section
+		'label' => __( 'Header Alignment' ),
+		'description' => __( 'Change the position of the header content.' ),
+		'choices' => array(
+			'center' => __( 'Center' ),
+			'left' => __( 'Left' ),
+			'right' => __( 'Right' )
+		),
+	) );
+
 	$wp_customize->add_section( 'ui',
 		array(
 			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section
@@ -181,6 +181,20 @@ function indigo_customize_register( $wp_customize ) {
 			'description' => __('Allows you to define to way the User Interface is displayed.', 'mytheme'), //Descriptive tooltip
 		)
 	);
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_alignment_support', array(
+		'default'    => '1',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_alignment_support', array(
+		'label'      => __( 'Enable support for wide and full alignment.', 'indigo' ),
+		'section'    => 'ui',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_alignment_support')
+	) );
 
 	/**
 	 * Base Typography

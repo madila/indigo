@@ -10,8 +10,6 @@ const config = {
 		"scripts": './src/js/index.js',
 		"customizer": './src/js/customizer.js',
 		"style": './src/scss/style.scss',
-		"portfolio": './src/scss/portfolio.scss',
-		"blog": './src/scss/blog.scss',
 		"rtl": './src/scss/rtl.scss',
 		"block-editor-style": './src/scss/block-editor-style.scss',
 		"editor-style": './src/scss/editor-style.scss'

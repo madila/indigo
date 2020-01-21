@@ -20,9 +20,12 @@
 		} );
 	} );
 
+	console.log(wp);
+
 	// Logo Max Width
 	wp.customize( 'logo_width', function( value ) {
 		value.bind( function( to ) {
+			console.log(to);
 			$( '.custom-logo-link' ).css( {'max-width': to+'px'} );
 		} );
 	} );
