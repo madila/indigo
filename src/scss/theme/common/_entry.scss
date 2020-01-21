@@ -86,3 +86,12 @@
 		}
 	}
 }
+
+.wp-block-columns {
+	margin: 20px 0;
+}
+
+/* Add horiztonal breathing room between individual columns. */
+.wp-block-column {
+	margin: 0 20px;
+}
