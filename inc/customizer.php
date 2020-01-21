@@ -20,6 +20,13 @@ function indigo_style_is_default() {
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function indigo_customize_register( $wp_customize ) {
+
+	$display_header_text = get_theme_mod('display_header_text');
+	if(!$display_header_text) {
+		$wp_customize->remove_control( 'display_header_text' );
+		set_theme_mod( 'display_header_text', '1');
+	}
+
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
@@ -410,6 +417,20 @@ function indigo_customize_register( $wp_customize ) {
 		'section'    => 'title_tagline',
 		'type'       => 'checkbox',
 		'std'        => get_theme_mod('indigo_overlay_header')
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_sr_site_title', array(
+		'default'    => '1',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_sr_site_title', array(
+		'label'      => __( 'Display Title and Tagline on Screen Ready Only?', 'indigo' ),
+		'section'    => 'title_tagline',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_sr_site_title')
 	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {

@@ -59,7 +59,7 @@ add_action( 'wp_head', 'indigo_pingback_header' );
 
 
 function display_site_title_class($classes) {
-	if(!display_header_text()) {
+	if(get_theme_mod('indigo_sr_site_title')) {
 		$classes[] = 'sr-only-header';
 	}
 	return $classes;

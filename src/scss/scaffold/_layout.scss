@@ -1,16 +1,24 @@
-.site-content {
-	.vertical-sidebar & {
-		display: flex;
-		@include media-breakpoint-up(md) {
-			#primary {
-				flex-grow: 2;
-			}
-			#secondary {
-				max-width: 400px;
-				> .widget-area {
-					padding: 1.5rem;
-				}
+.vertical-sidebar {
+	@include media-breakpoint-up(md) {
+		#primary {
+			grid-area: content;
+		}
+		#secondary {
+			grid-area: side;
+			> .widget-area {
+				padding: 1.5rem;
+				margin-left: 0.5rem;
 			}
 		}
+		.site-content {
+			display: grid;
+			grid-template-areas:
+				"content side";
+
+			grid-template-columns: 1fr 400px;
+			grid-template-rows: 1fr;
+			grid-gap: 10px;
+		}
+
 	}
 }

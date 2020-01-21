@@ -450,15 +450,20 @@ th {
   color: #777;
   list-style-type: none; }
 
-.vertical-sidebar .site-content {
-  display: flex; }
-  @media (min-width: 768px) {
-    .vertical-sidebar .site-content #primary {
-      flex-grow: 2; }
-    .vertical-sidebar .site-content #secondary {
-      max-width: 400px; }
-      .vertical-sidebar .site-content #secondary > .widget-area {
-        padding: 1.5rem; } }
+@media (min-width: 768px) {
+  .vertical-sidebar #primary {
+    grid-area: content; }
+  .vertical-sidebar #secondary {
+    grid-area: side; }
+    .vertical-sidebar #secondary > .widget-area {
+      padding: 1.5rem;
+      margin-left: 0.5rem; }
+  .vertical-sidebar .site-content {
+    display: grid;
+    grid-template-areas: "content side";
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 1fr;
+    grid-gap: 10px; } }
 
 /*
  * Typography
@@ -1662,7 +1667,7 @@ th {
 .invisible {
   visibility: hidden !important; }
 
-.screen-reader-text, .sr-only-header .site-title, .sr-only-header .site-description {
+.screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
@@ -2624,9 +2629,25 @@ strong, b {
 
 .site-title, .site-description {
   margin: 0; }
+  .sr-only-header .site-title, .sr-only-header .site-description {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    /* 1 */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    /* 2 */
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+    /* 3 */ }
 
 .site .site-header-container {
-  width: 100%; }
+  width: 100%;
+  padding-top: 1rem; }
   .has-header-contained .site .site-header-container {
     width: var(--content-width, 100%);
     max-width: 100%; }
@@ -2866,10 +2887,15 @@ blockquote p {
 .wp-block-column {
   margin: 0 20px; }
 
-.site-theme-info {
-  font-size: 0.70rem;
-  line-height: 0;
-  opacity: 0.7; }
+.site-footer {
+  font-size: 0.80rem;
+  padding: 1rem 0;
+  text-align: center; }
+  .site-footer .site-theme-info {
+    font-size: 0.70rem;
+    line-height: 0;
+    opacity: 0.7;
+    margin: .5rem 0; }
 
 .site-main {
   min-height: calc(88vh - 8rem);
