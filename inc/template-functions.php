@@ -31,6 +31,11 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'has-header-contained';
 	}
 
+	if(intval(get_theme_mod('indigo_alignment_support'))) {
+		$classes[] = 'wp-alignment-support';
+	}
+
+
 	// Adds a class of no-sidebar when there is no sidebar present.
 	if ( is_active_sidebar( 'entry-sidebar' ) ) {
 		$classes[] = 'vertical-sidebar';
