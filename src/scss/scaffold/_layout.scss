@@ -3,10 +3,14 @@
 		display: flex;
 		@include media-breakpoint-up(md) {
 			#primary {
-				max-width: 70%;
+				max-width: calc(100% - 300px);
+				flex-grow: 2;
 			}
 			#secondary {
-				max-width: 30%;
+				max-width: 300px;
+				.widget-area {
+					padding: 1.5rem;
+				}
 			}
 		}
 	}

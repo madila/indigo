@@ -454,9 +454,12 @@ th {
   display: flex; }
   @media (min-width: 768px) {
     .vertical-sidebar .site-content #primary {
-      max-width: 70%; }
+      max-width: calc(100% - 300px);
+      flex-grow: 2; }
     .vertical-sidebar .site-content #secondary {
-      max-width: 30%; } }
+      max-width: 300px; }
+      .vertical-sidebar .site-content #secondary .widget-area {
+        padding: 1.5rem; } }
 
 /*
  * Typography
