@@ -454,11 +454,10 @@ th {
   display: flex; }
   @media (min-width: 768px) {
     .vertical-sidebar .site-content #primary {
-      max-width: calc(100% - 300px);
       flex-grow: 2; }
     .vertical-sidebar .site-content #secondary {
-      max-width: 300px; }
-      .vertical-sidebar .site-content #secondary .widget-area {
+      max-width: 400px; }
+      .vertical-sidebar .site-content #secondary > .widget-area {
         padding: 1.5rem; } }
 
 /*

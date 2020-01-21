@@ -3,12 +3,11 @@
 		display: flex;
 		@include media-breakpoint-up(md) {
 			#primary {
-				max-width: calc(100% - 300px);
 				flex-grow: 2;
 			}
 			#secondary {
-				max-width: 300px;
-				.widget-area {
+				max-width: 400px;
+				> .widget-area {
 					padding: 1.5rem;
 				}
 			}
