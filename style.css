@@ -2829,8 +2829,7 @@ blockquote p {
 
 .entry-content {
   font-size: 1rem;
-  font-weight: var(--base-font-weight, 300);
-  padding: 0 2rem; }
+  font-weight: var(--base-font-weight, 300); }
   .entry-content .wp-block-cover, .entry-content .wp-block-cover-image {
     background-color: var(--base-bg-color, #ffffff); }
   @media (max-width: 991px) {
