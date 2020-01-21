@@ -173,6 +173,27 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
+	/**
+	 * Theme
+	 */
+	$wp_customize->add_setting( 'indigo_sidebar_alignment', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'none',
+	) );
+
+	$wp_customize->add_control( 'indigo_sidebar_alignment', array(
+		'type' => 'select',
+		'section' => 'title_tagline', // Add a default or your own section
+		'label' => __( 'Sidebar Alignment' ),
+		'description' => __( 'Select none if you don\'t wish to have a sidebar.' ),
+		'choices' => array(
+			'none' => __( 'None' ),
+			'left' => __( 'Left' ),
+			'right' => __( 'Right' )
+		),
+	) );
+
 	$wp_customize->add_section( 'ui',
 		array(
 			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section

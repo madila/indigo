@@ -153,24 +153,26 @@ add_action( 'after_setup_theme', 'indigo_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function indigo_widgets_init() {
+	if(get_theme_mod('indigo_sidebar_alignment') !== 'none') {
+		register_sidebar( array(
+			'name'          => esc_html__( 'Sidebar', 'indigo' ),
+			'id'            => 'entry-sidebar',
+			'description'   => esc_html__( 'Can run vertically alongside the page entry or horizontally below it.', 'indigo' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+	}
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'indigo' ),
-		'id'            => 'entry-sidebar',
-		'description'   => esc_html__( 'Can run vertically alongside the page entry or horizontally below it.', 'indigo' ),
+		'name'          => esc_html__( 'Pre-Footer Sidebar', 'indigo' ),
+		'id'            => 'pre-footer',
+		'description'   => esc_html__( 'Runs horizontally before the site footer and the footer navigation.', 'indigo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Pre-Footer Sidebar', 'indigo' ),
-        'id'            => 'pre-footer',
-        'description'   => esc_html__( 'Runs horizontally before the site footer and the footer navigation.', 'indigo' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ) );
 }
 add_action( 'widgets_init', 'indigo_widgets_init' );
 

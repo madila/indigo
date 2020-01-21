@@ -6,17 +6,42 @@ $css-vars-use-native: true;
 
 @import "common/common";
 
+.editor-block-list__layout .editor-block-list__block {
+	max-width: var(--content-width, $container-default-width);
+}
+
+.wp-block {
+	max-width: var(--content-width, $container-default-width);
+}
+
 /* Main column width */
 .wp-block {
-	max-width: 720px;
+	max-width: var(--content-width, $container-default-width);
 }
 
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
-	max-width: 1080px;
+	max-width: var(--content-width-wide, $container-default-width+100);
 }
 
 /* Width of "full-wide" blocks */
 .wp-block[data-align="full"] {
 	max-width: none;
+}
+
+
+.editor-styles-wrapper {
+	box-sizing: border-box;
+	font-family: var(--base-font-family, sans-serif);
+	font-size: var(--base-font-size, $root-font-size);
+	line-height: var(--base-line-height, $line-height-base);
+	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
+	@import "scaffold/typography";
+	p {
+		font-size: var(--base-font-size, $root-font-size);
+		font-weight: var(--base-font-weight, $font-weight-base);
+	}
+
+	@import "block-editor/common";
+
 }

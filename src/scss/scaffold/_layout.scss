@@ -1,0 +1,13 @@
+.site-content {
+	.vertical-sidebar & {
+		display: flex;
+		@include media-breakpoint-up(md) {
+			#primary {
+				max-width: 70%;
+			}
+			#secondary {
+				max-width: 30%;
+			}
+		}
+	}
+}
