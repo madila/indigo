@@ -706,14 +706,24 @@ __webpack_require__.r(__webpack_exports__);
     value.bind(function (to) {
       document.documentElement.style.setProperty('--header-text-color', to);
     });
-  }); // Header text color.
+  }); // Header title sr-only.
 
   wp.customize('indigo_sr_site_title', function (value) {
     value.bind(function (to) {
       if (to) {
-        $('body').addClass('sr-only-header');
+        $('body').addClass('sr-only-title');
       } else {
-        $('body').removeClass('sr-only-header');
+        $('body').removeClass('sr-only-title');
+      }
+    });
+  }); // Header desc sr-only.
+
+  wp.customize('indigo_sr_site_desc', function (value) {
+    value.bind(function (to) {
+      if (to) {
+        $('body').addClass('sr-only-desc');
+      } else {
+        $('body').removeClass('sr-only-desc');
       }
     });
   });

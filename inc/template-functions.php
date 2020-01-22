@@ -61,7 +61,10 @@ add_action( 'wp_head', 'indigo_pingback_header' );
 
 function display_site_title_class($classes) {
 	if(get_theme_mod('indigo_sr_site_title')) {
-		$classes[] = 'sr-only-header';
+		$classes[] = 'sr-only-title';
+	}
+	if(get_theme_mod('indigo_sr_site_desc')) {
+		$classes[] = 'sr-only-desc';
 	}
 	return $classes;
 }
@@ -86,9 +89,12 @@ function archive_cover_columns() {
 add_filter('archive_cover_columns', 'archive_cover_columns');
 
 
-function indigo_conditional_class($theme_mod, $prefix, $classes) {
+function indigo_conditional_class($theme_mod, $prefix, $add_value, $classes) {
 	if($value = get_theme_mod($theme_mod)) {
-		$value = $prefix . '-' . get_theme_mod( $theme_mod );
+		$value = $prefix;
+		if($add_value) {
+			$value .= '-' . get_theme_mod( $theme_mod );
+		}
 		$classes[] = $value;
 	}
 	echo implode(' ', $classes);

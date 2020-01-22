@@ -172,7 +172,7 @@ function indigo_customize_register( $wp_customize ) {
 		'type' => 'select',
 		'section' => 'title_tagline', // Add a default or your own section
 		'label' => __( 'Header Alignment' ),
-		'description' => __( 'Change the position of the header content.' ),
+		'description' => __( 'Change the position of the logo on the header.' ),
 		'choices' => array(
 			'center' => __( 'Center' ),
 			'left' => __( 'Left' ),
@@ -514,10 +514,25 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_sr_site_title', array(
-		'label'      => __( 'Display Title and Tagline on Screen Ready Only?', 'indigo' ),
+		'label'      => __( 'Display Title as Screen Ready Only?', 'indigo' ),
 		'section'    => 'title_tagline',
 		'type'       => 'checkbox',
 		'std'        => get_theme_mod('indigo_sr_site_title')
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_sr_site_desc', array(
+		'default'    => '0',
+		'transport'  => 'postMessage',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_sr_site_desc', array(
+		'label'      => __( 'Display Tagline as Screen Ready Only?', 'indigo' ),
+		'section'    => 'title_tagline',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_sr_site_desc')
 	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {

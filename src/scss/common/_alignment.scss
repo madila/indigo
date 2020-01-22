@@ -46,3 +46,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
+.wp-alignment-support {
+
+	.alignfull,
+	.alignwide {
+		@include alignfull;
+	}
+
+	@media only screen and ( min-width: $container-default-width ) {
+		.alignwide {
+			@include alignwide;
+		}
+	}
+
+}
