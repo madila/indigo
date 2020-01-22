@@ -165,7 +165,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'indigo_header_alignment', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'center',
+		'default' => 'left',
 	) );
 
 	$wp_customize->add_control( 'indigo_header_alignment', array(
@@ -180,6 +180,15 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
+	$wp_customize->add_section( 'ui',
+		array(
+			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section
+			'priority'    => 30, //Determines what order this appears in
+			'capability'  => 'edit_theme_options', //Capability needed to tweak
+			'description' => __('Allows you to define to way the User Interface is displayed.', 'mytheme'), //Descriptive tooltip
+		)
+	);
+
 	/**
 	 * Theme
 	 */
@@ -191,9 +200,9 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'indigo_sidebar_alignment', array(
 		'type' => 'select',
-		'section' => 'title_tagline', // Add a default or your own section
+		'section' => 'ui', // Add a default or your own section
 		'label' => __( 'Sidebar Alignment' ),
-		'description' => __( 'Select none if you don\'t wish to have a sidebar.' ),
+		'description' => __( 'Select none if you don\'t wish to have a sidebar. When re-enabled, you must reload the customiser.' ),
 		'choices' => array(
 			'none' => __( 'None' ),
 			'left' => __( 'Left' ),
@@ -201,14 +210,77 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
-	$wp_customize->add_section( 'ui',
+	/**
+	 * Sidebar Width
+	 */
+	$wp_customize->add_setting(
+		'sidebar_width',
 		array(
-			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section
-			'priority'    => 30, //Determines what order this appears in
-			'capability'  => 'edit_theme_options', //Capability needed to tweak
-			'description' => __('Allows you to define to way the User Interface is displayed.', 'mytheme'), //Descriptive tooltip
+			'default'           => 300,
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_px_units',
 		)
 	);
+
+	$wp_customize->add_control( 'sidebar_width', array(
+		'type' => 'range',
+		'section' => 'ui',
+		'label' => __( 'Sidebar Width' ),
+		'description' => __( 'The width of the website sidebars.' ),
+		'input_attrs' => array(
+			'min' => 250,
+			'max' => 600,
+			'step' => 100,
+		),
+	) );
+
+	/**
+	 * Site Gutter X
+	 */
+	$wp_customize->add_setting(
+		'indigo_content_gutter_x',
+		array(
+			'default'           => 1,
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_rem_units',
+		)
+	);
+
+	$wp_customize->add_control( 'indigo_content_gutter_x', array(
+		'type' => 'range',
+		'section' => 'ui',
+		'label' => __( 'Content Horizontal Gutter' ),
+		'description' => __( 'The space inside the elements' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 5,
+			'step' => 0.5,
+		),
+	) );
+
+	/**
+	 * Site Gutter X
+	 */
+	$wp_customize->add_setting(
+		'indigo_content_gutter_y',
+		array(
+			'default'           => 1,
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_rem_units',
+		)
+	);
+
+	$wp_customize->add_control( 'indigo_content_gutter_y', array(
+		'type' => 'range',
+		'section' => 'ui',
+		'label' => __( 'Content Vertical Gutter' ),
+		'description' => __( 'The space inside the elements' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 5,
+			'step' => 0.5,
+		),
+	) );
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_alignment_support', array(
@@ -421,7 +493,8 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_sr_site_title', array(
-		'default'    => '1',
+		'default'    => '0',
+		'transport'  => 'postMessage',
 		'capability' => 'edit_theme_options'
 	) );
 
@@ -474,7 +547,16 @@ function indigo_sanitize_px_units($px) {
 }
 
 /**
- * Adds px units before saving the value
+ * Adds rem units before saving the value
+ *
+ * @return string
+ */
+function indigo_sanitize_rem_units($rem) {
+	return $rem.'rem';
+}
+
+/**
+ * Adds em units before saving the value
  *
  * @return string
  */

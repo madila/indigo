@@ -32,13 +32,6 @@ $css-vars-use-native: true;
 @import "scaffold/base";
 @import "common/common";
 
-
-.site {
-	width: var(--content-width, 1200px);
-	max-width: 100%;
-	margin: 0 auto;
-}
-
 @import "theme/common/all";
 
 /*@import "theme/portfolio";*/

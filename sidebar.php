@@ -7,7 +7,7 @@
  * @package Indigo
  */
 
-if ( ! is_active_sidebar( 'entry-sidebar' ) ) {
+if ( ! is_active_sidebar( 'entry-sidebar' ) || get_theme_mod('indigo_sidebar_alignment') === 'none' ) {
 	return;
 }
 ?>
