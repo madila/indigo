@@ -2269,17 +2269,17 @@ html .editor-styles-wrapper {
     html .editor-styles-wrapper h1 a, html .editor-styles-wrapper h1 a:hover, html .editor-styles-wrapper h2 a, html .editor-styles-wrapper h2 a:hover, html .editor-styles-wrapper h3 a, html .editor-styles-wrapper h3 a:hover {
       text-decoration: none; }
   html .editor-styles-wrapper h1, html .editor-styles-wrapper .h1 {
-    font-size: 3rem; }
-  html .editor-styles-wrapper h2, html .editor-styles-wrapper .h2 {
-    font-size: 2.5rem; }
-  html .editor-styles-wrapper h3, html .editor-styles-wrapper .h3 {
     font-size: 2rem; }
-  html .editor-styles-wrapper h4, html .editor-styles-wrapper .h4 {
+  html .editor-styles-wrapper h2, html .editor-styles-wrapper .h2 {
+    font-size: 1.8rem; }
+  html .editor-styles-wrapper h3, html .editor-styles-wrapper .h3 {
     font-size: 1.5rem; }
-  html .editor-styles-wrapper h5, html .editor-styles-wrapper .h5 {
+  html .editor-styles-wrapper h4, html .editor-styles-wrapper .h4 {
     font-size: 1.25rem; }
-  html .editor-styles-wrapper h6, html .editor-styles-wrapper .h6 {
+  html .editor-styles-wrapper h5, html .editor-styles-wrapper .h5 {
     font-size: 1rem; }
+  html .editor-styles-wrapper h6, html .editor-styles-wrapper .h6 {
+    font-size: 0.95rem; }
   html .editor-styles-wrapper header p {
     font-size: 1.25rem;
     font-weight: 400;
