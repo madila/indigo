@@ -31,17 +31,12 @@ add_action( 'after_setup_theme', 'indigo_custom_header_setup' );
 
 function get_theme_mod_defaults() {
 	return apply_filters('indigo_theme_mod_defaults', array(
-		'background_color' => '#f6f7f9',
-		'content_width' => '960px',
-		'header_textcolor' => '#000',
+		'content_width' => '1200',
+		'header_textcolor' => (get_theme_mod('text_color')) ? get_theme_mod('text_color') : '#fff',
 		'primary_color' => '#4b0082',
 		'secondary_color' => '#000',
 		'text_color' => '#000',
-		'base_font_weight' => '300',
-		'headings_font_weight' => '600',
-		'header_bg_color' => 'transparent',
-		'content_gutter_x' => '1',
-		'content_gutter_y' => '1'
+		'header_bg_color' => '#000'
 	));
 }
 
@@ -53,8 +48,6 @@ function get_theme_mod_default($key) {
 function indigo_set_theme_mod_css_var($option_id, $variable_name = null) {
 	if(get_theme_mod($option_id)) { ?>
 		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo get_theme_mod($option_id); ?>;
-	<?php } else { ?>
-		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo get_theme_mod_default($option_id); ?>;
 	<?php }
 }
 
@@ -107,16 +100,14 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 			// Custom Logo Width
 			if(has_custom_logo() && get_theme_mod('logo_width')) { ?>
 				.custom-logo-link {
-					max-width: <?php echo get_theme_mod('logo_width'); ?>;
+					width: <?php echo get_theme_mod('logo_width'); ?>
 				}
 			<?php }
 			?>
 
 			:root {
 				<?php indigo_set_theme_mod_css_var('content_width', 'content-width'); ?>
-				<?php indigo_set_theme_mod_css_var('sidebar_width', 'sidebar-width'); ?>
 				<?php indigo_set_color_mod_css_var('text_color', 'base-color'); ?>
-				<?php indigo_set_color_mod_css_var('background_color', 'base-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('header_bg_color', 'header-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('primary_color', 'primary-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_color', 'secondary-color'); ?>
@@ -133,3 +124,23 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 	}
 endif;
 
+
+add_filter('indigo_custom_background_args', 'add_indigo_custom_background_cb');
+
+function add_indigo_custom_background_cb($args) {
+	$args['wp-head-callback'] = 'indigo_custom_background_cb';
+	return $args;
+}
+
+function indigo_custom_background_cb($args) {
+	$bg_color = sanitize_hex_color_no_hash(get_theme_mod('background_color'));
+	if(!empty($bg_color)) { ?>
+		<style id="custom-background-css">
+			:root {
+				--base-bg-color: #<?php echo $bg_color; ?>;
+			}
+		</style>
+	<?php }
+}
+
+add_action( 'admin_head', 'indigo_custom_background_cb' );

@@ -148,7 +148,6 @@ $container-max-widths: (
 @include _assert-ascending($container-max-widths, "$container-max-widths");
 
 $container-default-width: map-get($container-max-widths, lg) !default;
-$sidebar-default-width: 300px !default;
 
 /*
  * Typography

@@ -7,11 +7,11 @@
 
 
 function indigo_get_theme_style() {
-	return 'default';
+	return (get_theme_mod('indigo_theme_style')) ? get_theme_mod('indigo_theme_style') : 'blog';
 }
 
 function indigo_style_is_default() {
-	return (indigo_get_theme_style() === 'default');
+	return (indigo_get_theme_style() === 'blog');
 }
 
 /**
@@ -20,13 +20,6 @@ function indigo_style_is_default() {
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function indigo_customize_register( $wp_customize ) {
-
-	$display_header_text = get_theme_mod('display_header_text');
-	if(!$display_header_text) {
-		$wp_customize->remove_control( 'display_header_text' );
-		set_theme_mod( 'display_header_text', '1');
-	}
-
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
@@ -134,6 +127,28 @@ function indigo_customize_register( $wp_customize ) {
 	) ) );
 
 	/**
+	 * Theme
+	 */
+	$wp_customize->add_setting( 'indigo_theme_style', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'blog',
+	) );
+
+	$wp_customize->add_control( 'indigo_theme_style', array(
+		'type' => 'select',
+		'section' => 'title_tagline', // Add a default or your own section
+		'label' => __( 'Theme Style' ),
+		'description' => __( 'Change the appear of the theme for specific purposes.' ),
+		'choices' => array(
+			'none' => __( 'None' ),
+			'blog' => __( 'Blog' ),
+			'portfolio' => __( 'Portfolio' )
+		),
+	) );
+
+
+	/**
 	 * Logo width
 	 */
 	$wp_customize->add_setting(
@@ -158,28 +173,6 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
-
-	/**
-	 * Theme
-	 */
-	$wp_customize->add_setting( 'indigo_header_alignment', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'left',
-	) );
-
-	$wp_customize->add_control( 'indigo_header_alignment', array(
-		'type' => 'select',
-		'section' => 'title_tagline', // Add a default or your own section
-		'label' => __( 'Header Alignment' ),
-		'description' => __( 'Change the position of the header content.' ),
-		'choices' => array(
-			'center' => __( 'Center' ),
-			'left' => __( 'Left' ),
-			'right' => __( 'Right' )
-		),
-	) );
-
 	$wp_customize->add_section( 'ui',
 		array(
 			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section
@@ -188,113 +181,6 @@ function indigo_customize_register( $wp_customize ) {
 			'description' => __('Allows you to define to way the User Interface is displayed.', 'mytheme'), //Descriptive tooltip
 		)
 	);
-
-	/**
-	 * Theme
-	 */
-	$wp_customize->add_setting( 'indigo_sidebar_alignment', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'none',
-	) );
-
-	$wp_customize->add_control( 'indigo_sidebar_alignment', array(
-		'type' => 'select',
-		'section' => 'ui', // Add a default or your own section
-		'label' => __( 'Sidebar Alignment' ),
-		'description' => __( 'Select none if you don\'t wish to have a sidebar. When re-enabled, you must reload the customiser.' ),
-		'choices' => array(
-			'none' => __( 'None' ),
-			'left' => __( 'Left' ),
-			'right' => __( 'Right' )
-		),
-	) );
-
-	/**
-	 * Sidebar Width
-	 */
-	$wp_customize->add_setting(
-		'sidebar_width',
-		array(
-			'default'           => 300,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_px_units',
-		)
-	);
-
-	$wp_customize->add_control( 'sidebar_width', array(
-		'type' => 'range',
-		'section' => 'ui',
-		'label' => __( 'Sidebar Width' ),
-		'description' => __( 'The width of the website sidebars.' ),
-		'input_attrs' => array(
-			'min' => 250,
-			'max' => 600,
-			'step' => 100,
-		),
-	) );
-
-	/**
-	 * Site Gutter X
-	 */
-	$wp_customize->add_setting(
-		'indigo_content_gutter_x',
-		array(
-			'default'           => 1,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_rem_units',
-		)
-	);
-
-	$wp_customize->add_control( 'indigo_content_gutter_x', array(
-		'type' => 'range',
-		'section' => 'ui',
-		'label' => __( 'Content Horizontal Gutter' ),
-		'description' => __( 'The space inside the elements' ),
-		'input_attrs' => array(
-			'min' => 0,
-			'max' => 5,
-			'step' => 0.5,
-		),
-	) );
-
-	/**
-	 * Site Gutter X
-	 */
-	$wp_customize->add_setting(
-		'indigo_content_gutter_y',
-		array(
-			'default'           => 1,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_rem_units',
-		)
-	);
-
-	$wp_customize->add_control( 'indigo_content_gutter_y', array(
-		'type' => 'range',
-		'section' => 'ui',
-		'label' => __( 'Content Vertical Gutter' ),
-		'description' => __( 'The space inside the elements' ),
-		'input_attrs' => array(
-			'min' => 0,
-			'max' => 5,
-			'step' => 0.5,
-		),
-	) );
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_alignment_support', array(
-		'default'    => '1',
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_alignment_support', array(
-		'label'      => __( 'Enable support for wide and full alignment.', 'indigo' ),
-		'section'    => 'ui',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_alignment_support')
-	) );
 
 	/**
 	 * Base Typography
@@ -491,21 +377,6 @@ function indigo_customize_register( $wp_customize ) {
 		'std'        => get_theme_mod('indigo_overlay_header')
 	) );
 
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_sr_site_title', array(
-		'default'    => '0',
-		'transport'  => 'postMessage',
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_sr_site_title', array(
-		'label'      => __( 'Display Title and Tagline on Screen Ready Only?', 'indigo' ),
-		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_sr_site_title')
-	) );
-
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',
@@ -547,16 +418,7 @@ function indigo_sanitize_px_units($px) {
 }
 
 /**
- * Adds rem units before saving the value
- *
- * @return string
- */
-function indigo_sanitize_rem_units($rem) {
-	return $rem.'rem';
-}
-
-/**
- * Adds em units before saving the value
+ * Adds px units before saving the value
  *
  * @return string
  */

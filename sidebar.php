@@ -7,13 +7,13 @@
  * @package Indigo
  */
 
-if ( ! is_active_sidebar( 'entry-sidebar' ) || get_theme_mod('indigo_sidebar_alignment') === 'none' ) {
+if ( ! is_active_sidebar( 'entry-sidebar' ) ) {
 	return;
 }
 ?>
 
-<aside id="secondary">
-    <div class="widget-area">
+<aside id="secondary" class="area-inverted alignfull">
+    <div class="aligncontainer widget-area">
         <?php dynamic_sidebar( 'entry-sidebar' ); ?>
     </div>
 </aside><!-- #secondary -->
