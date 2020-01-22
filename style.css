@@ -176,22 +176,22 @@ h1 a, h2 a, h3 a {
     text-decoration: none; }
 
 h1, .h1 {
-  font-size: 3rem; }
-
-h2, .h2 {
-  font-size: 2.5rem; }
-
-h3, .h3 {
   font-size: 2rem; }
 
-h4, .h4 {
+h2, .h2 {
+  font-size: 1.8rem; }
+
+h3, .h3 {
   font-size: 1.5rem; }
 
-h5, .h5 {
+h4, .h4 {
   font-size: 1.25rem; }
 
-h6, .h6 {
+h5, .h5 {
   font-size: 1rem; }
+
+h6, .h6 {
+  font-size: 0.95rem; }
 
 header p {
   font-size: 1.25rem;
@@ -482,7 +482,7 @@ th {
     grid-template-areas: "content";
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-gap: 10px; }
+    grid-gap: var(--content-gutter-x, 1rem); }
   .vertical-sidebar.sidebar-left .site-content {
     grid-template-areas: "side content";
     grid-template-columns: var(--sidebar-width, 300px) 1fr; }
@@ -1772,100 +1772,155 @@ th {
 .link-reset, .link-reset:hover, .link-reset:visited, .link-reset:active, .link-reset:focus {
   text-decoration: none; }
 
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
+
 p.has-huge-font-size {
-  font-size: 2rem !important; }
+  font-size: calc(var(--base-font-size) * 1.1875) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-huge-font-size {
-    font-size: 2.04rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.2125) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-huge-font-size {
-    font-size: 2.1rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.25) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-huge-font-size {
-    font-size: 2.16rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.2875) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-huge-font-size {
-    font-size: 2.2rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.3325) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-large-font-size {
-  font-size: 1.65rem !important; }
+  font-size: calc(var(--base-font-size) * 1.0925) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-large-font-size {
-    font-size: 1.683rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.1155) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-large-font-size {
-    font-size: 1.7325rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.15) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-large-font-size {
-    font-size: 1.782rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.1845) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-large-font-size {
-    font-size: 1.815rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.2259) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-medium-font-size {
-  font-size: 1.35rem !important; }
+  font-size: calc(var(--base-font-size) * 0.9975) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-medium-font-size {
-    font-size: 1.377rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.0185) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-medium-font-size {
-    font-size: 1.4175rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.05) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-medium-font-size {
-    font-size: 1.458rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.0815) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-medium-font-size {
-    font-size: 1.485rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.1193) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-normal-font-size {
-  font-size: 1rem !important; }
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-normal-font-size {
-    font-size: 1.02rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.97) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-normal-font-size {
-    font-size: 1.05rem !important; } }
+    font-size: calc(var(--base-font-size) * 1) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-normal-font-size {
-    font-size: 1.08rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.03) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-normal-font-size {
-    font-size: 1.1rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.066) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-small-font-size {
-  font-size: 0.85rem !important; }
+  font-size: calc(var(--base-font-size) * 0.9025) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-small-font-size {
-    font-size: 0.867rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.9215) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-small-font-size {
-    font-size: 0.8925rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.95) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-small-font-size {
-    font-size: 0.918rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.9785) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-small-font-size {
-    font-size: 0.935rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.0127) !important; } }
 
 .text-ultra-light {
   font-weight: 100 !important; }
@@ -2693,6 +2748,8 @@ strong, b {
     align-items: center;
     display: flex;
     flex-direction: column; }
+    .site .site-header-container.site-header-center a.custom-logo-link {
+      margin: 0 auto; }
   @media (max-width: 767px) {
     .site .site-header-container {
       flex-wrap: wrap; }
@@ -3101,8 +3158,6 @@ textarea {
   list-style-type: none;
   padding-left: 0; }
   .pre-footer .widget ul a {
-    padding: .5rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     display: block; }
 
 .post-navigation {

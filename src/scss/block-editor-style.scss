@@ -30,9 +30,9 @@ $css-vars-use-native: true;
 }
 
 
-.editor-styles-wrapper {
+html .editor-styles-wrapper {
 	box-sizing: border-box;
-	font-family: var(--base-font-family, sans-serif);
+	font-family: var(--base-font-family, $base-font-family);
 	font-size: var(--base-font-size, $root-font-size);
 	line-height: var(--base-line-height, $line-height-base);
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);

@@ -1291,100 +1291,155 @@
 .link-reset, .link-reset:hover, .link-reset:visited, .link-reset:active, .link-reset:focus {
   text-decoration: none; }
 
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
+
 p.has-huge-font-size {
-  font-size: 2rem !important; }
+  font-size: calc(var(--base-font-size) * 1.1875) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-huge-font-size {
-    font-size: 2.04rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.2125) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-huge-font-size {
-    font-size: 2.1rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.25) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-huge-font-size {
-    font-size: 2.16rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.2875) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-huge-font-size {
-    font-size: 2.2rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.3325) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-large-font-size {
-  font-size: 1.65rem !important; }
+  font-size: calc(var(--base-font-size) * 1.0925) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-large-font-size {
-    font-size: 1.683rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.1155) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-large-font-size {
-    font-size: 1.7325rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.15) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-large-font-size {
-    font-size: 1.782rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.1845) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-large-font-size {
-    font-size: 1.815rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.2259) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-medium-font-size {
-  font-size: 1.35rem !important; }
+  font-size: calc(var(--base-font-size) * 0.9975) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-medium-font-size {
-    font-size: 1.377rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.0185) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-medium-font-size {
-    font-size: 1.4175rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.05) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-medium-font-size {
-    font-size: 1.458rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.0815) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-medium-font-size {
-    font-size: 1.485rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.1193) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-normal-font-size {
-  font-size: 1rem !important; }
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-normal-font-size {
-    font-size: 1.02rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.97) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-normal-font-size {
-    font-size: 1.05rem !important; } }
+    font-size: calc(var(--base-font-size) * 1) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-normal-font-size {
-    font-size: 1.08rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.03) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-normal-font-size {
-    font-size: 1.1rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.066) !important; } }
+
+p {
+  font-size: calc(var(--base-font-size) * 0.95) !important; }
 
 p.has-small-font-size {
-  font-size: 0.85rem !important; }
+  font-size: calc(var(--base-font-size) * 0.9025) !important; }
 
 @media (min-width: 600px) {
+  p {
+    font-size: calc(var(--base-font-size) * 0.97) !important; }
   p.has-small-font-size {
-    font-size: 0.867rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.9215) !important; } }
 
 @media (min-width: 768px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1) !important; }
   p.has-small-font-size {
-    font-size: 0.8925rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.95) !important; } }
 
 @media (min-width: 992px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.03) !important; }
   p.has-small-font-size {
-    font-size: 0.918rem !important; } }
+    font-size: calc(var(--base-font-size) * 0.9785) !important; } }
 
 @media (min-width: 1200px) {
+  p {
+    font-size: calc(var(--base-font-size) * 1.066) !important; }
   p.has-small-font-size {
-    font-size: 0.935rem !important; } }
+    font-size: calc(var(--base-font-size) * 1.0127) !important; } }
 
 .text-ultra-light {
   font-weight: 100 !important; }
@@ -2195,13 +2250,13 @@ strong, b {
 .wp-block[data-align="full"] {
   max-width: none; }
 
-.editor-styles-wrapper {
+html .editor-styles-wrapper {
   box-sizing: border-box;
-  font-family: var(--base-font-family, sans-serif);
+  font-family: var(--base-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   font-size: var(--base-font-size, 16px);
   line-height: var(--base-line-height, 1.15);
   letter-spacing: var(--base-letter-spacing, 0em); }
-  .editor-styles-wrapper h1, .editor-styles-wrapper .h1, .editor-styles-wrapper h2, .editor-styles-wrapper .h2, .editor-styles-wrapper h3, .editor-styles-wrapper .h3, .editor-styles-wrapper h4, .editor-styles-wrapper .h4, .editor-styles-wrapper h5, .editor-styles-wrapper .h5, .editor-styles-wrapper h6, .editor-styles-wrapper .h6 {
+  html .editor-styles-wrapper h1, html .editor-styles-wrapper .h1, html .editor-styles-wrapper h2, html .editor-styles-wrapper .h2, html .editor-styles-wrapper h3, html .editor-styles-wrapper .h3, html .editor-styles-wrapper h4, html .editor-styles-wrapper .h4, html .editor-styles-wrapper h5, html .editor-styles-wrapper .h5, html .editor-styles-wrapper h6, html .editor-styles-wrapper .h6 {
     margin-top: 0.75em;
     margin-bottom: 0.75em;
     font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
@@ -2209,60 +2264,60 @@ strong, b {
     line-height: 1.2;
     color: inherit;
     letter-spacing: var(--headings-letter-spacing, 0em); }
-  .editor-styles-wrapper h1 a, .editor-styles-wrapper h2 a, .editor-styles-wrapper h3 a {
+  html .editor-styles-wrapper h1 a, html .editor-styles-wrapper h2 a, html .editor-styles-wrapper h3 a {
     font-weight: var(--headings-font-weight, 600); }
-    .editor-styles-wrapper h1 a, .editor-styles-wrapper h1 a:hover, .editor-styles-wrapper h2 a, .editor-styles-wrapper h2 a:hover, .editor-styles-wrapper h3 a, .editor-styles-wrapper h3 a:hover {
+    html .editor-styles-wrapper h1 a, html .editor-styles-wrapper h1 a:hover, html .editor-styles-wrapper h2 a, html .editor-styles-wrapper h2 a:hover, html .editor-styles-wrapper h3 a, html .editor-styles-wrapper h3 a:hover {
       text-decoration: none; }
-  .editor-styles-wrapper h1, .editor-styles-wrapper .h1 {
-    font-size: 3rem; }
-  .editor-styles-wrapper h2, .editor-styles-wrapper .h2 {
-    font-size: 2.5rem; }
-  .editor-styles-wrapper h3, .editor-styles-wrapper .h3 {
+  html .editor-styles-wrapper h1, html .editor-styles-wrapper .h1 {
     font-size: 2rem; }
-  .editor-styles-wrapper h4, .editor-styles-wrapper .h4 {
+  html .editor-styles-wrapper h2, html .editor-styles-wrapper .h2 {
+    font-size: 1.8rem; }
+  html .editor-styles-wrapper h3, html .editor-styles-wrapper .h3 {
     font-size: 1.5rem; }
-  .editor-styles-wrapper h5, .editor-styles-wrapper .h5 {
+  html .editor-styles-wrapper h4, html .editor-styles-wrapper .h4 {
     font-size: 1.25rem; }
-  .editor-styles-wrapper h6, .editor-styles-wrapper .h6 {
+  html .editor-styles-wrapper h5, html .editor-styles-wrapper .h5 {
     font-size: 1rem; }
-  .editor-styles-wrapper header p {
+  html .editor-styles-wrapper h6, html .editor-styles-wrapper .h6 {
+    font-size: 0.95rem; }
+  html .editor-styles-wrapper header p {
     font-size: 1.25rem;
     font-weight: 400;
     margin-bottom: 0.7rem; }
-  .editor-styles-wrapper strong {
+  html .editor-styles-wrapper strong {
     font-weight: 600; }
-  .editor-styles-wrapper p {
+  html .editor-styles-wrapper p {
     margin-top: 0;
     margin-bottom: 0.7rem; }
-  .editor-styles-wrapper a {
+  html .editor-styles-wrapper a {
     color: inherit;
     background-color: transparent;
     -webkit-text-decoration-skip: objects; }
-  .editor-styles-wrapper a:not([href]):not([tabindex]) {
+  html .editor-styles-wrapper a:not([href]):not([tabindex]) {
     color: inherit;
     text-decoration: none; }
-    .editor-styles-wrapper a:not([href]):not([tabindex]):focus {
+    html .editor-styles-wrapper a:not([href]):not([tabindex]):focus {
       outline: 0; }
-  .editor-styles-wrapper hr {
+  html .editor-styles-wrapper hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  .editor-styles-wrapper small {
+  html .editor-styles-wrapper small {
     font-size: 85%;
     font-weight: 300; }
-  .editor-styles-wrapper a {
+  html .editor-styles-wrapper a {
     transition: all 300ms ease-out; }
-  .editor-styles-wrapper blockquote {
+  html .editor-styles-wrapper blockquote {
     padding-left: 1rem;
     padding-right: 1rem;
     border-left: .2rem solid; }
-    .editor-styles-wrapper blockquote footer {
+    html .editor-styles-wrapper blockquote footer {
       font-size: 80%; }
-  .editor-styles-wrapper p {
+  html .editor-styles-wrapper p {
     font-size: var(--base-font-size, 16px);
     font-weight: var(--base-font-weight, 300); }
-  .editor-styles-wrapper .ghostkit-carousel {
+  html .editor-styles-wrapper .ghostkit-carousel {
     padding-left: 1rem;
     padding-right: 1rem; }
 
