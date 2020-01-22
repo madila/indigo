@@ -42,7 +42,7 @@
 	wp.customize( 'sidebar_width', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
-				.setProperty('--sidebar-width', to+'rem');
+				.setProperty('--sidebar-width', to+'px');
 		} );
 	} );
 
