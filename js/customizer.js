@@ -645,6 +645,24 @@ __webpack_require__.r(__webpack_exports__);
     value.bind(function (to) {
       document.documentElement.style.setProperty('--content-width', to + 'px');
     });
+  }); // Content Width
+
+  wp.customize('sidebar_width', function (value) {
+    value.bind(function (to) {
+      document.documentElement.style.setProperty('--sidebar-width', to + 'rem');
+    });
+  }); // Content Gutter X
+
+  wp.customize('indigo_content_gutter_x', function (value) {
+    value.bind(function (to) {
+      document.documentElement.style.setProperty('--content-gutter-x', to + 'rem');
+    });
+  }); // Content Gutter Y
+
+  wp.customize('indigo_content_gutter_y', function (value) {
+    value.bind(function (to) {
+      document.documentElement.style.setProperty('--content-gutter-y', to + 'px');
+    });
   }); // Border Radius
 
   wp.customize('base_border_radius', function (value) {
@@ -686,15 +704,17 @@ __webpack_require__.r(__webpack_exports__);
 
   wp.customize('header_textcolor', function (value) {
     value.bind(function (to) {
-      console.log(to);
+      document.documentElement.style.setProperty('--header-text-color', to);
+    });
+  }); // Header text color.
 
-      if ('blank' === to) {
+  wp.customize('indigo_sr_site_title', function (value) {
+    value.bind(function (to) {
+      if (to) {
         $('body').addClass('sr-only-header');
       } else {
         $('body').removeClass('sr-only-header');
       }
-
-      document.documentElement.style.setProperty('--header-text-color', to);
     });
   });
 })(jQuery);

@@ -1,4 +1,4 @@
-$tmp_colours: (
+$brand_colours: (
         dark-green: #374f47,
         pale-azure: #6c7c93,
         wine-red: #bd3854,
@@ -12,8 +12,8 @@ $tmp_colours: (
         solid-black: #232323
 );
 
-$tmp_gradients: (
-        brand: (map-get($tmp_colours, solid-pink), map-get($tmp_colours, solid-yellow)),
+$brand_gradients: (
+        brand: (map-get($brand_colours, solid-pink), map-get($brand_colours, solid-yellow)),
 );
 
 $default-border-colour: #212121;
