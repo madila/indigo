@@ -33,7 +33,7 @@ header p {
 }
 
 strong {
-  font-weight: $headings-font-weight;
+  font-weight: var(--bold-font-weight, ($font-weight-base+200));
 }
 
 // Reset margins on paragraphs

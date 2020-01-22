@@ -2297,7 +2297,7 @@ html .editor-styles-wrapper {
     font-weight: 400;
     margin-bottom: 0.7rem; }
   html .editor-styles-wrapper strong {
-    font-weight: 600; }
+    font-weight: var(--bold-font-weight, 500); }
   html .editor-styles-wrapper p {
     margin-top: 0;
     margin-bottom: 0.7rem; }
