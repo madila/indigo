@@ -1,18 +1,36 @@
 .site-title, .site-description {
 	margin: 0;
 	.sr-only-header & {
-		@extend .screen-reader-text;
+		border: 0 !important;
+		clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+		-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important;  /* 2 */
+		height: 1px !important;
+		margin: -1px !important;
+		overflow: hidden !important;
+		padding: 0 !important;
+		position: absolute !important;
+		width: 1px !important;
+		white-space: nowrap !important;            /* 3 */
 	}
 }
 
 .site {
 	.site-header-container {
 		width: 100%;
+		padding-top: 1rem;
 		.has-header-contained & {
 			width: var(--content-width, 100%);
 			max-width: 100%;
 		}
-		margin: 0 auto;
+		&.site-header {
+			&-center {
+				width: 100%;
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+			}
+		}
 		@include media-breakpoint-down(sm) {
 			flex-wrap: wrap;
 			.main-navigation {
@@ -66,12 +84,11 @@
 	&-branding {
 		align-self: center;
 		max-width: calc(100vw - 4em);
-		padding-left: 2rem;
-		padding-right: 2rem;
 		.custom-logo-link {
-			max-width: 100%;
+			display: block;
 		}
 	}
+
 	&-description {
 		transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 	}

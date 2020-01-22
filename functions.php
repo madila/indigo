@@ -35,7 +35,9 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		 */
 		add_theme_support( 'title-tag' );
 
-		add_theme_support( 'align-wide' );
+		if(get_theme_mod('indigo_alignment_support')) {
+			add_theme_support( 'align-wide' );
+		}
 
 		add_theme_support( 'editor-color-palette',
 			apply_filters('indigo_color_palette', array(
@@ -107,6 +109,8 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
+		add_theme_support( 'responsive-embeds' );
+
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -149,31 +153,28 @@ add_action( 'after_setup_theme', 'indigo_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function indigo_widgets_init() {
+	if(get_theme_mod('indigo_sidebar_alignment') !== 'none') {
+		register_sidebar( array(
+			'name'          => esc_html__( 'Sidebar', 'indigo' ),
+			'id'            => 'entry-sidebar',
+			'description'   => esc_html__( 'Can run vertically alongside the page entry or horizontally below it.', 'indigo' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+	}
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'indigo' ),
-		'id'            => 'entry-sidebar',
-		'description'   => esc_html__( 'Can run vertically alongside the page entry or horizontally below it.', 'indigo' ),
+		'name'          => esc_html__( 'Pre-Footer Sidebar', 'indigo' ),
+		'id'            => 'pre-footer',
+		'description'   => esc_html__( 'Runs horizontally before the site footer and the footer navigation.', 'indigo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Pre-Footer Sidebar', 'indigo' ),
-        'id'            => 'pre-footer',
-        'description'   => esc_html__( 'Runs horizontally before the site footer and the footer navigation.', 'indigo' ),
-        'before_widget' => '<section id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</section>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ) );
 }
 add_action( 'widgets_init', 'indigo_widgets_init' );
-
-function indigo_get_theme_stylesheet() {
-	$theme = (get_theme_mod('indigo_theme_style')) ? get_theme_mod('indigo_theme_style') : 'blog';
-	return get_template_directory_uri() . '/'.$theme.'.css';
-}
 
 /**
  * Enqueue scripts and styles.
@@ -181,8 +182,6 @@ function indigo_get_theme_stylesheet() {
 function indigo_scripts() {
 
 	wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
-
-	wp_enqueue_style( 'indigo-theme', indigo_get_theme_stylesheet(), array('indigo-style'), get_indigo_version() );
 
 	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), get_indigo_version(), true );
 
@@ -211,7 +210,7 @@ add_action( 'wp_enqueue_scripts', 'indigo_scripts' );
  * Enqueue block editor style
  */
 function indigo_block_editor_styles() {
-	wp_enqueue_style( 'block-editor-styles', get_theme_file_uri( '/block-editor-style.css' ), false, '1.0', 'screen' );
+	wp_enqueue_style( 'block-editor-styles', get_template_directory_uri().'/block-editor-style.css', false, '1.0', 'screen' );
 }
 add_action( 'enqueue_block_editor_assets', 'indigo_block_editor_styles' );
 

@@ -12,13 +12,8 @@
 ?>
 
 </div><!-- #content -->
-
+<?php get_sidebar('pre-footer'); ?>
 <footer id="colophon" class="site-footer">
-	<?php if ( is_active_sidebar( 'pre-footer' ) ) { ?>
-		<aside id="secondary" class="widget-area">
-			<?php dynamic_sidebar( 'pre-footer' ); ?>
-		</aside><!-- #secondary -->
-	<?php } ?>
 	<?php
 	$copyright_notice = sprintf('Copyright &copy; %1s',
 		date( 'Y' )
