@@ -17,8 +17,15 @@
 
 .site {
 	.site-header-container {
+		position: relative;
 		width: 100%;
 		padding-top: 1rem;
+		.menu-toggle {
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+			transform: translateY(-50%);
+		}
 		.has-header-contained & {
 			width: var(--content-width, 100%);
 			max-width: 100%;
