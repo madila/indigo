@@ -649,7 +649,7 @@ __webpack_require__.r(__webpack_exports__);
 
   wp.customize('sidebar_width', function (value) {
     value.bind(function (to) {
-      document.documentElement.style.setProperty('--sidebar-width', to + 'rem');
+      document.documentElement.style.setProperty('--sidebar-width', to + 'px');
     });
   }); // Content Gutter X
 

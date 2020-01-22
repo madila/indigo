@@ -466,7 +466,7 @@ th {
     flex-direction: column; }
     .site-main article, .site-main #comments {
       width: 100%; }
-  .site-header, .site-content, .site-footer, .site .pre-footer {
+  .site-header, .site-content, .site-footer, .site .widget-area {
     padding-left: var(--content-gutter-x, 1rem);
     padding-right: var(--content-gutter-x, 1rem);
     padding-top: var(--content-gutter-y, 1rem);
@@ -477,9 +477,6 @@ th {
     grid-area: content; }
   .vertical-sidebar #secondary {
     grid-area: side; }
-    .vertical-sidebar #secondary > .widget-area {
-      padding: 1.5rem;
-      margin-left: 0.5rem; }
   .vertical-sidebar .site-content {
     display: grid;
     grid-template-areas: "content";
