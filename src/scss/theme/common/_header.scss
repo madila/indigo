@@ -36,6 +36,9 @@
 				align-items: center;
 				display: flex;
 				flex-direction: column;
+				a.custom-logo-link {
+					margin: 0 auto;
+				}
 			}
 		}
 		@include media-breakpoint-down(sm) {

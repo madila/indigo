@@ -34,7 +34,7 @@
 
 			grid-template-columns: 1fr;
 			grid-template-rows: 1fr;
-			grid-gap: 10px;
+			grid-gap: var(--content-gutter-x, $grid-gutter-width);
 		}
 
 		&.sidebar-left {
