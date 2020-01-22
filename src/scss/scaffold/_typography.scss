@@ -32,7 +32,7 @@ header p {
   @include lead();
 }
 
-strong {
+strong, b {
   font-weight: var(--bold-font-weight, ($font-weight-base+200));
 }
 

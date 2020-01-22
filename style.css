@@ -102,10 +102,6 @@ blockquote {
 dfn {
   font-style: italic; }
 
-b,
-strong {
-  font-weight: bolder; }
-
 small {
   font-size: 80%; }
 
@@ -198,7 +194,7 @@ header p {
   font-weight: 400;
   margin-bottom: 0.7rem; }
 
-strong {
+strong, b {
   font-weight: var(--bold-font-weight, 500); }
 
 p {
@@ -1960,9 +1956,6 @@ p.has-small-font-size {
 
 .text-ultra {
   font-weight: 900 !important; }
-
-strong, b {
-  font-weight: var(--headings-font-weight, 600); }
 
 .min-height-full > .v-align:after {
   min-height: 100vh; }
