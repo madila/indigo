@@ -24,7 +24,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'indigo' ); ?></a>
 
 	<header id="masthead" class="site-header" data-header-bg>
-		<div class="<?php indigo_conditional_class('indigo_header_alignment', 'site-header', array('site-header-container')); ?>">
+		<div class="site-header-container">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();

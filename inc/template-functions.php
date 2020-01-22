@@ -21,7 +21,9 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'header-scroll-bg';
 	}
 
-	$classes[] = 'indigo-'.indigo_get_theme_style();
+	if(get_theme_mod('indigo_theme_style')) {
+		$classes[] = 'indigo-'.get_theme_mod('indigo_theme_style');
+	}
 
 	if(get_theme_mod('indigo_overlay_header')) {
 		$classes[] = 'margin-below-header';
@@ -31,16 +33,8 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'has-header-contained';
 	}
 
-	if(intval(get_theme_mod('indigo_alignment_support'))) {
-		$classes[] = 'wp-alignment-support';
-	}
-
-
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( is_active_sidebar( 'entry-sidebar' ) && get_theme_mod('indigo_sidebar_alignment') !== 'none' ) {
-		$classes[] = 'vertical-sidebar';
-		$classes[] = 'sidebar-'.get_theme_mod('indigo_sidebar_alignment');
-	} else {
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
@@ -60,7 +54,7 @@ add_action( 'wp_head', 'indigo_pingback_header' );
 
 
 function display_site_title_class($classes) {
-	if(get_theme_mod('indigo_sr_site_title')) {
+	if(!display_header_text()) {
 		$classes[] = 'sr-only-header';
 	}
 	return $classes;
@@ -84,12 +78,3 @@ function archive_cover_columns() {
 }
 
 add_filter('archive_cover_columns', 'archive_cover_columns');
-
-
-function indigo_conditional_class($theme_mod, $prefix, $classes) {
-	if($value = get_theme_mod($theme_mod)) {
-		$value = $prefix . '-' . get_theme_mod( $theme_mod );
-		$classes[] = $value;
-	}
-	echo implode(' ', $classes);
-}
