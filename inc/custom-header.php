@@ -35,6 +35,7 @@ function get_theme_mod_defaults() {
 		'content_width' => '960px',
 		'header_textcolor' => '#000',
 		'primary_color' => '#4b0082',
+		'base_border_radius' => 0,
 		'secondary_color' => '#000',
 		'text_color' => '#000',
 		'base_font_weight' => '300',

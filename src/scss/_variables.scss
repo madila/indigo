@@ -202,19 +202,19 @@ $headings-color:         inherit !default;
 $headings-letter-spacing: 0em !default;
 
 $paragraph-sizes: (
-	huge: 2rem,
-	large: 1.65rem,
-	medium: 1.35rem,
-	normal: 1rem,
-	small: .85rem
+	huge: 1.25,
+	large: 1.15,
+	medium: 1.05,
+	normal: 1,
+	small: .95
 ) !default;
 
 $responsive-paragraph: (
-	xs: 1,
-	sm: 1.02,
-	md: 1.05,
-	lg: 1.08,
-	xl: 1.1
+	xs: 0.95,
+	sm: 0.97,
+	md: 1,
+	lg: 1.03,
+	xl: 1.066
 ) !default;
 
 $lead-font-size:   1.25rem !default;
