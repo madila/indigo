@@ -464,6 +464,20 @@ function indigo_customize_register( $wp_customize ) {
 	) );
 
 	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_full_width_content', array(
+		'default'    => '0',
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_full_width_content', array(
+		'label'      => __( 'Make content full width?', 'indigo' ),
+		'section'    => 'title_tagline',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_full_width_content')
+	) );
+
+	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_contain_header', array(
 		'default'    => '0',
 		'capability' => 'edit_theme_options'

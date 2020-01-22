@@ -114,7 +114,13 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 			?>
 
 			:root {
-				<?php indigo_set_theme_mod_css_var('content_width', 'content-width'); ?>
+				<?php
+				if(!get_theme_mod('indigo_full_width_content')) {
+					indigo_set_theme_mod_css_var('content_width', 'content-width');
+				} else {
+					echo '--content-width: 100%';
+				}
+				?>
 				<?php indigo_set_theme_mod_css_var('sidebar_width', 'sidebar-width'); ?>
 				<?php indigo_set_color_mod_css_var('text_color', 'base-color'); ?>
 				<?php indigo_set_color_mod_css_var('background_color', 'base-bg-color'); ?>
