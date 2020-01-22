@@ -4,7 +4,7 @@
 	}
 	&-title {
 		.archive & {
-			font-size: 1.5rem;
+			font-size: 2rem;
 		}
 	}
 	&-content {
@@ -16,11 +16,11 @@
 
 .entry {
 	&-title {
-		font-size: 4rem;
+		font-size: 3rem;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 		line-height: 1.1;
-		padding: 1rem 2rem;
+		padding: 1rem 0;
 		border-bottom: 1px solid;
 		a {
 			text-decoration: none;

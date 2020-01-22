@@ -2866,17 +2866,17 @@ blockquote p {
   padding: 0 2rem; }
 
 .archive .page-title {
-  font-size: 1.5rem; }
+  font-size: 2rem; }
 
 .page-content p {
   margin-bottom: 2em; }
 
 .entry-title {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 1.1;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   border-bottom: 1px solid; }
   .entry-title a {
     text-decoration: none; }
