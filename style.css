@@ -2677,8 +2677,14 @@ strong, b {
     /* 3 */ }
 
 .site .site-header-container {
+  position: relative;
   width: 100%;
   padding-top: 1rem; }
+  .site .site-header-container .menu-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    transform: translateY(-50%); }
   .has-header-contained .site .site-header-container {
     width: var(--content-width, 100%);
     max-width: 100%; }
@@ -2856,6 +2862,172 @@ blockquote p {
           padding: 1em 0;
           text-align: center; } }
 
+.page-header {
+  padding: 0 2rem; }
+
+.archive .page-title {
+  font-size: 1.5rem; }
+
+.page-content p {
+  margin-bottom: 2em; }
+
+.entry-title {
+  font-size: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid; }
+  .entry-title a {
+    text-decoration: none; }
+
+.entry-header {
+  margin-bottom: 1rem; }
+
+.entry-meta > span, .entry-footer > span {
+  margin-right: 1rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: .5rem 1rem;
+  border: 1px solid;
+  font-weight: 400;
+  font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  letter-spacing: var(--headings-letter-spacing, 0em);
+  border-radius: var(--base-border-radius, 3rem);
+  display: inline-block;
+  font-size: 80%; }
+  .entry-meta > span a, .entry-footer > span a {
+    transition: all 300ms linear;
+    text-decoration: none; }
+  .entry-meta > span:hover, .entry-footer > span:hover {
+    background-color: var(--base-color);
+    color: var(--base-bg-color); }
+    .entry-meta > span:hover a, .entry-footer > span:hover a {
+      color: var(--base-bg-color);
+      letter-spacing: .04em; }
+
+.entry-date + time {
+  display: none; }
+
+.comments-area {
+  padding: var(--content-gutter-x, 0) var(--content-gutter-y, 0); }
+
+.comment-list {
+  padding-left: 2rem;
+  font-size: 2rem; }
+
+.comments-title {
+  border-bottom: 1px solid;
+  padding-bottom: 1rem; }
+
+.comment-content {
+  padding: 1rem;
+  display: block;
+  margin: 1rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .35rem;
+  background-color: rgba(255, 255, 255, 0.6); }
+
+.comment .reply {
+  margin-right: 1rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: .5rem 1rem;
+  border: 1px solid;
+  font-weight: 400;
+  font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  letter-spacing: var(--headings-letter-spacing, 0em);
+  border-radius: var(--base-border-radius, 3rem);
+  display: inline-block;
+  font-size: 80%; }
+  .comment .reply a {
+    transition: all 300ms linear;
+    text-decoration: none; }
+  .comment .reply:hover {
+    background-color: var(--base-color);
+    color: var(--base-bg-color); }
+    .comment .reply:hover a {
+      color: var(--base-bg-color);
+      letter-spacing: .04em; }
+
+.comment-meta {
+  display: flex; }
+
+.comment-metadata {
+  font-size: 80%;
+  margin-top: 0; }
+  .comment-metadata > a, .comment-metadata > span {
+    margin-right: 1rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: .5rem 1rem;
+    border: 1px solid;
+    font-weight: 400;
+    font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+    letter-spacing: var(--headings-letter-spacing, 0em);
+    border-radius: var(--base-border-radius, 3rem);
+    display: inline-block;
+    font-size: 80%;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0; }
+    .comment-metadata > a a, .comment-metadata > span a {
+      transition: all 300ms linear;
+      text-decoration: none; }
+    .comment-metadata > a:hover, .comment-metadata > span:hover {
+      background-color: var(--base-color);
+      color: var(--base-bg-color); }
+      .comment-metadata > a:hover a, .comment-metadata > span:hover a {
+        color: var(--base-bg-color);
+        letter-spacing: .04em; }
+
+.comment-author {
+  flex: 1; }
+  .comment-author .avatar {
+    margin-right: .5rem; }
+  .comment-author .fn {
+    font-weight: 600;
+    display: inline-block; }
+  .comment-author .says {
+    font-size: 80%;
+    display: inline-block; }
+
+.comment-author a, .comment-metadata a {
+  text-decoration: none;
+  font-weight: 500; }
+
+.comment-body {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  padding: 1rem; }
+
+.comment-respond {
+  font-size: 1rem; }
+
+.comment-submit {
+  border-radius: var(--base-border-radius, 3rem);
+  background-color: var(--base-color, #67c0c1);
+  font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
+  letter-spacing: var(--headings-letter-spacing, 0em);
+  color: var(--base-bg-color);
+  display: block;
+  width: auto;
+  margin: 0 auto;
+  transition: all 300ms linear; }
+  .comment-submit:hover, .comment-submit:active {
+    background-color: var(--base-bg-color, #67c0c1);
+    color: var(--base-color); }
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+  border-radius: 1rem;
+  background-color: #fbfbfb45; }
+
+.logged-in-as > a {
+  text-decoration: none;
+  font-weight: 600; }
+
 .entry-content {
   font-size: 1rem;
   font-weight: var(--base-font-weight, 300); }
@@ -2924,6 +3096,14 @@ blockquote p {
     line-height: 0;
     opacity: 0.7;
     margin: .5rem 0; }
+
+.pre-footer .widget ul {
+  list-style-type: none;
+  padding-left: 0; }
+  .pre-footer .widget ul a {
+    padding: .5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: block; }
 
 .post-navigation {
   width: 100%; }
