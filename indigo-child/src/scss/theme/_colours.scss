@@ -1,0 +1,54 @@
+@import "../functions/colours";
+@import "../mixins/all";
+
+@each $colour in map-keys($tmp_colours) {
+  $value: map-get($tmp_colours, $colour);
+  @include colour-classes($colour, $value);
+}
+
+.has-white-stripes-label-gradient-background, .has-black-stripes-label-gradient-background  {
+  background-size: 120px !important;
+  background-repeat: no-repeat !important;
+  background-position: right !important;
+}
+
+.has-gram-gradient-background {
+  background: #40E0D0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.has-peach-gradient-background {
+  background: #ee0979;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.has-white-stripes-gradient-background {
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 20%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 40%);
+}
+
+
+.has-white-stripes-label-gradient-background {
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 20%, rgb(255, 255, 255) 20%, rgb(255, 255, 255) 30%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0) 40%);
+}
+
+.has-black-stripes-gradient-background {
+  background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 20%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%);
+}
+
+.has-black-stripes-label-gradient-background {
+  background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 20%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 30%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 40%);
+}
+
+.wp-block-cover.has-background-dim:before {
+  content: "";
+  background-color: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: .5;
+}

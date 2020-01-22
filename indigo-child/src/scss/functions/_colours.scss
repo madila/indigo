@@ -1,0 +1,11 @@
+@function check-color($color) {
+  @if (lightness($color) > 70) {
+    @return darken($color, 75%);
+  } @else {
+    @return #ffffff;
+  }
+}
+
+@function get-colour($colour_name) {
+  @return map-get($colours, $colour_name);
+}
