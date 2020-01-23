@@ -11,13 +11,13 @@
 			width: 100%;
 		}
 	}
-	&-content,&-footer,.widget-area {
+	&-footer,.widget-area {
 		padding-left: var(--content-gutter-x, $grid-gutter-width);
 		padding-right: var(--content-gutter-x, $grid-gutter-width);
 		padding-top: var(--content-gutter-y, $grid-gutter-width);
 		padding-bottom: var(--content-gutter-y, $grid-gutter-width);
 	}
-	&-header {
+	&-header, &-content {
 		padding-left: var(--content-gutter-x, $grid-gutter-width);
 		padding-right: var(--content-gutter-x, $grid-gutter-width);
 	}
