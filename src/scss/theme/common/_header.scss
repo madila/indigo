@@ -27,6 +27,9 @@
 			width: var(--content-width, 100%);
 			max-width: 100%;
 		}
+		.custom-logo-link {
+			display: block;
+		}
 		&.site-header {
 			&-center {
 				width: 100%;
@@ -34,8 +37,8 @@
 				display: flex;
 				flex-direction: column;
 				text-align: center;
-				a.custom-logo-link {
-					margin: 0 auto;
+				.custom-logo-link {
+					margin: .5rem auto;
 				}
 			}
 			&-left {

@@ -23,7 +23,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'indigo' ); ?></a>
 
-	<header id="masthead" class="<?php indigo_conditional_class('indigo_contain_header', 'alignfull', false, array('site-header')); ?>" data-header-bg>
+	<header id="masthead" <?php indigo_header_class(); ?> data-header-bg>
 		<div class="<?php indigo_conditional_class('indigo_header_alignment', 'site-header', true, array('site-header-container')); ?>">
 		<div class="site-branding">
 			<?php

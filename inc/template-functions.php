@@ -35,6 +35,15 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'wp-alignment-support';
 	}
 
+	var_dump(get_theme_mod('indigo_sr_site_title'));
+	if(intval(get_theme_mod('indigo_sr_site_title'))) {
+		$classes[] = 'sr-only-title';
+	}
+
+	if(intval(get_theme_mod('indigo_sr_site_desc'))) {
+		$classes[] = 'sr-only-desc';
+	}
+
 
 	// Adds a class of no-sidebar when there is no sidebar present.
 	if ( is_active_sidebar( 'entry-sidebar' ) && get_theme_mod('indigo_sidebar_alignment') !== 'none' ) {
@@ -47,6 +56,19 @@ function indigo_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'indigo_body_classes' );
+
+
+add_filter('indigo_header_class', function($classes) {
+	$header_alignment = get_theme_mod('indigo_header_alignment');
+	$header_alignment = ($header_alignment) ? $header_alignment : get_theme_mod_default('indigo_header_alignment');
+	$classes[] = 'site-header-'.$header_alignment;
+	return $classes;
+});
+
+function indigo_header_class() {
+	$classes = apply_filters('indigo_header_class', ['site-header']);
+	echo ' class="'.implode(' ', $classes).'" ';
+}
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.

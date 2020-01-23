@@ -2758,14 +2758,16 @@ p.has-small-font-size {
   .has-header-contained .site .site-header-container {
     width: var(--content-width, 100%);
     max-width: 100%; }
+  .site .site-header-container .custom-logo-link {
+    display: block; }
   .site .site-header-container.site-header-center {
     width: 100%;
     align-items: center;
     display: flex;
     flex-direction: column;
     text-align: center; }
-    .site .site-header-container.site-header-center a.custom-logo-link {
-      margin: 0 auto; }
+    .site .site-header-container.site-header-center .custom-logo-link {
+      margin: .5rem auto; }
   .site .site-header-container.site-header-left {
     align-content: flex-end;
     flex-direction: row;

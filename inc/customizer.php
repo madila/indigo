@@ -151,7 +151,7 @@ function indigo_customize_register( $wp_customize ) {
 		'label' => __( 'Logo Size' ),
 		'description' => __( 'The maximum width of the logo.' ),
 		'input_attrs' => array(
-			'min' => 100,
+			'min' => 60,
 			'max' => 1000,
 			'step' => 10,
 			'value' => get_theme_mod('logo_width')
