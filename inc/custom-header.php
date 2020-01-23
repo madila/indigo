@@ -40,6 +40,7 @@ function get_theme_mod_defaults() {
 		'text_color' => '#000',
 		'base_font_weight' => '300',
 		'headings_font_weight' => '600',
+		'indigo_sidebar_alignment' => 'bottom',
 		'header_bg_color' => 'transparent',
 		'content_gutter_x' => '1',
 		'content_gutter_y' => '1'

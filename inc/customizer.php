@@ -202,9 +202,10 @@ function indigo_customize_register( $wp_customize ) {
 		'type' => 'select',
 		'section' => 'ui', // Add a default or your own section
 		'label' => __( 'Sidebar Alignment' ),
-		'description' => __( 'Select none if you don\'t wish to have a sidebar. When re-enabled, you must reload the customiser.' ),
+		'description' => __( 'Select the position of the sidebar. To disable sidebar, remove all widgets.' ),
 		'choices' => array(
-			'none' => __( 'None' ),
+			'bottom' => __( 'Bottom' ),
+			'both' => __( 'Both' ),
 			'left' => __( 'Left' ),
 			'right' => __( 'Right' )
 		),
