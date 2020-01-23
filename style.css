@@ -2754,8 +2754,7 @@ p.has-small-font-size {
 
 .site .site-header-container {
   position: relative;
-  width: 100%;
-  padding-top: 1rem; }
+  width: 100%; }
   .site .site-header-container .menu-toggle {
     position: absolute;
     right: 1rem;
