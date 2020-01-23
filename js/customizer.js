@@ -661,7 +661,7 @@ __webpack_require__.r(__webpack_exports__);
 
   wp.customize('indigo_content_gutter_y', function (value) {
     value.bind(function (to) {
-      document.documentElement.style.setProperty('--content-gutter-y', to + 'px');
+      document.documentElement.style.setProperty('--content-gutter-y', to + 'rem');
     });
   }); // Border Radius
 

@@ -58,7 +58,7 @@
 	wp.customize( 'indigo_content_gutter_y', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
-				.setProperty('--content-gutter-y', to+'px');
+				.setProperty('--content-gutter-y', to+'rem');
 		} );
 	} );
 
