@@ -2785,7 +2785,7 @@ p.has-small-font-size {
     .site .site-header-container.site-header-center .custom-logo-link {
       margin: .5rem auto; }
   .site .site-header-container.site-header-left {
-    align-content: flex-end;
+    align-content: center;
     flex-direction: row;
     display: flex;
     width: 100%;
