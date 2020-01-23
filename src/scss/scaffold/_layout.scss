@@ -11,11 +11,19 @@
 			width: 100%;
 		}
 	}
-	&-header,&-content,&-footer,.widget-area {
+	&-content,&-footer,.widget-area {
 		padding-left: var(--content-gutter-x, $grid-gutter-width);
 		padding-right: var(--content-gutter-x, $grid-gutter-width);
 		padding-top: var(--content-gutter-y, $grid-gutter-width);
 		padding-bottom: var(--content-gutter-y, $grid-gutter-width);
+	}
+	&-header {
+		padding-left: var(--content-gutter-x, $grid-gutter-width);
+		padding-right: var(--content-gutter-x, $grid-gutter-width);
+	}
+	.custom-logo-link {
+		margin-top: var(--content-gutter-y, $grid-gutter-width);
+		margin-bottom: var(--content-gutter-y, $grid-gutter-width);
 	}
 }
 

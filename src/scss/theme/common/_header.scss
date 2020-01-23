@@ -16,11 +16,17 @@
 	.site-header-container {
 		position: relative;
 		width: 100%;
+		.site-branding {
+			align-self: center;
+			width: 100%;
+			position: relative;
+		}
 		.menu-toggle {
 			position: absolute;
-			right: 1rem;
-			top: 1rem;
+			right: 0;
+			top: 50%;
 			transform: translateY(-50%);
+			padding: 0;
 		}
 		.has-header-contained & {
 			width: var(--content-width, 100%);
@@ -108,7 +114,6 @@
 	}
 	&-branding {
 		align-self: center;
-		max-width: calc(100vw - 4em);
 		.custom-logo-link {
 			display: block;
 		}

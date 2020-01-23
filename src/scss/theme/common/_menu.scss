@@ -62,29 +62,37 @@
 				flex: 1;
 				overflow: visible;
 				justify-content: center;
+				height: 100%;
 			}
 			margin-bottom: 0;
 			list-style-type: none;
 			padding-left: 0;
 			display: flex;
 			li {
+				flex-grow: 1;
+				flex-shrink: 1;
+				flex-basis: auto;
 				&.current_page_item {
 					a {
 						font-weight: 400;
-						border-bottom: 1px solid var(--header-text-color, --base-color);
+						border-bottom: 1px solid var(--header-text-color, var(--base-color));
 					}
 				}
 				a {
-					padding: 1rem 1.5rem;
-					line-height: 1em;
-					display: inline-block;
+					padding: 1rem 1rem;
+					line-height: 1.2em;
 					text-decoration: none;
+					display: flex;
+					justify-content: inherit;
+					align-items: flex-end;
+					height: 100%;
+					vertical-align: baseline;
 					@include media-breakpoint-up(md) {
 						white-space: nowrap;
 					}
 					font-weight: 300;
 					border-bottom: 1px solid transparent;
-					letter-spacing: .075em;
+					letter-spacing: var(--base-letter-spacing);
 					font-size: 1rem;
 					font-family: var(--headings-font-family, $headings-font-family);
 					&:hover {
