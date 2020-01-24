@@ -37,7 +37,6 @@
 		}
 		&.site-header {
 			&-center {
-				width: 100%;
 				align-items: center;
 				display: flex;
 				flex-direction: column;
@@ -50,7 +49,6 @@
 				align-content: center;
 				flex-direction: row;
 				display: flex;
-				width: 100%;
 				justify-content: space-between;
 				.main-navigation {
 					align-self: center;
@@ -96,9 +94,9 @@
 		z-index: 300;
 		background-color: var(--header-bg-color, transparent);
 		display: flex;
-		width: 100%;
-		justify-content: space-between;
+		justify-content: center;
 		flex-wrap: wrap;
+		@include alignfull();
 		.header-scroll-bg & {
 			background-color: transparent;
 		}
