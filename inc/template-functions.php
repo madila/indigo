@@ -24,7 +24,7 @@ function indigo_body_classes( $classes ) {
 	$classes[] = 'indigo-'.indigo_get_theme_style();
 
 	if(get_theme_mod('indigo_overlay_header')) {
-		$classes[] = 'margin-below-header';
+		$classes[] = 'has-fixed-header';
 	}
 
 	if(intval(get_theme_mod('indigo_contain_header'))) {

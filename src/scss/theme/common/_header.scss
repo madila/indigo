@@ -87,15 +87,20 @@
 			background-image: linear-gradient(180deg, rgba(0,0,0,0.4), transparent);
 		}
 	}
-	.has-fixed-header.scrolling {
-		opacity: 0;
-	}
 	&-header {
 		z-index: 300;
 		background-color: var(--header-bg-color, transparent);
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
+		position: relative;
+
+		.has-fixed-header & {
+			position: fixed;
+		}
+		.header-scroll-bg & {
+			background-color: transparent;
+		}
 		@include alignfull();
 		.header-scroll-bg & {
 			background-color: transparent;

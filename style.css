@@ -2815,20 +2815,22 @@ p.has-small-font-size {
   transition: opacity 200ms linear;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent); }
 
-.site .has-fixed-header.scrolling {
-  opacity: 0; }
-
 .site-header {
   z-index: 300;
   background-color: var(--header-bg-color, transparent);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
   margin-left: calc( -100vw / 2 + 100% / 2);
   margin-right: calc( -100vw / 2 + 100% / 2);
   max-width: 100vw;
   width: unset !important;
   color: var(--header-text-color, inherit); }
+  .has-fixed-header .site-header {
+    position: fixed; }
+  .header-scroll-bg .site-header {
+    background-color: transparent; }
   .header-scroll-bg .site-header {
     background-color: transparent; }
   @media (max-width: 767px) {

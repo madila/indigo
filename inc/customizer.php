@@ -527,7 +527,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_overlay_header', array(
-		'label'      => __( 'Push content to the top of the page? (Below the header)', 'indigo' ),
+		'label'      => __( 'Fix header to the top of the page?', 'indigo' ),
 		'section'    => 'title_tagline',
 		'type'       => 'checkbox',
 		'std'        => get_theme_mod('indigo_overlay_header')
