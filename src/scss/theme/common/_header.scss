@@ -94,9 +94,13 @@
 		justify-content: center;
 		flex-wrap: wrap;
 		position: relative;
-
+		padding-top: var(--content-gutter-y,1rem);
+		padding-bottom: var(--content-gutter-y,1rem);
 		.has-fixed-header & {
 			position: fixed;
+			left: 0;
+			right: 0;
+
 		}
 		.header-scroll-bg & {
 			background-color: transparent;
