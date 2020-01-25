@@ -12,66 +12,69 @@
 	}
 }
 
-.site {
-	.site-header-container {
-		position: relative;
+.site-header-container {
+	position: relative;
+	width: 100%;
+	padding-top: var(--content-gutter-y,1rem);
+	padding-bottom: var(--content-gutter-y,1rem);
+	.site-branding {
+		align-self: center;
 		width: 100%;
-		.site-branding {
-			align-self: center;
-			width: 100%;
-			position: relative;
-		}
-		.menu-toggle {
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
-			padding: 0;
-		}
-		.has-header-contained & {
-			width: var(--content-width, 100%);
-			max-width: 100%;
-		}
-		.custom-logo-link {
-			display: block;
-		}
-		&.site-header {
-			&-center {
-				align-items: center;
-				display: flex;
-				flex-direction: column;
-				text-align: center;
-				.custom-logo-link {
-					margin: .5rem auto;
-				}
-			}
-			&-left {
-				align-content: center;
-				flex-direction: row;
-				display: flex;
-				justify-content: space-between;
-				.main-navigation {
-					align-self: center;
-				}
-			}
-			&-right {
-				.site-branding {
-					float: right;
-				}
-				.main-navigation {
-					height: 100%;
-					align-items: flex-end;
-				}
+		position: relative;
+	}
+	.menu-toggle {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		padding: 0;
+	}
+	.has-header-contained & {
+		width: var(--content-width, 100%);
+		max-width: 100%;
+	}
+	.custom-logo-link {
+		display: block;
+	}
+	&.site-header {
+		&-center {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			.custom-logo-link {
+				margin: .5rem auto;
 			}
 		}
-		@include media-breakpoint-down(sm) {
-			flex-wrap: wrap;
+		&-left {
+			align-content: center;
+			flex-direction: row;
+			display: flex;
+			justify-content: space-between;
 			.main-navigation {
-				flex-grow: 1;
-				width: 100%;
+				align-self: center;
+			}
+		}
+		&-right {
+			.site-branding {
+				float: right;
+			}
+			.main-navigation {
+				height: 100%;
+				align-items: flex-end;
 			}
 		}
 	}
+	@include media-breakpoint-down(sm) {
+		flex-wrap: wrap;
+		.main-navigation {
+			flex-grow: 1;
+			width: 100%;
+		}
+	}
+}
+
+.site {
 	.has-fixed-header & {
 		&:before {
 			content: "";
@@ -94,8 +97,6 @@
 		justify-content: center;
 		flex-wrap: wrap;
 		position: relative;
-		padding-top: var(--content-gutter-y,1rem);
-		padding-bottom: var(--content-gutter-y,1rem);
 		.has-fixed-header & {
 			position: fixed;
 			left: 0;
