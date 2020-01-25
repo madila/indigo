@@ -35,7 +35,6 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'wp-alignment-support';
 	}
 
-	var_dump(get_theme_mod('indigo_sr_site_title'));
 	if(intval(get_theme_mod('indigo_sr_site_title'))) {
 		$classes[] = 'sr-only-title';
 	}
