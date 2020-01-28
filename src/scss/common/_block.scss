@@ -25,12 +25,13 @@
 			padding-bottom: 1rem;
 		}
 	}
+}
 
-	&-cover__inner-container {
-		> .wp-block-group {
-			@include media-breakpoint-up(md) {
-				max-width: 50%;
-			}
-		}
-	}
+.wp-block-coblocks-feature {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+}
+
+.coblocks-lightbox {
+	background-color: #333;
 }
