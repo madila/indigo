@@ -10,10 +10,6 @@ $css-vars-use-native: true;
 	max-width: var(--content-width, $container-default-width);
 }
 
-.wp-block {
-	max-width: var(--content-width, $container-default-width);
-}
-
 /* Main column width */
 .wp-block {
 	max-width: var(--content-width, $container-default-width);
@@ -41,7 +37,5 @@ html .editor-styles-wrapper {
 		font-size: var(--base-font-size, $root-font-size);
 		font-weight: var(--base-font-weight, $font-weight-base);
 	}
-
 	@import "block-editor/common";
-
 }
