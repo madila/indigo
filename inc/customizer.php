@@ -441,6 +441,30 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) );
 
+	/**
+	 * Font Size
+	 */
+	$wp_customize->add_setting(
+		'base_line_height',
+		array(
+			'default'           => 1.3,
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'indigo_sanitize_em_units',
+		)
+	);
+
+	$wp_customize->add_control( 'base_line_height', array(
+		'type' => 'range',
+		'section' => 'ui',
+		'label' => __( 'Base Line Height' ),
+		'description' => __( 'Define the default font size of the page.' ),
+		'input_attrs' => array(
+			'min' => 0.8,
+			'max' => 2.2,
+			'step' => 0.1,
+			'value' => get_theme_mod('base_line_height')
+		),
+	) );
 
 	/**
 	 * Border Radius

@@ -13,7 +13,7 @@ if ( ! is_active_sidebar( 'entry-sidebar' ) || get_theme_mod('indigo_sidebar_ali
 ?>
 
 <aside id="secondary">
-    <div class="widget-area">
-        <?php dynamic_sidebar( 'entry-sidebar' ); ?>
-    </div>
+	<div class="widget-area">
+		<?php dynamic_sidebar( 'entry-sidebar' ); ?>
+	</div>
 </aside><!-- #secondary -->

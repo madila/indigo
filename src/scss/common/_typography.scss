@@ -2,6 +2,10 @@
 // Headings
 //
 
+p {
+	margin-bottom: 1.65em;
+}
+
 .lead {
   @include lead();
 }

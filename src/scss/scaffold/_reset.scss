@@ -41,13 +41,14 @@ article, aside, dialog, figcaption, figure, footer, header, main, nav, section {
 
 body {
 	margin: 0; // 1
-	font-family: inherit;;
-	font-size: inherit;
 	font-weight: 300;
-	line-height: 1.5;
 	color: inherit;;
-	background-color: inherit; // 2
 	overflow-x: hidden;
+	font-family: var(--base-font-family, $base-font-family);
+	font-size: var(--base-font-size, $root-font-size);
+	line-height: var(--base-line-height, $line-height-base);
+	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
+	background-color: var(--base-bg-color, $body-bg);
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.

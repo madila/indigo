@@ -14,12 +14,8 @@
 			width: 100%;
 			padding-top: 3rem;
 			padding-bottom: 3rem;
-			padding-left: 1rem;
-			padding-right: 1rem;
-			@include media-breakpoint-up(md) {
-				padding-left: 2rem;
-				padding-right: 2rem;
-			}
+			padding-left: var(--content-gutter-x, 2rem);
+			padding-right: var(--content-gutter-x, 2rem);
 		}
 	}
 	&-media-text {

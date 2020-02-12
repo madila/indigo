@@ -91,6 +91,13 @@
 		} );
 	} );
 
+	wp.customize( 'base_line_height', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-line-height', to+'em');
+		} );
+	} );
+
 	wp.customize( 'base_font_family', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style

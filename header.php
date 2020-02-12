@@ -22,7 +22,7 @@
 <body <?php body_class(); ?> data-theme="centered">
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'indigo' ); ?></a>
-
+	<div class="site-header-wrapper">
 	<header id="masthead" <?php indigo_header_class(); ?> data-header-bg>
 		<div class="<?php indigo_conditional_class('indigo_header_alignment', 'site-header', true, array('site-header-container')); ?>">
 		<div class="site-branding">
@@ -66,5 +66,5 @@
 		<?php endif; ?>
 		</div>
 	</header><!-- #masthead -->
-
+	</div>
 	<div id="content" class="site-content">
