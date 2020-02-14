@@ -82,6 +82,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 800, 400 );
+		add_image_size('hd', 1920, 1080, false);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -101,7 +102,6 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		) );
 
 
-		add_image_size('hd', 1920, 1080, false);
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'indigo_custom_background_args', array(
