@@ -27,7 +27,7 @@ function indigo_custom_header_setup() {
 	) ) );
 }
 
-//add_action( 'after_setup_theme', 'indigo_custom_header_setup' );
+add_action( 'after_setup_theme', 'indigo_custom_header_setup' );
 
 function get_theme_mod_defaults() {
 	return apply_filters('indigo_theme_mod_defaults', array(
@@ -112,7 +112,6 @@ function add_default_font_stack($fontFamily) {
 }
 
 add_action('admin_head', 'indigo_header_style');
-
 
 if ( ! function_exists( 'indigo_header_style' ) ) :
 	/**

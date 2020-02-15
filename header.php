@@ -23,7 +23,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'indigo' ); ?></a>
 	<div class="site-header-wrapper">
-	<header id="masthead" <?php indigo_header_class(); ?>>
+	<header id="masthead" <?php indigo_header_class(); ?> data-header-bg>
 		<div class="site-header-container">
 		<div class="site-branding">
 			<?php

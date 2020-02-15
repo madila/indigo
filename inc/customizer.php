@@ -60,8 +60,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'header_textcolor' , array(
 		'default' => get_theme_mod_default('header_textcolor'),
-		'transport' => 'postMessage',
-		'sanitize_callback' => 'sanitize_hex_color',
+		'transport' => 'postMessage'
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_textcolor', array(
