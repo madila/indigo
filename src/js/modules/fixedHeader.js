@@ -4,7 +4,7 @@ import {debounce} from 'lodash';
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	let fixedBrandingWrapper = document.querySelector('.site-header-wrapper');
+	let fixedBrandingWrapper = document.querySelector('.has-fixed-header .site-header-wrapper');
 
 	function reCalculateHeader() {
 		if(fixedBrandingWrapper) {

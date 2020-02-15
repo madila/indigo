@@ -5,15 +5,6 @@
  * @package Indigo
  */
 
-
-function indigo_get_theme_style() {
-	return 'default';
-}
-
-function indigo_style_is_default() {
-	return (indigo_get_theme_style() === 'default');
-}
-
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -29,6 +20,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'background_color' )->default = '#f6f7f9';
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
@@ -50,7 +42,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_display_copyright', array(
-		'default'    => '0',
+		'default'    => false,
 		'capability' => 'edit_theme_options'
 	) );
 
@@ -65,6 +57,20 @@ function indigo_customize_register( $wp_customize ) {
 	/**
 	 * Typography Color
 	 */
+
+	$wp_customize->add_setting( 'header_textcolor' , array(
+		'default' => get_theme_mod_default('header_textcolor'),
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_textcolor', array(
+		'label'      => __( 'Header Text Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
+
+
 	$wp_customize->add_setting( 'text_color' , array(
 		'default' => get_theme_mod_default('text_color'),
 		'transport' => 'postMessage',
@@ -93,7 +99,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'header_bg_on_scroll', array(
-		'default'    => '0',
+		'default'    => false,
 		'capability' => 'edit_theme_options'
 	) );
 
@@ -136,17 +142,17 @@ function indigo_customize_register( $wp_customize ) {
 	/**
 	 * Logo width
 	 */
+	$logo_width_value = intval(get_theme_mod('logo_width', '250px'));
 	$wp_customize->add_setting(
 		'logo_width',
 		array(
-			'default'           => '250px',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_px_units',
+			'default'           => $logo_width_value,
+			'transport'         => 'postMessage'
 		)
 	);
 
-	$wp_customize->add_control( 'logo_width', array(
-		'type' => 'range',
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'logo_width', array(
+		'type' => 'range-value',
 		'section' => 'title_tagline',
 		'label' => __( 'Logo Size' ),
 		'description' => __( 'The maximum width of the logo.' ),
@@ -154,148 +160,23 @@ function indigo_customize_register( $wp_customize ) {
 			'min' => 60,
 			'max' => 1000,
 			'step' => 10,
-			'value' => get_theme_mod('logo_width')
+			'suffix' => 'px'
 		),
-	) );
+	) ));
 
 
 	/**
 	 * Theme
 	 */
-	$wp_customize->add_setting( 'indigo_header_alignment', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'left',
-	) );
 
-	$wp_customize->add_control( 'indigo_header_alignment', array(
-		'type' => 'select',
-		'section' => 'title_tagline', // Add a default or your own section
-		'label' => __( 'Header Alignment' ),
-		'description' => __( 'Change the position of the logo on the header.' ),
-		'choices' => array(
-			'center' => __( 'Center' ),
-			'left' => __( 'Left' ),
-			'right' => __( 'Right' )
-		),
-	) );
-
-	$wp_customize->add_section( 'ui',
+	$wp_customize->add_section( 'typography',
 		array(
-			'title'       => __( 'User Interface', 'indigo' ), //Visible title of section
+			'title'       => __( 'Typography', 'indigo' ), //Visible title of section
 			'priority'    => 30, //Determines what order this appears in
 			'capability'  => 'edit_theme_options', //Capability needed to tweak
-			'description' => __('Allows you to define to way the User Interface is displayed.', 'mytheme'), //Descriptive tooltip
+			'description' => __('Allows you to control the typography.', 'mytheme'), //Descriptive tooltip
 		)
 	);
-
-	/**
-	 * Theme
-	 */
-	$wp_customize->add_setting( 'indigo_sidebar_alignment', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'none',
-	) );
-
-	$wp_customize->add_control( 'indigo_sidebar_alignment', array(
-		'type' => 'select',
-		'section' => 'ui', // Add a default or your own section
-		'label' => __( 'Sidebar Alignment' ),
-		'description' => __( 'Select the position of the sidebar. To disable sidebar, remove all widgets.' ),
-		'choices' => array(
-			'bottom' => __( 'Bottom' ),
-			'both' => __( 'Both' ),
-			'left' => __( 'Left' ),
-			'right' => __( 'Right' )
-		),
-	) );
-
-	/**
-	 * Sidebar Width
-	 */
-	$wp_customize->add_setting(
-		'sidebar_width',
-		array(
-			'default'           => 300,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_px_units',
-		)
-	);
-
-	$wp_customize->add_control( 'sidebar_width', array(
-		'type' => 'range',
-		'section' => 'ui',
-		'label' => __( 'Sidebar Width' ),
-		'description' => __( 'The width of the website sidebars.' ),
-		'input_attrs' => array(
-			'min' => 250,
-			'max' => 600,
-			'step' => 100,
-		),
-	) );
-
-	/**
-	 * Site Gutter X
-	 */
-	$wp_customize->add_setting(
-		'indigo_content_gutter_x',
-		array(
-			'default'           => 1,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_rem_units',
-		)
-	);
-
-	$wp_customize->add_control( 'indigo_content_gutter_x', array(
-		'type' => 'range',
-		'section' => 'ui',
-		'label' => __( 'Content Horizontal Gutter' ),
-		'description' => __( 'The space inside the elements' ),
-		'input_attrs' => array(
-			'min' => 0,
-			'max' => 5,
-			'step' => 0.5,
-		),
-	) );
-
-	/**
-	 * Site Gutter X
-	 */
-	$wp_customize->add_setting(
-		'indigo_content_gutter_y',
-		array(
-			'default'           => 1,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_rem_units',
-		)
-	);
-
-	$wp_customize->add_control( 'indigo_content_gutter_y', array(
-		'type' => 'range',
-		'section' => 'ui',
-		'label' => __( 'Content Vertical Gutter' ),
-		'description' => __( 'The space inside the elements' ),
-		'input_attrs' => array(
-			'min' => 0,
-			'max' => 5,
-			'step' => 0.5,
-		),
-	) );
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_alignment_support', array(
-		'default'    => '1',
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_alignment_support', array(
-		'label'      => __( 'Enable support for wide and full alignment.', 'indigo' ),
-		'section'    => 'ui',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_alignment_support')
-	) );
 
 	/**
 	 * Base Typography
@@ -303,7 +184,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_font_family',
 		array(
-			'default'           => 'Helvetica',
+			'default'           => '',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
@@ -311,7 +192,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'base_font_family', array(
 		'type' => 'text',
-		'section' => 'ui', // Add a default or your own section
+		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Base Font Family' ),
 		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
 	) );
@@ -327,7 +208,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'base_font_weight', array(
 		'type' => 'select',
-		'section' => 'ui', // Add a default or your own section
+		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Default Font Weight' ),
 		'description' => __( 'Change the thinness of the font you use for the body copy' ),
 		'choices' => array(
@@ -354,7 +235,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'bold_font_weight', array(
 		'type' => 'select',
-		'section' => 'ui', // Add a default or your own section
+		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Bold Font Weight' ),
 		'description' => __( 'Change the thinness of the font you use for the bold copy' ),
 		'choices' => array(
@@ -376,7 +257,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'headings_font_family',
 		array(
-			'default'           => 'Helvetica',
+			'default'           => '',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		)
@@ -384,7 +265,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'headings_font_family', array(
 		'type' => 'text',
-		'section' => 'ui', // Add a default or your own section
+		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Headings Font Family' ),
 		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
 	) );
@@ -395,12 +276,12 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'headings_font_weight', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => '300',
+		'default' => '600',
 	) );
 
 	$wp_customize->add_control( 'headings_font_weight', array(
 		'type' => 'select',
-		'section' => 'ui', // Add a default or your own section
+		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Headings Font Weight' ),
 		'description' => __( 'Change the thinness of the font you use for the body copy' ),
 		'choices' => array(
@@ -422,24 +303,23 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_font_size',
 		array(
-			'default'           => 15,
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_px_units',
+			'default'           => get_theme_mod('base_font_size', 14),
+			'transport'         => 'postMessage'
 		)
 	);
 
-	$wp_customize->add_control( 'base_font_size', array(
-		'type' => 'range',
-		'section' => 'ui',
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'base_font_size', array(
+		'type' => 'range-value',
+		'section' => 'typography',
 		'label' => __( 'Base Font Size' ),
 		'description' => __( 'Define the default font size of the page.' ),
 		'input_attrs' => array(
 			'min' => 12,
 			'max' => 25,
 			'step' => 1,
-			'value' => get_theme_mod('base_font_size')
+			'suffix' => 'px'
 		),
-	) );
+	)) );
 
 	/**
 	 * Font Size
@@ -447,7 +327,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_line_height',
 		array(
-			'default'           => 1.3,
+			'default'           => 1.5,
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'indigo_sanitize_em_units',
 		)
@@ -455,7 +335,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'base_line_height', array(
 		'type' => 'range',
-		'section' => 'ui',
+		'section' => 'typography',
 		'label' => __( 'Base Line Height' ),
 		'description' => __( 'Define the default font size of the page.' ),
 		'input_attrs' => array(
@@ -480,7 +360,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'base_border_radius', array(
 		'type' => 'range',
-		'section' => 'ui',
+		'section' => 'typography',
 		'label' => __( 'Border Radius' ),
 		'description' => __( 'Define the roundness of UI elements, such as button, inputs...' ),
 		'input_attrs' => array(
@@ -494,30 +374,63 @@ function indigo_customize_register( $wp_customize ) {
 	/**
 	 * Content Max Width
 	 */
+	$content_width_value = intval(get_theme_mod( 'content_width', '960' ));
+
 	$wp_customize->add_setting(
 		'content_width',
 		array(
-			'default'           => 800,
+			'default'           => $content_width_value,
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_px_units',
 		)
 	);
 
-	$wp_customize->add_control( 'content_width', array(
-		'type' => 'range',
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'content_width', array(
+		'type' => 'range-value',
 		'section' => 'title_tagline',
 		'label' => __( 'Content Width' ),
+		'settings' => 'content_width',
 		'description' => __( 'The maximum width of the website container.' ),
 		'input_attrs' => array(
 			'min' => 600,
 			'max' => 2400,
 			'step' => 100,
+			'suffix' => 'px', //optional suffix
+			'value' => $content_width_value
 		),
-	) );
+	) ) );
+
+
+
+	/**
+	 * Content Wide Max Width
+	 */
+	$init_value = intval(get_theme_mod( 'content_width_wide', '1060' ));
+
+	$wp_customize->add_setting(
+		'content_width_wide',
+		array(
+			'default'           => $init_value,
+			'transport'         => 'postMessage'
+		)
+	);
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'content_width_wide', array(
+		'type' => 'range-value',
+		'section' => 'title_tagline',
+		'label' => __( 'Wide Content Width' ),
+		'settings' => 'content_width_wide',
+		'description' => __( 'The maximum width of an element that is aligned wide.' ),
+		'input_attrs' => array(
+			'min' => 600,
+			'max' => 2400,
+			'step' => 100,
+			'suffix' => 'px',
+			'value' => $init_value
+		),
+	) ));
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_full_width_content', array(
-		'default'    => '0',
+		'default'    => false,
 		'capability' => 'edit_theme_options'
 	) );
 
@@ -525,41 +438,12 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'indigo_full_width_content', array(
 		'label'      => __( 'Make content full width?', 'indigo' ),
 		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_full_width_content')
-	) );
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_contain_header', array(
-		'default'    => '0',
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_contain_header', array(
-		'label'      => __( 'Contain the header content?', 'indigo' ),
-		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_contain_header')
-	) );
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_overlay_header', array(
-		'default'    => indigo_style_is_default() ? '0' : '1',
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_overlay_header', array(
-		'label'      => __( 'Fix header to the top of the page?', 'indigo' ),
-		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_overlay_header')
+		'type'       => 'checkbox'
 	) );
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_sr_site_title', array(
-		'default'    => '0',
+		'default'    => false,
 		'transport'  => 'postMessage',
 		'capability' => 'edit_theme_options'
 	) );
@@ -568,13 +452,12 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'indigo_sr_site_title', array(
 		'label'      => __( 'Display Title as Screen Ready Only?', 'indigo' ),
 		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_sr_site_title')
+		'type'       => 'checkbox'
 	) );
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_sr_site_desc', array(
-		'default'    => '0',
+		'default'    => false,
 		'transport'  => 'postMessage',
 		'capability' => 'edit_theme_options'
 	) );
@@ -583,8 +466,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'indigo_sr_site_desc', array(
 		'label'      => __( 'Display Tagline as Screen Ready Only?', 'indigo' ),
 		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_sr_site_desc')
+		'type'       => 'checkbox'
 	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
@@ -597,6 +479,272 @@ function indigo_customize_register( $wp_customize ) {
 			'render_callback' => 'indigo_customize_partial_blogdescription',
 		) );
 	}
+
+
+	/*
+	 * Header Panel
+	 */
+
+	$wp_customize->add_section( 'theme_header',
+		array(
+			'title'       => __( 'Site Header', 'indigo' ), //Visible title of section
+			'priority'    => 10, //Determines what order this appears in
+			'capability'  => 'edit_theme_options', //Capability needed to tweak
+			'description' => __('Allows you to define to way the Site Header is displayed.', 'indigo'), //Descriptive tooltip
+		)
+	);
+
+	$wp_customize->add_setting( 'indigo_header_alignment', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'center',
+	) );
+
+	$wp_customize->add_control( 'indigo_header_alignment', array(
+		'type' => 'select',
+		'section' => 'theme_header', // Add a default or your own section
+		'label' => __( 'Header Alignment' ),
+		'description' => __( 'Change the position of the logo on the header.' ),
+		'choices' => array(
+			'center' => __( 'Center' ),
+			'left' => __( 'Left' ),
+			'right' => __( 'Right' )
+		),
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_contain_header', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_contain_header', array(
+		'label'      => __( 'Contain the header content?', 'indigo' ),
+		'section'    => 'theme_header',
+		'type'       => 'checkbox'
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_overlay_header', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_overlay_header', array(
+		'label'      => __( 'Fix header to the top of the page?', 'indigo' ),
+		'section'    => 'theme_header',
+		'type'       => 'checkbox'
+	) );
+
+	/**
+	 * Header Padding X
+	 */
+	$wp_customize->add_setting(
+		'indigo_header_padding_x',
+		array(
+			'default'           => get_theme_mod('indigo_header_padding_x', 1),
+			'transport'         => 'postMessage'
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'indigo_header_padding_x', array(
+		'type' => 'range-value',
+		'section' => 'theme_header',
+		'label' => __( 'Header Horizontal Padding' ),
+		'description' => __( 'The space inside the elements' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 5,
+			'step' => 0.5,
+			'suffix' => 'rem'
+		),
+	)) );
+
+	/**
+	 * Header Padding Y
+	 */
+	$wp_customize->add_setting(
+		'indigo_header_padding_y',
+		array(
+			'default'           => get_theme_mod('indigo_header_padding_y', 1),
+			'transport'         => 'postMessage'
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'indigo_header_padding_y', array(
+		'type' => 'range-value',
+		'section' => 'theme_header',
+		'label' => __( 'Header Vertical Padding' ),
+		'description' => __( 'The space inside the elements' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 5,
+			'step' => 0.5,
+			'suffix' => 'rem'
+		),
+	)));
+
+
+	/*
+	 * Site Content Panel
+	 */
+
+	$wp_customize->add_section( 'site_layout',
+		array(
+			'title'       => __( 'Site Layout', 'indigo' ), //Visible title of section
+			'priority'    => 25, //Determines what order this appears in
+			'capability'  => 'edit_theme_options', //Capability needed to tweak
+			'description' => __('Allows you to define how the content of the site behaves.', 'indigo'), //Descriptive tooltip
+		)
+	);
+
+	/**
+	 * Sidebar Width
+	 */
+
+	$wp_customize->add_setting(
+		'sidebar_width',
+		array(
+			'default'           => get_theme_mod( 'sidebar_width', '300' ),
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'sidebar_width', array(
+		'type' => 'range-value',
+		'section' => 'site_layout',
+		'label' => __( 'Sidebar Width' ),
+		'description' => __( 'The width of the website sidebars.' ),
+		'input_attrs' => array(
+			'min' => 250,
+			'max' => 600,
+			'step' => 100,
+			'suffix' => 'px'
+		),
+	) ));
+
+	/**
+	 * Site Gutter X
+	 */
+	$wp_customize->add_setting(
+		'indigo_content_gutter_x',
+		array(
+			'default'           => 1,
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'indigo_content_gutter_x', array(
+		'type' => 'range',
+		'section' => 'site_layout',
+		'label' => __( 'Content Horizontal Gutter' ),
+		'description' => __( 'The space inside the elements' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 5,
+			'step' => 0.5,
+			'suffix' => 'rem'
+		),
+	) ));
+
+	/**
+	 * Site Gutter X
+	 */
+	$wp_customize->add_setting(
+		'indigo_content_gutter_y',
+		array(
+			'default'           => 1,
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'indigo_content_gutter_y', array(
+		'type' => 'range-value',
+		'section' => 'site_layout',
+		'label' => __( 'Content Vertical Gutter' ),
+		'description' => __( 'The space inside the elements' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 5,
+			'step' => 0.5,
+			'suffix' => 'rem'
+		),
+	)));
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_alignment_support', array(
+		'default'    => true,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_alignment_support', array(
+		'label'      => __( 'Enable support for wide and full alignment.', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_alignment_support')
+	) );
+
+	/**
+	 * Theme
+	 */
+
+	$wp_customize->add_setting( 'indigo_sidebar_direction', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'column',
+	) );
+
+	$wp_customize->add_control( 'indigo_sidebar_direction', array(
+		'type' => 'select',
+		'section' => 'site_layout', // Add a default or your own section
+		'label' => __( 'Sidebar Direction' ),
+		'description' => __( 'Select the direction of the widgets.' ),
+		'choices' => array(
+			'row' => __( 'Horizontal' ),
+			'column' => __( 'Vertical' ),
+		),
+	) );
+
+	$wp_customize->add_setting( 'indigo_sidebar_alignment', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'none',
+	) );
+
+	$wp_customize->add_control( 'indigo_sidebar_alignment', array(
+		'type' => 'select',
+		'section' => 'site_layout', // Add a default or your own section
+		'label' => __( 'Content Sidebar Support' ),
+		'description' => __( 'Select the position of the main sidebar. If left or right, Full Width support will be disabled.' ),
+		'choices' => array(
+			'none' => __( 'None (Always hidden)' ),
+			'bottom' => __( 'Bottom' ),
+			'left' => __( 'Left' ),
+			'right' => __( 'Right' )
+		),
+	) );
+
+	$wp_customize->add_setting( 'indigo_pre_footer_alignment', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'none',
+	) );
+
+	$wp_customize->add_control( 'indigo_pre_footer_alignment', array(
+		'type' => 'select',
+		'section' => 'site_layout', // Add a default or your own section
+		'label' => __( 'Pre Footer Alignment' ),
+		'description' => __( 'Select the display of the pre-footer sidebar.' ),
+		'choices' => array(
+			'none' => __( 'None (Always hidden)' ),
+			'column' => __( 'Column' ),
+			'row' => __( 'Row' )
+		),
+	) );
+
 }
 add_action( 'customize_register', 'indigo_customize_register' );
 
@@ -616,15 +764,6 @@ function indigo_customize_partial_blogname() {
  */
 function indigo_customize_partial_blogdescription() {
 	bloginfo( 'description' );
-}
-
-/**
- * Adds px units before saving the value
- *
- * @return string
- */
-function indigo_sanitize_px_units($px) {
-	return absint( $px ).'px';
 }
 
 /**

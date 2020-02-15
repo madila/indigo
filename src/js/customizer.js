@@ -62,6 +62,22 @@
 		} );
 	} );
 
+
+	wp.customize( 'indigo_header_padding_y', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-padding-y', to+'rem');
+		} );
+	} );
+
+
+	wp.customize( 'indigo_header_padding_x', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-padding-x', to+'rem');
+		} );
+	} );
+
 	// Border Radius
 	wp.customize( 'base_border_radius', function( value ) {
 		value.bind( function( to ) {

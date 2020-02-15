@@ -24,8 +24,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * Typography
  */
 :root {
-  --base-color: #67c0c1;
-  --base-color-darker: #409b9c;
+  --base-color: #333333;
+  --base-color-darker: #000;
   --base-bg-color: #f6f7f9;
   --base-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --base-font-size: 16px;
@@ -458,20 +458,15 @@ th {
   max-width: 100%;
   margin: 0 auto; }
   .site-main {
-    min-height: calc(88vh - 8rem);
     display: flex;
     align-items: center;
     flex-direction: column; }
+    home .site-main {
+      min-height: calc(88vh - 8rem); }
     .site-main article, .site-main #comments {
       width: 100%; }
-  .site-footer, .site .widget-area {
-    padding-left: var(--content-gutter-x, 1rem);
-    padding-right: var(--content-gutter-x, 1rem);
-    padding-top: var(--content-gutter-y, 1rem);
-    padding-bottom: var(--content-gutter-y, 1rem); }
-  .site-header-container, .site-content {
-    padding-left: var(--content-gutter-x, 1rem);
-    padding-right: var(--content-gutter-x, 1rem); }
+  .site-content, .site-footer, .site .widget-area {
+    padding: var(--content-gutter-y, 1rem) var(--content-gutter-x, 1rem); }
   .site .custom-logo-link {
     margin-top: var(--content-gutter-y, 1rem);
     margin-bottom: var(--content-gutter-y, 1rem); }
@@ -2737,7 +2732,10 @@ p.has-small-font-size {
     color: #ffffff !important; }
 
 .site-title {
-  margin: 0; }
+  margin: 0;
+  font-size: 2rem; }
+  .site-title:hover {
+    text-decoration: none; }
   .sr-only-title .site-title {
     border: 0;
     clip: rect(1px, 1px, 1px, 1px);
@@ -2767,12 +2765,14 @@ p.has-small-font-size {
 .site-header-container {
   position: relative;
   width: 100%;
-  padding-top: var(--content-gutter-y, 1rem);
-  padding-bottom: var(--content-gutter-y, 1rem); }
+  padding-left: var(--header-padding-x, 1rem);
+  padding-right: var(--header-padding-x, 1rem); }
   .site-header-container .site-branding {
     align-self: center;
     width: 100%;
-    position: relative; }
+    position: relative;
+    padding-top: var(--header-padding-y, 1rem);
+    padding-bottom: var(--header-padding-y, 1rem); }
   .site-header-container .menu-toggle {
     position: absolute;
     right: 0;
@@ -2784,30 +2784,6 @@ p.has-small-font-size {
     max-width: 100%; }
   .site-header-container .custom-logo-link {
     display: block; }
-  .site-header-container.site-header-center {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    text-align: center; }
-    .site-header-container.site-header-center .custom-logo-link {
-      margin: .5rem auto; }
-  .site-header-container.site-header-left {
-    align-content: center;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between; }
-    .site-header-container.site-header-left .main-navigation {
-      align-self: center; }
-      @media (min-width: 768px) {
-        .site-header-container.site-header-left .main-navigation {
-          height: 100%; } }
-  .site-header-container.site-header-right .site-branding {
-    float: right; }
-  .site-header-container.site-header-right .main-navigation {
-    align-items: flex-end; }
-    @media (min-width: 768px) {
-      .site-header-container.site-header-right .main-navigation {
-        height: 100%; } }
   @media (max-width: 767px) {
     .site-header-container {
       flex-wrap: wrap; }
@@ -2815,10 +2791,43 @@ p.has-small-font-size {
         flex-grow: 1;
         width: 100%; } }
 
+.site-header-center .site-header-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+
+.site-header-center .site-description {
+  display: block; }
+
+.site-header-center .custom-logo-link {
+  margin: .5rem auto; }
+
+.site-header-left .site-header-container {
+  align-content: center;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between; }
+
+.site-header-left .main-navigation {
+  align-self: center; }
+  @media (min-width: 768px) {
+    .site-header-left .main-navigation {
+      height: 100%; } }
+
+.site-header-right .site-header-container .site-branding {
+  float: right; }
+
+.site-header-right .site-header-container .main-navigation {
+  align-items: flex-end; }
+  @media (min-width: 768px) {
+    .site-header-right .site-header-container .main-navigation {
+      height: 100%; } }
+
 .has-fixed-header .site:before {
   content: "";
   width: 100%;
-  height: 200px;
+  height: 170px;
   display: block;
   position: absolute;
   left: 0;
@@ -2826,11 +2835,11 @@ p.has-small-font-size {
   z-index: 2;
   opacity: 0.4;
   transition: opacity 200ms linear;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent); }
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent); }
 
 .site-header {
   z-index: 300;
-  background-color: var(--header-bg-color, transparent);
+  background: var(--header-bg-color, transparent);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -3140,7 +3149,7 @@ blockquote p {
 
 .comment-submit {
   border-radius: var(--base-border-radius, 3rem);
-  background-color: var(--base-color, #67c0c1);
+  background-color: var(--base-color, #333333);
   font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
   letter-spacing: var(--headings-letter-spacing, 0em);
   color: var(--base-bg-color);
@@ -3149,7 +3158,7 @@ blockquote p {
   margin: 0 auto;
   transition: all 300ms linear; }
   .comment-submit:hover, .comment-submit:active {
-    background-color: var(--base-bg-color, #67c0c1);
+    background-color: var(--base-bg-color, #333333);
     color: var(--base-color); }
 
 textarea {
@@ -3244,7 +3253,7 @@ textarea {
       width: 100%; }
   .entry-content form button, .entry-content form input[type="submit"] {
     border-radius: var(--base-border-radius, 3rem);
-    background-color: var(--base-color, #67c0c1);
+    background-color: var(--base-color, #333333);
     font-family: var(--headings-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol");
     letter-spacing: var(--headings-letter-spacing, 0em);
     color: var(--base-bg-color);
@@ -3256,7 +3265,7 @@ textarea {
     padding: 1em 2em;
     border-color: transparent; }
     .entry-content form button:hover, .entry-content form button:active, .entry-content form input[type="submit"]:hover, .entry-content form input[type="submit"]:active {
-      background-color: var(--base-bg-color, #67c0c1);
+      background-color: var(--base-bg-color, #333333);
       color: var(--base-color); }
 
 /*@import "theme/portfolio";*/

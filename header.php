@@ -23,8 +23,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'indigo' ); ?></a>
 	<div class="site-header-wrapper">
-	<header id="masthead" <?php indigo_header_class(); ?> data-header-bg>
-		<div class="<?php indigo_conditional_class('indigo_header_alignment', 'site-header', true, array('site-header-container')); ?>">
+	<header id="masthead" <?php indigo_header_class(); ?>>
+		<div class="site-header-container">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -34,13 +34,13 @@
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="h1 site-title" rel="home"><?php bloginfo( 'name' ); ?></a>
 				<?php
 			endif;
 			$indigo_description = get_bloginfo( 'description', 'display' );
 			if ( $indigo_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $indigo_description; /* WPCS: xss ok. */ ?></p>
+				<span class="site-description"><?php echo $indigo_description; /* WPCS: xss ok. */ ?></span>
 			<?php endif; ?>
 
 			<?php if(has_nav_menu('site-navigation')) : ?>

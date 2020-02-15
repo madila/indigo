@@ -1,5 +1,9 @@
 .site-title {
 	margin: 0;
+	font-size: 2rem;
+	&:hover {
+		text-decoration: none;
+	}
 	.sr-only-title & {
 		@include sr-only;
 	}
@@ -15,12 +19,14 @@
 .site-header-container {
 	position: relative;
 	width: 100%;
-	padding-top: var(--content-gutter-y,1rem);
-	padding-bottom: var(--content-gutter-y,1rem);
+	padding-left: var(--header-padding-x,1rem);
+	padding-right: var(--header-padding-x,1rem);
 	.site-branding {
 		align-self: center;
 		width: 100%;
 		position: relative;
+		padding-top: var(--header-padding-y,1rem);
+		padding-bottom: var(--header-padding-y,1rem);
 	}
 	.menu-toggle {
 		position: absolute;
@@ -36,40 +42,6 @@
 	.custom-logo-link {
 		display: block;
 	}
-	&.site-header {
-		&-center {
-			align-items: center;
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			.custom-logo-link {
-				margin: .5rem auto;
-			}
-		}
-		&-left {
-			align-content: center;
-			flex-direction: row;
-			display: flex;
-			justify-content: space-between;
-			.main-navigation {
-				align-self: center;
-				@include media-breakpoint-up(md) {
-					height: 100%;
-				}
-			}
-		}
-		&-right {
-			.site-branding {
-				float: right;
-			}
-			.main-navigation {
-				@include media-breakpoint-up(md) {
-					height: 100%;
-				}
-				align-items: flex-end;
-			}
-		}
-	}
 	@include media-breakpoint-down(sm) {
 		flex-wrap: wrap;
 		.main-navigation {
@@ -79,12 +51,56 @@
 	}
 }
 
+.site-header-center {
+	.site-header-container {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+	}
+	.site-description {
+		display: block;
+	}
+	.custom-logo-link {
+		margin: .5rem auto;
+	}
+}
+
+.site-header-left {
+	.site-header-container {
+		align-content: center;
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
+	}
+	.main-navigation {
+		align-self: center;
+		@include media-breakpoint-up(md) {
+			height: 100%;
+		}
+	}
+}
+.site-header-right {
+	.site-header-container {
+		.site-branding {
+			float: right;
+		}
+
+		.main-navigation {
+			@include media-breakpoint-up(md) {
+				height: 100%;
+			}
+			align-items: flex-end;
+		}
+	}
+}
+
 .site {
 	.has-fixed-header & {
 		&:before {
 			content: "";
 			width: 100%;
-			height: 200px;
+			height: 170px;
 			display: block;
 			position: absolute;
 			left: 0;
@@ -92,12 +108,12 @@
 			z-index: 2;
 			opacity: 0.4;
 			transition: opacity 200ms linear;
-			background-image: linear-gradient(180deg, rgba(0,0,0,0.4), transparent);
+			background-image: linear-gradient(180deg, rgba(0,0,0,0.3), transparent);
 		}
 	}
 	&-header {
 		z-index: 300;
-		background-color: var(--header-bg-color, transparent);
+		background: var(--header-bg-color, transparent);
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;

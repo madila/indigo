@@ -21,8 +21,6 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'header-scroll-bg';
 	}
 
-	$classes[] = 'indigo-'.indigo_get_theme_style();
-
 	if(get_theme_mod('indigo_overlay_header')) {
 		$classes[] = 'has-fixed-header';
 	}

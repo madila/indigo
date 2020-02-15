@@ -88,8 +88,8 @@ $black: map-get($colours, black) !default;
 
 // Reset
 
-$body-color: map-get($colours, primary) !default;
-$body-color-darker: map-get($colours, primary-dark) !default;
+$body-color: map-get($colours, grey-dark) !default;
+$body-color-darker: map-get($colours, black) !default;
 $body-bg: map-get($colours, off-white) !default;
 
 // Defaults

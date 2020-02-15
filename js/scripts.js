@@ -21048,7 +21048,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var fixedBrandingWrapper = document.querySelector('.site-header-wrapper');
+  var fixedBrandingWrapper = document.querySelector('.has-fixed-header .site-header-wrapper');
 
   function reCalculateHeader() {
     if (fixedBrandingWrapper) {
