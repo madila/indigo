@@ -2856,9 +2856,9 @@ p.has-small-font-size {
     @media (max-width: 599px) {
       .scrolling .has-fixed-header .site-header, .scrolled .has-fixed-header .site-header {
         top: 0; } }
-  .header-scroll-bg .site-header {
+  .header-scroll-bg.has-fixed-header .site-header {
     background-color: transparent; }
-  .header-scroll-bg .site-header {
+  .header-scroll-bg.has-fixed-header .site-header {
     background-color: transparent; }
   @media (max-width: 767px) {
     .site-header {

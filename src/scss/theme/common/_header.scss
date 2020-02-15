@@ -128,11 +128,11 @@
 				}
 			}
 		}
-		.header-scroll-bg & {
+		.header-scroll-bg.has-fixed-header & {
 			background-color: transparent;
 		}
 		@include alignfull();
-		.header-scroll-bg & {
+		.header-scroll-bg.has-fixed-header & {
 			background-color: transparent;
 		}
 		color: var(--header-text-color, inherit);

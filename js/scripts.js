@@ -21632,7 +21632,9 @@ function () {
 }();
 
 window.addEventListener('load', function () {
-  new pageOnScroll();
+  if (document.querySelector('.has-fixed-header ')) {
+    new pageOnScroll();
+  }
 });
 
 /***/ }),

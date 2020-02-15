@@ -326,14 +326,13 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_line_height',
 		array(
-			'default'           => 1.5,
+			'default'           => get_theme_mod('base_line_height', 1.5),
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_em_units',
 		)
 	);
 
-	$wp_customize->add_control( 'base_line_height', array(
-		'type' => 'range',
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'base_line_height', array(
+		'type' => 'range-value',
 		'section' => 'typography',
 		'label' => __( 'Base Line Height' ),
 		'description' => __( 'Define the default font size of the page.' ),
@@ -341,9 +340,9 @@ function indigo_customize_register( $wp_customize ) {
 			'min' => 0.8,
 			'max' => 2.2,
 			'step' => 0.1,
-			'value' => get_theme_mod('base_line_height')
+			'suffix' => 'em',
 		),
-	) );
+	) ));
 
 	/**
 	 * Border Radius
@@ -351,14 +350,13 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_border_radius',
 		array(
-			'default'           => 0,
+			'default'           => get_theme_mod('base_border_radius', 0),
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'indigo_sanitize_em_units',
 		)
 	);
 
-	$wp_customize->add_control( 'base_border_radius', array(
-		'type' => 'range',
+	$wp_customize->add_control(  new Customizer_Range_Value_Control( $wp_customize, 'base_border_radius', array(
+		'type' => 'range-value',
 		'section' => 'typography',
 		'label' => __( 'Border Radius' ),
 		'description' => __( 'Define the roundness of UI elements, such as button, inputs...' ),
@@ -366,9 +364,9 @@ function indigo_customize_register( $wp_customize ) {
 			'min' => 0,
 			'max' => 2.5,
 			'step' => 0.05,
-			'value' => get_theme_mod('base_border_radius')
+			'suffix' => 'em'
 		),
-	) );
+	)) );
 
 	/**
 	 * Content Max Width
