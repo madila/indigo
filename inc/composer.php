@@ -7,11 +7,11 @@ function indigo_customizer_resource_url($url) {
 }
 
 if ( class_exists( 'WP_Customize_Control' ) ) {
-	require_once  dirname( __FILE__ ) . '/class-customizer-range-value-control/class-customizer-range-value-control.php';
+	require_once dirname(__FILE__) . '/customizer-range-control/class-customizer-range-value-control.php';
 }
 
 add_filter('skyrocket_resource_url', 'indigo_customizer_resource_url');
 
 if ( class_exists( 'WP_Customize_Control' ) ) {
-	require_once  dirname( __FILE__ ) . '/customizer-custom-controls/functions.php';
+	require_once dirname(__FILE__) . '/customizer-controls/functions.php';
 }
