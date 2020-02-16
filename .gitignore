@@ -10,4 +10,3 @@ indigo-child/package-lock.json
 *.tar.gz
 *.zip
 
-/vendor/
