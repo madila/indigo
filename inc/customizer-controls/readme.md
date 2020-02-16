@@ -1,9 +1,9 @@
 # Customizer Custom Controls #
 
-**Author:** Anthony Hortin  
-**Author URI:** https://maddisondesigns.com  
-**License:** GNU General Public License v2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+**Author:** Anthony Hortin
+**Author URI:** https://maddisondesigns.com
+**License:** GNU General Public License v2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 **Version:** 1.1.3
 
 ## Description ##
@@ -17,36 +17,36 @@ The example code in `customizer.php` will create a new Panel in the Customizer c
 If you'd like to learn more about Customizer development, you can check out the links to my Customizer Developer's Guide, at the end of this readme.
 
 ## Core Controls ##
-Input Control (Text, Email, URL, Number, Hidden, Date)  
-Checkbox Control  
-Select Control  
-Radio Control  
-Dropdown Pages Control  
-Textarea Control  
-Color Control  
-Media Control  
-Image Control  
-Cropped Image Control  
+Input Control (Text, Email, URL, Number, Hidden, Date)
+Checkbox Control
+Select Control
+Radio Control
+Dropdown Pages Control
+Textarea Control
+Color Control
+Media Control
+Image Control
+Cropped Image Control
 Date Time Control (WP 4.9+)
 
 ## Custom Controls ##
-This code includes the following Custom Controls:  
-Toggle Switch  
-Slider  
-Sortable Repeater  
-Image Radio Button  
-Text Radio Button  
-Image Checkbox  
-Single Accordion  
-Simple Notice  
-Dropdown Select2  
-Dropdown Posts  
-TinyMCE Editor  
-Google Font Select  
-Alpha Color  
-WPColorPicker Alpha Color  
-Sortable Pill Checkbox Custom Control  
-Upsell Section  
+This code includes the following Custom Controls:
+Toggle Switch
+Slider
+Sortable Repeater
+Image Radio Button
+Text Radio Button
+Image Checkbox
+Single Accordion
+Simple Notice
+Dropdown Select2
+Dropdown Posts
+TinyMCE Editor
+Google Font Select
+Alpha Color
+WPColorPicker Alpha Color
+Sortable Pill Checkbox Custom Control
+Upsell Section
 
 ### Toggle Switch ###
 
@@ -54,16 +54,16 @@ The Toggle Switch Custom Control is basically just a fancy type of checkbox. It 
 
 ![Toggle Switch](https://maddisondesigns.com/wp-content/uploads/2017/04/ToggleSwitch.jpg "Toggle Switch")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed. Default: Blank  
-**section** - Required. The Section where there control should appear  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed. Default: Blank
+**section** - Required. The Section where there control should appear
 
 **Example**
 
@@ -72,10 +72,10 @@ $wp_customize->add_setting( 'sample_toggle_switch',
 	array(
 		'default' => 0,
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_switch_sanitization'
+		'sanitize_callback' => 'indigo_switch_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'sample_toggle_switch',
+$wp_customize->add_control( new Indigo_Toggle_Switch_Custom_control( $wp_customize, 'sample_toggle_switch',
 	array(
 		'label' => esc_html__( 'Toggle switch' ),
 		'section' => 'sample_custom_controls_section'
@@ -91,19 +91,19 @@ You can specify the minimum and maximum values for the slider as well as the ste
 
 ![Slider](https://maddisondesigns.com/wp-content/uploads/2017/04/SliderControl.jpg "Slider")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**section** - Required. The Section where there control should appear  
-**input_attrs** - Required. List of custom input attributes for control output.  
-  **min** - Required. Minimum value for the slider  
-  **max** - Required. Maximum value for the slider  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**section** - Required. The Section where there control should appear
+**input_attrs** - Required. List of custom input attributes for control output.
+  **min** - Required. Minimum value for the slider
+  **max** - Required. Maximum value for the slider
   **step** - Required. The size of each interval or step the slider takes between the min and max values
 
 **Example**
@@ -113,10 +113,10 @@ $wp_customize->add_setting( 'sample_slider_control',
 	array(
 		'default' => 48,
 		'transport' => 'postMessage',
-		'sanitize_callback' => 'skyrocket_sanitize_integer'
+		'sanitize_callback' => 'indigo_sanitize_integer'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Slider_Custom_Control( $wp_customize, 'sample_slider_control',
+$wp_customize->add_control( new Indigo_Slider_Custom_Control( $wp_customize, 'sample_slider_control',
 	array(
 		'label' => esc_html__( 'Slider Control (px)' ),
 		'section' => 'sample_custom_controls_section',
@@ -139,18 +139,18 @@ The setting for this control will be saved as a comma delimited string of URL's.
 
 ![Sortable Repeater](https://maddisondesigns.com/wp-content/uploads/2017/04/SortableRepeater.jpg "Sortable Repeater")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**button_labels** - Optional. Array containing a list of labels for the control  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**button_labels** - Optional. Array containing a list of labels for the control
   **add** - Optional. Button label for add button. Default: Add
 
 **Example**
@@ -160,10 +160,10 @@ $wp_customize->add_setting( 'sample_sortable_repeater_control',
 	array(
 		'default' => '',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_url_sanitization'
+		'sanitize_callback' => 'indigo_url_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Sortable_Repeater_Custom_Control( $wp_customize, 'sample_sortable_repeater_control',
+$wp_customize->add_control( new Indigo_Sortable_Repeater_Custom_Control( $wp_customize, 'sample_sortable_repeater_control',
 	array(
 		'label' => __( 'Sortable Repeater' ),
 		'description' => esc_html__( 'This is the control description.' ),
@@ -185,20 +185,20 @@ Like an ordinary radio button, the setting that gets saved to the database is th
 
 ![Image Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/04/ImageRadioButton.png "Image Radio Button")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**choices** - Required. List of custom choices.  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**choices** - Required. List of custom choices.
   **key** - Required. Data that will be stored for the setting
-  **image** - Required. URL for the image to display  
+  **image** - Required. URL for the image to display
   **name** - Required. Title text to display
 
 **Example**
@@ -208,10 +208,10 @@ $wp_customize->add_setting( 'sample_image_radio_button',
 	array(
 		'default' => 'sidebarright',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Image_Radio_Button_Custom_Control( $wp_customize, 'sample_image_radio_button',
+$wp_customize->add_control( new Indigo_Image_Radio_Button_Custom_Control( $wp_customize, 'sample_image_radio_button',
 	array(
 		'label' => __( 'Image Radio Button Control' ),
 		'description' => esc_html__( 'Sample custom control description' ),
@@ -244,19 +244,19 @@ Like an ordinary radio button, the setting that gets saved to the database is th
 
 ![Text Radio Button](https://maddisondesigns.com/wp-content/uploads/2017/05/TextRadioButton.png "Text Radio Button")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**choices** - Required. List of custom choices.
+  **key** - Required. Data that will be stored for the setting
   **value** - Required. Data that is displayed for the radio button choice
 
 **Example**
@@ -266,10 +266,10 @@ $wp_customize->add_setting( 'sample_text_radio_button',
 	array(
 		'default' => 'right',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'sample_text_radio_button',
+$wp_customize->add_control( new Indigo_Text_Radio_Button_Custom_Control( $wp_customize, 'sample_text_radio_button',
 	array(
 		'label' => __( 'Text Radio Button Control' ),
 		'description' => esc_html__( 'Sample custom control description' ),
@@ -293,20 +293,20 @@ The setting that gets saved to the database is a comma-separated string of value
 
 ![Image Checkbox](https://maddisondesigns.com/wp-content/uploads/2017/04/ImageCheckbox.jpg "Image Checkbox")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **image** - Required. URL for the image to display  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**choices** - Required. List of custom choices.
+  **key** - Required. Data that will be stored for the setting
+  **image** - Required. URL for the image to display
   **name** - Required. Title text to display
 
 **Example**
@@ -316,10 +316,10 @@ $wp_customize->add_setting( 'sample_image_checkbox',
 	array(
 		'default' => 'stylebold,styleallcaps',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Image_checkbox_Custom_Control( $wp_customize, 'sample_image_checkbox',
+$wp_customize->add_control( new Indigo_Image_checkbox_Custom_Control( $wp_customize, 'sample_image_checkbox',
 	array(
 		'label' => __( 'Image Checkbox Control' ),
 		'description' => esc_html__( 'Sample custom control description' ),
@@ -356,41 +356,41 @@ You can pass it an array of key/values pairs or plain text content (incl. basic 
 
 ![Single Accordion](https://maddisondesigns.com/wp-content/uploads/2017/04/SingleAccordion.jpg "Single Accordion")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Required. The text to hide under the accordion, passed as an array or string  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Required. The text to hide under the accordion, passed as an array or string
 **section** - Required. The Section where there control should appear
 
 **Example**
 
 ````
 $sampleIconsList = array(
-	'Behance' => __( '<i class="fa fa-behance"></i>', 'skyrocket' ),
-	'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'skyrocket' ),
-	'CodePen' => __( '<i class="fa fa-codepen"></i>', 'skyrocket' ),
-	'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'skyrocket' ),
-	'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'skyrocket' ),
-	'Etsy' => __( '<i class="fa fa-etsy"></i>', 'skyrocket' ),
-	'Facebook' => __( '<i class="fa fa-facebook"></i>', 'skyrocket' ),
-	'Flickr' => __( '<i class="fa fa-flickr"></i>', 'skyrocket' ),
-	'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'skyrocket' ),
-	'GitHub' => __( '<i class="fa fa-github"></i>', 'skyrocket' ),
+	'Behance' => __( '<i class="fa fa-behance"></i>', 'indigo' ),
+	'Bitbucket' => __( '<i class="fa fa-bitbucket"></i>', 'indigo' ),
+	'CodePen' => __( '<i class="fa fa-codepen"></i>', 'indigo' ),
+	'DeviantArt' => __( '<i class="fa fa-deviantart"></i>', 'indigo' ),
+	'Dribbble' => __( '<i class="fa fa-dribbble"></i>', 'indigo' ),
+	'Etsy' => __( '<i class="fa fa-etsy"></i>', 'indigo' ),
+	'Facebook' => __( '<i class="fa fa-facebook"></i>', 'indigo' ),
+	'Flickr' => __( '<i class="fa fa-flickr"></i>', 'indigo' ),
+	'Foursquare' => __( '<i class="fa fa-foursquare"></i>', 'indigo' ),
+	'GitHub' => __( '<i class="fa fa-github"></i>', 'indigo' ),
 );
 $wp_customize->add_setting( 'sample_single_accordion',
 	array(
 		'default' => '',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'sample_single_accordion',
+$wp_customize->add_control( new Indigo_Single_Accordion_Custom_Control( $wp_customize, 'sample_single_accordion',
 	array(
 		'label' => __( 'Single Accordion Control' ),
 		'description' => $sampleIconsList, // Required. Passing an array of key/values pairs which are displayed in a list
@@ -402,10 +402,10 @@ $wp_customize->add_setting( 'another_sample_single_accordion',
 	array(
 		'default' => '',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Single_Accordion_Custom_Control( $wp_customize, 'another_sample_single_accordion',
+$wp_customize->add_control( new Indigo_Single_Accordion_Custom_Control( $wp_customize, 'another_sample_single_accordion',
 	array(
 		'label' => __( 'Another Single Accordion Control' ),
 		'description' => 'This is some simple text with an <a href="http://google.com">html link</a> included.',  // Required. Passing some text with some basic html content
@@ -422,16 +422,16 @@ The text content can include basic html tags such as `a`, `br`, `em`, `strong`, 
 
 ![Simple Notice](https://maddisondesigns.com/wp-content/uploads/2017/04/SimpleNotice.png "Simple Notice")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Required. The text to display  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Required. The text to display
 **section** - Required. The Section where there control should appear
 
 **Example**
@@ -441,10 +441,10 @@ $wp_customize->add_setting( 'sample_simple_notice',
 	array(
 		'default' => '',
 		'transport' => 'postMessage',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
+$wp_customize->add_control( new Indigo_Simple_Notice_Custom_control( $wp_customize, 'sample_simple_notice',
 	array(
 		'label' => __( 'Simple Notice Control' ),
 		'description' => __('This Custom Control allows you to display a simple title and description to your users. You can even include <a href="http://google.com" target="_blank">basic html</a>.' ),
@@ -464,29 +464,29 @@ The Dropdown Select2 Custom Control handles a straight forward list of entries b
 
 If you wish to select default values, pass a simple string when using the control to select a single entry. When using the control as a mutli-select, pass an array of strings to select multiple default values.
 
-To santize your controls data, use my `skyrocket_text_sanitization` function or any other function that can sanitize a simple string and also a series of comma delimited strings. It's worth noting that the multiselect dropdown will either save a single string or a series of comma delimited strings, depending on the number of entries selected in the dropdown.
+To santize your controls data, use my `indigo_text_sanitization` function or any other function that can sanitize a simple string and also a series of comma delimited strings. It's worth noting that the multiselect dropdown will either save a single string or a series of comma delimited strings, depending on the number of entries selected in the dropdown.
 
 When only a single entry is selected, even when using the multiselect dropdown, then the setting will be saved to the database as a single string. If you are using the multiselect dropdown (i.e. `'multiselect' => true`) and you've selected multiple entries, they will be saved to the database as a series of comma delimited strings.
 
 ![Dropdown Select2](https://maddisondesigns.com/wp-content/uploads/2017/05/DropdownSelect2Control.png "Dropdown Select2")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Required. The text to display  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Required. The text to display
 **section** - Required. The Section where there control should appear
-**input_attrs** - Optional. List of custom choices.  
-  **placeholder** - Optional. The Placeholder value to display. Select2 requires a Placeholder value to be set when using the clearall option. Default = 'Please select...'  
-  **multiselect** - Optional. Select a single entry from the dropdown or select multiple. Either true or false. Default = false  
-**choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **value** - Required. Text to display in the control  
+**input_attrs** - Optional. List of custom choices.
+  **placeholder** - Optional. The Placeholder value to display. Select2 requires a Placeholder value to be set when using the clearall option. Default = 'Please select...'
+  **multiselect** - Optional. Select a single entry from the dropdown or select multiple. Either true or false. Default = false
+**choices** - Required. List of custom choices.
+  **key** - Required. Data that will be stored for the setting
+  **value** - Required. Text to display in the control
 
 **Example**
 
@@ -496,27 +496,27 @@ $wp_customize->add_setting( 'sample_dropdown_select2_control_single',
 	array(
 		'default' => 'vic',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_single',
+$wp_customize->add_control( new Indigo_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_single',
 	array(
-		'label' => __( 'Dropdown Select2 Control', 'skyrocket' ),
-		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Single Select)', 'skyrocket' ),
+		'label' => __( 'Dropdown Select2 Control', 'indigo' ),
+		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Single Select)', 'indigo' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
-			'placeholder' => __( 'Please select a state...', 'skyrocket' ),
+			'placeholder' => __( 'Please select a state...', 'indigo' ),
 			'multiselect' => false,
 		),
 		'choices' => array(
-			'nsw' => __( 'New South Wales', 'skyrocket' ),
-			'vic' => __( 'Victoria', 'skyrocket' ),
-			'qld' => __( 'Queensland', 'skyrocket' ),
-			'wa' => __( 'Western Australia', 'skyrocket' ),
-			'sa' => __( 'South Australia', 'skyrocket' ),
-			'tas' => __( 'Tasmania', 'skyrocket' ),
-			'act' => __( 'Australian Capital Territory', 'skyrocket' ),
-			'nt' => __( 'Northern Territory', 'skyrocket' ),
+			'nsw' => __( 'New South Wales', 'indigo' ),
+			'vic' => __( 'Victoria', 'indigo' ),
+			'qld' => __( 'Queensland', 'indigo' ),
+			'wa' => __( 'Western Australia', 'indigo' ),
+			'sa' => __( 'South Australia', 'indigo' ),
+			'tas' => __( 'Tasmania', 'indigo' ),
+			'act' => __( 'Australian Capital Territory', 'indigo' ),
+			'nt' => __( 'Northern Territory', 'indigo' ),
 		)
 	)
 ) );
@@ -526,56 +526,56 @@ $wp_customize->add_setting( 'sample_dropdown_select2_control_multi',
 	array(
 		'default' => array ( 'Antarctica/McMurdo', 'Australia/Melbourne', 'Australia/Broken_Hill' ),
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_multi',
+$wp_customize->add_control( new Indigo_Dropdown_Select2_Custom_Control( $wp_customize, 'sample_dropdown_select2_control_multi',
 	array(
-		'label' => __( 'Dropdown Select2 Control', 'skyrocket' ),
-		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Multi-Select)', 'skyrocket' ),
+		'label' => __( 'Dropdown Select2 Control', 'indigo' ),
+		'description' => esc_html__( 'Sample Dropdown Select2 custom control (Multi-Select)', 'indigo' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
 			'multiselect' => true,
 		),
 		'choices' => array(
-			__( 'Antarctica', 'skyrocket' ) => array(
-				'Antarctica/Casey' => __( 'Casey', 'skyrocket' ),
-				'Antarctica/Davis' => __( 'Davis', 'skyrocket' ),
-				'Antarctica/DumontDurville' => __( 'DumontDUrville', 'skyrocket' ),
-				'Antarctica/Macquarie' => __( 'Macquarie', 'skyrocket' ),
-				'Antarctica/Mawson' => __( 'Mawson', 'skyrocket' ),
-				'Antarctica/McMurdo' => __( 'McMurdo', 'skyrocket' ),
-				'Antarctica/Palmer' => __( 'Palmer', 'skyrocket' ),
-				'Antarctica/Rothera' => __( 'Rothera', 'skyrocket' ),
-				'Antarctica/Syowa' => __( 'Syowa', 'skyrocket' ),
-				'Antarctica/Troll' => __( 'Troll', 'skyrocket' ),
-				'Antarctica/Vostok' => __( 'Vostok', 'skyrocket' ),
+			__( 'Antarctica', 'indigo' ) => array(
+				'Antarctica/Casey' => __( 'Casey', 'indigo' ),
+				'Antarctica/Davis' => __( 'Davis', 'indigo' ),
+				'Antarctica/DumontDurville' => __( 'DumontDUrville', 'indigo' ),
+				'Antarctica/Macquarie' => __( 'Macquarie', 'indigo' ),
+				'Antarctica/Mawson' => __( 'Mawson', 'indigo' ),
+				'Antarctica/McMurdo' => __( 'McMurdo', 'indigo' ),
+				'Antarctica/Palmer' => __( 'Palmer', 'indigo' ),
+				'Antarctica/Rothera' => __( 'Rothera', 'indigo' ),
+				'Antarctica/Syowa' => __( 'Syowa', 'indigo' ),
+				'Antarctica/Troll' => __( 'Troll', 'indigo' ),
+				'Antarctica/Vostok' => __( 'Vostok', 'indigo' ),
 			),
-			__( 'Atlantic', 'skyrocket' ) => array(
-				'Atlantic/Azores' => __( 'Azores', 'skyrocket' ),
-				'Atlantic/Bermuda' => __( 'Bermuda', 'skyrocket' ),
-				'Atlantic/Canary' => __( 'Canary', 'skyrocket' ),
-				'Atlantic/Cape_Verde' => __( 'Cape Verde', 'skyrocket' ),
-				'Atlantic/Faroe' => __( 'Faroe', 'skyrocket' ),
-				'Atlantic/Madeira' => __( 'Madeira', 'skyrocket' ),
-				'Atlantic/Reykjavik' => __( 'Reykjavik', 'skyrocket' ),
-				'Atlantic/South_Georgia' => __( 'South Georgia', 'skyrocket' ),
-				'Atlantic/Stanley' => __( 'Stanley', 'skyrocket' ),
-				'Atlantic/St_Helena' => __( 'St Helena', 'skyrocket' ),
+			__( 'Atlantic', 'indigo' ) => array(
+				'Atlantic/Azores' => __( 'Azores', 'indigo' ),
+				'Atlantic/Bermuda' => __( 'Bermuda', 'indigo' ),
+				'Atlantic/Canary' => __( 'Canary', 'indigo' ),
+				'Atlantic/Cape_Verde' => __( 'Cape Verde', 'indigo' ),
+				'Atlantic/Faroe' => __( 'Faroe', 'indigo' ),
+				'Atlantic/Madeira' => __( 'Madeira', 'indigo' ),
+				'Atlantic/Reykjavik' => __( 'Reykjavik', 'indigo' ),
+				'Atlantic/South_Georgia' => __( 'South Georgia', 'indigo' ),
+				'Atlantic/Stanley' => __( 'Stanley', 'indigo' ),
+				'Atlantic/St_Helena' => __( 'St Helena', 'indigo' ),
 			),
-			__( 'Australia', 'skyrocket' ) => array(
-				'Australia/Adelaide' => __( 'Adelaide', 'skyrocket' ),
-				'Australia/Brisbane' => __( 'Brisbane', 'skyrocket' ),
-				'Australia/Broken_Hill' => __( 'Broken Hill', 'skyrocket' ),
-				'Australia/Currie' => __( 'Currie', 'skyrocket' ),
-				'Australia/Darwin' => __( 'Darwin', 'skyrocket' ),
-				'Australia/Eucla' => __( 'Eucla', 'skyrocket' ),
-				'Australia/Hobart' => __( 'Hobart', 'skyrocket' ),
-				'Australia/Lindeman' => __( 'Lindeman', 'skyrocket' ),
-				'Australia/Lord_Howe' => __( 'Lord Howe', 'skyrocket' ),
-				'Australia/Melbourne' => __( 'Melbourne', 'skyrocket' ),
-				'Australia/Perth' => __( 'Perth', 'skyrocket' ),
-				'Australia/Sydney' => __( 'Sydney', 'skyrocket' ),
+			__( 'Australia', 'indigo' ) => array(
+				'Australia/Adelaide' => __( 'Adelaide', 'indigo' ),
+				'Australia/Brisbane' => __( 'Brisbane', 'indigo' ),
+				'Australia/Broken_Hill' => __( 'Broken Hill', 'indigo' ),
+				'Australia/Currie' => __( 'Currie', 'indigo' ),
+				'Australia/Darwin' => __( 'Darwin', 'indigo' ),
+				'Australia/Eucla' => __( 'Eucla', 'indigo' ),
+				'Australia/Hobart' => __( 'Hobart', 'indigo' ),
+				'Australia/Lindeman' => __( 'Lindeman', 'indigo' ),
+				'Australia/Lord_Howe' => __( 'Lord Howe', 'indigo' ),
+				'Australia/Melbourne' => __( 'Melbourne', 'indigo' ),
+				'Australia/Perth' => __( 'Perth', 'indigo' ),
+				'Australia/Sydney' => __( 'Sydney', 'indigo' ),
 			)
 		)
 	)
@@ -592,25 +592,25 @@ The setting that gets saved to the database is a Post ID.
 
 ![Dropdown Posts](https://maddisondesigns.com/wp-content/uploads/2018/03/DropdownPostsControl.jpg "Dropdown Posts")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**input_attrs** - Optional. List of post options. The options listed below are the most common. See [WP_Query::parse_query()](https://developer.wordpress.org/reference/classes/wp_query/parse_query/) in the WordPress Codex for the complete list.  
-  **posts_per_page** - Optional. The number of posts to retrieve. Use -1 to retrieve all posts. Default: 5  
-  **orderby** - Optional. Order to sort retrieved posts by. Accepts 'none', 'name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand' and a number of others. Default: 'date'  
-  **order** - Optional.  Designates ascending or descending order of posts. Accepts 'ASC' or 'DESC'. Default: 'DESC'  
-  **cat** - Optional. Category ID or comma-separated list of IDs. Default: 0  
-  **post__in** - Optional. An array of post IDs to retrieve (sticky posts will be included)  
-  **post__not_in** - Optional. An array of post IDs not to retrieve. *Note:* a string of comma- separated IDs will NOT work  
-  **post_type** - Optional. A post type slug (string) or array of post type slugs. Default: 'post'  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**input_attrs** - Optional. List of post options. The options listed below are the most common. See [WP_Query::parse_query()](https://developer.wordpress.org/reference/classes/wp_query/parse_query/) in the WordPress Codex for the complete list.
+  **posts_per_page** - Optional. The number of posts to retrieve. Use -1 to retrieve all posts. Default: 5
+  **orderby** - Optional. Order to sort retrieved posts by. Accepts 'none', 'name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand' and a number of others. Default: 'date'
+  **order** - Optional.  Designates ascending or descending order of posts. Accepts 'ASC' or 'DESC'. Default: 'DESC'
+  **cat** - Optional. Category ID or comma-separated list of IDs. Default: 0
+  **post__in** - Optional. An array of post IDs to retrieve (sticky posts will be included)
+  **post__not_in** - Optional. An array of post IDs not to retrieve. *Note:* a string of comma- separated IDs will NOT work
+  **post_type** - Optional. A post type slug (string) or array of post type slugs. Default: 'post'
 
 **Example**
 
@@ -622,10 +622,10 @@ $wp_customize->add_setting( 'sample_dropdown_posts_control',
 		'sanitize_callback' => 'absint'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Dropdown_Posts_Custom_Control( $wp_customize, 'sample_dropdown_posts_control',
+$wp_customize->add_control( new Indigo_Dropdown_Posts_Custom_Control( $wp_customize, 'sample_dropdown_posts_control',
 	array(
-		'label' => __( 'Dropdown Posts Control', 'skyrocket' ),
-		'description' => esc_html__( 'Sample Dropdown Posts custom control description', 'skyrocket' ),
+		'label' => __( 'Dropdown Posts Control', 'indigo' ),
+		'description' => esc_html__( 'Sample Dropdown Posts custom control description', 'indigo' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
 			'posts_per_page' => -1,
@@ -654,21 +654,21 @@ The setting that gets saved to the database will be a string with the allowed HT
 
 ![Image Checkbox](https://maddisondesigns.com/wp-content/uploads/2017/05/TinyMCE-Editor.jpg "TinyMCE Editor")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**input_attrs** - Optional. List of custom choices.  
-  **toolbar1** - Optional. String containing a list of toolbar buttons to display on the first toolbar row. Default: 'bold italic bullist numlist alignleft aligncenter alignright link'  
-  **toolbar2** - Optional. String containing a list of toolbar buttons to display on the second toolbar row. Default: blank  
-  **mediaButtons** - Optional. Display or hide the Add Media button. Either true or false. Default: false  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**input_attrs** - Optional. List of custom choices.
+  **toolbar1** - Optional. String containing a list of toolbar buttons to display on the first toolbar row. Default: 'bold italic bullist numlist alignleft aligncenter alignright link'
+  **toolbar2** - Optional. String containing a list of toolbar buttons to display on the second toolbar row. Default: blank
+  **mediaButtons** - Optional. Display or hide the Add Media button. Either true or false. Default: false
 
 **Example**
 
@@ -680,7 +680,7 @@ $wp_customize->add_setting( 'sample_tinymce_editor',
 		'sanitize_callback' => 'wp_kses_post'
 	)
 );
-$wp_customize->add_control( new Skyrocket_TinyMCE_Custom_control( $wp_customize, 'sample_tinymce_editor',
+$wp_customize->add_control( new Indigo_TinyMCE_Custom_control( $wp_customize, 'sample_tinymce_editor',
 	array(
 		'label' => __( 'TinyMCE Control' ),
 		'description' => __( 'This is a TinyMCE Editor Custom Control' ),
@@ -707,20 +707,20 @@ The setting is saved to the database as a json string. The easiest way to use th
 
 ![Google Font Select](https://maddisondesigns.com/wp-content/uploads/2017/05/GoogleFontSelect.png "Google Font Select")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Required. The text to display  
-**section** - Required. The Section where there control should appear  
-**input_attrs** - Optional. List of custom choices.  
-  **font_count** - Optional. The number of fonts to display from the json file. Either positive integer or 'all'. Default = 'all'  
-  **orderby** - Optional. The font list sort order. Either 'alpha' or 'popular'. Default = 'alpha'  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Required. The text to display
+**section** - Required. The Section where there control should appear
+**input_attrs** - Optional. List of custom choices.
+  **font_count** - Optional. The number of fonts to display from the json file. Either positive integer or 'all'. Default = 'all'
+  **orderby** - Optional. The font list sort order. Either 'alpha' or 'popular'. Default = 'alpha'
 
 **Example**
 
@@ -729,9 +729,9 @@ $wp_customize->add_setting( 'sample_google_font_select',
 	array(
 	 'default' => '{"font":"Open Sans","regularweight":"regular","italicweight":"italic","boldweight":"700","category":"sans-serif"}',
 	),
-	'sanitize_callback' => 'skyrocket_google_font_sanitization'
+	'sanitize_callback' => 'indigo_google_font_sanitization'
 );
-$wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
+$wp_customize->add_control( new Indigo_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
 	array(
 		'label' => __( 'Google Font Control' ),
 		'description' => esc_html__( 'Sample custom control description' ),
@@ -754,18 +754,18 @@ The setting that gets saved to the database will be an RGBa color value (e.g. rg
 
 ![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/04/AlphaColor.jpg "Alpha Color")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Required. The text to display  
-**section** - Required. The Section where there control should appear  
-**show_opacity** - Optional. Show or hide the opacity value on the opacity slider handle. Default: true  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Required. The text to display
+**section** - Required. The Section where there control should appear
+**show_opacity** - Optional. Show or hide the opacity value on the opacity slider handle. Default: true
 **palette** - Optional. Allows you to specify the colours used in the colour palette. Can be set to false to hide the palette. Default: WP color control palette
 
 **Example**
@@ -777,7 +777,7 @@ $wp_customize->add_setting( 'sample_alpha_color',
 		'transport' => 'postMessage'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color_picker',
+$wp_customize->add_control( new Indigo_Customize_Alpha_Color_Control( $wp_customize, 'sample_alpha_color_picker',
 	array(
 		'label' => __( 'Alpha Color Picker Control' ),
 		'description' => esc_html__( 'Sample custom control description' ),
@@ -815,20 +815,20 @@ The setting that gets saved to the database will be an RGBa color value (e.g. rg
 
 ![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/05/WPColorPickerAlphaColor.jpg "WPColorPicker Alpha Color")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Required. The text to display  
-**section** - Required. The Section where there control should appear  
-**input_attrs** - Optional. List of custom choices.  
-  **resetalpha** - Optional. This will reset the Alpha channel back to 1 every time a new colour is selected from the Palette. Default = 'true'  
-  **palette** - Optional. Allows you to specify the 8 colours used in the colour palette. Default: WP color control palette  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Required. The text to display
+**section** - Required. The Section where there control should appear
+**input_attrs** - Optional. List of custom choices.
+  **resetalpha** - Optional. This will reset the Alpha channel back to 1 every time a new colour is selected from the Palette. Default = 'true'
+  **palette** - Optional. Allows you to specify the 8 colours used in the colour palette. Default: WP color control palette
 
 **Example 1**
 
@@ -837,10 +837,10 @@ $wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color',
 	array(
 		'default' => 'rgba(209,0,55,0.7)',
 		'transport' => 'postMessage',
-		'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+		'sanitize_callback' => 'indigo_hex_rgba_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color',
+$wp_customize->add_control( new Indigo_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color',
 	array(
 		'label' => __( 'Alpha Color Picker Control' ),
 		'description' => esc_html__( 'Sample color control with Alpha channel' ),
@@ -868,10 +868,10 @@ $wp_customize->add_setting( 'sample_wpcolorpicker_alpha_color2',
 	array(
 		'default' => 'rgba(209,0,55,0.7)',
 		'transport' => 'postMessage',
-		'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+		'sanitize_callback' => 'indigo_hex_rgba_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color2',
+$wp_customize->add_control( new Indigo_Alpha_Color_Control( $wp_customize, 'sample_wpcolorpicker_alpha_color2',
 	array(
 		'label' => __( 'Alpha Color Picker Control' ),
 		'description' => esc_html__( 'Sample color control with Alpha channel' ),
@@ -903,23 +903,23 @@ The setting that gets saved to the database is a comma-separated string of value
 
 ![Image Checkbox](https://maddisondesigns.com/wp-content/uploads/2017/05/SortablePillCheckbox.jpg "Sortable Pill Checkbox")
 
-**Usage**  
+**Usage**
 add_control( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Control object or ID of the Setting associated with this Control. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**label** - Optional. The label that will be displayed Default: Blank  
-**description** - Optional. The description to display under the label. Default: Blank.  
-**section** - Required. The Section where there control should appear  
-**input_attrs** - Optional. List of control options.  
-  **sortable** - Optional. Allow the pills to be sortable using drag 'n drop. Default = 'false'  
-  **fullwidth** - Optional. Display the pills fullwidth, instead of variable width. Default = 'false'  
-**choices** - Required. List of custom choices.  
-  **key** - Required. Data that will be stored for the setting  
-  **value** - Required. Text to display in the control  
+**Arguments for $args**
+**label** - Optional. The label that will be displayed Default: Blank
+**description** - Optional. The description to display under the label. Default: Blank.
+**section** - Required. The Section where there control should appear
+**input_attrs** - Optional. List of control options.
+  **sortable** - Optional. Allow the pills to be sortable using drag 'n drop. Default = 'false'
+  **fullwidth** - Optional. Display the pills fullwidth, instead of variable width. Default = 'false'
+**choices** - Required. List of custom choices.
+  **key** - Required. Data that will be stored for the setting
+  **value** - Required. Text to display in the control
 
 **Example 1**
 
@@ -929,25 +929,25 @@ $wp_customize->add_setting( 'sample_pill_checkbox',
 	array(
 		'default' => 'tiger,elephant,hippo',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox',
+$wp_customize->add_control( new Indigo_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox',
 	array(
-		'label' => __( 'Pill Checkbox Control', 'skyrocket' ),
-		'description' => esc_html__( 'This is a sample Pill Checkbox Control', 'skyrocket' ),
+		'label' => __( 'Pill Checkbox Control', 'indigo' ),
+		'description' => esc_html__( 'This is a sample Pill Checkbox Control', 'indigo' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
 			'sortable' => false,
 			'fullwidth' => false,
 		),
 		'choices' => array(
-			'tiger' => __( 'Tiger', 'skyrocket' ),
-			'lion' => __( 'Lion', 'skyrocket' ),
-			'giraffe' => __( 'Giraffe', 'skyrocket'  ),
-			'elephant' => __( 'Elephant', 'skyrocket'  ),
-			'hippo' => __( 'Hippo', 'skyrocket'  ),
-			'rhino' => __( 'Rhino', 'skyrocket'  ),
+			'tiger' => __( 'Tiger', 'indigo' ),
+			'lion' => __( 'Lion', 'indigo' ),
+			'giraffe' => __( 'Giraffe', 'indigo'  ),
+			'elephant' => __( 'Elephant', 'indigo'  ),
+			'hippo' => __( 'Hippo', 'indigo'  ),
+			'rhino' => __( 'Rhino', 'indigo'  ),
 		)
 	)
 ) );
@@ -961,27 +961,27 @@ $wp_customize->add_setting( 'sample_pill_checkbox2',
 	array(
 		'default' => 'captainmarvel,msmarvel,squirrelgirl',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox2',
+$wp_customize->add_control( new Indigo_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox2',
 	array(
-		'label' => __( 'Pill Checkbox Control', 'skyrocket' ),
-		'description' => esc_html__( 'This is a sample Sortable Pill Checkbox Control', 'skyrocket' ),
+		'label' => __( 'Pill Checkbox Control', 'indigo' ),
+		'description' => esc_html__( 'This is a sample Sortable Pill Checkbox Control', 'indigo' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
 			'sortable' => true,
 			'fullwidth' => false,
 		),
 		'choices' => array(
-			'captainamerica' => __( 'Captain America', 'skyrocket' ),
-			'ironman' => __( 'Iron Man', 'skyrocket' ),
-			'captainmarvel' => __( 'Captain Marvel', 'skyrocket'  ),
-			'msmarvel' => __( 'Ms. Marvel', 'skyrocket'  ),
-			'Jessicajones' => __( 'Jessica Jones', 'skyrocket'  ),
-			'squirrelgirl' => __( 'Squirrel Girl', 'skyrocket'  ),
-			'blackwidow' => __( 'Black Widow', 'skyrocket'  ),
-			'hulk' => __( 'Hulk', 'skyrocket'  ),
+			'captainamerica' => __( 'Captain America', 'indigo' ),
+			'ironman' => __( 'Iron Man', 'indigo' ),
+			'captainmarvel' => __( 'Captain Marvel', 'indigo'  ),
+			'msmarvel' => __( 'Ms. Marvel', 'indigo'  ),
+			'Jessicajones' => __( 'Jessica Jones', 'indigo'  ),
+			'squirrelgirl' => __( 'Squirrel Girl', 'indigo'  ),
+			'blackwidow' => __( 'Black Widow', 'indigo'  ),
+			'hulk' => __( 'Hulk', 'indigo'  ),
 		)
 	)
 ) );
@@ -995,24 +995,24 @@ $wp_customize->add_setting( 'sample_pill_checkbox3',
 	array(
 		'default' => 'author,categories,comments',
 		'transport' => 'refresh',
-		'sanitize_callback' => 'skyrocket_text_sanitization'
+		'sanitize_callback' => 'indigo_text_sanitization'
 	)
 );
-$wp_customize->add_control( new Skyrocket_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox3',
+$wp_customize->add_control( new Indigo_Pill_Checkbox_Custom_Control( $wp_customize, 'sample_pill_checkbox3',
 	array(
-		'label' => __( 'Pill Checkbox Control', 'skyrocket' ),
-		'description' => esc_html__( 'This is a sample Sortable Fullwidth Pill Checkbox Control', 'skyrocket' ),
+		'label' => __( 'Pill Checkbox Control', 'indigo' ),
+		'description' => esc_html__( 'This is a sample Sortable Fullwidth Pill Checkbox Control', 'indigo' ),
 		'section' => 'sample_custom_controls_section',
 		'input_attrs' => array(
 			'sortable' => true,
 			'fullwidth' => true,
 		),
 		'choices' => array(
-			'date' => __( 'Date', 'skyrocket' ),
-			'author' => __( 'Author', 'skyrocket' ),
-			'categories' => __( 'Categories', 'skyrocket'  ),
-			'tags' => __( 'Tags', 'skyrocket'  ),
-			'comments' => __( 'Comments', 'skyrocket'  ),
+			'date' => __( 'Date', 'indigo' ),
+			'author' => __( 'Author', 'indigo' ),
+			'categories' => __( 'Categories', 'indigo'  ),
+			'tags' => __( 'Tags', 'indigo'  ),
+			'comments' => __( 'Comments', 'indigo'  ),
 		)
 	)
 ) );
@@ -1030,27 +1030,27 @@ Since this is a Custom Section, rather than a Custom Control, there's no values 
 
 ![Alpha Color](https://maddisondesigns.com/wp-content/uploads/2017/05/Customizer-Customer-Section.jpg "Upsell Section")
 
-**Usage**  
+**Usage**
 add_section( $id, $args );
 
-**Parameters**  
-**$id** - (string) (required) Customize Section object or Section ID. Default: None  
-**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array  
+**Parameters**
+**$id** - (string) (required) Customize Section object or Section ID. Default: None
+**$args** - (array) (optional) An associative array containing arguments for the setting. Default: empty array
 
-**Arguments for $args**  
-**title** - The visible name of the section  
-**priority** - Optional. This controls the order in which this section appears in the Theme Customizer sidebar  
-**url** - The external url to link to  
-**backgroundcolor** - Optional. The background colour of the section. Default: #fff  
-**textcolor** - Optional. The text colour for the title. Default: #555d66  
+**Arguments for $args**
+**title** - The visible name of the section
+**priority** - Optional. This controls the order in which this section appears in the Theme Customizer sidebar
+**url** - The external url to link to
+**backgroundcolor** - Optional. The background colour of the section. Default: #fff
+**textcolor** - Optional. The text colour for the title. Default: #555d66
 
 **Example**
 
 ````
-$wp_customize->add_section( new Skyrocket_Upsell_Section( $wp_customize, 'upsell_section',
+$wp_customize->add_section( new Indigo_Upsell_Section( $wp_customize, 'upsell_section',
 	array(
-		'title' => __( 'Premium Addons Available', 'skyrocket' ),
-		'url' => 'https://skyrocketthemes.com',
+		'title' => __( 'Premium Addons Available', 'indigo' ),
+		'url' => 'https://indigothemes.com',
 		'backgroundcolor' => '#344860',
 		'textcolor' => '#fff',
 		'priority' => 0,
@@ -1060,11 +1060,11 @@ $wp_customize->add_section( new Skyrocket_Upsell_Section( $wp_customize, 'upsell
 
 ## Further Reading ##
 
-For more details, check out my Customizer Developers Guide:  
-[The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)  
+For more details, check out my Customizer Developers Guide:
+[The WordPress Customizer – A Developers Guide (Part 1)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-1)
 [The WordPress Customizer – A Developers Guide (Part 2)](https://maddisondesigns.com/2017/05/the-wordpress-customizer-a-developers-guide-part-2)
 
-Download a sample theme showing how to implement these Controls:  
+Download a sample theme showing how to implement these Controls:
 [https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme](https://github.com/maddisondesigns/Customizer-Custom-Controls-Sample-Theme)
 
 ## Changelog ##
@@ -1083,7 +1083,7 @@ Download a sample theme showing how to implement these Controls:
 - Tidied up code
 
 = 1.0.13 =
-- Don't enqueue the Font Awesome stylesheet within the Skyrocket_Single_Accordion_Custom_Control Control as it's not actually needed.
+- Don't enqueue the Font Awesome stylesheet within the Indigo_Single_Accordion_Custom_Control Control as it's not actually needed.
 - Enqueue the Font Awesome stylesheet within functions.php when viewing the Customizer, for showing icons in our sample Single Accordion Control content.
 - Added Readme link to a sample theme that shows how to implement these controls.
 
@@ -1095,17 +1095,17 @@ Download a sample theme showing how to implement these Controls:
 - Added new Upsell section that allows you to provide a link in the Customizer to an external URL. Useful if you're selling premium themes/plugins.
 
 = 1.0.10 =
-- Added ability to specify Palette colours in the new Skyrocket_Alpha_Color_Control Custom Control
+- Added ability to specify Palette colours in the new Indigo_Alpha_Color_Control Custom Control
 
 = 1.0.9 =
-- Added new Skyrocket_Alpha_Color_Control Custom Control which uses modified WPColorPicker script
+- Added new Indigo_Alpha_Color_Control Custom Control which uses modified WPColorPicker script
 
 = 1.0.8 =
 - Renamed fontawesome stylsheet
 
 = 1.0.7 =
-- Update skyrocket_get_social_media() to store output as array rather than string to make it easier for filtering
-- Added new filter (skyrocket_social_icons_list) for filtering social media icons list array
+- Update indigo_get_social_media() to store output as array rather than string to make it easier for filtering
+- Added new filter (indigo_social_icons_list) for filtering social media icons list array
 - Added new social icons to Customizer Control (Discord, Kickstarter, Patreon, Weibo)
 - Updated FontAwesome to v5.8.2
 

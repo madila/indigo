@@ -1,6 +1,6 @@
 <?php
 /**
- * Skyrocket Customizer Custom Controls
+ * Indigo Customizer Custom Controls
  *
  */
 
@@ -12,14 +12,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Custom_Control extends WP_Customize_Control {
-		protected function get_skyrocket_resource_url() {
-			if( strpos( wp_normalize_path( __DIR__ ), wp_normalize_path( WP_PLUGIN_DIR ) ) === 0 ) {
-				// We're in a plugin directory and need to determine the url accordingly.
-				return plugin_dir_url( __DIR__ );
-			}
-
-			return trailingslashit( get_template_directory_uri() );
+	class Indigo_Custom_Control extends WP_Customize_Control {
+		protected function get_indigo_resource_url() {
+			return apply_filters('customizer_resource_url', trailingslashit( get_stylesheet_directory_uri() ));
 		}
 	}
 
@@ -30,8 +25,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Custom_Section extends WP_Customize_Section {
-		protected function get_skyrocket_resource_url() {
+	class Indigo_Custom_Section extends WP_Customize_Section {
+		protected function get_indigo_resource_url() {
 			if( strpos( wp_normalize_path( __DIR__ ), wp_normalize_path( WP_PLUGIN_DIR ) ) === 0 ) {
 				// We're in a plugin directory and need to determine the url accordingly.
 				return plugin_dir_url( __DIR__ );
@@ -48,7 +43,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	 class Skyrocket_Image_Checkbox_Custom_Control extends Skyrocket_Custom_Control {
+	 class Indigo_Image_Checkbox_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -57,7 +52,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -91,7 +86,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	 class Skyrocket_Text_Radio_Button_Custom_Control extends Skyrocket_Custom_Control {
+	 class Indigo_Text_Radio_Button_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -100,7 +95,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -135,7 +130,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Image_Radio_Button_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Image_Radio_Button_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -144,7 +139,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -177,7 +172,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Single_Accordion_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Single_Accordion_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -186,8 +181,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -236,7 +231,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Simple_Notice_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Simple_Notice_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -283,7 +278,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Slider_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Slider_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -292,8 +287,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery', 'jquery-ui-core' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery', 'jquery-ui-core' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -315,7 +310,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Toggle_Switch_Custom_control extends Skyrocket_Custom_Control {
+	class Indigo_Toggle_Switch_Custom_control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -324,7 +319,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue(){
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -355,7 +350,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Sortable_Repeater_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Sortable_Repeater_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -372,7 +367,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			// Merge the passed button labels with our default labels
 			$this->button_labels = wp_parse_args( $this->button_labels,
 				array(
-					'add' => __( 'Add', 'skyrocket' ),
+					'add' => __( 'Add', 'indigo' ),
 				)
 			);
 		}
@@ -380,8 +375,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery', 'jquery-ui-core' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery', 'jquery-ui-core' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -414,7 +409,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Dropdown_Select2_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Dropdown_Select2_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -445,10 +440,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'skyrocket-select2-js' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.1', 'all' );
-			wp_enqueue_style( 'skyrocket-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
+			wp_enqueue_script( 'indigo-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'indigo-select2-js' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.1', 'all' );
+			wp_enqueue_style( 'indigo-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -501,7 +496,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Dropdown_Posts_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Dropdown_Posts_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -557,7 +552,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_TinyMCE_Custom_control extends Skyrocket_Custom_Control {
+	class Indigo_TinyMCE_Custom_control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -566,8 +561,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue(){
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 			wp_enqueue_editor();
 		}
 		/**
@@ -575,9 +570,9 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 */
 		public function to_json() {
 			parent::to_json();
-			$this->json['skyrockettinymcetoolbar1'] = isset( $this->input_attrs['toolbar1'] ) ? esc_attr( $this->input_attrs['toolbar1'] ) : 'bold italic bullist numlist alignleft aligncenter alignright link';
-			$this->json['skyrockettinymcetoolbar2'] = isset( $this->input_attrs['toolbar2'] ) ? esc_attr( $this->input_attrs['toolbar2'] ) : '';
-			$this->json['skyrocketmediabuttons'] = isset( $this->input_attrs['mediaButtons'] ) && ( $this->input_attrs['mediaButtons'] === true ) ? true : false;
+			$this->json['indigotinymcetoolbar1'] = isset( $this->input_attrs['toolbar1'] ) ? esc_attr( $this->input_attrs['toolbar1'] ) : 'bold italic bullist numlist alignleft aligncenter alignright link';
+			$this->json['indigotinymcetoolbar2'] = isset( $this->input_attrs['toolbar2'] ) ? esc_attr( $this->input_attrs['toolbar2'] ) : '';
+			$this->json['indigomediabuttons'] = isset( $this->input_attrs['mediaButtons'] ) && ( $this->input_attrs['mediaButtons'] === true ) ? true : false;
 		}
 		/**
 		 * Render the control in the customizer
@@ -602,7 +597,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Google_Font_Select_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Google_Font_Select_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -642,27 +637,27 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 					$this->fontCount = ( abs( (int) $this->input_attrs['font_count'] ) > 0 ? abs( (int) $this->input_attrs['font_count'] ) : 'all' );
 				}
 			}
-			$this->fontList = $this->skyrocket_getGoogleFonts( 'all' );
+			$this->fontList = $this->indigo_getGoogleFonts( 'all' );
 			// Decode the default json font value
 			$this->fontValues = json_decode( $this->value() );
 			// Find the index of our default font within our list of Google fonts
-			$this->fontListIndex = $this->skyrocket_getFontIndex( $this->fontList, $this->fontValues->font );
+			$this->fontListIndex = $this->indigo_getFontIndex( $this->fontList, $this->fontValues->font );
 		}
 		/**
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'skyrocket-select2-js' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.1', 'all' );
-			wp_enqueue_style( 'skyrocket-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
+			wp_enqueue_script( 'indigo-select2-js', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js', array( 'jquery' ), '4.0.6', true );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'indigo-select2-js' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.1', 'all' );
+			wp_enqueue_style( 'indigo-select2-css', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css', array(), '4.0.6', 'all' );
 		}
 		/**
 		 * Export our List of Google Fonts to JavaScript
 		 */
 		public function to_json() {
 			parent::to_json();
-			$this->json['skyrocketfontslist'] = $this->fontList;
+			$this->json['indigofontslist'] = $this->fontList;
 		}
 		/**
 		 * Render the control in the customizer
@@ -704,7 +699,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description"><?php esc_html_e( 'Select weight & style for regular text', 'skyrocket' ) ?></div>
+					<div class="customize-control-description"><?php esc_html_e( 'Select weight & style for regular text', 'indigo' ) ?></div>
 					<div class="weight-style">
 						<select class="google-fonts-regularweight-style">
 							<?php
@@ -714,7 +709,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description"><?php esc_html_e( 'Select weight for', 'skyrocket' ) ?> <italic><?php esc_html_e( 'italic text', 'skyrocket' ) ?></italic></div>
+					<div class="customize-control-description"><?php esc_html_e( 'Select weight for', 'indigo' ) ?> <italic><?php esc_html_e( 'italic text', 'indigo' ) ?></italic></div>
 					<div class="weight-style">
 						<select class="google-fonts-italicweight-style" <?php disabled( in_array( 'italic', $this->fontList[$this->fontListIndex]->variants ), false ); ?>>
 							<?php
@@ -732,7 +727,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description"><?php esc_html_e( 'Select weight for', 'skyrocket' ) ?> <strong><?php esc_html_e( 'bold text', 'skyrocket' ) ?></strong></div>
+					<div class="customize-control-description"><?php esc_html_e( 'Select weight for', 'indigo' ) ?> <strong><?php esc_html_e( 'bold text', 'indigo' ) ?></strong></div>
 					<div class="weight-style">
 						<select class="google-fonts-boldweight-style">
 							<?php
@@ -760,7 +755,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		/**
 		 * Find the index of the saved font in our multidimensional array of Google Fonts
 		 */
-		public function skyrocket_getFontIndex( $haystack, $needle ) {
+		public function indigo_getFontIndex( $haystack, $needle ) {
 			foreach( $haystack as $key => $value ) {
 				if( $value->family == $needle ) {
 					return $key;
@@ -772,11 +767,11 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		/**
 		 * Return the list of Google Fonts from our json file. Unless otherwise specfied, list will be limited to 30 fonts.
 		 */
-		public function skyrocket_getGoogleFonts( $count = 30 ) {
+		public function indigo_getGoogleFonts( $count = 30 ) {
 			// Google Fonts json generated from https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=YOUR-API-KEY
-			$fontFile = $this->get_skyrocket_resource_url() . 'inc/google-fonts-alphabetical.json';
+			$fontFile = $this->get_indigo_resource_url() . 'inc/google-fonts-alphabetical.json';
 			if ( $this->fontOrderBy === 'popular' ) {
-				$fontFile = $this->get_skyrocket_resource_url() . 'inc/google-fonts-popularity.json';
+				$fontFile = $this->get_indigo_resource_url() . 'inc/google-fonts-popularity.json';
 			}
 
 			$request = wp_remote_get( $fontFile );
@@ -802,7 +797,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-3.0.html
 	 * @link https://github.com/BraadMartin/components/tree/master/customizer/alpha-color-picker
 	 */
-	class Skyrocket_Customize_Alpha_Color_Control extends Skyrocket_Custom_Control {
+	class Indigo_Customize_Alpha_Color_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -821,8 +816,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery', 'wp-color-picker' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array( 'wp-color-picker' ), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery', 'wp-color-picker' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array( 'wp-color-picker' ), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -868,7 +863,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-3.0.html
 	 * @link https://github.com/kallookoo/wp-color-picker-alpha
 	 */
-	class Skyrocket_Alpha_Color_Control extends Skyrocket_Custom_Control {
+	class Indigo_Alpha_Color_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -904,8 +899,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
-			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_skyrocket_resource_url() . 'js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'wp-color-picker-alpha', $this->get_indigo_resource_url() . 'js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), '1.0', true );
 			wp_enqueue_style( 'wp-color-picker' );
 		}
 		/**
@@ -940,7 +935,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Pill_Checkbox_Custom_Control extends Skyrocket_Custom_Control {
+	class Indigo_Pill_Checkbox_Custom_Control extends Indigo_Custom_Control {
 		/**
 		 * The type of control being rendered
 		 */
@@ -970,8 +965,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the control in the customizer
@@ -1025,11 +1020,11 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @link https://github.com/maddisondesigns
 	 *
 	 */
-	class Skyrocket_Upsell_Section extends Skyrocket_Custom_Section {
+	class Indigo_Upsell_Section extends Indigo_Custom_Section {
 		/**
 		 * The type of control being rendered
 		 */
-		public $type = 'skyrocket-upsell';
+		public $type = 'indigo-upsell';
 		/**
 		 * The Upsell URL
 		 */
@@ -1046,8 +1041,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 		 * Enqueue our scripts and styles
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', $this->get_skyrocket_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
+			wp_enqueue_script( 'indigo-custom-controls-js', $this->get_indigo_resource_url() . 'js/customizer.js', array( 'jquery' ), '1.0', true );
+			wp_enqueue_style( 'indigo-custom-controls-css', $this->get_indigo_resource_url() . 'css/customizer.css', array(), '1.0', 'all' );
 		}
 		/**
 		 * Render the section, and the controls that have been added to it.
@@ -1056,7 +1051,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 			$bkgrndcolor = !empty( $this->backgroundcolor ) ? esc_attr( $this->backgroundcolor ) : '#fff';
 			$color = !empty( $this->textcolor ) ? esc_attr( $this->textcolor ) : '#555d66';
 			?>
-			<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="skyrocket_upsell_section accordion-section control-section control-section-<?php echo esc_attr( $this->id ); ?> cannot-expand">
+			<li id="accordion-section-<?php echo esc_attr( $this->id ); ?>" class="indigo_upsell_section accordion-section control-section control-section-<?php echo esc_attr( $this->id ); ?> cannot-expand">
 				<h3 class="upsell-section-title" <?php echo ' style="color:' . $color . ';border-left-color:' . $bkgrndcolor .';border-right-color:' . $bkgrndcolor .';"'; ?>>
 					<a href="<?php echo esc_url( $this->url); ?>" target="_blank"<?php echo ' style="background-color:' . $bkgrndcolor . ';color:' . $color .';"'; ?>><?php echo esc_html( $this->title ); ?></a>
 				</h3>
@@ -1071,8 +1066,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string	Input to be sanitized (either a string containing a single url or multiple, separated by commas)
 	 * @return string	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_url_sanitization' ) ) {
-		function skyrocket_url_sanitization( $input ) {
+	if ( ! function_exists( 'indigo_url_sanitization' ) ) {
+		function indigo_url_sanitization( $input ) {
 			if ( strpos( $input, ',' ) !== false) {
 				$input = explode( ',', $input );
 			}
@@ -1095,8 +1090,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string		Switch value
 	 * @return integer	Sanitized value
 	 */
-	if ( ! function_exists( 'skyrocket_switch_sanitization' ) ) {
-		function skyrocket_switch_sanitization( $input ) {
+	if ( ! function_exists( 'indigo_switch_sanitization' ) ) {
+		function indigo_switch_sanitization( $input ) {
 			if ( true === $input ) {
 				return 1;
 			} else {
@@ -1111,8 +1106,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string		Radio Button value
 	 * @return integer	Sanitized value
 	 */
-	if ( ! function_exists( 'skyrocket_radio_sanitization' ) ) {
-		function skyrocket_radio_sanitization( $input, $setting ) {
+	if ( ! function_exists( 'indigo_radio_sanitization' ) ) {
+		function indigo_radio_sanitization( $input, $setting ) {
 			//get the list of possible radio box or select options
 		 $choices = $setting->manager->get_control( $setting->id )->choices;
 
@@ -1130,8 +1125,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string		Input value to check
 	 * @return integer	Returned integer value
 	 */
-	if ( ! function_exists( 'skyrocket_sanitize_integer' ) ) {
-		function skyrocket_sanitize_integer( $input ) {
+	if ( ! function_exists( 'indigo_sanitize_integer' ) ) {
+		function indigo_sanitize_integer( $input ) {
 			return (int) $input;
 		}
 	}
@@ -1142,8 +1137,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string	Input to be sanitized (either a string containing a single string or multiple, separated by commas)
 	 * @return string	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_text_sanitization' ) ) {
-		function skyrocket_text_sanitization( $input ) {
+	if ( ! function_exists( 'indigo_text_sanitization' ) ) {
+		function indigo_text_sanitization( $input ) {
 			if ( strpos( $input, ',' ) !== false) {
 				$input = explode( ',', $input );
 			}
@@ -1166,8 +1161,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  array	Input to be sanitized
 	 * @return array	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_array_sanitization' ) ) {
-		function skyrocket_array_sanitization( $input ) {
+	if ( ! function_exists( 'indigo_array_sanitization' ) ) {
+		function indigo_array_sanitization( $input ) {
 			if( is_array( $input ) ) {
 				foreach ( $input as $key => $value ) {
 					$input[$key] = sanitize_text_field( $value );
@@ -1186,8 +1181,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string	Input to be sanitized
 	 * @return string	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_hex_rgba_sanitization' ) ) {
-		function skyrocket_hex_rgba_sanitization( $input, $setting ) {
+	if ( ! function_exists( 'indigo_hex_rgba_sanitization' ) ) {
+		function indigo_hex_rgba_sanitization( $input, $setting ) {
 			if ( empty( $input ) || is_array( $input ) ) {
 				return $setting->default;
 			}
@@ -1199,7 +1194,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 				// Sanitize as RGBa color
 				$input = str_replace( ' ', '', $input );
 				sscanf( $input, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
-				$input = 'rgba(' . skyrocket_in_range( $red, 0, 255 ) . ',' . skyrocket_in_range( $green, 0, 255 ) . ',' . skyrocket_in_range( $blue, 0, 255 ) . ',' . skyrocket_in_range( $alpha, 0, 1 ) . ')';
+				$input = 'rgba(' . indigo_in_range( $red, 0, 255 ) . ',' . indigo_in_range( $green, 0, 255 ) . ',' . indigo_in_range( $blue, 0, 255 ) . ',' . indigo_in_range( $alpha, 0, 1 ) . ')';
 			}
 			return $input;
 		}
@@ -1211,8 +1206,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  number	Input to be sanitized
 	 * @return number	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_in_range' ) ) {
-		function skyrocket_in_range( $input, $min, $max ){
+	if ( ! function_exists( 'indigo_in_range' ) ) {
+		function indigo_in_range( $input, $min, $max ){
 			if ( $input < $min ) {
 				$input = $min;
 			}
@@ -1229,8 +1224,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string	JSON string to be sanitized
 	 * @return string	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_google_font_sanitization' ) ) {
-		function skyrocket_google_font_sanitization( $input ) {
+	if ( ! function_exists( 'indigo_google_font_sanitization' ) ) {
+		function indigo_google_font_sanitization( $input ) {
 			$val =  json_decode( $input, true );
 			if( is_array( $val ) ) {
 				foreach ( $val as $key => $value ) {
@@ -1251,8 +1246,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string	Date/Time string to be sanitized
 	 * @return string	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_date_time_sanitization' ) ) {
-		function skyrocket_date_time_sanitization( $input, $setting ) {
+	if ( ! function_exists( 'indigo_date_time_sanitization' ) ) {
+		function indigo_date_time_sanitization( $input, $setting ) {
 			$datetimeformat = 'Y-m-d';
 			if ( $setting->manager->get_control( $setting->id )->include_time ) {
 				$datetimeformat = 'Y-m-d H:i:s';
@@ -1271,8 +1266,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 	 * @param  string	Slider value to be sanitized
 	 * @return string	Sanitized input
 	 */
-	if ( ! function_exists( 'skyrocket_range_sanitization' ) ) {
-		function skyrocket_range_sanitization( $input, $setting ) {
+	if ( ! function_exists( 'indigo_range_sanitization' ) ) {
+		function indigo_range_sanitization( $input, $setting ) {
 			$attrs = $setting->manager->get_control( $setting->id )->input_attrs;
 
 			$min = ( isset( $attrs['min'] ) ? $attrs['min'] : $input );
@@ -1281,7 +1276,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) {
 
 			$number = floor( $input / $attrs['step'] ) * $attrs['step'];
 
-			return skyrocket_in_range( $number, $min, $max );
+			return indigo_in_range( $number, $min, $max );
 		}
 	}
 

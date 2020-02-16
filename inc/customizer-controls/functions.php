@@ -1,5 +1,13 @@
 <?php
 
+function indigo_get_customiser_resource_url() {
+	return trailingslashit( get_stylesheet_directory_uri() );
+}
+
+add_filter('customizer_resource_url', function($url) {
+	return $url . 'inc/customizer-controls/';
+});
+
 /**
  * Enqueue scripts and styles.
  * Our sample Social Icons are using Font Awesome icons so we need to include the FA CSS when viewing our site
@@ -7,28 +15,28 @@
  *
  * @return void
  */
-if ( ! function_exists( 'skyrocket_scripts_styles' ) ) {
-	function skyrocket_scripts_styles() {
+if ( ! function_exists( 'indigo_scripts_styles' ) ) {
+	function indigo_scripts_styles() {
 		// Register and enqueue our icon font
 		// We're using the awesome Font Awesome icon font. http://fortawesome.github.io/Font-Awesome
-		wp_register_style( 'fontawesome', trailingslashit( get_template_directory_uri() ) . 'css/fontawesome-all.min.css' , array(), '5.8.2', 'all' );
+		wp_register_style( 'fontawesome', indigo_get_customiser_resource_url() . 'css/fontawesome-all.min.css' , array(), '5.8.2', 'all' );
 		wp_enqueue_style( 'fontawesome' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'skyrocket_scripts_styles' );
-add_action( 'customize_controls_print_styles', 'skyrocket_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'indigo_scripts_styles' );
+add_action( 'customize_controls_print_styles', 'indigo_scripts_styles' );
 
 /**
  * Enqueue scripts for our Customizer preview
  *
  * @return void
  */
-if ( ! function_exists( 'skyrocket_customizer_preview_scripts' ) ) {
-	function skyrocket_customizer_preview_scripts() {
-		wp_enqueue_script( 'skyrocket-customizer-preview', trailingslashit( get_template_directory_uri() ) . 'js/customizer-preview.js', array( 'customize-preview', 'jquery' ) );
+if ( ! function_exists( 'indigo_customizer_preview_scripts' ) ) {
+	function indigo_customizer_preview_scripts() {
+		wp_enqueue_script( 'indigo-customizer-preview', indigo_get_customiser_resource_url() . 'js/customizer-preview.js', array( 'customize-preview', 'jquery' ) );
 	}
 }
-add_action( 'customize_preview_init', 'skyrocket_customizer_preview_scripts' );
+add_action( 'customize_preview_init', 'indigo_customizer_preview_scripts' );
 
 /**
  * Check if WooCommerce is active
@@ -36,7 +44,7 @@ add_action( 'customize_preview_init', 'skyrocket_customizer_preview_scripts' );
  *
  * @return boolean
  */
-function skyrocket_is_woocommerce_active() {
+function indigo_is_woocommerce_active() {
 	if ( class_exists( 'woocommerce' ) ) {
 		return true;
 	}
@@ -49,44 +57,44 @@ function skyrocket_is_woocommerce_active() {
  *
  * @return array Multidimensional array containing social media data
  */
-if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
-	function skyrocket_generate_social_urls() {
+if ( ! function_exists( 'indigo_generate_social_urls' ) ) {
+	function indigo_generate_social_urls() {
 		$social_icons = array(
-			array( 'url' => 'behance.net', 'icon' => 'fab fa-behance', 'title' => esc_html__( 'Follow me on Behance', 'skyrocket' ), 'class' => 'behance' ),
-			array( 'url' => 'bitbucket.org', 'icon' => 'fab fa-bitbucket', 'title' => esc_html__( 'Fork me on Bitbucket', 'skyrocket' ), 'class' => 'bitbucket' ),
-			array( 'url' => 'codepen.io', 'icon' => 'fab fa-codepen', 'title' => esc_html__( 'Follow me on CodePen', 'skyrocket' ), 'class' => 'codepen' ),
-			array( 'url' => 'deviantart.com', 'icon' => 'fab fa-deviantart', 'title' => esc_html__( 'Watch me on DeviantArt', 'skyrocket' ), 'class' => 'deviantart' ),
-			array( 'url' => 'discord.gg', 'icon' => 'fab fa-discord', 'title' => esc_html__( 'Join me on Discord', 'skyrocket' ), 'class' => 'discord' ),
-			array( 'url' => 'dribbble.com', 'icon' => 'fab fa-dribbble', 'title' => esc_html__( 'Follow me on Dribbble', 'skyrocket' ), 'class' => 'dribbble' ),
-			array( 'url' => 'etsy.com', 'icon' => 'fab fa-etsy', 'title' => esc_html__( 'favorite me on Etsy', 'skyrocket' ), 'class' => 'etsy' ),
-			array( 'url' => 'facebook.com', 'icon' => 'fab fa-facebook-f', 'title' => esc_html__( 'Like me on Facebook', 'skyrocket' ), 'class' => 'facebook' ),
-			array( 'url' => 'flickr.com', 'icon' => 'fab fa-flickr', 'title' => esc_html__( 'Connect with me on Flickr', 'skyrocket' ), 'class' => 'flickr' ),
-			array( 'url' => 'foursquare.com', 'icon' => 'fab fa-foursquare', 'title' => esc_html__( 'Follow me on Foursquare', 'skyrocket' ), 'class' => 'foursquare' ),
-			array( 'url' => 'github.com', 'icon' => 'fab fa-github', 'title' => esc_html__( 'Fork me on GitHub', 'skyrocket' ), 'class' => 'github' ),
-			array( 'url' => 'instagram.com', 'icon' => 'fab fa-instagram', 'title' => esc_html__( 'Follow me on Instagram', 'skyrocket' ), 'class' => 'instagram' ),
-			array( 'url' => 'kickstarter.com', 'icon' => 'fab fa-kickstarter-k', 'title' => esc_html__( 'Back me on Kickstarter', 'skyrocket' ), 'class' => 'kickstarter' ),
-			array( 'url' => 'last.fm', 'icon' => 'fab fa-lastfm', 'title' => esc_html__( 'Follow me on Last.fm', 'skyrocket' ), 'class' => 'lastfm' ),
-			array( 'url' => 'linkedin.com', 'icon' => 'fab fa-linkedin-in', 'title' => esc_html__( 'Connect with me on LinkedIn', 'skyrocket' ), 'class' => 'linkedin' ),
-			array( 'url' => 'medium.com', 'icon' => 'fab fa-medium-m', 'title' => esc_html__( 'Follow me on Medium', 'skyrocket' ), 'class' => 'medium' ),
-			array( 'url' => 'patreon.com', 'icon' => 'fab fa-patreon', 'title' => esc_html__( 'Support me on Patreon', 'skyrocket' ), 'class' => 'patreon' ),
-			array( 'url' => 'pinterest.com', 'icon' => 'fab fa-pinterest-p', 'title' => esc_html__( 'Follow me on Pinterest', 'skyrocket' ), 'class' => 'pinterest' ),
-			array( 'url' => 'plus.google.com', 'icon' => 'fab fa-google-plus-g', 'title' => esc_html__( 'Connect with me on Google+', 'skyrocket' ), 'class' => 'googleplus' ),
-			array( 'url' => 'reddit.com', 'icon' => 'fab fa-reddit-alien', 'title' => esc_html__( 'Join me on Reddit', 'skyrocket' ), 'class' => 'reddit' ),
-			array( 'url' => 'slack.com', 'icon' => 'fab fa-slack-hash', 'title' => esc_html__( 'Join me on Slack', 'skyrocket' ), 'class' => 'slack.' ),
-			array( 'url' => 'slideshare.net', 'icon' => 'fab fa-slideshare', 'title' => esc_html__( 'Follow me on SlideShare', 'skyrocket' ), 'class' => 'slideshare' ),
-			array( 'url' => 'snapchat.com', 'icon' => 'fab fa-snapchat-ghost', 'title' => esc_html__( 'Add me on Snapchat', 'skyrocket' ), 'class' => 'snapchat' ),
-			array( 'url' => 'soundcloud.com', 'icon' => 'fab fa-soundcloud', 'title' => esc_html__( 'Follow me on SoundCloud', 'skyrocket' ), 'class' => 'soundcloud' ),
-			array( 'url' => 'spotify.com', 'icon' => 'fab fa-spotify', 'title' => esc_html__( 'Follow me on Spotify', 'skyrocket' ), 'class' => 'spotify' ),
-			array( 'url' => 'stackoverflow.com', 'icon' => 'fab fa-stack-overflow', 'title' => esc_html__( 'Join me on Stack Overflow', 'skyrocket' ), 'class' => 'stackoverflow' ),
-			array( 'url' => 'tumblr.com', 'icon' => 'fab fa-tumblr', 'title' => esc_html__( 'Follow me on Tumblr', 'skyrocket' ), 'class' => 'tumblr' ),
-			array( 'url' => 'twitch.tv', 'icon' => 'fab fa-twitch', 'title' => esc_html__( 'Follow me on Twitch', 'skyrocket' ), 'class' => 'twitch' ),
-			array( 'url' => 'twitter.com', 'icon' => 'fab fa-twitter', 'title' => esc_html__( 'Follow me on Twitter', 'skyrocket' ), 'class' => 'twitter' ),
-			array( 'url' => 'vimeo.com', 'icon' => 'fab fa-vimeo-v', 'title' => esc_html__( 'Follow me on Vimeo', 'skyrocket' ), 'class' => 'vimeo' ),
-			array( 'url' => 'weibo.com', 'icon' => 'fab fa-weibo', 'title' => esc_html__( 'Follow me on weibo', 'skyrocket' ), 'class' => 'weibo' ),
-			array( 'url' => 'youtube.com', 'icon' => 'fab fa-youtube', 'title' => esc_html__( 'Subscribe to me on YouTube', 'skyrocket' ), 'class' => 'youtube' ),
+			array( 'url' => 'behance.net', 'icon' => 'fab fa-behance', 'title' => esc_html__( 'Follow me on Behance', 'indigo' ), 'class' => 'behance' ),
+			array( 'url' => 'bitbucket.org', 'icon' => 'fab fa-bitbucket', 'title' => esc_html__( 'Fork me on Bitbucket', 'indigo' ), 'class' => 'bitbucket' ),
+			array( 'url' => 'codepen.io', 'icon' => 'fab fa-codepen', 'title' => esc_html__( 'Follow me on CodePen', 'indigo' ), 'class' => 'codepen' ),
+			array( 'url' => 'deviantart.com', 'icon' => 'fab fa-deviantart', 'title' => esc_html__( 'Watch me on DeviantArt', 'indigo' ), 'class' => 'deviantart' ),
+			array( 'url' => 'discord.gg', 'icon' => 'fab fa-discord', 'title' => esc_html__( 'Join me on Discord', 'indigo' ), 'class' => 'discord' ),
+			array( 'url' => 'dribbble.com', 'icon' => 'fab fa-dribbble', 'title' => esc_html__( 'Follow me on Dribbble', 'indigo' ), 'class' => 'dribbble' ),
+			array( 'url' => 'etsy.com', 'icon' => 'fab fa-etsy', 'title' => esc_html__( 'favorite me on Etsy', 'indigo' ), 'class' => 'etsy' ),
+			array( 'url' => 'facebook.com', 'icon' => 'fab fa-facebook-f', 'title' => esc_html__( 'Like me on Facebook', 'indigo' ), 'class' => 'facebook' ),
+			array( 'url' => 'flickr.com', 'icon' => 'fab fa-flickr', 'title' => esc_html__( 'Connect with me on Flickr', 'indigo' ), 'class' => 'flickr' ),
+			array( 'url' => 'foursquare.com', 'icon' => 'fab fa-foursquare', 'title' => esc_html__( 'Follow me on Foursquare', 'indigo' ), 'class' => 'foursquare' ),
+			array( 'url' => 'github.com', 'icon' => 'fab fa-github', 'title' => esc_html__( 'Fork me on GitHub', 'indigo' ), 'class' => 'github' ),
+			array( 'url' => 'instagram.com', 'icon' => 'fab fa-instagram', 'title' => esc_html__( 'Follow me on Instagram', 'indigo' ), 'class' => 'instagram' ),
+			array( 'url' => 'kickstarter.com', 'icon' => 'fab fa-kickstarter-k', 'title' => esc_html__( 'Back me on Kickstarter', 'indigo' ), 'class' => 'kickstarter' ),
+			array( 'url' => 'last.fm', 'icon' => 'fab fa-lastfm', 'title' => esc_html__( 'Follow me on Last.fm', 'indigo' ), 'class' => 'lastfm' ),
+			array( 'url' => 'linkedin.com', 'icon' => 'fab fa-linkedin-in', 'title' => esc_html__( 'Connect with me on LinkedIn', 'indigo' ), 'class' => 'linkedin' ),
+			array( 'url' => 'medium.com', 'icon' => 'fab fa-medium-m', 'title' => esc_html__( 'Follow me on Medium', 'indigo' ), 'class' => 'medium' ),
+			array( 'url' => 'patreon.com', 'icon' => 'fab fa-patreon', 'title' => esc_html__( 'Support me on Patreon', 'indigo' ), 'class' => 'patreon' ),
+			array( 'url' => 'pinterest.com', 'icon' => 'fab fa-pinterest-p', 'title' => esc_html__( 'Follow me on Pinterest', 'indigo' ), 'class' => 'pinterest' ),
+			array( 'url' => 'plus.google.com', 'icon' => 'fab fa-google-plus-g', 'title' => esc_html__( 'Connect with me on Google+', 'indigo' ), 'class' => 'googleplus' ),
+			array( 'url' => 'reddit.com', 'icon' => 'fab fa-reddit-alien', 'title' => esc_html__( 'Join me on Reddit', 'indigo' ), 'class' => 'reddit' ),
+			array( 'url' => 'slack.com', 'icon' => 'fab fa-slack-hash', 'title' => esc_html__( 'Join me on Slack', 'indigo' ), 'class' => 'slack.' ),
+			array( 'url' => 'slideshare.net', 'icon' => 'fab fa-slideshare', 'title' => esc_html__( 'Follow me on SlideShare', 'indigo' ), 'class' => 'slideshare' ),
+			array( 'url' => 'snapchat.com', 'icon' => 'fab fa-snapchat-ghost', 'title' => esc_html__( 'Add me on Snapchat', 'indigo' ), 'class' => 'snapchat' ),
+			array( 'url' => 'soundcloud.com', 'icon' => 'fab fa-soundcloud', 'title' => esc_html__( 'Follow me on SoundCloud', 'indigo' ), 'class' => 'soundcloud' ),
+			array( 'url' => 'spotify.com', 'icon' => 'fab fa-spotify', 'title' => esc_html__( 'Follow me on Spotify', 'indigo' ), 'class' => 'spotify' ),
+			array( 'url' => 'stackoverflow.com', 'icon' => 'fab fa-stack-overflow', 'title' => esc_html__( 'Join me on Stack Overflow', 'indigo' ), 'class' => 'stackoverflow' ),
+			array( 'url' => 'tumblr.com', 'icon' => 'fab fa-tumblr', 'title' => esc_html__( 'Follow me on Tumblr', 'indigo' ), 'class' => 'tumblr' ),
+			array( 'url' => 'twitch.tv', 'icon' => 'fab fa-twitch', 'title' => esc_html__( 'Follow me on Twitch', 'indigo' ), 'class' => 'twitch' ),
+			array( 'url' => 'twitter.com', 'icon' => 'fab fa-twitter', 'title' => esc_html__( 'Follow me on Twitter', 'indigo' ), 'class' => 'twitter' ),
+			array( 'url' => 'vimeo.com', 'icon' => 'fab fa-vimeo-v', 'title' => esc_html__( 'Follow me on Vimeo', 'indigo' ), 'class' => 'vimeo' ),
+			array( 'url' => 'weibo.com', 'icon' => 'fab fa-weibo', 'title' => esc_html__( 'Follow me on weibo', 'indigo' ), 'class' => 'weibo' ),
+			array( 'url' => 'youtube.com', 'icon' => 'fab fa-youtube', 'title' => esc_html__( 'Subscribe to me on YouTube', 'indigo' ), 'class' => 'youtube' ),
 		);
 
-		return apply_filters( 'skyrocket_social_icons', $social_icons );
+		return apply_filters( 'indigo_social_icons', $social_icons );
 	}
 }
 
@@ -97,16 +105,16 @@ if ( ! function_exists( 'skyrocket_generate_social_urls' ) ) {
  * Add the following code to header.php if you want to see the sample social icons displayed in the customizer preview and your theme.
  * Before any social icons display, you'll also need to add the relevent URL's to the Header Navigation > Social Icons section in the Customizer.
  * <div class="social">
- *	 <?php echo skyrocket_get_social_media(); ?>
+ *	 <?php echo indigo_get_social_media(); ?>
  * </div>
  *
  * @return string Unordered list of linked social media icons
  */
-if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
-	function skyrocket_get_social_media() {
-		$defaults = skyrocket_generate_defaults();
+if ( ! function_exists( 'indigo_get_social_media' ) ) {
+	function indigo_get_social_media() {
+		$defaults = indigo_generate_defaults();
 		$output = array();
-		$social_icons = skyrocket_generate_social_urls();
+		$social_icons = indigo_generate_social_urls();
 		$social_urls = explode( ',', get_theme_mod( 'social_urls', $defaults['social_urls'] ) );
 		$social_newtab = get_theme_mod( 'social_newtab', $defaults['social_newtab'] );
 		$social_alignment = get_theme_mod( 'social_alignment', $defaults['social_alignment'] );
@@ -155,7 +163,7 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
 		}
 
 		if ( !empty( $output ) ) {
-			$output = apply_filters( 'skyrocket_social_icons_list', $output );
+			$output = apply_filters( 'indigo_social_icons_list', $output );
 			array_unshift( $output, '<ul class="social-icons ' . $social_alignment . '">' );
 			$output[] = '</ul>';
 		}
@@ -169,9 +177,9 @@ if ( ! function_exists( 'skyrocket_get_social_media' ) ) {
  * This is a sample function to show how to append an icon to the menu based on the customizer search option
  * The search icon wont actually do anything
  */
-if ( ! function_exists( 'skyrocket_add_search_menu_item' ) ) {
-	function skyrocket_add_search_menu_item( $items, $args ) {
-		$defaults = skyrocket_generate_defaults();
+if ( ! function_exists( 'indigo_add_search_menu_item' ) ) {
+	function indigo_add_search_menu_item( $items, $args ) {
+		$defaults = indigo_generate_defaults();
 
 		if( get_theme_mod( 'search_menu_icon', $defaults['search_menu_icon'] ) ) {
 			if( $args->theme_location == 'primary' ) {
@@ -181,19 +189,19 @@ if ( ! function_exists( 'skyrocket_add_search_menu_item' ) ) {
 		return $items;
 	}
 }
-add_filter( 'wp_nav_menu_items', 'skyrocket_add_search_menu_item', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'indigo_add_search_menu_item', 10, 2 );
 
 /**
  * Return a string containing the sample TinyMCE Control
  * This is a sample function to show how you can use the TinyMCE Control for footer credits in your Theme
  * Add the following three lines of code to your footer.php file to display the content of your sample TinyMCE Control
  * <div class="footer-credits">
- *		<?php echo skyrocket_get_credits(); ?>
+ *		<?php echo indigo_get_credits(); ?>
  *	</div>
  */
-if ( ! function_exists( 'skyrocket_get_credits' ) ) {
-	function skyrocket_get_credits() {
-		$defaults = skyrocket_generate_defaults();
+if ( ! function_exists( 'indigo_get_credits' ) ) {
+	function indigo_get_credits() {
+		$defaults = indigo_generate_defaults();
 
 		// wpautop this so that it acts like the new visual text widget, since we're using the same TinyMCE control
 		return wpautop( get_theme_mod( 'sample_tinymce_editor', $defaults['sample_tinymce_editor'] ) );
@@ -203,8 +211,8 @@ if ( ! function_exists( 'skyrocket_get_credits' ) ) {
 /**
 * Set our Customizer default options
 */
-if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
-	function skyrocket_generate_defaults() {
+if ( ! function_exists( 'indigo_generate_defaults' ) ) {
+	function indigo_generate_defaults() {
 		$customizer_defaults = array(
 			'social_newtab' => 0,
 			'social_urls' => '',
@@ -263,7 +271,7 @@ if ( ! function_exists( 'skyrocket_generate_defaults' ) ) {
 			'sample_date_time_no_past_date' => date( 'Y-m-d' ),
 		);
 
-		return apply_filters( 'skyrocket_customizer_defaults', $customizer_defaults );
+		return apply_filters( 'indigo_customizer_defaults', $customizer_defaults );
 	}
 }
 
