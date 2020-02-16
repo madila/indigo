@@ -621,6 +621,20 @@ function indigo_customize_register( $wp_customize ) {
 		)
 	);
 
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_show_single_title', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_show_single_title', array(
+		'label'      => __( 'Show the Title in Single Templates?', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox'
+	) );
+
 	/**
 	 * Sidebar Width
 	 */
