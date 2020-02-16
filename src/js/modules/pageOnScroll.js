@@ -139,7 +139,9 @@ class pageOnScroll {
 }
 
 window.addEventListener('load', function() {
-	if(document.querySelector('.has-fixed-header ')) {
-		new pageOnScroll();
-	}
+	window.requestAnimationFrame(function() {
+		if(document.querySelector('.has-fixed-header.header-scroll-bg')) {
+			new pageOnScroll();
+		}
+	});
 });
