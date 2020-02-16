@@ -69,6 +69,17 @@ function indigo_customize_register( $wp_customize ) {
 	) ) );
 
 
+	$wp_customize->add_setting( 'background_color' , array(
+		'default' => get_theme_mod_default('background_color'),
+		'transport' => 'postMessage'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+		'label'      => __( 'Background Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
+
 
 	$wp_customize->add_setting( 'text_color' , array(
 		'default' => get_theme_mod_default('text_color'),
