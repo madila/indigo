@@ -33,8 +33,6 @@ class pageOnScroll {
 	headerScrollBg = () => {
 		const {headerBgElements, headerBgColor, rgb2rgba} = this;
 
-		console.log(headerBgElements);
-
 		let docEle = document.documentElement,
 			scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
 			_windowHeight = window.innerHeight,
