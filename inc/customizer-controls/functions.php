@@ -1,7 +1,7 @@
 <?php
 
 function indigo_get_customiser_resource_url() {
-	return trailingslashit( get_stylesheet_directory_uri() );
+	return apply_filters('customizer_resource_url', trailingslashit( get_stylesheet_directory_uri() ));
 }
 
 add_filter('customizer_resource_url', function($url) {
