@@ -3,6 +3,7 @@ const presets = [
 		"@babel/env",
 		{
 			useBuiltIns: "usage",
+			corejs: "3.x"
 		},
 	],
 ];
@@ -11,7 +12,7 @@ const plugins = [
 	["@babel/plugin-transform-runtime",
 		{
 			"absoluteRuntime": false,
-			"corejs": false,
+			"corejs": 3,
 			"helpers": true,
 			"regenerator": true,
 			"useESModules": false
