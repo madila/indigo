@@ -86,7 +86,7 @@
 		} );
 	} );
 
-	wp.customize( 'text_color', function( value ) {
+	wp.customize( 'indigo_text_color', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
 				.setProperty('--base-color', to);
