@@ -129,7 +129,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 			// Custom Logo Width
 			if(has_custom_logo() && get_theme_mod('logo_width')) { ?>
 				.custom-logo-link {
-					max-width: <?php echo get_theme_mod('logo_width'); ?>;
+					max-width: <?php echo get_theme_mod('logo_width').'px'; ?>;
 				}
 			<?php }
 			?>
