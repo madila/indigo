@@ -4,11 +4,10 @@ import {debounce} from 'lodash';
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	let fixedBrandingWrapper = document.querySelector('.has-fixed-header .site-header-wrapper');
+	let fixedBrandingWrapper = document.querySelector('.has-fixed-header.header-overlay-content .site-header-wrapper');
 
 	function reCalculateHeader() {
 		if(fixedBrandingWrapper) {
-			fixedBrandingWrapper.style.height = document.querySelector('.site-header').clientHeight+'px';
 			window.requestAnimationFrame(function() {
 				fixedBrandingWrapper.style.height = document.querySelector('.site-header').clientHeight+'px';
 			});
