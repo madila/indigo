@@ -149,9 +149,7 @@
 		align-self: center;
 		.custom-logo-link {
 			display: block;
-			.scrolled & {
-				max-width: 175px;
-			}
+			width: var(--logo-width);
 		}
 	}
 
