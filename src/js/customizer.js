@@ -93,6 +93,20 @@
 		} );
 	} );
 
+	wp.customize( 'background_color', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-bg-color', to);
+		} );
+	} );
+
+	wp.customize( 'header_textcolor', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-text-color', to);
+		} );
+	} );
+
 	wp.customize( 'primary_color', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
