@@ -17,13 +17,15 @@
 		list-style: none;
 		padding-left: 0;
 		z-index: 300;
-		@include media-breakpoint-up(md) {
-			max-height: 0;
-			overflow: hidden;
-			position: absolute;
-			li {
-				position: relative;
-				z-index: 10;
+		.menu-collapse & {
+			@include media-breakpoint-up(md) {
+				max-height: 0;
+				overflow: hidden;
+				position: absolute;
+				li {
+					position: relative;
+					z-index: 10;
+				}
 			}
 		}
 	}
