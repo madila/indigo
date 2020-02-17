@@ -30,6 +30,31 @@
 			text-decoration: none;
 		}
 	}
+	&-columns {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	&-group__inner-container {
+		.wp-block-columns {
+			margin-left: -1rem;
+			margin-right: -1rem;
+		}
+		.wp-block-column:first-of-type {
+			margin-left: 1rem;
+			margin-right: .5rem;
+		}
+		.wp-block-column:last-of-type {
+			margin-right: .5rem;
+			margin-left: 1rem;
+		}
+
+	}
+
+	/* Add horizontal breathing room between individual columns. */
+	&-column {
+		margin-right: .5rem;
+		margin-left: .5rem;
+	}
 }
 
 .wp-block-coblocks-feature {

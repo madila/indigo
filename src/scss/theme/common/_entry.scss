@@ -120,26 +120,6 @@ textarea {
 	}
 }
 
-.wp-block-columns {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
-.wp-block-group__inner-container {
-	.wp-block-columns {
-		margin-left: -1rem;
-		margin-right: -1rem;
-	}
-	.wp-block-column:last-of-type {
-		margin-right: 0;
-	}
-}
-
-/* Add horizontal breathing room between individual columns. */
-.wp-block-column {
-	margin-left: 1rem;
-	margin-right: 1rem;
-}
-
 .wp-full-height-group {
 	display: flex;
 	height: 100%;
