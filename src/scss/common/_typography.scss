@@ -3,7 +3,7 @@
 //
 
 p {
-	margin-bottom: 1.65em;
+	margin-bottom: var(--content-gutter-y, 1rem);
 }
 
 .lead {

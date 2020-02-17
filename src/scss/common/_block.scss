@@ -24,6 +24,12 @@
 			padding-bottom: 1rem;
 		}
 	}
+	&-button {
+		font-family: var(--headings-font-family);
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .wp-block-coblocks-feature {
