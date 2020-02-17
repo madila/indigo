@@ -16,8 +16,6 @@ class pageOnScroll {
 			return r + r + g + g + b + b;
 		});
 
-		console.log(hex);
-
 		let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 		return result ? {
 			r: parseInt(result[1], 16),
@@ -34,8 +32,6 @@ class pageOnScroll {
 
 	headerScrollBg = () => {
 		const {headerBgElements, headerBgColor, rgb2rgba} = this;
-
-		console.log(headerBgElements);
 
 		let docEle = document.documentElement,
 			scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
@@ -104,17 +100,18 @@ class pageOnScroll {
 
 		this.setHeaderBgColor();
 		this.headerTextColor = getCSSVar('--header-text-color');
+
 		this.baseTextColor = getCSSVar('--base-color');
 
 		this.isContainedHeader = document.body.classList.contains('has-header-contained');
 		this.isHome = document.body.classList.contains('home');
 		this.isHeaderScrollBg = document.body.classList.contains('header-scroll-bg');
 
-		this.isNavBarFixed = (getPosition(this.navBar) === "fixed");
+		this.isNavBarFixed = document.body.classList.contains('has-fixed-header');
 		this.isFooterFixed = (getPosition(this.footer) === "fixed");
 
 		if(this.isNavBarFixed) {
-			docEle.classList.add('has-fixed-header');
+			//docEle.classList.add('has-fixed-header');
 		}
 
 		if(this.isFooterFixed && this.isHome) {
@@ -139,5 +136,9 @@ class pageOnScroll {
 }
 
 window.addEventListener('load', function() {
-	new pageOnScroll();
+	window.requestAnimationFrame(function() {
+		if(document.querySelector('.has-fixed-header.header-scroll-bg')) {
+			new pageOnScroll();
+		}
+	});
 });

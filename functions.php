@@ -7,6 +7,8 @@
  * @package Indigo
  */
 
+require_once "inc/composer.php";
+
 if ( ! function_exists( 'indigo_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -100,15 +102,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			'gallery',
 			'caption',
 		) );
-
-
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'indigo_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'wp-head-callback' => '_custom_background_cb',
-			'default-image' => '',
-		) ) );
+		
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -168,15 +162,17 @@ function indigo_widgets_init() {
 			'after_title'   => '</h4>',
 		) );
 	}
-	register_sidebar( array(
-		'name'          => esc_html__( 'Pre-Footer Sidebar', 'indigo' ),
-		'id'            => 'pre-footer',
-		'description'   => esc_html__( 'Runs horizontally before the site footer and the footer navigation.', 'indigo' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	) );
+	if(get_theme_mod('indigo_pre_footer_alignment') !== 'none') {
+		register_sidebar(array(
+			'name' => esc_html__('Pre-Footer Sidebar', 'indigo'),
+			'id' => 'pre-footer',
+			'description' => esc_html__('Runs before the site footer and the footer navigation.', 'indigo'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget' => '</section>',
+			'before_title' => '<h4 class="widget-title">',
+			'after_title' => '</h4>',
+		));
+	}
 }
 add_action( 'widgets_init', 'indigo_widgets_init' );
 

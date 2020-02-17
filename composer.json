@@ -1,0 +1,30 @@
+{
+    "name": "madila/indigo",
+    "description": "Composer Dependencies for Wordpress Theme",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Ruben",
+            "email": "contact@rubenmadila.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+      "madila/customizer-custom-controls": "master",
+      "soderlind/class-customizer-range-value-control": "dev-master"
+    },
+    "extra": {
+      "installer-paths": {
+        "inc/{$name}": [
+          "madila/customizer-custom-controls",
+          "soderlind/class-customizer-range-value-control"
+        ]
+      }
+    },
+    "repositories":[
+      {
+        "type": "vcs",
+        "url": "git@github.com:madila/customizer-custom-controls.git"
+      }
+    ]
+}

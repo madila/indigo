@@ -62,6 +62,22 @@
 		} );
 	} );
 
+
+	wp.customize( 'indigo_header_padding_y', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-padding-y', to+'rem');
+		} );
+	} );
+
+
+	wp.customize( 'indigo_header_padding_x', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-padding-x', to+'rem');
+		} );
+	} );
+
 	// Border Radius
 	wp.customize( 'base_border_radius', function( value ) {
 		value.bind( function( to ) {
@@ -70,10 +86,24 @@
 		} );
 	} );
 
-	wp.customize( 'text_color', function( value ) {
+	wp.customize( 'indigo_text_color', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
 				.setProperty('--base-color', to);
+		} );
+	} );
+
+	wp.customize( 'background_color', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-bg-color', to);
+		} );
+	} );
+
+	wp.customize( 'header_textcolor', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--header-text-color', to);
 		} );
 	} );
 

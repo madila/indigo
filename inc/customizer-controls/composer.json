@@ -1,0 +1,12 @@
+{
+    "name": "madila/customizer-custom-controls",
+    "description": "Custom Controls for Wordpress Customizer",
+    "authors": [
+        {
+            "name": "Ruben",
+            "email": "contact@rubenmadila.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
