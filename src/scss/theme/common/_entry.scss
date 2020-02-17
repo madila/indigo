@@ -25,7 +25,8 @@
 		margin-bottom: 1rem;
 	}
 	&-meta, &-footer {
-		> span {
+		font-family: var(--headings-font-family, $headings-font-family);
+		> span a {
 			@include pill();
 		}
 	}

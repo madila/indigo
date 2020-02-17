@@ -230,7 +230,7 @@ $hr-border-width: 1px !default;
 
 $add-validity: false !default;
 $input-border-width: $default-border-width !default;
-$input-border-colour: transparent !default;
+$input-border-colour: var(--base-color) !default;
 $input-border-colour-focus: $default-border-colour !default;
 $input-line-height: 1.35 !default;
 $label-font-weight:  $headings-font-weight !default;

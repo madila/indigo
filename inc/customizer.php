@@ -71,7 +71,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'background_color' , array(
 		'default' => get_theme_mod_default('background_color'),
-		'transport' => 'postMessage'
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
@@ -81,13 +81,13 @@ function indigo_customize_register( $wp_customize ) {
 
 
 
-	$wp_customize->add_setting( 'indigo_text_color' , array(
-		'default' => get_theme_mod_default('indigo_text_color'),
+	$wp_customize->add_setting( 'text_color' , array(
+		'default' => get_theme_mod_default('text_color'),
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'indigo_text_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
 		'label'      => __( 'Typography Color', 'indigo' ),
 		'section'    => 'colors'
 	) ) );
@@ -135,6 +135,17 @@ function indigo_customize_register( $wp_customize ) {
 		'section'    => 'colors'
 	) ) );
 
+	$wp_customize->add_setting( 'primary_text_color' , array(
+		'default' => get_theme_mod_default('primary_text_color'),
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_text_color', array(
+		'label'      => __( 'Primary Text Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
 	/**
 	 * Secondary Color
 	 */
@@ -146,6 +157,17 @@ function indigo_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
 		'label'      => __( 'Secondary Color', 'indigo' ),
+		'section'    => 'colors'
+	) ) );
+
+	$wp_customize->add_setting( 'secondary_text_color' , array(
+		'default' => get_theme_mod_default(	'secondary_text_color'),
+		'transport' => 'postMessage',
+		'sanitize_callback' => 'sanitize_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_text_color', array(
+		'label'      => __( 'Secondary Text Color', 'indigo' ),
 		'section'    => 'colors'
 	) ) );
 

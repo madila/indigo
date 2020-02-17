@@ -32,21 +32,25 @@ add_action( 'after_setup_theme', 'indigo_custom_header_setup' );
 function get_theme_mod_defaults() {
 	return apply_filters('indigo_theme_mod_defaults', array(
 		'background_color' => '#f6f7f9',
+		'text_color' => '#333',
 		'content_width' => '960',
 		'content_width_wide' => '1060',
 		'logo_width' => '200px',
 
 		'header_bg_color' => 'linear-gradient(45deg, #7154d8, #3d2986)',
-		'header_textcolor' => '#fff',
+		'header_textcolor' => '#ffffff',
 		'indigo_header_alignment' => 'center',
 		'indigo_header_padding_x' => '1rem',
 		'indigo_header_padding_y' => '1rem',
 
 		'primary_color' => '#4b0082',
+		'primary_text_color' => '#4b0082',
+		'secondary_color' => '',
+		'secondary_text_color' => '',
+
 		'sidebar_width' => 0,
 		'base_border_radius' => 0,
-		'secondary_color' => '#000',
-		'indigo_text_color' => '#333',
+
 		'base_font_size' => '16px',
 		'base_font_weight' => '300',
 		'bold_font_weight' => '600',
@@ -146,11 +150,13 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				}
 				?>
 				<?php indigo_set_unit_css_var('px', 'sidebar_width', 'sidebar-width'); ?>
-				<?php indigo_set_color_mod_css_var('indigo_text_color', 'base-color'); ?>
+				<?php indigo_set_color_mod_css_var('text_color', 'base-color'); ?>
 				<?php indigo_set_color_mod_css_var('background_color', 'base-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('header_bg_color', 'header-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('primary_color', 'primary-color'); ?>
+				<?php indigo_set_color_mod_css_var('primary_text_color', 'primary-text-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_color', 'secondary-color'); ?>
+				<?php indigo_set_color_mod_css_var('secondary_text_color', 'secondary-text-color'); ?>
 				<?php indigo_set_theme_mod_css_var('base_border_radius', 'base-border-radius'); ?>
 				<?php indigo_set_color_mod_css_var('header_textcolor', 'header-text-color'); ?>
 				<?php indigo_set_font_family_mod_css_var('base_font_family', 'base-font-family'); ?>
