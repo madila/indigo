@@ -1,9 +1,6 @@
 .page {
-	&-header {
-		padding: 0 2rem;
-	}
 	&-title {
-		.archive & {
+		.feed-container & {
 			font-size: 2rem;
 		}
 	}
@@ -64,7 +61,6 @@
 		display: flex;
 	}
 	&-metadata {
-		font-size: 80%;
 		margin-top: 0;
 		> a, > span {
 			@include pill();

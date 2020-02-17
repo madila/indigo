@@ -5,9 +5,7 @@
 	font-family: var(--headings-font-family, $headings-font-family);
 	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
 	color: var(--base-bg-color);
-	display: block;
 	width: auto;
-	margin: 0 auto;
 	transition: all 300ms linear;
 	&:hover, &:active {
 		background-color: var(--base-bg-color, $body-color);
@@ -22,12 +20,10 @@
 	margin-bottom: .5rem;
 	padding: .5rem 1rem;
 	border: 1px solid;
-	font-weight: 400;
 	font-family: var(--headings-font-family, $headings-font-family);
 	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
 	@include border-radius;
 	display: inline-block;
-	font-size: 80%;
 	a {
 		transition: all 300ms linear;
 		text-decoration: none;

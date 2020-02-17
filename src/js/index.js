@@ -1,4 +1,3 @@
-import "@babel/polyfill";
 import "./modules/publicPath";
 
 import './modules/polyfills';

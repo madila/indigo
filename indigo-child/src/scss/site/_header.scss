@@ -9,16 +9,3 @@
     justify-content: center;
   }
 }
-
-.site {
-  &-header {
-    min-height: 7em;
-  }
-  &-branding {
-    .custom-logo-link {
-      @include media-breakpoint-down(lg) {
-        width: 100px;
-      }
-    }
-  }
-}
