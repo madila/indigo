@@ -62,8 +62,8 @@ module.exports = (env, argv) => {
 	if (argv.mode === 'development') {
 		config.devtool = 'source-map';
 		config.output.filename = '[name].js';
-		config.watch = true;
 	}
+	config.watch = true;
 	if (argv.mode === 'production') {
 		config.optimization = {
 			minimize: true

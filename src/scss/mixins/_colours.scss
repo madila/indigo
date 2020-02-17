@@ -13,17 +13,6 @@
   .has-#{$colour-name}-color {
     @include text-class($colour-hex);
   }
-  .btn {
-    &.btn-#{$colour-name} {
-      @include button-class($colour-hex);
-    }
-    &.btn-text-#{$colour-name} {
-      @include button-text-class($colour-hex);
-    }
-    &.btn-border-#{$colour-name} {
-      @include button-text-hover-solid-class($colour-hex);
-    }
-  }
 }
 
 @function get-colour($colour_name) {
