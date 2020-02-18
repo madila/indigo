@@ -138,6 +138,5 @@ class pageOnScroll {
 window.addEventListener('load', function() {
 	window.requestAnimationFrame(function() {
 		new pageOnScroll();
-		document.documentElement.classList.remove('site-loading');
 	});
 });

@@ -24,3 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 }, false);
+
+
+window.addEventListener('load', function() {
+	window.requestAnimationFrame(function() {
+		document.documentElement.classList.remove('site-loading');
+	});
+});

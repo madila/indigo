@@ -1,15 +1,11 @@
 
+
 .site {
-	width: var(--content-width, $container-default-width);
+	width: var(--content-width, $container-default-width) !important;
 	max-width: 100%;
 	margin: 0 auto;
-	&-branding {
-		.scrolled & {
-			height: 0;
-		}
-	}
 	&-main {
-		home & {
+		.home & {
 			min-height: calc(88vh - 8rem);
 		}
 		display: flex;
@@ -28,7 +24,7 @@
 	}
 	&-content-wrapper {
 		transition: opacity 400ms linear;
-		.site-loading & {
+		.site-loading &, .css-loading & {
 			opacity: 0;
 		}
 	}

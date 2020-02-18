@@ -1,15 +1,3 @@
-if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
-	let promise = Promise.resolve();
-	import(
-		/* webpackChunkName: "css-vars-ponyfill" */
-		'css-vars-ponyfill'
-		)
-		.then(cssVars => {
-			console.log(cssVars);
-			cssVars.default();
-		});
-}
-
 // From
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Polyfill
 // 1. String.prototype.trim polyfill
@@ -190,3 +178,21 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
             clearTimeout(id);
         };
 }());
+
+
+if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
+	console.log('adding class');
+	let promise = Promise.resolve();
+	document.body.classList.add('css-loading');
+	import(
+		/* webpackChunkName: "css-vars-ponyfill" */
+		'css-vars-ponyfill'
+		)
+		.then(cssVars => {
+			cssVars.default({
+				onComplete: function() {
+					document.body.classList.remove('css-loading');
+				}
+			});
+		});
+}
