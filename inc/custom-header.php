@@ -40,8 +40,7 @@ function get_theme_mod_defaults() {
 		'header_bg_color' => 'linear-gradient(45deg, #7154d8, #3d2986)',
 		'header_textcolor' => '#ffffff',
 		'indigo_header_alignment' => 'center',
-		'indigo_header_padding_x' => '1rem',
-		'indigo_header_padding_y' => '1rem',
+
 
 		'primary_color' => '#4b0082',
 		'primary_text_color' => '#4b0082',
@@ -58,7 +57,10 @@ function get_theme_mod_defaults() {
 		'headings_font_weight' => '600',
 		'indigo_sidebar_alignment' => 'bottom',
 		'indigo_content_gutter_x' => '1rem',
-		'indigo_content_gutter_y' => '1rem'
+		'indigo_content_gutter_y' => '1rem',
+
+		'indigo_header_padding_y' => '1rem',
+		'indigo_header_padding_x' => '1rem',
 	));
 }
 
