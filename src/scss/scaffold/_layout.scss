@@ -1,3 +1,4 @@
+
 .site {
 	width: var(--content-width, $container-default-width);
 	max-width: 100%;
@@ -19,6 +20,12 @@
 	.custom-logo-link {
 		margin-top: var(--content-gutter-y, $grid-gutter-width);
 		margin-bottom: var(--content-gutter-y, $grid-gutter-width);
+	}
+	&-content-wrapper {
+		transition: opacity 400ms linear;
+		.site-loading & {
+			opacity: 0;
+		}
 	}
 }
 

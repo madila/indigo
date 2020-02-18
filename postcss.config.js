@@ -1,5 +1,9 @@
 module.exports = {
 	plugins: {
-		'autoprefixer': {}
+		'autoprefixer': {
+			options: {
+				grid: 'autoplace'
+			}
+		}
 	}
 }
