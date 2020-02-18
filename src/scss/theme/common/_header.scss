@@ -25,6 +25,7 @@
 }
 
 .site-header-container {
+	display: flex;
 	position: relative;
 	width: 100%;
 	padding-left: var(--header-padding-x,1rem);
