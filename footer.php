@@ -10,8 +10,8 @@
  */
 
 ?>
-
-</div><!-- #content -->
+</div><!-- .site-content-wrapper -->
+</div><!-- .site-content -->
 <?php get_sidebar('pre-footer'); ?>
 <footer id="colophon" class="site-footer">
 	<?php

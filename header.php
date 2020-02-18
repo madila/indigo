@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="site-loading">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,3 +68,4 @@
 	</header><!-- #masthead -->
 	</div>
 	<div id="content" class="site-content">
+		<div class="site-content-wrapper">
