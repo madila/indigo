@@ -1,7 +1,8 @@
 module.exports = () => ({
 	plugins: [
 		require('autoprefixer')({
-			add: true
+			add: true,
+			grid: 'autoplace'
 		})
 	]
 });

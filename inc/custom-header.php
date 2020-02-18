@@ -142,7 +142,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 
 			:root {
 				<?php
-				indigo_set_theme_mod_css_var('logo_width', 'logo-width');
+				indigo_set_unit_css_var('px', 'logo_width', 'logo-width');
 				if(!get_theme_mod('indigo_full_width_content')) {
 					indigo_set_unit_css_var('px', 'content_width', 'content-width');
 					indigo_set_unit_css_var('px', 'content_width_wide', 'content-width-wide');

@@ -3,6 +3,11 @@
 	width: var(--content-width, $container-default-width);
 	max-width: 100%;
 	margin: 0 auto;
+	&-branding {
+		.scrolled & {
+			height: 0;
+		}
+	}
 	&-main {
 		home & {
 			min-height: calc(88vh - 8rem);
@@ -33,7 +38,6 @@
 	display: block;
 	grid-template-areas:
 		"content";
-
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 	grid-gap: var(--content-gutter-x, $grid-gutter-width);
@@ -41,14 +45,14 @@
 
 
 .vertical-sidebar {
-	@include media-breakpoint-up(md) {
-		#secondary {
-			grid-area: side;
-		}
+	#secondary {
+		grid-area: side;
+	}
 
-		#primary {
-			grid-area: content;
-		}
+	#primary {
+		grid-area: content;
+	}
+	@include media-breakpoint-up(md) {
 
 		&.sidebar-left {
 			.site-content {
