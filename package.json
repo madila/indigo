@@ -11,6 +11,10 @@
   "keywords": [
     "wordpress"
   ],
+  "browserslist": [
+    "> .5%",
+    "last 4 version"
+  ],
   "author": "Ruben Madila for Ollie Ford & Co",
   "license": "ISC",
   "devDependencies": {
