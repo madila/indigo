@@ -40,26 +40,31 @@
 			margin-right: -1rem;
 			margin-bottom: 0;
 		}
-		.wp-block-column {
-			margin: 1rem;
-		}
 		@media (min-width: 600px) {
 			.wp-block-column:first-of-type {
-				margin-left: 1rem;
+				margin-left: var(--content-gutter-x, 1rem);
 				margin-right: .5rem;
 			}
 			.wp-block-column:last-of-type {
 				margin-left: .5rem;
-				margin-right: 1rem;
+				margin-right: var(--content-gutter-x, 1rem);
 			}
 		}
 
 	}
 
+	@media (min-width: 600px) {
+		&-column {
+			margin-left: .5rem;
+			margin-right: .5rem;
+		}
+	}
+
+
 	/* Add horizontal breathing room between individual columns. */
 	&-column {
-		margin-right: .5rem;
-		margin-left: .5rem;
+		margin-left: var(--content-gutter-x, 1rem);
+		margin-right: var(--content-gutter-x, 1rem);
 	}
 }
 

@@ -16,6 +16,14 @@
 	}
 }
 
+.site-header-wrapping {
+	@media screen and (max-width: 599px) {
+		.scrolled & {
+			top: 0;
+		}
+	}
+}
+
 .site-header-container {
 	position: relative;
 	width: 100%;
