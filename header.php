@@ -57,7 +57,7 @@
 			wp_nav_menu( array(
 				'theme_location' => 'site-navigation',
 				'menu_id'        => 'primary-menu',
-				'menu_class'     => 'menu',
+				'menu_class'     => 'menu menu-collapse',
 				'container_class' => 'menu-container',
 				'fallback' => false
 			) );
