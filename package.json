@@ -12,7 +12,8 @@
   ],
   "browserslist": [
     "> .5%",
-    "last 4 version"
+    "last 4 version",
+    "ie >= 11"
   ],
   "author": "Ruben Madila for Ollie Ford & Co",
   "license": "ISC",
