@@ -159,7 +159,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_color_mod_css_var('primary_text_color', 'primary-text-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_color', 'secondary-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_text_color', 'secondary-text-color'); ?>
-				<?php indigo_set_theme_mod_css_var('base_border_radius', 'base-border-radius'); ?>
+				<?php indigo_set_unit_css_var('rem', 'base_border_radius', 'base-border-radius'); ?>
 				<?php indigo_set_color_mod_css_var('header_textcolor', 'header-text-color'); ?>
 				<?php indigo_set_font_family_mod_css_var('base_font_family', 'base-font-family'); ?>
 				<?php indigo_set_unit_css_var('px', 'base_font_size', 'base-font-size'); ?>
