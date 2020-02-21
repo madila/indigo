@@ -1,4 +1,14 @@
 import onScrolling from './onScrolling';
+import {debounce} from 'lodash';
+
+
+window.addEventListener('load', function() {
+	window.requestAnimationFrame(function() {
+		document.documentElement.classList.remove('site-loading');
+	});
+});
+
+
 
 class pageOnScroll {
 
@@ -31,32 +41,33 @@ class pageOnScroll {
 
 
 	headerScrollBg = () => {
-		const {headerBgElements, headerBgColor, rgb2rgba} = this;
+		if(this.isHeaderScrollBg) {
+			const {headerBgElements, headerBgColor, rgb2rgba} = this;
 
-		let docEle = document.documentElement,
-			scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
-			_windowHeight = window.innerHeight,
-			_threshold = _windowHeight / 2;
+			let docEle = document.documentElement,
+				scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
+				_windowHeight = window.innerHeight,
+				_threshold = _windowHeight / 2;
 
-		if (scrolled > 10 && scrolled < _threshold) {
-			let fadeIn = scrolled / _threshold;
-			if(headerBgElements) {
-				headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
+			if (scrolled > 10 && scrolled < _threshold) {
+				let fadeIn = scrolled / _threshold;
+				if (headerBgElements) {
+					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
+				}
+				docEle.style.setProperty('--header-text-color', this.headerTextColor);
+			} else if (scrolled > _threshold) {
+				if (headerBgElements) {
+					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
+				}
+				docEle.style.setProperty('--header-text-color', this.headerTextColor);
+			} else {
+				if (headerBgElements) {
+					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
+				}
+				docEle.style.setProperty('--header-text-color', this.baseTextColor);
 			}
-			docEle.style.setProperty('--header-text-color', this.headerTextColor);
-		} else if (scrolled > _threshold) {
-			if(headerBgElements) {
-				headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
-			}
-			docEle.style.setProperty('--header-text-color', this.headerTextColor);
-		} else {
-			if(headerBgElements) {
-				headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
-			}
-			docEle.style.setProperty('--header-text-color', this.baseTextColor);
 		}
 	};
-
 
 	bodyScrolled = () => {
 		let doc = document.documentElement,
@@ -75,6 +86,16 @@ class pageOnScroll {
 		}
 	};
 
+	reCalculateHeader = () => {
+		let self = this;
+		if(self.fixedBrandingWrapper) {
+			window.requestAnimationFrame(function() {
+				document.querySelector('.site-header').style.height = self.fixedBrandingWrapper.offsetHeight+'px';
+			})
+		}
+	};
+
+
 	getCSSVar(property) {
 		return getComputedStyle(document.documentElement)
 			.getPropertyValue(property).trim();
@@ -84,21 +105,17 @@ class pageOnScroll {
 		return window.getComputedStyle(element, null).getPropertyValue("position");
 	}
 
-	setHeaderBgColor() {
-		let { hexToRgb, getCSSVar } = this;
-		this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
-	}
-
 	constructor() {
 		let docEle = document.documentElement;
-		let {headerScrollBg, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
+		let {headerScrollBg, reCalculateHeader, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
+		this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.header-overlay-content .site-header-wrapping');
+
 		this.navBar = document.querySelector('.site-header');
 		this.footer = document.querySelector('.site-footer');
 
 		this.headerBgElements = document.querySelector('[data-header-bg]');
-		this.footerBgElements = document.querySelector('[data-footer-bg]');
 
-		this.setHeaderBgColor();
+		this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
 		this.headerTextColor = getCSSVar('--header-text-color');
 
 		this.baseTextColor = getCSSVar('--base-color');
@@ -108,35 +125,36 @@ class pageOnScroll {
 		this.isHeaderScrollBg = document.body.classList.contains('header-scroll-bg');
 
 		this.isNavBarFixed = document.body.classList.contains('has-fixed-header');
-		this.isFooterFixed = (getPosition(this.footer) === "fixed");
-
-		if(this.isNavBarFixed) {
-			//docEle.classList.add('has-fixed-header');
-		}
-
-		if(this.isFooterFixed && this.isHome) {
-			docEle.classList.add('has-fixed-footer');
-		}
-
-		bodyScrolled();
-		onScrolling(function () {
-			bodyScrolled();
-		});
 
 		if(this.isHeaderScrollBg) {
 			docEle.style.setProperty('--header-text-color', this.baseTextColor);
+		}
+
+		bodyScrolled();
+		reCalculateHeader();
+		headerScrollBg();
+		onScrolling(function () {
+			bodyScrolled();
 			headerScrollBg();
-			onScrolling(function () {
-				headerScrollBg();
+		});
+
+		window.addEventListener("load", function() {
+			reCalculateHeader();
+		});
+
+		let logo = document.querySelector('.custom-logo');
+		if(logo) {
+			logo.addEventListener('load', function() {
+					reCalculateHeader();
 			});
 		}
+
+		window.addEventListener('resize', debounce(reCalculateHeader, 100));
 
 	}
 
 }
 
-window.addEventListener('load', function() {
-	window.requestAnimationFrame(function() {
-		new pageOnScroll();
-	});
+window.addEventListener('DOMContentLoaded', function() {
+	new pageOnScroll();
 });

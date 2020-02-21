@@ -1,5 +1,4 @@
 
-
 .site {
 	width: var(--content-width, $container-default-width) !important;
 	max-width: 100%;
@@ -19,6 +18,7 @@
 		padding: var(--content-gutter-y, $grid-gutter-width) var(--content-gutter-x, $grid-gutter-width);
 	}
 	.custom-logo-link {
+		max-height: 150px;
 		margin-top: var(--content-gutter-y, $grid-gutter-width);
 		margin-bottom: var(--content-gutter-y, $grid-gutter-width);
 	}

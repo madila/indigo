@@ -48,6 +48,7 @@
     "core-js": "^3.6.4",
     "css-vars-ponyfill": "^2.2.0",
     "es6-promise": "^4.2.8",
-    "get-css-data": "^1.7.1"
+    "get-css-data": "^1.7.1",
+    "object-fit-images": "^3.2.4"
   }
 }

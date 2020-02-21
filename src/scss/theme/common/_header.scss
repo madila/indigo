@@ -28,6 +28,8 @@
 	display: flex;
 	position: relative;
 	width: 100%;
+	padding-left: var(--header-padding-x);
+	padding-right: var(--heading-padding-x);
 	.site-branding {
 		align-self: center;
 		width: 100%;

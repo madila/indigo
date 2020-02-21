@@ -1,3 +1,8 @@
+import objectFitImages from "object-fit-images";
+
+objectFitImages();
+
+
 // From
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Polyfill
 // 1. String.prototype.trim polyfill
@@ -192,7 +197,15 @@ if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
 			cssVars.default({
 				onComplete: function() {
 					document.body.classList.remove('css-loading');
+					let branding = document.querySelector('.has-fixed-header.header-overlay-content .site-header-wrapping');
+					if(branding) {
+						window.requestAnimationFrame(function() {
+							document.querySelector('.site-header').style.height = branding.offsetHeight+'px';
+						})
+					}
 				}
 			});
 		});
 }
+
+
