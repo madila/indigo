@@ -8,7 +8,9 @@ function enableSidebarStick() {
 			new StickySidebar('#secondary', {
 				containerSelector: '#primary',
 				innerWrapperSelector: '.widget-area',
-				topSpacing: 150,
+				topSpacing: function() {
+					return (document.querySelector('.site-header-center').clientHeight + 20);
+				},
 				resizeSensor: true,
 				bottomSpacing: 20
 			});
