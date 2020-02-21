@@ -2,7 +2,7 @@ const presets = [
 	[
 		"@babel/env",
 		{
-			useBuiltIns: "entry",
+			useBuiltIns: "usage",
 			corejs: 3,
 			targets: {
 				chrome: "68",

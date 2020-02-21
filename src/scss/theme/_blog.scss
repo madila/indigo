@@ -84,15 +84,6 @@ input[type="submit"] {
 	@include button();
 }
 
-.menu-toggle {
-	width: 2rem;
-	min-height: calc(2rem + 2px);
-	position: absolute;
-	left: 1rem;
-	padding: 2rem;
-	top: 2.5rem;
-}
-
 .main {
 	&-navigation {
 		display: flex;
@@ -101,7 +92,7 @@ input[type="submit"] {
 		.menu-container {
 			display: flex;
 			flex: 1;
-			margin-left: 0rem;
+			margin-left: 0;
 			overflow: visible;
 			justify-content: center;
 			> .menu {

@@ -214,6 +214,8 @@ function indigo_block_editor_styles() {
 }
 add_action( 'enqueue_block_editor_assets', 'indigo_block_editor_styles' );
 
+
+
 /**
  * Implement the Custom Header feature.
  */

@@ -18,7 +18,7 @@ get_header();
                     <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'indigo' ); ?></h1>
                 </header><!-- .page-header -->
 
-                <div class="entry-content">
+                <div class="entry-content mb-2">
                     <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'indigo' ); ?></p>
                     <?php get_search_form(); ?>
                 </div><!-- .page-content -->

@@ -65,7 +65,9 @@ class pageOnScroll {
 					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
 				}
 				docEle.style.setProperty('--header-text-color', this.baseTextColor);
+				this.reCalculateHeader();
 			}
+
 		}
 	};
 
@@ -151,6 +153,14 @@ class pageOnScroll {
 
 		window.addEventListener('resize', debounce(reCalculateHeader, 100));
 
+		const transition = document.querySelector('.custom-logo-link');
+		if(transition) {
+			let self = this;
+			transition.addEventListener('transitionend', () => {
+				self.reCalculateHeader();
+				window.dispatchEvent(new Event('resize'));
+			});
+		}
 	}
 
 }

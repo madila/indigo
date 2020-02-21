@@ -10,6 +10,7 @@ if(typeof DOMTokenList !== "function" || (!window.requestAnimationFrame) || !('C
 
 import "./modules/navigation";
 import "./modules/pageOnScroll";
+import "./modules/sidebarStick";
 
 //import "./modules/fixedHeader";
 //import "./modules/fullPageInit";
