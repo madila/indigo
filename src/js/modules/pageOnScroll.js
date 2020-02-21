@@ -65,7 +65,6 @@ class pageOnScroll {
 					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
 				}
 				docEle.style.setProperty('--header-text-color', this.baseTextColor);
-				this.reCalculateHeader();
 			}
 
 		}
