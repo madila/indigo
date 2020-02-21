@@ -70,8 +70,14 @@
 			}
 		}
 	}
+
 }
 
+@include media-breakpoint-down(md) {
+	:root {
+		--sidebar-width: 300px !important;
+	}
+}
 
 #tertiary {
 	.widget-area {
@@ -86,3 +92,10 @@
 	@include pushBelowHeader();
 }
 
+
+#mm_block_widget-4 {
+	margin-bottom: 0 !important;
+	.wp-block-cover {
+		margin-bottom: 0 !important;
+	}
+}
