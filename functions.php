@@ -182,6 +182,9 @@ add_action( 'widgets_init', 'indigo_widgets_init' );
 function indigo_scripts() {
 
 	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), get_indigo_version(), true );
+	if(get_template_directory() === get_stylesheet_directory()) {
+		wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
+	}
 
 	wp_localize_script('indigo-script', 'indigo', array(
 		'assets_url' => get_template_directory_uri().'/js/'
