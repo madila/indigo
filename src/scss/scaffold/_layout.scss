@@ -48,13 +48,13 @@
 	#primary {
 		grid-area: content;
 	}
+
 	@include media-breakpoint-up(md) {
 
 		&.sidebar-left {
 			.site-content {
 				display: grid;
-				grid-template-areas:
-					"side content";
+				grid-template-areas: "side content";
 				grid-template-columns: var(--sidebar-width, $sidebar-default-width) 1fr;
 				grid-gap: var(--content-gutter-x, $grid-gutter-width);
 			}
@@ -63,8 +63,7 @@
 		&.sidebar-right {
 			.site-content {
 				display: grid;
-				grid-template-areas:
-					"content side";
+				grid-template-areas: "content side";
 				grid-template-columns: 1fr var(--sidebar-width, $sidebar-default-width);
 				grid-gap: var(--content-gutter-x, $grid-gutter-width);
 			}
@@ -73,11 +72,6 @@
 
 }
 
-@include media-breakpoint-down(md) {
-	:root {
-		--sidebar-width: 300px !important;
-	}
-}
 
 #tertiary {
 	.widget-area {
@@ -90,12 +84,4 @@
 
 .push-below-header {
 	@include pushBelowHeader();
-}
-
-
-#mm_block_widget-4 {
-	margin-bottom: 0 !important;
-	.wp-block-cover {
-		margin-bottom: 0 !important;
-	}
 }

@@ -81,13 +81,13 @@ function indigo_customize_register( $wp_customize ) {
 
 
 
-	$wp_customize->add_setting( 'text_color' , array(
-		'default' => get_theme_mod_default('text_color'),
+	$wp_customize->add_setting( 'indigo_text_color' , array(
+		'default' => get_theme_mod_default('indigo_text_color'),
 		'transport' => 'postMessage',
 		'sanitize_callback' => 'sanitize_hex_color',
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'indigo_text_color', array(
 		'label'      => __( 'Typography Color', 'indigo' ),
 		'section'    => 'colors'
 	) ) );
