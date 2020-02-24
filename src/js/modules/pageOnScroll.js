@@ -129,7 +129,7 @@ class pageOnScroll {
 		this.isNavBarFixed = document.body.classList.contains('has-fixed-header');
 
 		if(this.isHeaderScrollBg) {
-			docEle.style.setProperty('--header-text-color', this.baseTextColor);
+			docEle.style.setProperty('--header-text-color', this.headerTextColor);
 		}
 
 		bodyScrolled();

@@ -134,16 +134,16 @@
 				position: relative;
 				left: 0;
 				right: 0;
-				transition: all 300ms linear;
-				.scrolling & {
-					transform: translateY(-30%);
-				}
 				.scrolled & {
+					transition: all 200ms linear;
 					position: fixed;
 					top: 0;
 					transform: none;
 				}
-				.scrolled.admin-bar & {
+			}
+
+			.has-fixed-header.admin-bar & {
+				.scrolled & {
 					top: 32px !important;
 				}
 			}
