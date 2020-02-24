@@ -91,6 +91,7 @@ class pageOnScroll {
 		let self = this;
 		if(self.fixedBrandingWrapper) {
 			window.requestAnimationFrame(function() {
+				console.log(self.fixedBrandingWrapper.offsetHeight+'px');
 				document.querySelector('.site-header').style.height = self.fixedBrandingWrapper.offsetHeight+'px';
 			})
 		}
@@ -109,7 +110,7 @@ class pageOnScroll {
 	constructor() {
 		let docEle = document.documentElement;
 		let {headerScrollBg, reCalculateHeader, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
-		this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.header-overlay-content .site-header-wrapping');
+		this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.header-overlay-content .site-header-container');
 
 		this.navBar = document.querySelector('.site-header');
 		this.footer = document.querySelector('.site-footer');
@@ -151,6 +152,8 @@ class pageOnScroll {
 		}
 
 		window.addEventListener('resize', debounce(reCalculateHeader, 100));
+
+		window.addEventListener('indigoCustomizerUpdate', reCalculateHeader);
 
 		const transition = document.querySelector('.custom-logo-link');
 		if(transition) {

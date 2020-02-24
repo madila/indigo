@@ -1,25 +1,40 @@
-import ResizeSensor from 'css-element-queries';
 import StickySidebar from 'sticky-sidebar-v2';
+import {debounce} from 'lodash';
 
-function enableSidebarStick() {
-	if(window.innerWidth > 769) {
-		let sidebar = document.querySelector('#secondary');
-		if(sidebar) {
-			new StickySidebar('#secondary', {
-				containerSelector: '#primary',
-				innerWrapperSelector: '.widget-area',
-				topSpacing: function() {
-					return (document.querySelector('.site-header-center').clientHeight + 20);
-				},
-				resizeSensor: true,
-				bottomSpacing: 20
-			});
+window.stickySidebar = false;
+
+let sidebarElement = document.querySelector('.vertical-sidebar #secondary');
+
+if(sidebarElement) {
+	function enableStickySidebar() {
+		window.stickySidebar = new StickySidebar('#secondary', {
+			containerSelector: '#primary',
+			innerWrapperSelector: '.widget-area',
+			topSpacing: function () {
+				return (document.querySelector('.site-header-center').clientHeight + 20);
+			},
+			bottomSpacing: 20
+		});
+	}
+
+	let reCalculateStickySidebar = function () {
+		if('stickySidebar' in window) {
+			if(window.innerWidth > 769) {
+				window.stickySidebar.updateSticky();
+			} else {
+				window.stickySidebar.destroy();
+			}
+		} else {
+			if(window.innerWidth > 769) {
+				enableStickySidebar();
+			}
 		}
-	}
-}
+	};
 
-window.addEventListener('load', function() {
-	if(window.innerWidth > 769) {
-		enableSidebarStick();
+	if (window.innerWidth > 769) {
+		window.addEventListener('load', enableStickySidebar);
 	}
-});
+
+	window.addEventListener('resize', debounce(reCalculateStickySidebar, 100));
+
+}

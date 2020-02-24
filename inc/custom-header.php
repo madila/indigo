@@ -19,7 +19,7 @@
 function indigo_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'indigo_custom_header_args', array(
 		'default-image'      => '',
-		'default-text-color' => '000000',
+		'default-text-color' => get_theme_mod_default('indigo_text_color'),
 		'width'              => 1000,
 		'height'             => 250,
 		'flex-height'        => true,
@@ -37,17 +37,17 @@ function get_theme_mod_defaults() {
 		'content_width_wide' => '1060',
 		'logo_width' => '200px',
 
-		'header_bg_color' => 'linear-gradient(45deg, #7154d8, #3d2986)',
+		'header_bg_color' => '#555',
 		'header_textcolor' => '#ffffff',
 		'indigo_header_alignment' => 'center',
 
 
-		'primary_color' => '#4b0082',
-		'primary_text_color' => '#4b0082',
-		'secondary_color' => '',
-		'secondary_text_color' => '',
+		'primary_color' => '#454545',
+		'primary_text_color' => '#ffffff',
+		'secondary_color' => '#999999',
+		'secondary_text_color' => '#ffffff',
 
-		'sidebar_width' => 0,
+		'sidebar_width' => 300,
 		'base_border_radius' => 0,
 
 		'base_font_size' => '16px',
@@ -71,18 +71,20 @@ function get_theme_mod_default($key) {
 }
 
 function indigo_set_theme_mod_css_var($option_id, $variable_name = null) {
-	if(get_theme_mod($option_id)) { ?>
-		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo get_theme_mod($option_id); ?>;
+	$value = get_theme_mod($option_id);
+	if(!empty($value)) { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo $value; ?>;
 	<?php } else { ?>
 		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo get_theme_mod_default($option_id); ?>;
 	<?php }
 }
 
 function indigo_set_unit_css_var($unit, $option_id, $variable_name = null) {
-	if(get_theme_mod($option_id)) { ?>
-		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo intval(get_theme_mod($option_id)); ?><?php echo $unit; ?>;
+	$value = get_theme_mod($option_id);
+	if(!empty($value)) { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo $value; ?><?php echo $unit; ?>;
 	<?php } else { ?>
-		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo intval(get_theme_mod_default($option_id)); ?><?php echo $unit; ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo intval(get_theme_mod_default($option_id)); ?><?php echo $unit; ?>;
 	<?php }
 }
 
@@ -156,6 +158,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_color_mod_css_var('background_color', 'base-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('header_bg_color', 'header-bg-color'); ?>
 				<?php indigo_set_color_mod_css_var('primary_color', 'primary-color'); ?>
+				<?php indigo_set_color_mod_css_var('header_textcolor', 'header-text-color'); ?>
 				<?php indigo_set_color_mod_css_var('primary_text_color', 'primary-text-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_color', 'secondary-color'); ?>
 				<?php indigo_set_color_mod_css_var('secondary_text_color', 'secondary-text-color'); ?>
@@ -170,8 +173,10 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_theme_mod_css_var('base_line_height', 'base-line-height'); ?>
 				<?php indigo_set_unit_css_var('rem', 'indigo_content_gutter_y', 'content-gutter-y'); ?>
 				<?php indigo_set_unit_css_var('rem', 'indigo_content_gutter_x', 'content-gutter-x'); ?>
-				<?php indigo_set_unit_css_var('rem', 'indigo_header_padding_y', 'header-padding-y'); ?>
+
+
 				<?php indigo_set_unit_css_var('rem', 'indigo_header_padding_x', 'header-padding-x'); ?>
+				<?php indigo_set_unit_css_var('rem', 'indigo_header_padding_y', 'header-padding-y'); ?>
 			}
 		</style>
 		<?php

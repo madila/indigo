@@ -42,7 +42,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_display_copyright', array(
-		'default'    => false,
+		'default'    => 1,
 		'capability' => 'edit_theme_options'
 	) );
 
@@ -51,7 +51,7 @@ function indigo_customize_register( $wp_customize ) {
 		'label'      => __( 'Display copyright notice?', 'indigo' ),
 		'section'    => 'title_tagline',
 		'type'       => 'checkbox',
-		'std'        => '1'
+		'std'        => 1
 	) );
 
 	/**
@@ -751,7 +751,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'indigo_sidebar_direction', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'column',
+		'default' => 'none',
 	) );
 
 	$wp_customize->add_control( 'indigo_sidebar_direction', array(
@@ -760,6 +760,7 @@ function indigo_customize_register( $wp_customize ) {
 		'label' => __( 'Sidebar Direction' ),
 		'description' => __( 'Select the direction of the widgets.' ),
 		'choices' => array(
+			'none' => __( 'None' ),
 			'row' => __( 'Horizontal' ),
 			'column' => __( 'Vertical' ),
 		),

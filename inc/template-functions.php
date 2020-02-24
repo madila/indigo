@@ -29,6 +29,10 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'header-overlay-content';
 	}
 
+	if(get_theme_mod('indigo_calculate_header')) {
+		$classes[] = 'header-overlay-content';
+	}
+
 	if(intval(get_theme_mod('indigo_contain_header'))) {
 		$classes[] = 'has-header-contained';
 	}
@@ -45,9 +49,9 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'sr-only-desc';
 	}
 
-
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( is_active_sidebar( 'entry-sidebar' ) && get_theme_mod('indigo_sidebar_alignment') !== 'none' ) {
+	$sidebar_direction = get_theme_mod('indigo_sidebar_direction');
+	if($sidebar_direction && $sidebar_direction !== 'none' ) {
 		$classes[] = 'vertical-sidebar';
 		$classes[] = 'sidebar-'.(get_theme_mod('indigo_sidebar_alignment') ? get_theme_mod('indigo_sidebar_alignment') : get_theme_mod_default('indigo_sidebar_alignment'));
 	} else {
@@ -58,6 +62,37 @@ function indigo_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'indigo_body_classes' );
 
+
+add_action('wp_head', function() {
+	if(empty(get_theme_mod('base_font_family'))) {
+		?>
+		<style>
+		  @supports (font-variation-settings: normal) {
+			:root {
+				--base-font-family: 'Inter var', sans-serif;
+				--headings-font-family: 'Inter var', sans-serif;
+			}
+			  @font-face {
+				  font-family: 'Inter var';
+				  font-weight: 100 900;
+				  font-display: swap;
+				  font-style: normal;
+				  font-named-instance: 'Regular';
+				  src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-roman.var.woff2?v=3.12"; ?>) format("woff2");
+			  }
+			  @font-face {
+				  font-family: 'Inter var';
+				  font-weight: 100 900;
+				  font-display: swap;
+				  font-style: italic;
+				  font-named-instance: 'Italic';
+				  src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-italic.var.woff2?v=3.12" ?>) format("woff2");
+			  }
+		  }
+		</style>
+		<?php
+	}
+});
 
 add_filter('indigo_header_class', function($classes) {
 	$header_alignment = get_theme_mod('indigo_header_alignment');

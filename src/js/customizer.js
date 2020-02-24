@@ -8,6 +8,16 @@
 
 ( function( $ ) {
 
+
+	// Create a new event
+	let event = new CustomEvent('indigoCustomizerUpdate');
+
+	function triggerUpdateEvent() {
+		// Dispatch the event
+		window.dispatchEvent(event);
+		console.log('update dispatched');
+	}
+
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
@@ -67,6 +77,7 @@
 		value.bind( function( to ) {
 			document.documentElement.style
 				.setProperty('--header-padding-y', to+'rem');
+			triggerUpdateEvent();
 		} );
 	} );
 
