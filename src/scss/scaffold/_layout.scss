@@ -21,8 +21,6 @@
 	}
 	.custom-logo-link {
 		max-height: 150px;
-		margin-top: var(--content-gutter-y, $grid-gutter-width);
-		margin-bottom: var(--content-gutter-y, $grid-gutter-width);
 	}
 	&-content-wrapper {
 		transition: opacity 400ms linear;
