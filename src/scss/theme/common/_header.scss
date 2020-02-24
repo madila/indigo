@@ -134,6 +134,7 @@
 				position: relative;
 				left: 0;
 				right: 0;
+				transition: all 300ms linear;
 				.scrolling & {
 					transform: translateY(-30%);
 				}
@@ -141,7 +142,6 @@
 					position: fixed;
 					top: 0;
 					transform: none;
-					transition: all 300ms linear;
 				}
 			}
 		}
