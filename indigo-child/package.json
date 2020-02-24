@@ -4,12 +4,16 @@
   "description": "Bespoke Theme for Wordpress",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production"
   },
   "keywords": [
     "wordpress"
+  ],
+  "browserslist": [
+    "> .5%",
+    "last 4 version",
+    "ie >= 11"
   ],
   "author": "Ruben Madila for Ollie Ford & Co",
   "license": "ISC",
@@ -19,19 +23,18 @@
     "@babel/node": "^7.6.1",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.0",
-    "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@wordpress/scripts": "^5.0.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
-    "core-js": "^2.6.9",
     "css-loader": "^3.2.0",
     "css-vars": "^2.2.0",
     "cssnano": "^4.1.10",
+    "file-loader": "^5.0.2",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
@@ -41,15 +44,18 @@
     "webpack-fix-style-only-entries": "^0.3.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.0",
+    "@babel/runtime": "^7.8.4",
+    "@babel/runtime-corejs3": "^7.8.4",
     "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "animejs": "^3.1.0",
-    "css-vars-ponyfill": "^2.1.2",
+    "core-js": "^3.6.4",
     "es6-promise": "^4.2.8",
-    "leonsans": "0.0.0"
+    "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1",
+    "slick-carousel": "^1.8.1"
   }
 }

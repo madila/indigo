@@ -29,7 +29,9 @@ const config = {
 };
 
 module.exports = (env, argv) => {
-	config.mode = argv.mode || 'development';
+	let webpackEnvironment = argv.mode || 'development';
+
+	config.mode = webpackEnvironment;
 	config.plugins = [
 		new CleanWebpackPlugin(),
 		new FixStyleOnlyEntriesPlugin(),
@@ -45,6 +47,19 @@ module.exports = (env, argv) => {
 			loader: 'babel-loader'
 		}]
 	});
+	config.module.rules.push(      {
+		test: /\.(png|jpe?g|gif)$/i,
+		use: [
+			{
+				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+					publicPath: './js/images/',
+					outputPath: './images/'
+				}
+			}
+		]
+	});
 	config.module.rules.push({
 		test: /\.scss$/i,
 		use: [
@@ -52,21 +67,34 @@ module.exports = (env, argv) => {
 			{
 				loader: MiniCssExtractPlugin.loader,
 				options: {
-					publicPath:  path.resolve(__dirname),
+					publicPath: path.resolve(__dirname),
 					hmr: argv.mode === 'development',
 				},
 			},
 			'css-loader',
-			'sass-loader',
-			'postcss-loader'
+			'postcss-loader',
+			'sass-loader'
 		],
 	});
-	if (argv.mode === 'development') {
+	config.module.rules.push(      {
+		test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+		use: [
+			{
+				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+					publicPath: './js/fonts/',
+					outputPath: './fonts/'
+				}
+			}
+		]
+	});
+	if(webpackEnvironment === 'development') {
 		config.devtool = 'source-map';
 		config.output.filename = '[name].js';
-		config.watch = true;
 	}
-	if (argv.mode === 'production') {
+	config.watch = true;
+	if(webpackEnvironment === 'production') {
 		config.optimization = {
 			minimize: true
 		};

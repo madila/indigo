@@ -14,8 +14,10 @@
 			width: 100%;
 		}
 	}
-	&-main, &-footer,.widget-area {
-		padding: var(--content-gutter-y, $grid-gutter-width) var(--content-gutter-x, $grid-gutter-width);
+	&-main, &-footer, .widget-area {
+		padding-left: var(--content-gutter-x, $grid-gutter-width);
+		padding-right: var(--content-gutter-x, $grid-gutter-width);
+		padding-bottom: var(--content-gutter-y, $grid-gutter-width);
 	}
 	.custom-logo-link {
 		max-height: 150px;
