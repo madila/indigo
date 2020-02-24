@@ -14,7 +14,7 @@
 			width: 100%;
 		}
 	}
-	&-content, &-footer,.widget-area {
+	&-main, &-footer,.widget-area {
 		padding: var(--content-gutter-y, $grid-gutter-width) var(--content-gutter-x, $grid-gutter-width);
 	}
 	.custom-logo-link {

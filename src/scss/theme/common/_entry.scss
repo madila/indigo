@@ -1,8 +1,7 @@
-.page {
-	&-title {
-		.feed-container & {
-			font-size: 2rem;
-		}
+.feed-container {
+	width: 100%;
+	.page-title {
+		font-size: 2rem;
 	}
 }
 
@@ -37,7 +36,7 @@
 
 .comment {
 	&s-area {
-		padding: var(--content-gutter-x, 0) var(--content-gutter-y, 0);
+		padding: var(--content-gutter-y, 0) 0;
 	}
 	&-list {
 		padding-left: 2rem;
