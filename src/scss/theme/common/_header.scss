@@ -28,14 +28,14 @@
 	display: flex;
 	position: relative;
 	width: 100%;
-	padding-left: var(--header-padding-x);
-	padding-right: var(--heading-padding-x);
+	padding-left: var(--header-padding-x, $grid-gutter-width);
+	padding-right: var(--header-padding-x, $grid-gutter-width);
 	.site-branding {
 		align-self: center;
 		width: 100%;
 		position: relative;
-		padding-top: var(--header-padding-y,1rem);
-		padding-bottom: var(--header-padding-y,1rem);
+		padding-top: var(--header-padding-y, $grid-gutter-width);
+		padding-bottom: var(--header-padding-y, $grid-gutter-width);
 	}
 	.menu-toggle {
 		position: absolute;
