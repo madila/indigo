@@ -143,6 +143,9 @@
 					top: 0;
 					transform: none;
 				}
+				.scrolled.admin-bar & {
+					top: 32px !important;
+				}
 			}
 		}
 		.header-scroll-bg.has-fixed-header & {
