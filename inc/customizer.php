@@ -576,7 +576,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_calculate_header', array(
-		'label'      => __( 'Enable if you want the header to always overlay the content.', 'indigo' ),
+		'label'      => __( 'Push the content below the fixed header?', 'indigo' ),
 		'section'    => 'theme_header',
 		'type'       => 'checkbox'
 	) );
