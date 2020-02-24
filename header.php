@@ -22,8 +22,8 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'indigo'); ?></a>
-	<header id="masthead" <?php indigo_header_class(); ?> data-header-bg>
-		<div class="site-header-wrapping">
+	<header id="masthead" <?php indigo_header_class(); ?>>
+		<div class="site-header-wrapping" data-header-bg>
 			<div class="site-header-container">
 				<div class="site-branding">
 					<?php
