@@ -1,10 +1,9 @@
 .site {
 	&-content {
-		.has-fixed-header.header-scroll-bg & {
+		.header-scroll-bg.has-fixed-header & {
 			padding-top: 0 !important;
 		}
 	}
-
 	&-header-wrapping {
 		.has-fixed-header & {
 			position: fixed;
