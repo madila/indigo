@@ -1,4 +1,8 @@
 .site-header-center {
+	.site-branding {
+		padding-top: var(--header-padding-y, $grid-gutter-width);
+		padding-bottom: var(--header-padding-y, $grid-gutter-width);
+	}
 	.site-header-container {
 		align-items: center;
 		display: flex;
@@ -19,6 +23,8 @@
 		flex-direction: row;
 		display: flex;
 		justify-content: space-between;
+		padding-top: var(--header-padding-y, $grid-gutter-width);
+		padding-bottom: var(--header-padding-y, $grid-gutter-width);
 	}
 	.main-navigation {
 		align-self: center;
@@ -29,9 +35,12 @@
 }
 .site-header-right {
 	.site-header-container {
-		.site-branding {
-			float: right;
-		}
+		padding-top: var(--header-padding-y, $grid-gutter-width);
+		padding-bottom: var(--header-padding-y, $grid-gutter-width);
+		align-content: center;
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
 
 		.main-navigation {
 			@include media-breakpoint-up(md) {

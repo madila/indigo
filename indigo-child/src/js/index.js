@@ -1,3 +1,3 @@
-import "./tmp/modal";
-import "./tmp/footer";
-import "./tmp/icons";
+import "./app/modal";
+import "./app/footer";
+import "./app/icons";

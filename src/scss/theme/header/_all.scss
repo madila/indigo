@@ -30,8 +30,6 @@
 		align-self: center;
 		width: 100%;
 		position: relative;
-		padding-top: var(--header-padding-y, $grid-gutter-width);
-		padding-bottom: var(--header-padding-y, $grid-gutter-width);
 	}
 	.menu-toggle {
 		position: absolute;
