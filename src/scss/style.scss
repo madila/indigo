@@ -32,8 +32,4 @@ $css-vars-use-native: true;
 @import "scaffold/base";
 @import "common/common";
 
-@import "theme/common/all";
-
-/*@import "theme/portfolio";*/
-/*@import "theme/centered";*/
-/*@import "theme/sidebar";*/
+@import "theme/all";

@@ -1,3 +1,7 @@
+@import "alignment";
+@import "fixed";
+@import "scroll-bg";
+
 .site-title {
 	margin: 0;
 	font-size: 2rem;
@@ -13,14 +17,6 @@
 	margin: 0;
 	.sr-only-desc & {
 		@include sr-only;
-	}
-}
-
-.site-header-wrapping {
-	@media screen and (max-width: 599px) {
-		.scrolled & {
-			top: 0;
-		}
 	}
 }
 
@@ -60,51 +56,8 @@
 	}
 }
 
-.site-header-center {
-	.site-header-container {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-	}
-	.site-description {
-		display: block;
-	}
-	.custom-logo-link {
-		margin: .5rem auto;
-	}
-}
-
-.site-header-left {
-	.site-header-container {
-		align-content: center;
-		flex-direction: row;
-		display: flex;
-		justify-content: space-between;
-	}
-	.main-navigation {
-		align-self: center;
-		@include media-breakpoint-up(md) {
-			height: 100%;
-		}
-	}
-}
-.site-header-right {
-	.site-header-container {
-		.site-branding {
-			float: right;
-		}
-
-		.main-navigation {
-			@include media-breakpoint-up(md) {
-				height: 100%;
-			}
-			align-items: flex-end;
-		}
-	}
-}
-
 .site {
+	/* Header overlay gradient background
 	.has-fixed-header & {
 		&:before {
 			content: "";
@@ -119,7 +72,7 @@
 			transition: opacity 200ms linear;
 			background-image: linear-gradient(180deg, rgba(0,0,0,0.3), transparent);
 		}
-	}
+	}*/
 	&-header {
 		.site-header-wrapping {
 			z-index: 300;
@@ -129,38 +82,7 @@
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
-			position: relative;
-			.has-fixed-header & {
-				position: relative;
-				left: 0;
-				right: 0;
-				.scrolled & {
-					transition: all 200ms linear;
-					position: fixed;
-					top: 0;
-					transform: none;
-				}
-			}
-
-			.has-fixed-header.admin-bar & {
-				.scrolled & {
-					top: 32px !important;
-				}
-			}
 		}
-		.header-scroll-bg.has-fixed-header & {
-			background-color: transparent;
-		}
-		@include alignfull();
-		.header-scroll-bg.has-fixed-header & {
-			background-color: transparent;
-		}
-
-
-		@include media-breakpoint-down(sm) {
-			transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
-		}
-
 		.menu-toggled & {
 			color: var(--header-text-color, --base-color);
 			background-color: var(--header-bg-color, --base-bg-color) !important;
