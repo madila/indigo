@@ -1,4 +1,10 @@
 .site {
+	&-content {
+		.has-fixed-header.header-overlay-content & {
+			padding: 0 var(--content-gutter-x, $grid-gutter-width) !important;
+		}
+	}
+
 	&-header-wrapping {
 		.has-fixed-header & {
 			position: fixed;
@@ -6,8 +12,6 @@
 			right: 0;
 			top: 0;
 		}
-
-
 		.has-fixed-header.admin-bar & {
 			top: 32px;
 			@media screen and (max-width: 599px) {
