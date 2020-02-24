@@ -576,7 +576,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_calculate_header', array(
-		'label'      => __( 'Push the content below the fixed header?', 'indigo' ),
+		'label'      => __( 'Let the header overlay the content?', 'indigo' ),
 		'section'    => 'theme_header',
 		'type'       => 'checkbox'
 	) );
@@ -732,7 +732,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_alignment_support', array(
-		'default'    => true,
+		'default'    => false,
 		'capability' => 'edit_theme_options'
 	) );
 

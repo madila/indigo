@@ -1,0 +1,11 @@
+
+.has-fixed-header {
+	.site-main {
+		padding-top: 0 !important;
+	}
+	&.indigo-calculate-header {
+		.site-main {
+			padding-top: var(--content-gutter-y, 1rem) !important;
+		}
+	}
+}

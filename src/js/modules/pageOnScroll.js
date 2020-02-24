@@ -64,7 +64,9 @@ class pageOnScroll {
 				if (headerBgElements) {
 					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
 				}
-				docEle.style.setProperty('--header-text-color', this.baseTextColor);
+				if(this.isHeaderScrollBg) {
+					docEle.style.setProperty('--header-text-color', this.baseTextColor);
+				}
 			}
 
 		}
@@ -119,6 +121,8 @@ class pageOnScroll {
 
 		this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
 		this.headerTextColor = getCSSVar('--header-text-color');
+
+		console.log(this.headerTextColor);
 
 		this.baseTextColor = getCSSVar('--base-color');
 
