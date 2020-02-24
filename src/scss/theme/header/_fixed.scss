@@ -1,7 +1,7 @@
 .site {
 	&-content {
-		.has-fixed-header.header-overlay-content & {
-			padding: 0 var(--content-gutter-x, $grid-gutter-width) !important;
+		.has-fixed-header.header-scroll-bg & {
+			padding-top: 0 !important;
 		}
 	}
 

@@ -26,7 +26,7 @@ function indigo_body_classes( $classes ) {
 	}
 
 	if(get_theme_mod('indigo_calculate_header') !== true) {
-		$classes[] = 'header-calculate-header';
+		$classes[] = 'indigo-calculate-header';
 	}
 
 	if(intval(get_theme_mod('indigo_contain_header'))) {
