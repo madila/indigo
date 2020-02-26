@@ -59,36 +59,40 @@ function indigo_body_classes( $classes ) {
 add_filter( 'body_class', 'indigo_body_classes' );
 
 
-add_action('wp_head', function() {
-	if(empty(get_theme_mod('base_font_family'))) {
+function indigo_add_default_font() {
 		?>
 		<style>
-		  @supports (font-variation-settings: normal) {
-			:root {
-				--base-font-family: 'Inter var', sans-serif;
-				--headings-font-family: 'Inter var', sans-serif;
+			@supports (font-variation-settings: normal) {
+				:root {
+					--base-font-family: 'Inter var', sans-serif;
+					--headings-font-family: 'Inter var', sans-serif;
+				}
+				@font-face {
+					font-family: 'Inter var';
+					font-weight: 100 900;
+					font-display: swap;
+					font-style: normal;
+					font-named-instance: 'Regular';
+					src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-roman.var.woff2?v=3.12"; ?>) format("woff2");
+				}
+				@font-face {
+					font-family: 'Inter var';
+					font-weight: 100 900;
+					font-display: swap;
+					font-style: italic;
+					font-named-instance: 'Italic';
+					src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-italic.var.woff2?v=3.12" ?>) format("woff2");
+				}
 			}
-			  @font-face {
-				  font-family: 'Inter var';
-				  font-weight: 100 900;
-				  font-display: swap;
-				  font-style: normal;
-				  font-named-instance: 'Regular';
-				  src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-roman.var.woff2?v=3.12"; ?>) format("woff2");
-			  }
-			  @font-face {
-				  font-family: 'Inter var';
-				  font-weight: 100 900;
-				  font-display: swap;
-				  font-style: italic;
-				  font-named-instance: 'Italic';
-				  src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-italic.var.woff2?v=3.12" ?>) format("woff2");
-			  }
-		  }
 		</style>
 		<?php
-	}
-});
+}
+
+if(empty(get_theme_mod('base_font_family')) || get_theme_mod('base_font_family') === 'Inter var') {
+
+	add_action('wp_head', 'indigo_add_default_font');
+	add_action('admin_head', 'indigo_add_default_font');
+}
 
 add_filter('indigo_header_class', function($classes) {
 	$header_alignment = get_theme_mod('indigo_header_alignment');
@@ -125,6 +129,21 @@ function display_site_title_class($classes) {
 
 add_filter('body_class', 'display_site_title_class');
 
+function indigo_has_cover_title() {
+	global $post;
+	if ( is_singular() || has_blocks() ) {
+		$blocks = parse_blocks( $post->post_content );
+		return ($blocks[0]['blockName'] === 'core/cover' );
+	}
+}
+
+function indigo_post_class($classes) {
+	if(indigo_has_cover_title()) {
+		$classes[] = 'has-cover-title';
+	}
+	 return $classes;
+}
+add_filter('post_class', 'indigo_post_class');
 
 function archive_columns_class($classes) {
 	if(is_post_type_archive(array('jetpack-portfolio', 'case-study'))) {
@@ -132,24 +151,21 @@ function archive_columns_class($classes) {
 	}
 	return $classes;
 }
-
 add_filter('post_class', 'archive_columns_class');
-
 
 function archive_cover_columns() {
 	return '2';
 }
+add_filter('archive_cover_columns', 'archive_columns_class');
 
-add_filter('archive_cover_columns', 'archive_cover_columns');
-
-
-function indigo_conditional_class($theme_mod, $prefix, $add_value, $classes) {
-	if($value = get_theme_mod($theme_mod)) {
-		$value = $prefix;
-		if($add_value) {
-			$value .= '-' . get_theme_mod( $theme_mod );
+function indigo_conditional_class($theme_mod, $class, $classes = '', $add_value_to_class = true) {
+	$new_class = [$classes];
+	if($mod_value = get_theme_mod($theme_mod)) {
+		$value = $class;
+		if($add_value_to_class) {
+			$value .= '-' . $mod_value;
 		}
-		$classes[] = $value;
+		$new_class[] = $value;
 	}
-	echo implode(' ', $classes);
+	echo implode(' ', $new_class);
 }

@@ -9,6 +9,27 @@
 
 require_once "inc/composer.php";
 
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function indigo_content_width() {
+	// This variable is intended to be overruled from themes.
+	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	$GLOBALS['content_width'] = apply_filters( 'indigo_content_width', 780 );
+}
+add_action( 'after_setup_theme', 'indigo_content_width', 0 );
+
+function  indigo_get_content_width() {
+	global $content_width;
+	return $content_width;
+}
+
 if ( ! function_exists( 'indigo_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -83,7 +104,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 800, 400 );
+		set_post_thumbnail_size( indigo_get_content_width(), 9999 );
 		add_image_size('hd', 1920, 1080, false);
 
 		// This theme uses wp_nav_menu() in one location.
@@ -131,21 +152,6 @@ function get_indigo_version() {
 }
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function indigo_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'indigo_content_width', 780 );
-}
-add_action( 'after_setup_theme', 'indigo_content_width', 0 );
-
-/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -182,6 +188,7 @@ add_action( 'widgets_init', 'indigo_widgets_init' );
 function indigo_scripts() {
 
 	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), get_indigo_version(), true );
+
 	if(get_template_directory() === get_stylesheet_directory()) {
 		wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
 	}
@@ -190,7 +197,7 @@ function indigo_scripts() {
 		'assets_url' => get_template_directory_uri().'/js/'
 	));
 
-	if ( is_post_type_archive('jetpack-portfolio') ) {
+	if( is_post_type_archive('jetpack-portfolio') ) {
 
 		wp_enqueue_style( 'fullpage-style', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', array(), get_indigo_version() );
 		wp_enqueue_script( 'fullpage-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', array(), get_indigo_version(), true );

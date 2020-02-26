@@ -93,8 +93,11 @@ class pageOnScroll {
 		let self = this;
 		if(self.fixedBrandingWrapper) {
 			window.requestAnimationFrame(function() {
-				console.log(self.fixedBrandingWrapper.offsetHeight+'px');
-				document.querySelector('.site-header').style.height = self.fixedBrandingWrapper.offsetHeight+'px';
+				let newHeight = self.fixedBrandingWrapper.offsetHeight+'px';
+				document.querySelector('.site-header').style.height = newHeight;
+				if(self.hasCoverTitle) {
+					self.hasCoverTitle.style.marginTop = '-'+newHeight;
+				}
 			})
 		}
 	};
@@ -119,10 +122,12 @@ class pageOnScroll {
 
 		this.headerBgElements = document.querySelector('[data-header-bg]');
 
+		this.hasCoverTitle = document.querySelector('article.has-cover-title');
+
+		console.log(this.hasCoverTitle);
+
 		this.headerBgColor = hexToRgb(getCSSVar('--header-bg-color'));
 		this.headerTextColor = getCSSVar('--header-text-color');
-
-		console.log(this.headerTextColor);
 
 		this.baseTextColor = getCSSVar('--base-color');
 

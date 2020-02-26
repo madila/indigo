@@ -2,3 +2,8 @@
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
+
+.editor-post-title__input {
+	color: var(--base-color, $base-color);
+	font-family: var(--base-font-family, $base-font-family);
+}

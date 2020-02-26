@@ -1,4 +1,8 @@
 .menu-item {
+	a {
+		vertical-align: middle;
+		display: inline;
+	}
 	&.menu-item-has-children {
 		&:hover, &:focus-within {
 			.sub-menu {

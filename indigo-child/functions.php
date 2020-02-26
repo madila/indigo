@@ -8,7 +8,7 @@
  * @package TMP
  */
 
-if ( ! function_exists( 'sad_setup' ) ) :
+if ( ! function_exists( 'indigo_child_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -16,7 +16,7 @@ if ( ! function_exists( 'sad_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function sad_setup() {
+	function indigo_child_setup() {
 		add_theme_support(
 			'__experimental-editor-gradient-presets',
 			array(
@@ -61,18 +61,20 @@ function get_indigo_child_version() {
 	return wp_get_theme('indigo-child')->get('Version');
 }
 
-add_action( 'wp_enqueue_scripts', 'other_enqueue_parent_styles' );
-function other_enqueue_parent_styles() {
+add_action( 'wp_enqueue_scripts', 'indigo_child_enqueue_styles' );
+function indigo_child_enqueue_styles() {
 
-	wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array(), get_indigo_child_version() );
-	wp_enqueue_style( 'child-style', get_stylesheet_uri(), array(), get_indigo_child_version() );
+	if(!is_admin()) :
+		wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array(), get_indigo_child_version() );
+		wp_enqueue_style( 'child-style', get_stylesheet_uri(), array(), get_indigo_child_version() );
+	endif;
 
 }
 
 /**
  * Add support for custom color palettes in Gutenberg.
  */
-function tmp_color_palette($palette)
+function indigo_child_color_palette($palette)
 {
 	return array(
 		array(
@@ -133,42 +135,4 @@ function tmp_color_palette($palette)
 	);
 }
 
-add_filter('indigo_color_palette', 'tmp_color_palette');
-
-function add_vimeo_player() {
-	?>
-	<script src="https://player.vimeo.com/api/player.js"></script>
-	<script>
-		var vimeoPlayers = document.querySelectorAll('.is-provider-vimeo');
-		let soundIcon = '<svg xmlns="http://www.w3.org/2000/svg" version="1.0"  width="500" height="500" viewBox="0 0 75 75">\n' +
-			'<path class="path-speaker" d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z"\n' +
-			'style="stroke:#fff;stroke-width:5;stroke-linejoin:round;fill:#fff;"\n' +
-			'/>\n' +
-			'<path class="path-wave" d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" style="fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round"/>\n' +
-			'</svg>';
-		for (var vimeoPlayer of vimeoPlayers.values()) {
-			console.log('vimeoPlayer: ', vimeoPlayer);
-			var iframe = vimeoPlayer.querySelector('iframe');
-			var player = new Vimeo.Player(iframe, {loop: false});
-
-			var muteButton = document.createElement('button');
-			muteButton.className = 'btn btn-vimeo-sound btn-muted';
-			muteButton.innerHTML = soundIcon;
-
-			muteButton.addEventListener('click', function(event) {
-				player.getVolume().then(function(volume) {
-					muteButton.className = (volume > 0) ? 'btn btn-vimeo-sound btn-muted' : 'btn btn-vimeo-sound';
-					player.setVolume(volume > 0 ? 0 : 1);
-				}).catch(function(error) {
-					console.log('could not toggle volume');
-				});
-			});
-
-			iframe.parentElement.appendChild(muteButton);
-		};
-	</script>
-	<?php
-}
-
-//add_action( 'wp_footer', 'add_vimeo_player' );
-
+add_filter('indigo_color_palette', 'indigo_child_color_palette');

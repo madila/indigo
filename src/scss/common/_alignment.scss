@@ -62,3 +62,16 @@
 	}
 
 }
+
+
+.flex-column {
+	flex-direction: column !important;
+}
+
+.flex-row {
+	flex-direction: row !important;
+}
+
+.flex-none {
+	display: none !important;
+}
