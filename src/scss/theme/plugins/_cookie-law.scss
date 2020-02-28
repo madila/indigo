@@ -1,0 +1,13 @@
+#cookie-law-info-again {
+	box-shadow: rgba(0,0,0,0.2) 0 0 2px !important;
+	white-space: nowrap;
+	font-size: 12px;
+	&.scrolled {
+		transform: translate(-50%, 100%);
+	}
+	@include media-breakpoint-down(sm) {
+		left: 50%;
+		transform: translate(-50%, 0);
+		right: auto;
+	}
+}

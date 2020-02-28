@@ -115,7 +115,7 @@ class pageOnScroll {
 	constructor() {
 		let docEle = document.documentElement;
 		let {headerScrollBg, reCalculateHeader, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
-		this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.indigo-calculate-header .site-header-container');
+		this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.indigo-calculate-header .site-header-wrapping');
 
 		this.navBar = document.querySelector('.site-header');
 		this.footer = document.querySelector('.site-footer');

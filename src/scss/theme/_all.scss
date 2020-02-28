@@ -1,7 +1,13 @@
-@import "header";
-@import "common/typography";
-@import "common/menu";
-@import "common/entry";
-@import "common/footer";
-@import "common/navigation";
-@import "common/form";
+@import "header/all";
+@import "blocks/all";
+@import "typography";
+@import "menu";
+@import "entry";
+@import "footer";
+@import "navigation";
+@import "form";
+@import "sidebar/all";
+
+
+@import "plugins/lightbox-transparent";
+@import "plugins/cookie-law";

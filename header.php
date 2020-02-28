@@ -24,6 +24,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'indigo'); ?></a>
 	<header id="masthead" <?php indigo_header_class(); ?>>
 		<div class="site-header-wrapping" data-header-bg>
+			<?php get_sidebar('pre-header'); ?>
 			<div class="site-header-container">
 				<div class="site-branding">
 					<?php

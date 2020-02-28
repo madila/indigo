@@ -1,7 +1,6 @@
 .site-header-center {
 	.site-branding {
-		padding-top: var(--header-padding-y, $grid-gutter-width);
-		padding-bottom: var(--header-padding-y, $grid-gutter-width);
+		@extend .p-header-y;
 	}
 	.site-header-container {
 		align-items: center;
@@ -18,13 +17,14 @@
 }
 
 .site-header-left {
+	.site-branding {
+		@extend .p-header-y;
+	}
 	.site-header-container {
 		align-content: center;
 		flex-direction: row;
 		display: flex;
 		justify-content: space-between;
-		padding-top: var(--header-padding-y, $grid-gutter-width);
-		padding-bottom: var(--header-padding-y, $grid-gutter-width);
 	}
 	.main-navigation {
 		align-self: center;
@@ -34,14 +34,14 @@
 	}
 }
 .site-header-right {
+	.site-branding {
+		@extend .p-header-y;
+	}
 	.site-header-container {
-		padding-top: var(--header-padding-y, $grid-gutter-width);
-		padding-bottom: var(--header-padding-y, $grid-gutter-width);
 		align-content: center;
 		flex-direction: row;
 		display: flex;
-		justify-content: space-between;
-
+		@extend .p-header-y;
 		.main-navigation {
 			@include media-breakpoint-up(md) {
 				height: 100%;
