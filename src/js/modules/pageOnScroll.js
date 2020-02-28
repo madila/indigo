@@ -51,7 +51,7 @@ class pageOnScroll {
 
 			if (scrolled > 10 && scrolled < _threshold) {
 				let fadeIn = scrolled / _threshold;
-				if (headerBgElements) {
+				if(headerBgElements) {
 					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
 				}
 				docEle.style.setProperty('--header-text-color', this.headerTextColor);
@@ -78,7 +78,7 @@ class pageOnScroll {
 			_windowHeight = window.innerHeight,
 			_threshold = _windowHeight / 2;
 
-		if (scrolled > 10 && scrolled < _threshold) {
+		if (scrolled > 10 && scrolled <= _threshold) {
 			document.documentElement.classList.add('scrolling');
 			document.documentElement.classList.remove('scrolled');
 		} else if (scrolled > _threshold) {
@@ -122,7 +122,7 @@ class pageOnScroll {
 
 		this.headerBgElements = document.querySelector('[data-header-bg]');
 
-		this.hasCoverTitle = document.querySelector('article.has-cover-title');
+		this.hasCoverTitle = document.querySelector('.indigo-calculate-header article.has-cover-title');
 
 		console.log(this.hasCoverTitle);
 
