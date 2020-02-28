@@ -25,7 +25,7 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'has-fixed-header';
 	}
 
-	if(get_theme_mod('indigo_calculate_header') !== true) {
+	if(get_theme_mod('indigo_calculate_header')) {
 		$classes[] = 'indigo-calculate-header';
 	}
 
