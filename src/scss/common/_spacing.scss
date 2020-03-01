@@ -35,3 +35,46 @@
   }
 
 }
+
+
+/*
+ Added classes for spacing variables
+ */
+
+.p-header-y {
+	padding-top: var(--header-padding-y, $grid-gutter-width);
+	padding-bottom: var(--header-padding-y, $grid-gutter-width);
+}
+
+.p-header-x {
+	padding-left: var(--header-padding-x, $grid-gutter-width);
+	padding-right: var(--header-padding-x, $grid-gutter-width);
+}
+
+.p-content {
+	padding-top: var(--content-padding-y, $grid-gutter-width);
+	padding-bottom: var(--content-padding-y, $grid-gutter-width);
+	padding-left: var(--content-padding-x, $grid-gutter-width);
+	padding-right: var(--content-padding-x, $grid-gutter-width);
+}
+
+.p-content-y {
+	padding-top: var(--content-padding-y, $grid-gutter-width);
+	padding-bottom: var(--content-padding-y, $grid-gutter-width);
+}
+
+.p-content-x {
+	padding-left: var(--content-padding-x, $grid-gutter-width);
+	padding-right: var(--content-padding-x, $grid-gutter-width);
+}
+
+.p-sidebar-y {
+	padding-top: var(--content-padding-y, $grid-gutter-width);
+	padding-bottom: var(--content-padding-y, $grid-gutter-width);
+}
+
+.p-sidebar-x {
+	padding-left: var(--header-padding-x, $grid-gutter-width);
+	padding-right: var(--header-padding-x, $grid-gutter-width);
+}
+

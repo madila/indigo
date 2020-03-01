@@ -1,0 +1,26 @@
+.widget-area {
+	ul, ol {
+		margin-bottom: 0;
+	}
+}
+
+.pre-header {
+	.wp-block-column {
+		&, &s {
+			margin: 0;
+		}
+	}
+	.wp-block-button {
+		&, &s {
+			margin: 0;
+		}
+		&__link {
+			padding: .25em 1em;
+			border-radius: .2em;
+			font-weight: 300;
+			font-size: 12px;
+			line-height: 1.8em;
+			margin-top: 4px;
+		}
+	}
+}
