@@ -34,7 +34,6 @@ html .editor-styles-wrapper {
 	line-height: var(--base-line-height, $line-height-base);
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	background-color: var(--base-bg-color, $body-bg);
-	@import "scaffold/typography";
 	p {
 		font-size: var(--base-font-size, $root-font-size);
 		font-weight: var(--base-font-weight, $font-weight-base);
