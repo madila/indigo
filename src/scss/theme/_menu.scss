@@ -159,11 +159,12 @@
 			padding-bottom: .5rem;
 			line-height: 1.2em;
 			text-decoration: none;
-			display: inline-block;
+			display: block;
 			height: 100%;
 			vertical-align: middle;
 			@include media-breakpoint-up(md) {
 				white-space: nowrap;
+				display: inline-block;
 			}
 			border-bottom: 1px solid transparent;
 			letter-spacing: var(--base-letter-spacing);
