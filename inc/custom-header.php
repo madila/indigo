@@ -98,7 +98,7 @@ function indigo_set_color_mod_css_var($option_id, $variable_name = null) {
 
 function indigo_set_font_family_mod_css_var($option_id, $variable_name = null) {
 	if(get_theme_mod($option_id)) { ?>
-		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo add_default_font_stack(get_theme_mod($option_id)); ?>;
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo add_default_font_stack(get_theme_mod($option_id)); ?> !important;
 	<?php }
 }
 
