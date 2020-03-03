@@ -1,3 +1,20 @@
+.menu {
+	> .menu-item {
+		&:first-of-type {
+			a {
+				border-top-left-radius: 1rem;
+				border-bottom-left-radius: 1rem;
+			}
+		}
+		&:last-of-type {
+			a {
+				border-top-right-radius: 1rem;
+				border-bottom-right-radius: 1rem;
+			}
+		}
+	}
+}
+
 .menu-item {
 	a {
 		vertical-align: middle;

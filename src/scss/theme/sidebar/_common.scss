@@ -16,11 +16,11 @@
 		}
 		&__link {
 			padding: .25em 1em;
-			border-radius: .2em;
+			border-radius: var(--base-border-radius);
 			font-weight: 300;
 			font-size: 12px;
-			line-height: 1.8em;
 			margin-top: 4px;
+			border-width: 1px;
 		}
 	}
 }

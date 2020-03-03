@@ -218,7 +218,7 @@ add_action( 'wp_enqueue_scripts', 'indigo_scripts' );
  * Enqueue block editor style
  */
 function indigo_block_editor_styles() {
-	wp_enqueue_style( 'block-editor-styles', get_template_directory_uri().'/block-editor-style.css', false, '1.0', 'screen' );
+	wp_enqueue_style( 'indigo-block-editor-styles', get_template_directory_uri().'/block-editor-style.css', false, '1.0', 'screen' );
 }
 add_action( 'enqueue_block_editor_assets', 'indigo_block_editor_styles' );
 

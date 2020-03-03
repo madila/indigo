@@ -47,8 +47,11 @@ function indigo_body_classes( $classes ) {
 
 	// Adds a class of no-sidebar when there is no sidebar present.
 	$sidebar_direction = get_theme_mod('indigo_sidebar_direction');
-	if($sidebar_direction && $sidebar_direction !== 'none' ) {
+	if($sidebar_direction && $sidebar_direction === 'vertical' ) {
 		$classes[] = 'vertical-sidebar';
+	}
+
+	if($sidebar_direction && $sidebar_direction !== 'none' ) {
 		$classes[] = 'sidebar-'.(get_theme_mod('indigo_sidebar_alignment') ? get_theme_mod('indigo_sidebar_alignment') : get_theme_mod_default('indigo_sidebar_alignment'));
 	} else {
 		$classes[] = 'no-sidebar';

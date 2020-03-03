@@ -11,7 +11,7 @@ if(sidebarElement) {
 			containerSelector: '#primary',
 			innerWrapperSelector: '.widget-area',
 			topSpacing: function () {
-				return (document.querySelector('.site-header-center').clientHeight + 20);
+				return (document.querySelector('.site-header').clientHeight + 20);
 			},
 			bottomSpacing: 20
 		});

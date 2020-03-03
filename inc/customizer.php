@@ -762,7 +762,8 @@ function indigo_customize_register( $wp_customize ) {
 		'choices' => array(
 			'none' => __( 'None' ),
 			'row' => __( 'Horizontal' ),
-			'column' => __( 'Vertical' ),
+			'vertical' => __( 'Alongside the content' ),
+			'column' => __( 'Bottom Columns' ),
 		),
 	) );
 

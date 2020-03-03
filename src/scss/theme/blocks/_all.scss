@@ -1,1 +1,14 @@
+.has-cover-title {
+	.entry-content {
+		.wp-block-cover {
+			&:first-child {
+				.wp-block-cover__inner-container {
+					padding-top: 7rem !important;
+				}
+			}
+		}
+	}
+}
+
 @import "wp-social-links";
+@import "wp-block-separator";
