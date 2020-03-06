@@ -25,7 +25,7 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'has-fixed-header';
 	}
 
-	if(get_theme_mod('indigo_calculate_header')) {
+	if(get_theme_mod('indigo_calculate_header') ) {
 		$classes[] = 'indigo-calculate-header';
 	}
 
@@ -136,7 +136,7 @@ function indigo_has_cover_title() {
 	global $post;
 	if ( is_singular() || has_blocks() ) {
 		$blocks = parse_blocks( $post->post_content );
-		return ($blocks[0]['blockName'] === 'core/cover' );
+		return (count($blocks) > 0 && $blocks[0]['blockName'] === 'core/cover' );
 	}
 }
 
