@@ -27,6 +27,8 @@ function indigo_body_classes( $classes ) {
 
 	if(get_theme_mod('indigo_calculate_header') ) {
 		$classes[] = 'indigo-calculate-header';
+	} else {
+		$classes[] = 'indigo-header-overlays';
 	}
 
 	if(intval(get_theme_mod('indigo_contain_header'))) {
