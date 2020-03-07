@@ -1,16 +1,2 @@
-.indigo-header-overlays {
-	.has-cover-title {
-		.entry-content {
-			.wp-block-cover {
-				&:first-child {
-					.wp-block-cover__inner-container {
-						padding-top: var(--header-height, 7rem) !important;
-					}
-				}
-			}
-		}
-	}
-}
-
 @import "wp-social-links";
 @import "wp-block-separator";

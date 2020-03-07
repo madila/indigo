@@ -22,7 +22,6 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'background_color' )->default = '#f6f7f9';
 	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	/**
 	 * Site Info
@@ -230,19 +229,67 @@ function indigo_customize_register( $wp_customize ) {
 	) );
 
 	/**
+	 * Base Typography
+	 */
+	$wp_customize->add_setting(
+		'nav_font_family',
+		array(
+			'default'           => '',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'nav_font_family', array(
+		'type' => 'text',
+		'section' => 'typography', // Add a default or your own section
+		'label' => __( 'Base Navigation Family' ),
+		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
+	) );
+
+	/**
 	 * Font Weight
 	 */
-	$wp_customize->add_setting( 'base_font_weight', array(
+	$wp_customize->add_setting( 'nav_font_weight', array(
 		'capability' => 'edit_theme_options',
+		'transport'         => 'postMessage',
 		'sanitize_callback' => 'indigo_sanitize_select',
 		'default' => '300',
 	) );
 
-	$wp_customize->add_control( 'base_font_weight', array(
+	$wp_customize->add_control( 'nav_font_weight', array(
+		'type' => 'select',
+		'section' => 'typography', // Add a default or your own section
+		'label' => __( 'Default Nav Font Weight' ),
+		'description' => __( 'Change the thinness of the font you use for the navigation menus.' ),
+		'choices' => array(
+			'100' => __( 'Hairline' ),
+			'200' => __( 'Thin' ),
+			'300' => __( 'Light' ),
+			'400' => __( 'Regular' ),
+			'500' => __( 'Medium' ),
+			'600' => __( 'Bold' ),
+			'700' => __( 'ExtraBold' ),
+			'800' => __( 'UltraBold' ),
+			'900' => __( 'Black' )
+		),
+	) );
+
+	/**
+	 * Font Weight
+	 */
+	$wp_customize->add_setting( 'nav_font_weight', array(
+		'capability' => 'edit_theme_options',
+		'transport'         => 'postMessage',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => '300',
+	) );
+
+	$wp_customize->add_control( 'nav_font_weight', array(
 		'type' => 'select',
 		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Default Font Weight' ),
-		'description' => __( 'Change the thinness of the font you use for the body copy' ),
+		'description' => __( 'Change the thinness of the font you use for the body copy.' ),
 		'choices' => array(
 			'100' => __( 'Hairline' ),
 			'200' => __( 'Thin' ),
@@ -261,6 +308,7 @@ function indigo_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_setting( 'bold_font_weight', array(
 		'capability' => 'edit_theme_options',
+		'transport'         => 'postMessage',
 		'sanitize_callback' => 'indigo_sanitize_select',
 		'default' => '600',
 	) );
@@ -307,6 +355,7 @@ function indigo_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->add_setting( 'headings_font_weight', array(
 		'capability' => 'edit_theme_options',
+		'transport'         => 'postMessage',
 		'sanitize_callback' => 'indigo_sanitize_select',
 		'default' => '600',
 	) );

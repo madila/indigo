@@ -146,10 +146,41 @@
 		} );
 	} );
 
+	wp.customize( 'base_font_weight', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-font-weight', to);
+		} );
+	} );
+
+
 	wp.customize( 'headings_font_family', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
 				.setProperty('--headings-font-family', to);
+		} );
+	} );
+
+	wp.customize( 'headings_font_weight', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--headings-font-weight', to);
+		} );
+	} );
+
+
+	wp.customize( 'nav_font_family', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--nav-font-family', to);
+		} );
+	} );
+
+
+	wp.customize( 'nav_font_weight', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--nav-font-weight', to);
 		} );
 	} );
 
