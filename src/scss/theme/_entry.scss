@@ -5,6 +5,10 @@
 	}
 }
 
+article:not(.has-cover-title) {
+	padding-top: 7rem;
+}
+
 .entry {
 	&-title {
 		font-size: 3rem;
