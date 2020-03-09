@@ -16,6 +16,7 @@
 				flex-direction: column;
 				.has-fixed-header & {
 					position: relative;
+					top: 0;
 				}
 				top: 100%;
 				background-color: var(--header-bg-color);
@@ -60,7 +61,7 @@
 						padding: .5rem 0;
 						text-align: center;
 						&:hover {
-							background-color: rgba(0,0,0,0.2);
+							background-color: rgba(0,0,0,0.055);
 						}
 					}
 				}
