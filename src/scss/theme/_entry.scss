@@ -35,6 +35,11 @@
 			display: none;
 		}
 	}
+	&-content {
+		> div[class^="wp-block"] {
+			margin-bottom: var(--content-gutter-y);
+		}
+	}
 }
 
 
