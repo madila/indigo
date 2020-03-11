@@ -41,8 +41,8 @@ article, aside, dialog, figcaption, figure, footer, header, main, nav, section {
 
 body {
 	margin: 0; // 1
-	font-weight: 300;
-	color: inherit;;
+	font-weight: var(--base-font-weight, $font-weight-base);
+	color: var(--base-color, $base-color);;
 	overflow-x: hidden;
 	font-family: var(--base-font-family, $base-font-family);
 	font-size: var(--base-font-size, $root-font-size);
