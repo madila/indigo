@@ -41,8 +41,8 @@ article, aside, dialog, figcaption, figure, footer, header, main, nav, section {
 
 body {
 	margin: 0; // 1
-	font-weight: 300;
-	color: inherit;;
+	font-weight: var(--base-font-weight, $font-weight-base);
+	color: var(--base-color, $base-color);;
 	overflow-x: hidden;
 	font-family: var(--base-font-family, $base-font-family);
 	font-size: var(--base-font-size, $root-font-size);
@@ -50,6 +50,7 @@ body {
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	background-color: var(--base-bg-color, $body-bg);
 }
+
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
 // This prevents an unwanted focus outline from appearing around elements that
