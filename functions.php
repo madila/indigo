@@ -62,25 +62,27 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			add_theme_support( 'align-wide' );
 		}
 
+		$font_size = get_theme_mod('base_font_size', 14);
+
 		add_theme_support(
 			'editor-font-sizes',
 			array(
 				array(
 					'name'      => __( 'Normal', 'indigo' ),
 					'shortName' => __( 'N', 'indigo' ),
-					'size'      => get_theme_mod('base_font_size', 14),
+					'size'      => $font_size,
 					'slug'      => 'normal'
 				),
 				array(
 					'name'      => __( 'Medium', 'indigo' ),
 					'shortName' => __( 'M', 'indigo' ),
-					'size'      => (get_theme_mod('base_font_size', 14) * 1.5),
+					'size'      => $font_size * 1.5,
 					'slug'      => 'medium'
 				),
 				array(
 					'name'      => __( 'Large', 'indigo' ),
 					'shortName' => __( 'L', 'indigo' ),
-					'size'      => (get_theme_mod('base_font_size', 14) * 2),
+					'size'      => $font_size * 2,
 					'slug'      => 'medium'
 				)
 			)
