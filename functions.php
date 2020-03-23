@@ -62,6 +62,30 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			add_theme_support( 'align-wide' );
 		}
 
+		add_theme_support(
+			'editor-font-sizes',
+			array(
+				array(
+					'name'      => __( 'Normal', 'indigo' ),
+					'shortName' => __( 'N', 'indigo' ),
+					'size'      => get_theme_mod('base_font_size', 14),
+					'slug'      => 'normal'
+				),
+				array(
+					'name'      => __( 'Medium', 'indigo' ),
+					'shortName' => __( 'M', 'indigo' ),
+					'size'      => (get_theme_mod('base_font_size', 14) * 1.5),
+					'slug'      => 'medium'
+				),
+				array(
+					'name'      => __( 'Large', 'indigo' ),
+					'shortName' => __( 'L', 'indigo' ),
+					'size'      => (get_theme_mod('base_font_size', 14) * 2),
+					'slug'      => 'medium'
+				)
+			)
+		);
+
 		add_theme_support( 'editor-color-palette',
 			apply_filters('indigo_color_palette', array(
 				array(
