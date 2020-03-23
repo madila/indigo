@@ -12,6 +12,7 @@ $css-vars-use-native: true;
 
 /* Main column width */
 .wp-block {
+	line-height: var(--base-line-height, $line-height-base);
 	max-width: var(--content-width, $container-default-width);
 }
 
