@@ -18,7 +18,7 @@ if(sidebarElement) {
 	}
 
 	let reCalculateStickySidebar = function () {
-		if('stickySidebar' in window) {
+		if('stickySidebar' in window && window.stickySidebar) {
 			if(window.innerWidth > 769) {
 				window.stickySidebar.updateSticky();
 			} else {
