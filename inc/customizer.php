@@ -417,7 +417,31 @@ function indigo_customize_register( $wp_customize ) {
 		'type' => 'range-value',
 		'section' => 'typography',
 		'label' => __( 'Base Line Height' ),
-		'description' => __( 'Define the default font size of the page.' ),
+		'description' => __( 'Define the default font line-height of the page.' ),
+		'input_attrs' => array(
+			'min' => 0.8,
+			'max' => 2.2,
+			'step' => 0.1,
+			'suffix' => 'em',
+		),
+	) ));
+
+	/**
+	 * Font Size
+	 */
+	$wp_customize->add_setting(
+		'headings_line_height',
+		array(
+			'default'           => get_theme_mod('headings_line_height', 1.5),
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'headings_line_height', array(
+		'type' => 'range-value',
+		'section' => 'typography',
+		'label' => __( 'Headings Line Height' ),
+		'description' => __( 'Define the headings font line height of the page.' ),
 		'input_attrs' => array(
 			'min' => 0.8,
 			'max' => 2.2,
