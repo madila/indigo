@@ -12,6 +12,7 @@ $css-vars-use-native: true;
 
 /* Main column width */
 .wp-block {
+	line-height: var(--base-line-height, $line-height-base);
 	max-width: var(--content-width, $container-default-width);
 }
 
@@ -37,6 +38,13 @@ html .editor-styles-wrapper {
 	p {
 		font-size: var(--base-font-size, $root-font-size);
 		font-weight: var(--base-font-weight, $font-weight-base);
+		line-height: var(--base-line-height, $line-height-base);
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--headings-font-family, $headings-font-family);
+		font-weight: var(--headings-font-weight, $headings-font-weight);
+		line-height: var(--headings-line-height, $line-height-base);
+		letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
 	}
 	@import "block-editor/common";
 }

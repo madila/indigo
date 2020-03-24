@@ -139,6 +139,14 @@
 		} );
 	} );
 
+
+	wp.customize( 'headings_line_height', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--headings-line-height', to+'em');
+		} );
+	} );
+
 	wp.customize( 'base_font_family', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style

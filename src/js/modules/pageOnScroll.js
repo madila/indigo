@@ -39,53 +39,70 @@ class pageOnScroll {
 		return `rgba(${r},${g},${b},${alpha})`;
 	};
 
+	doHeader = (fade, headerColor) => {
+		const {headerBgElements, headerBgColor, rgb2rgba} = this;
+		if (headerBgElements) {
+			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fade);
+		}
+		document.documentElement.style.setProperty('--header-text-color', this.headerTextColor);
+	};
+
 
 	headerScrollBg = () => {
 		if(this.isHeaderScrollBg) {
-			const {headerBgElements, headerBgColor, rgb2rgba} = this;
+			const {headerBgElements, headerBgColor, rgb2rgba, doHeader} = this;
 
 			let docEle = document.documentElement,
 				scrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0),
 				_windowHeight = window.innerHeight,
-				_threshold = _windowHeight / 2;
+				_threshold = _windowHeight / 2,
+				fade = 0,
+				headerColour = this.headerTextColor;
 
-			if (scrolled > 10 && scrolled < _threshold) {
-				let fadeIn = scrolled / _threshold;
-				if(headerBgElements) {
-					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fadeIn);
-				}
-				docEle.style.setProperty('--header-text-color', this.headerTextColor);
-			} else if (scrolled > _threshold) {
-				if (headerBgElements) {
-					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 1);
-				}
-				docEle.style.setProperty('--header-text-color', this.headerTextColor);
+			if (scrolled > 25 && scrolled < _threshold) {
+				fade = scrolled / _threshold;
+			} else if (scrolled >= _threshold) {
+				fade = 1;
 			} else {
-				if (headerBgElements) {
-					headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, 0);
-				}
-				if(this.isHeaderScrollBg) {
-					docEle.style.setProperty('--header-text-color', this.baseTextColor);
-				}
+				headerColour = (this.isHeaderScrollBg) ? this.baseTextColor : this.headerTextColor;
 			}
+
+			doHeader(fade, headerColour);
 
 		}
 	};
 
-	bodyScrolled = () => {
+	bodyScrolled = (windowScrolled) => {
 		let doc = document.documentElement,
 			scrolled = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
 			_windowHeight = window.innerHeight,
-			_threshold = _windowHeight / 2;
+			_threshold = _windowHeight * 0.85;
 
-		if (scrolled > 10 && scrolled <= _threshold) {
-			document.documentElement.classList.add('scrolling');
-			document.documentElement.classList.remove('scrolled');
-		} else if (scrolled > _threshold) {
-			document.documentElement.classList.remove('scrolling');
-			document.documentElement.classList.add('scrolled');
-		} else {
-			document.documentElement.classList.remove('scrolling');
+		if (scrolled > 19 && scrolled < _threshold) {
+			//console.log('after scroll, before threshold', scrolled, windowScrolled);
+			doc.classList.add('scrolling');
+			if(doc.classList.contains('scrolled')) {
+				doc.classList.remove('scrolled');
+			}
+			//console.log((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
+		}
+
+		if (scrolled >= (_threshold + 40)) {
+			//console.log('after threshold', scrolled, windowScrolled);
+			if(doc.classList.contains('scrolling')) {
+				doc.classList.remove('scrolling');
+			}
+			doc.classList.add('scrolled');
+			//console.log((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
+		}
+
+		if(scrolled < 20) {
+			if(doc.classList.contains('scrolling')) {
+				doc.classList.remove('scrolling');
+			}
+			if(doc.classList.contains('scrolled')) {
+				doc.classList.remove('scrolled');
+			}
 		}
 	};
 
@@ -143,7 +160,8 @@ class pageOnScroll {
 		reCalculateHeader();
 		headerScrollBg();
 		onScrolling(function () {
-			bodyScrolled();
+			let windowScrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0);
+			bodyScrolled(windowScrolled);
 			headerScrollBg();
 		});
 
