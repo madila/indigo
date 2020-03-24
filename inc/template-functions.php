@@ -143,8 +143,10 @@ function indigo_has_cover_title() {
 }
 
 function indigo_post_class($classes) {
-	if(indigo_has_cover_title()) {
+	if(indigo_has_cover_title() || is_front_page()) {
 		$classes[] = 'has-cover-title';
+	} else {
+		$classes[] = 'has-no-cover-title';
 	}
 	 return $classes;
 }

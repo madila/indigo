@@ -9,6 +9,21 @@
 	padding-top: 7rem;
 }
 
+article {
+	&.has-no-cover-title {
+		.entry-header {
+			&.screen-reader-text {
+				clip-path: none;
+				height: auto;
+				clip: unset;
+				margin: 0;
+				position: relative !important;
+				width: auto !important;
+			}
+		}
+	}
+}
+
 .entry {
 	&-title {
 		font-size: 3rem;
