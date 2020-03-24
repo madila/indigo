@@ -135,7 +135,7 @@
 	wp.customize( 'base_line_height', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
-				.setProperty('--base-line-height', to+'em');
+				.setProperty('--base-line-height', to);
 		} );
 	} );
 
@@ -143,7 +143,7 @@
 	wp.customize( 'headings_line_height', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
-				.setProperty('--headings-line-height', to+'em');
+				.setProperty('--headings-line-height', to);
 		} );
 	} );
 

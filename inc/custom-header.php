@@ -170,8 +170,8 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_theme_mod_css_var('headings_font_weight', 'headings-font-weight'); ?>
 				<?php indigo_set_theme_mod_css_var('bold_font_weight', 'bold-font-weight'); ?>
 				<?php indigo_set_theme_mod_css_var('base_font_weight', 'base-font-weight'); ?>
-				<?php indigo_set_unit_css_var('em', 'base_line_height', 'base-line-height'); ?>
-				<?php indigo_set_unit_css_var('em', 'headings_line_height', 'headings-line-height'); ?>
+				<?php indigo_set_theme_mod_css_var('base_line_height', 'base-line-height'); ?>
+				<?php indigo_set_theme_mod_css_var('headings_line_height', 'headings-line-height'); ?>
 				<?php indigo_set_unit_css_var('rem', 'indigo_content_gutter_y', 'content-gutter-y'); ?>
 				<?php indigo_set_unit_css_var('rem', 'indigo_content_gutter_x', 'content-gutter-x'); ?>
 
