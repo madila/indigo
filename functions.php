@@ -76,14 +76,20 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 				array(
 					'name'      => __( 'Medium', 'indigo' ),
 					'shortName' => __( 'M', 'indigo' ),
-					'size'      => $font_size * 1.5,
+					'size'      => $font_size * 1.4,
 					'slug'      => 'medium'
 				),
 				array(
 					'name'      => __( 'Large', 'indigo' ),
 					'shortName' => __( 'L', 'indigo' ),
+					'size'      => $font_size * 1.7,
+					'slug'      => 'large'
+				),
+				array(
+					'name'      => __( 'Huge', 'indigo' ),
+					'shortName' => __( 'H', 'indigo' ),
 					'size'      => $font_size * 2,
-					'slug'      => 'medium'
+					'slug'      => 'huge'
 				)
 			)
 		);
