@@ -153,3 +153,12 @@ textarea {
 	display: flex;
 	height: 100%;
 }
+
+.post {
+	&-thumbnail {
+		display: block;
+		img {
+			width: 100%;
+		}
+	}
+}

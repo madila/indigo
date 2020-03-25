@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="<?php echo (!get_theme_mod('indigo_show_single_title')) ? 'screen-reader-entry-header screen-reader-text' : 'archive-entry-header'; ?>">
 		<?php indigo_post_thumbnail(); ?>
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
