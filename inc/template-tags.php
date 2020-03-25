@@ -95,24 +95,28 @@ if ( ! function_exists( 'indigo_entry_footer' ) ) :
 endif;
 
 function indigo_edit_link() { ?>
-	<aside class="entry-footer entry-edit">
-	edit_post_link(
-		sprintf(
-			wp_kses(
-			/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Edit <span class="screen-reader-text">%s</span>', 'indigo' ),
-				array(
-					'span' => array(
-						'class' => array(),
+	<?php if ( get_edit_post_link() ) : ?>
+		<aside class="entry-footer entry-edit">
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'indigo' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
 					),
-				)
-			),
-			get_the_title()
-		),
-		'<span class="edit-link">',
-		'</span>'
-	); ?>
-	</aside>
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+		</aside><!-- .entry-footer -->
+	<?php endif; ?>
 	<?php
 }
 
