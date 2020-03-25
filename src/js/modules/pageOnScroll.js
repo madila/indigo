@@ -111,10 +111,7 @@ class pageOnScroll {
 		if(self.fixedBrandingWrapper) {
 			window.requestAnimationFrame(function() {
 				let newHeight = self.fixedBrandingWrapper.offsetHeight+'px';
-				document.querySelector('.site-header').style.height = newHeight;
-				//if(self.hasCoverTitle) {
-				//	self.hasCoverTitle.style.marginTop = '-'+newHeight;
-				//}
+				document.documentElement.style.setProperty('--header-height', newHeight);
 			})
 		}
 	};
@@ -157,7 +154,6 @@ class pageOnScroll {
 		}
 
 		bodyScrolled();
-		reCalculateHeader();
 		headerScrollBg();
 		onScrolling(function () {
 			let windowScrolled = (window.pageYOffset || docEle.scrollTop) - (docEle.clientTop || 0);
@@ -165,29 +161,33 @@ class pageOnScroll {
 			headerScrollBg();
 		});
 
-		window.addEventListener("load", function() {
+		if(this.fixedBrandingWrapper) {
+
 			reCalculateHeader();
-		});
 
-		let logo = document.querySelector('.custom-logo');
-		if(logo) {
-			logo.addEventListener('load', function() {
+			window.addEventListener("load", function() {
+				reCalculateHeader();
+			});
+
+			let logo = document.querySelector('.custom-logo');
+			if(logo) {
+				logo.addEventListener('load', function() {
 					reCalculateHeader();
-			});
+				});
+			}
+			window.addEventListener('resize', debounce(reCalculateHeader, 100));
+			window.addEventListener('indigoCustomizerUpdate', reCalculateHeader);
+
+			const transition = document.querySelector('.custom-logo-link');
+			if(transition) {
+				let self = this;
+				transition.addEventListener('transitionend', () => {
+					self.reCalculateHeader();
+					window.dispatchEvent(new Event('resize'));
+				});
+			}
 		}
 
-		window.addEventListener('resize', debounce(reCalculateHeader, 100));
-
-		window.addEventListener('indigoCustomizerUpdate', reCalculateHeader);
-
-		const transition = document.querySelector('.custom-logo-link');
-		if(transition) {
-			let self = this;
-			transition.addEventListener('transitionend', () => {
-				self.reCalculateHeader();
-				window.dispatchEvent(new Event('resize'));
-			});
-		}
 	}
 
 }

@@ -1,3 +1,9 @@
+.has-fixed-header.indigo-calculate-header {
+	#masthead {
+		height: var(--header-height, auto);
+	}
+}
+
 .site {
 	&-content {
 		.header-scroll-bg.has-fixed-header & {

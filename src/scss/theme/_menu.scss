@@ -5,66 +5,83 @@
 		position: relative;
 		align-self: center;
 		@include media-breakpoint-down(md) {
-			.menu.menu-collapse {
-				transition: max-height 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms linear;
-				width: 100%;
-				flex-direction: column;
-				max-height: 0;
-				overflow: hidden;
-				align-items: flex-start;
-				position: absolute;
-				flex-direction: column;
-				.has-fixed-header & {
-					position: relative;
-					top: 0;
+			.menu {
+				&-container {
+					margin-left: var(--content-no-gutter-x);
+					margin-right: var(--content-no-gutter-x);
 				}
-				top: 100%;
-				background-color: var(--header-bg-color);
-				left: 0;
-				.menu-toggled & {
-					transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 100ms linear 100ms;
-					max-height: 100vh;
-					overflow-y: auto;
-					overflow-x: hidden;
-					.menu-container {
-						padding-bottom: 7rem;
-					}
-				}
-				li {
+			}
+			.menu {
+				&-collapse {
+					transition: max-height 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms linear;
 					width: 100%;
-					text-align: center;
-					&.menu-item-has-children {
-						background-color: #f9f9f9;
-						border-bottom: 1px solid #e8e8e8;
+					flex-direction: column;
+					max-height: 0;
+					overflow: hidden;
+					align-items: flex-start;
+					position: absolute;
+					flex-direction: column;
+
+					.has-fixed-header & {
 						position: relative;
-						&:before {
-							content: "";
-							width: .5rem;
-							height: .5rem;
-							border-top: .5rem solid #333;
-							border-left: .5rem solid transparent;
-							border-right: .5rem solid transparent;
-							position: absolute;
-							right: 1.5rem;
-							top: 1.9rem;
+						top: 0;
+					}
+
+					top: 100%;
+					left: 0;
+
+					.menu-toggled & {
+						transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 100ms linear 100ms;
+						max-height: 100vh;
+						overflow-y: auto;
+						overflow-x: hidden;
+
+						.menu-container {
+							padding-bottom: 7rem;
 						}
-						.sub-menu {
-							display: none;
-							background-color: #f2f2f2;
-							li {
+					}
+
+					li {
+						width: 100%;
+						text-align: center;
+
+						&.menu-item-has-children {
+							background-color: #f9f9f9;
+							border-bottom: 1px solid #e8e8e8;
+							position: relative;
+
+							&:before {
+								content: "";
+								width: .5rem;
+								height: .5rem;
+								border-top: .5rem solid #333;
+								border-left: .5rem solid transparent;
+								border-right: .5rem solid transparent;
+								position: absolute;
+								right: 1.5rem;
+								top: 1.9rem;
+							}
+
+							.sub-menu {
+								display: none;
 								background-color: #f2f2f2;
+
+								li {
+									background-color: #f2f2f2;
+								}
+							}
+						}
+
+						a {
+							padding: 1.5rem 0;
+							text-align: center;
+
+							&:hover {
+								background-color: rgba(0, 0, 0, 0.055);
 							}
 						}
 					}
-					a {
-						padding: 1.5rem 0;
-						text-align: center;
-						&:hover {
-							background-color: rgba(0,0,0,0.055);
-						}
-					}
 				}
-
 			}
 		}
 

@@ -88,6 +88,15 @@ function indigo_set_unit_css_var($unit, $option_id, $variable_name = null) {
 	<?php }
 }
 
+function indigo_set_negative_unit_css_var($unit, $option_id, $variable_name = null) {
+	$value = get_theme_mod($option_id);
+	if(!empty($value)) { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo '-'.$value; ?><?php echo $unit; ?>;
+	<?php } else { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo '-'.intval(get_theme_mod_default($option_id)); ?><?php echo $unit; ?>;
+	<?php }
+}
+
 function indigo_set_color_mod_css_var($option_id, $variable_name = null) {
 	if(get_theme_mod($option_id) && get_theme_mod($option_id) !== 'blank') { ?>
 		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo maybe_hash_hex_color(get_theme_mod($option_id)); ?>;
@@ -175,6 +184,8 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_theme_mod_css_var('headings_line_height', 'headings-line-height'); ?>
 				<?php indigo_set_unit_css_var('rem', 'indigo_content_gutter_y', 'content-gutter-y'); ?>
 				<?php indigo_set_unit_css_var('rem', 'indigo_content_gutter_x', 'content-gutter-x'); ?>
+				<?php indigo_set_negative_unit_css_var('rem', 'indigo_content_gutter_y', 'content-no-gutter-y'); ?>
+				<?php indigo_set_negative_unit_css_var('rem', 'indigo_content_gutter_x', 'content-no-gutter-x'); ?>
 
 
 				<?php indigo_set_unit_css_var('rem', 'indigo_header_padding_x', 'header-padding-x'); ?>
