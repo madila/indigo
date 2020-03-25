@@ -44,4 +44,5 @@
 	<footer class="entry-footer">
 		<?php indigo_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	<?php indigo_edit_link(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->

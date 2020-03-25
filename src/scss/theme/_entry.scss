@@ -11,7 +11,7 @@
 
 article {
 
-		.entry-footer {
+		.entry-edit {
 			position: absolute;
 			z-index: 300;
 			max-width: 100%;
@@ -29,7 +29,7 @@ article {
 			}
 		}
 		&:hover {
-			.entry-footer {
+			.entry-edit {
 				display: block;
 			}
 		}
