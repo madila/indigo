@@ -95,7 +95,7 @@ if ( ! function_exists( 'indigo_entry_footer' ) ) :
 endif;
 
 function indigo_edit_link() { ?>
-	<div class="entry-edit">
+	<aside class="entry-footer entry-edit">
 	edit_post_link(
 		sprintf(
 			wp_kses(
@@ -112,7 +112,7 @@ function indigo_edit_link() { ?>
 		'<span class="edit-link">',
 		'</span>'
 	); ?>
-	</div>
+	</aside>
 	<?php
 }
 
