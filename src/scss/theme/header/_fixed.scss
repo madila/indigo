@@ -23,12 +23,14 @@
 			top: 32px;
 			@media screen and (max-width: 599px) {
 				top: 48px;
+				.scrolling &, .scrolled & {
+					top: 0 !important;
+				}
 			}
 		}
 
 		.has-fixed-header.fixed-on-scroll & {
 			position: relative !important;
-
 			.scrolled & {
 				position: fixed;
 			}
