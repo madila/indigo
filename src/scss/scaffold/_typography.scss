@@ -78,6 +78,9 @@ blockquote {
 	footer {
 		font-size: 80%;
 	}
+	p {
+		line-height: var(--base-line-height, $line-height-base);
+	}
 }
 
 
