@@ -8,6 +8,16 @@ if(typeof DOMTokenList !== "function" || (!window.requestAnimationFrame) || !('C
 		)
 }
 
+
+window.addEventListener('load', function() {
+	let main = document.querySelector('.page-content');
+	if(main.hasChildNodes()) {
+		let firstChild = main.childNodes[0];
+		console.log(firstChild);
+
+	}
+});
+
 import "./modules/navigation";
 import "./modules/pageOnScroll";
 import "./modules/sidebarStick";

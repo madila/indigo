@@ -153,6 +153,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 					echo '--content-width-wide: 100%';
 				}
 				?>
+				--header-height: auto;
 				<?php indigo_set_unit_css_var('px', 'sidebar_width', 'sidebar-width'); ?>
 				<?php indigo_set_color_mod_css_var('indigo_text_color', 'base-color'); ?>
 				<?php indigo_set_color_mod_css_var('background_color', 'base-bg-color'); ?>
