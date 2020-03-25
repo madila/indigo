@@ -3,6 +3,9 @@
 	.page-title {
 		font-size: 2rem;
 	}
+	article {
+		margin-bottom: var(--content-gutter-y, 1rem);
+	}
 }
 
 .header-overlay-content article:not(.has-cover-title) {
@@ -47,6 +50,7 @@ article {
 	}
 	&-meta, &-footer {
 		font-family: var(--headings-font-family, $headings-font-family);
+		margin-bottom: var(--content-gutter-y, 1rem);
 		> span a {
 			@include pill();
 		}
