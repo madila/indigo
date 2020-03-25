@@ -848,7 +848,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_hide_post_thumbnail', array(
-		'label'      => __( 'Show Single Page Post Thumbnail?', 'indigo' ),
+		'label'      => __( 'Hide Single Page Post Thumbnail?', 'indigo' ),
 		'section'    => 'site_layout',
 		'type'       => 'checkbox'
 	) );

@@ -134,7 +134,7 @@ if ( ! function_exists( 'indigo_post_thumbnail' ) ) :
 	 * element when on single views.
 	 */
 	function indigo_post_thumbnail($asBg = false) {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || get_theme_mod('indigo_hide_post_thumbnail') ) {
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || (is_single() && get_theme_mod('indigo_hide_post_thumbnail')) ) {
 			return;
 		}
 
