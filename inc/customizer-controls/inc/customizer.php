@@ -50,7 +50,7 @@ class indigo_initialise_customizer_settings {
 		/**
 		 * Add our Header & Navigation Panel
 		 */
-		 $wp_customize->add_panel( 'header_naviation_panel',
+		 $wp_customize->add_panel( 'header_navigation_panel',
 		 	array(
 				'title' => __( 'Header & Navigation', 'indigo' ),
 				'description' => esc_html__( 'Adjust your Header and Navigation sections.', 'indigo' )

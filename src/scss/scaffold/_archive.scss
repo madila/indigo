@@ -1,0 +1,6 @@
+.archive-header, .entry-header {
+	.indigo-header-overlays & {
+		margin-top: var(--header-height);
+		display: block;
+	}
+}

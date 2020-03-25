@@ -108,7 +108,7 @@ class pageOnScroll {
 
 	reCalculateHeader = () => {
 		let self = this;
-		if(self.fixedBrandingWrapper) {
+		if(self.fixedBrandingWrapper ) {
 			window.requestAnimationFrame(function() {
 				let newHeight = self.fixedBrandingWrapper.offsetHeight+'px';
 				document.documentElement.style.setProperty('--header-height', newHeight);
@@ -129,7 +129,12 @@ class pageOnScroll {
 	constructor() {
 		let docEle = document.documentElement;
 		let {headerScrollBg, reCalculateHeader, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
-		this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.indigo-calculate-header .site-header-wrapping');
+		this.archiveTitle = document.querySelector('.archive-title');
+		this.fixedHeader = document.querySelector('.has-fixed-header');
+		//this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.indigo-calculate-header .site-header-wrapping');
+		this.headerOverlaysContent = document.querySelector('.indigo-header-overlays');
+
+		this.fixedBrandingWrapper = document.querySelector('.site-header-wrapping');
 
 		this.navBar = document.querySelector('.site-header');
 		this.footer = document.querySelector('.site-footer');
@@ -161,8 +166,7 @@ class pageOnScroll {
 			headerScrollBg();
 		});
 
-		if(this.fixedBrandingWrapper) {
-
+		if(this.fixedBrandingWrapper || this.headerOverlaysContent) {
 			reCalculateHeader();
 
 			window.addEventListener("load", function() {

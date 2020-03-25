@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="<?php echo (!get_theme_mod('indigo_show_page_title')) ? 'screen-reader-page-header screen-reader-text' : 'page-header'; ?>">
+	<header class="<?php if (!get_theme_mod('indigo_show_single_title')) echo 'screen-reader-text'; ?>">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
@@ -33,7 +33,7 @@
 			edit_post_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
+					/* translators: %s: Name of current post. Only visible to screen readers */
 						__( 'Edit <span class="screen-reader-text">%s</span>', 'indigo' ),
 						array(
 							'span' => array(

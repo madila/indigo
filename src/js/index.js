@@ -11,7 +11,7 @@ if(typeof DOMTokenList !== "function" || (!window.requestAnimationFrame) || !('C
 
 window.addEventListener('load', function() {
 	let main = document.querySelector('.page-content');
-	if(main.hasChildNodes()) {
+	if(main && main.hasChildNodes()) {
 		let firstChild = main.childNodes[0];
 		console.log(firstChild);
 

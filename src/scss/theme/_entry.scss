@@ -10,18 +10,6 @@
 }
 
 article {
-	&.has-no-cover-title {
-		.entry-header {
-			&.screen-reader-text {
-				clip-path: none;
-				height: auto;
-				clip: unset;
-				margin: 0;
-				position: relative !important;
-				width: auto !important;
-			}
-		}
-	}
 
 		.entry-footer {
 			position: absolute;
@@ -50,11 +38,6 @@ article {
 
 .entry {
 	&-title {
-		font-size: 3rem;
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-		padding: 1rem 0;
-		border-bottom: 1px solid;
 		a {
 			text-decoration: none;
 		}

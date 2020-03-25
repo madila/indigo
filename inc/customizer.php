@@ -195,6 +195,105 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) ));
 
+	/**
+	 * Archive Settings
+	 */
+
+	$wp_customize->add_section( 'archive_settings',
+		array(
+			'title'       => __( 'Archive Settings', 'indigo' ), //Visible title of section
+			'priority'    => 25, //Determines what order this appears in
+			'capability'  => 'edit_theme_options', //Capability needed to tweak
+			'description' => __('Allows you to control the display of archives.', 'indigo'), //Descriptive tooltip
+		)
+	);
+
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_show_archive_title', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_show_archive_title', array(
+		'label'      => __( 'Show archive titles?', 'indigo' ),
+		'section'    => 'archive_settings',
+		'type'       => 'checkbox'
+	) );
+
+	/**
+	 * Base Typography
+	 */
+	$wp_customize->add_setting(
+		'archive_item_display_in',
+		array(
+			'default'           => '',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'archive_item_display_in', array(
+		'type' => 'select',
+		'section' => 'archive_settings', // Add a default or your own section
+		'label' => __( 'Display in' ),
+		'description' => __( 'Choose the way the archive items should be display in.' ),
+		'choices' => array(
+			'columns' => __( 'Columns' ),
+			'rows' => __( 'Rows' )
+		),
+	) );
+
+	/**
+	 * Content Max Width
+	 */
+	$archive_columns = intval(get_theme_mod( 'indigo_archive_columns', '1' ));
+
+	$wp_customize->add_setting(
+		'indigo_archive_columns',
+		array(
+			'default'           => $archive_columns,
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'indigo_archive_columns', array(
+		'type' => 'range-value',
+		'section' => 'archive_settings',
+		'label' => __( 'Archive Columns' ),
+		'settings' => 'indigo_archive_columns',
+		'description' => __( 'The horizontal columns to show on archives.' ),
+		'input_attrs' => array(
+			'min' => 1,
+			'max' => 4,
+			'step' => 1,
+			'value' => $archive_columns
+		),
+	) ) );
+
+	/**
+	 * Base Typography
+	 */
+	$wp_customize->add_setting(
+		'archive_item_display_as',
+		array(
+			'default'           => '',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'archive_item_display_as', array(
+		'type' => 'select',
+		'section' => 'archive_settings', // Add a default or your own section
+		'label' => __( 'Display as' ),
+		'description' => __( 'Choose the way the archive items should be display as.' ),
+		'choices' => array(
+			'card' => __( 'Card' ),
+			'cover' => __( 'Cover' )
+		),
+	) );
 
 	/**
 	 * Theme
@@ -724,6 +823,19 @@ function indigo_customize_register( $wp_customize ) {
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_show_single_title', array(
 		'label'      => __( 'Show the Title in Single Templates?', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox'
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_show_page_title', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_show_page_title', array(
+		'label'      => __( 'Show Page titles?', 'indigo' ),
 		'section'    => 'site_layout',
 		'type'       => 'checkbox'
 	) );

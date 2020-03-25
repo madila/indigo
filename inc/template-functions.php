@@ -31,6 +31,16 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'indigo-header-overlays';
 	}
 
+	if(is_home() || is_archive()) {
+		$classes[] = 'indigo-archive-'.get_theme_mod('archive_item_display_in');
+		$classes[] = 'indigo-archive-'.get_theme_mod('archive_item_display_as');
+		$archive_columns = get_theme_mod('indigo_archive_columns');
+		if($archive_columns > 1) {
+			$classes[] = 'indigo-archive-cols-'.$archive_columns;
+
+		}
+	}
+
 	if(intval(get_theme_mod('indigo_contain_header'))) {
 		$classes[] = 'has-header-contained';
 	}
