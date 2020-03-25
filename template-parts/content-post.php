@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="<?php if (!get_theme_mod('indigo_show_single_title')) echo 'screen-reader-text'; ?>">
+	<header class="<?php echo (!get_theme_mod('indigo_show_single_title')) ? 'screen-reader-entry-header screen-reader-text' : 'entry-header'; ?>">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
