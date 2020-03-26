@@ -46,7 +46,7 @@
 	.custom-logo-link {
 		display: block;
 	}
-	@include media-breakpoint-down(sm) {
+	@include media-breakpoint-down(md) {
 		flex-wrap: wrap;
 		.main-navigation {
 			flex-grow: 1;

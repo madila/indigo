@@ -5,6 +5,7 @@
 	--base-font-family: $base-font-family,
 	--base-font-size: $root-font-size,
 	--base-font-weight: $font-weight-base,
+	--mobile-font-size: $root-font-size * 0.9,
 	--base-letter-spacing: $base-letter-spacing,
 	--sidebar-width: $sidebar-default-width,
 	--content-width: $container-default-width,
@@ -18,3 +19,9 @@
 	--base-border-radius: $default-border-radius,
 	--footer-height: $footer-height,
 ));
+
+@include media-breakpoint-down(sm) {
+	@include css-vars((
+		--base-font-size: var(--mobile-font-size) !important,
+	));
+}

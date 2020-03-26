@@ -502,6 +502,30 @@ function indigo_customize_register( $wp_customize ) {
 	)) );
 
 	/**
+	 * Mobile Font Size
+	 */
+	$wp_customize->add_setting(
+		'mobile_font_size',
+		array(
+			'default'           => get_theme_mod('mobile_font_size', 14),
+			'transport'         => 'postMessage'
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'mobile_font_size', array(
+		'type' => 'range-value',
+		'section' => 'typography',
+		'label' => __( 'Mobile Base Font Size' ),
+		'description' => __( 'Define the font size on mobile devices.' ),
+		'input_attrs' => array(
+			'min' => 10,
+			'max' => 25,
+			'step' => 1,
+			'suffix' => 'px'
+		),
+	)) );
+
+	/**
 	 * Font Size
 	 */
 	$wp_customize->add_setting(

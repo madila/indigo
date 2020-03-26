@@ -126,7 +126,7 @@
 			text-decoration: none;
 			display: block;
 			vertical-align: middle;
-			@include media-breakpoint-up(md) {
+			@include media-breakpoint-up(lg) {
 				white-space: nowrap;
 				display: inline-block;
 			}

@@ -1,5 +1,10 @@
 
 .wp-block {
+	&-buttons {
+		a {
+			text-decoration: none;
+		}
+	}
 	&-cover {
 		backface-visibility: hidden;
 		h2 {

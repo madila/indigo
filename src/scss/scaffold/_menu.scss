@@ -22,7 +22,7 @@
 		padding-left: 0;
 		z-index: 300;
 		.menu-collapse & {
-			@include media-breakpoint-up(md) {
+			@include media-breakpoint-up(lg) {
 				max-height: 0;
 				overflow: hidden;
 				position: absolute;
@@ -47,7 +47,7 @@
 	&:focus {
 		outline: none;
 	}
-	@include media-breakpoint-up(md) {
+	@include media-breakpoint-up(lg) {
 		display: none;
 	}
 	&[aria-expanded="true"] {
@@ -71,7 +71,7 @@
 			top: -.75rem;
 		}
 		&:after {
-			bottom: -.7rem;
+			bottom: -.75rem;
 		}
 		.menu-toggled & {
 			transform: rotate(45deg) translate(-35%, 0.6rem);
