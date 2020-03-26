@@ -36,6 +36,7 @@ if(sidebarElement && !window.isPageTemplate) {
 
 	if(window.innerWidth > 769) {
 		window.addEventListener('load', enableStickySidebar);
+		reCalculateStickySidebar();
 	}
 
 	window.addEventListener('resize', debounce(reCalculateStickySidebar, 100));
