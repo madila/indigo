@@ -14,7 +14,7 @@ get_header();
         <main id="main" class="site-main">
 
             <section class="error-404 not-found">
-                <header class="page-header">
+				<header class="<?php echo (!get_theme_mod('indigo_show_archive_title')) ? 'screen-reader-archive-header screen-reader-text' : 'archive-header'; ?>">
                     <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'indigo' ); ?></h1>
                 </header><!-- .page-header -->
 
