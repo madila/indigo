@@ -27,8 +27,8 @@
 
 		.has-fixed-header.admin-bar & {
 			top: 32px;
-			@media screen and (max-width: 599px) {
-				top: 48px;
+			@media screen and (max-width: 782px) {
+				top: 46px;
 				.scrolling &, .scrolled & {
 					top: 0 !important;
 				}

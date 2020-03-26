@@ -3,7 +3,7 @@
 		@extend .p-header-y;
 	}
 	.site-header-container {
-		align-items: center;
+		align-content: flex-start;
 		display: flex;
 		flex-direction: column;
 		text-align: center;
@@ -21,7 +21,7 @@
 		@extend .p-header-y;
 	}
 	.site-header-container {
-		align-content: center;
+		align-content: flex-start;
 		flex-direction: row;
 		display: flex;
 		justify-content: space-between;
@@ -38,7 +38,7 @@
 		@extend .p-header-y;
 	}
 	.site-header-container {
-		align-content: center;
+		align-content: flex-start;
 		flex-direction: row;
 		display: flex;
 		@extend .p-header-y;
