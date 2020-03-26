@@ -54,7 +54,7 @@ article {
 		> span a {
 			@include pill();
 			+ a {
-				margin-right: 1em;
+				margin-left: 1em;
 			}
 
 		}
