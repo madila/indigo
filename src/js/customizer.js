@@ -132,6 +132,13 @@
 		} );
 	} );
 
+	wp.customize( 'mobile_font_size', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--mobile-font-size', to+'px');
+		} );
+	} );
+
 	wp.customize( 'base_line_height', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style
