@@ -13,7 +13,7 @@ if(sidebarElement && !window.isPageTemplate) {
 			containerSelector: '#primary',
 			innerWrapperSelector: '.widget-area',
 			topSpacing: function () {
-				return (document.querySelector('.site-header').clientHeight + 20);
+				return document.querySelector('.site-header').clientHeight;
 			},
 			bottomSpacing: 0
 		});

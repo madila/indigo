@@ -51,6 +51,7 @@ function get_theme_mod_defaults() {
 		'base_border_radius' => 0,
 
 		'base_font_size' => '16px',
+		'mobile_font_size' => '14px',
 		'base_font_weight' => '300',
 		'bold_font_weight' => '600',
 		'base_line_height' => '1.3em',
