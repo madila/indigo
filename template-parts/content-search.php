@@ -30,6 +30,7 @@
 
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>
+			<a href="<?php the_permalink(); ?>" class="moretag">Continue Reading</a>
 		</div><!-- .entry-summary -->
 	</div>
 

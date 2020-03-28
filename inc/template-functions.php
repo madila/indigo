@@ -186,3 +186,8 @@ function indigo_conditional_class($theme_mod, $class, $classes = '', $add_value_
 	}
 	echo implode(' ', $new_class);
 }
+
+function indigo_new_excerpt_more($more) {
+	return '...';
+}
+add_filter('excerpt_more', 'indigo_new_excerpt_more');
