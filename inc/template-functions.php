@@ -180,7 +180,7 @@ function indigo_conditional_class($theme_mod, $class, $classes = '', $add_value_
 	if($mod_value = get_theme_mod($theme_mod)) {
 		$value = $class;
 		if($add_value_to_class) {
-			$value .= '-' . $mod_value;
+			$value .= $mod_value;
 		}
 		$new_class[] = $value;
 	}

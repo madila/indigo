@@ -3,9 +3,66 @@
 	.page-title {
 		font-size: 2rem;
 	}
-	article {
-		margin-bottom: var(--content-gutter-y, 1rem);
+	.indigo-archive-columns & {
+		display: flex;
+		flex-grow: 1;
+		flex-wrap: wrap;
 	}
+	article {
+		position: relative;
+		margin-bottom: var(--content-gutter-y, 1rem);
+		.indigo-archive-cols-2 & {
+			width: 50%;
+		}
+		.indigo-archive-cols-3 & {
+			width: 33.33%;
+		}
+		.indigo-archive-cols-4 & {
+			width: 25%;
+		}
+		.indigo-archive-cols-5 & {
+			width: 20%;
+		}
+		.indigo-archive-card & {
+			.entry-wrapper {
+				padding: var(--content-gutter-x, $grid-gutter-width) var(--content-gutter-x, $grid-gutter-width);
+				.entry-title {
+					margin-top: 0;
+					margin-bottom: .15em;
+				}
+			}
+		}
+		.indigo-archive-cover & {
+			.entry-title {
+				margin-top: 0;
+				margin-bottom: .15em;
+			}
+			.post-thumbnail {
+				opacity: 0.5;
+				min-height: 400px;
+				display: flex;
+				img {
+					object-fit: cover;
+					display: flex;
+				}
+			}
+			.entry-meta {
+				font-size: 0.75rem;
+			}
+			.entry-wrapper {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+		}
+	}
+
 }
 
 .header-overlay-content article:not(.has-cover-title) {
