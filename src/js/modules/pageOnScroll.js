@@ -76,7 +76,12 @@ class pageOnScroll {
 		let doc = document.documentElement,
 			scrolled = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
 			_windowHeight = window.innerHeight,
-			_threshold = _windowHeight * 0.85;
+			_threshold = _windowHeight * 0.85,
+			header = 50;
+
+		if(this.fixedBrandingWrapper ) {
+			header = this.fixedBrandingWrapper.offsetHeight;
+		}
 
 		if (scrolled > 19 && scrolled < _threshold) {
 			//console.log('after scroll, before threshold', scrolled, windowScrolled);
@@ -87,7 +92,7 @@ class pageOnScroll {
 			//console.log((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
 		}
 
-		if (scrolled >= (_threshold + 40)) {
+		if (scrolled >= (_threshold + header)) {
 			//console.log('after threshold', scrolled, windowScrolled);
 			if(doc.classList.contains('scrolling')) {
 				doc.classList.remove('scrolling');

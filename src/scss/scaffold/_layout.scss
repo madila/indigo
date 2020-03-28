@@ -17,7 +17,6 @@
 	&-main, &-footer {
 		padding-left: var(--content-gutter-x, $grid-gutter-width);
 		padding-right: var(--content-gutter-x, $grid-gutter-width);
-		padding-bottom: var(--content-gutter-y, $grid-gutter-width);
 	}
 	.custom-logo-link {
 		max-height: 150px;
@@ -43,6 +42,8 @@
 .vertical-sidebar {
 	#secondary {
 		grid-area: side;
+		position: relative;
+		height: 100%;
 	}
 
 	#primary {
