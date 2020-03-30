@@ -8,9 +8,14 @@
 		flex-grow: 1;
 		flex-wrap: wrap;
 	}
+
 	article {
 		position: relative;
 		margin-bottom: var(--content-gutter-y, 1rem);
+		.indigo.archive-cols-1 & {
+			min-height: 300px;
+			max-height: 500px;
+		}
 		@include media-breakpoint-up(md) {
 			.indigo-archive-cols-2 & {
 				width: 50%;
