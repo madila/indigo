@@ -139,6 +139,16 @@
 		} );
 	} );
 
+	wp.customize( 'indigo_archive_alignment', function( value ) {
+		value.bind( function( to ) {
+			let feed = document.querySelector('feed-container');
+			if(feed) {
+				feed.classList.remove(['feed-full', 'feed-contained', 'feed-wide']);
+				feed.classList.add('feed-'+to);
+			}
+		} );
+	} );
+
 	wp.customize( 'base_line_height', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style

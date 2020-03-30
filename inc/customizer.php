@@ -226,6 +226,30 @@ function indigo_customize_register( $wp_customize ) {
 	 * Base Typography
 	 */
 	$wp_customize->add_setting(
+		'archive_alignment',
+		array(
+			'default'           => 'container',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'archive_alignment', array(
+		'type' => 'select',
+		'section' => 'archive_settings', // Add a default or your own section
+		'label' => __( 'Archive Alignment' ),
+		'description' => __( 'Choose the way the archive items should be display in.' ),
+		'choices' => array(
+			'contained' => __( 'Contained' ),
+			'full' => __( 'Full' ),
+			'wide' => __( 'Wide' )
+		),
+	) );
+
+	/**
+	 * Base Typography
+	 */
+	$wp_customize->add_setting(
 		'archive_item_display_in',
 		array(
 			'default'           => '',

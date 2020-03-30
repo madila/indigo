@@ -10,23 +10,28 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<?php indigo_post_thumbnail(); ?>
-	<header class="archive-entry-header">
 
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+	<div class="entry-wrapper">
+		<header class="archive-entry-header">
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-			<div class="entry-meta">
-				<?php
-				indigo_posted_on();
-				indigo_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+			<?php if ( 'post' === get_post_type() ) : ?>
+				<div class="entry-meta">
+					<?php
+					indigo_posted_on();
+					indigo_posted_by();
+					?>
+				</div><!-- .entry-meta -->
+			<?php endif; ?>
+		</header><!-- .entry-header -->
+
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+			<a href="<?php the_permalink(); ?>" class="moretag"><?php echo apply_filters('indigo_moretag_text', 'Continue Reading'); ?></a>
+		</div><!-- .entry-summary -->
+	</div>
 
 </article><!-- #post-<?php the_ID(); ?> -->

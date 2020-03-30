@@ -58,6 +58,10 @@
 	}
 
 	@media only screen and ( min-width: $container-default-width ) {
+		.alignfull {
+			width: 100vw !important;
+		}
+
 		.alignwide {
 			@include alignwide;
 		}
@@ -88,3 +92,4 @@
 .w-100 {
 	width: 100%;
 }
+

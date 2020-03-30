@@ -28,7 +28,7 @@ get_header();
 				</header>
 				<?php
             endif; ?>
-			<div class="feed-container">
+			<div class="<?php indigo_conditional_class('archive_alignment', 'align', 'feed-container', true); ?>">
 		<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
