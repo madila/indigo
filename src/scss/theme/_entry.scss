@@ -35,6 +35,10 @@
 			}
 		}
 		.indigo-archive-cover & {
+			min-height: 400px;
+			background-color: rgba(0,0,0,0.1);
+			margin-bottom: 0;
+			border: 1px solid var(--base-bg-color);
 			.entry-title {
 				margin-top: 0;
 				margin-bottom: .15em;
