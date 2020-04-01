@@ -31,7 +31,7 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'indigo-archive-'.get_theme_mod('archive_item_display_in');
 		$classes[] = 'indigo-archive-'.get_theme_mod('archive_item_display_as');
 		$archive_columns = get_theme_mod('indigo_archive_columns');
-		if($archive_columns > 1) {
+		if($archive_columns > 0) {
 			$classes[] = 'indigo-archive-cols-'.$archive_columns;
 
 		}

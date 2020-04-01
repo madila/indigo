@@ -23,6 +23,15 @@ get_header();
 			</header><!-- .page-header -->
 
 			<?php
+			$archive_content = get_page_content_for_archive();
+			if($archive_content) :?>
+				<div class="entry-content">
+					<?php echo apply_filters('the_content', $archive_content->post_content); ?>
+				</div>
+			<?php endif; ?>
+			<div class="<?php indigo_conditional_class('archive_alignment', 'align', 'feed-container', true); ?>">
+
+			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -32,7 +41,7 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				get_template_part( 'template-parts/content', is_single() ? get_post_type() : 'search' );
 
 			endwhile;
 
@@ -44,7 +53,7 @@ get_header();
 
 		endif;
 		?>
-
+			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
