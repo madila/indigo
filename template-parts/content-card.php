@@ -18,16 +18,22 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php
-		the_content();
+	<?php if(is_single()) : ?>
+		<div class="entry-content">
+			<?php
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'indigo' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'indigo' ),
+				'after'  => '</div>',
+			) );
+			?>
+		</div><!-- .entry-content -->
+	<?php else : ?>
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+			<a href="<?php the_permalink(); ?>" class="moretag"><?php echo apply_filters('indigo_moretag_text', 'Continue Reading'); ?></a>
+		</div><!-- .entry-summary -->
+	<?php endif; ?>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">

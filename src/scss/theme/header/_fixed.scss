@@ -1,6 +1,7 @@
 .has-fixed-header.indigo-calculate-header {
 	#masthead {
-		height: var(--header-height, auto);
+		height: var(--initial-header-height, auto);
+		transition: 300ms linear;
 	}
 }
 
