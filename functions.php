@@ -237,7 +237,7 @@ function indigo_scripts() {
 
 	wp_localize_script('indigo-script', 'indigo', array(
 		'assets_url' => get_template_directory_uri().'/js/',
-		'scrolling_offset' => apply_filters('indigo_scrolling_offset', 180)
+		'scrolling_offset' => apply_filters('indigo_scrolling_offset', 60)
 	));
 
 	if( is_post_type_archive('jetpack-portfolio') ) {
