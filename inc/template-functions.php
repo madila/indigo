@@ -12,10 +12,6 @@
  * @return array
  */
 function indigo_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
-	}
 
 	if(intval(get_theme_mod('header_bg_on_scroll'))) {
 		$classes[] = 'header-scroll-bg';
