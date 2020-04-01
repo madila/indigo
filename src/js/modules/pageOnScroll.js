@@ -73,9 +73,7 @@ class pageOnScroll {
 	};
 
 	bodyScrolled = (windowScrolled) => {
-		console.log(windowScrolled);
-		let {reCalculateHeader} = this,
-			doc = document.documentElement,
+			let doc = document.documentElement,
 			_windowHeight = window.innerHeight,
 			_scrolling_threshold = ('indigo' in window) ? window.indigo.scrolling_offset : 19,
 			_threshold = _windowHeight,
