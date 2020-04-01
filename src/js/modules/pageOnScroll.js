@@ -73,35 +73,33 @@ class pageOnScroll {
 	};
 
 	bodyScrolled = (windowScrolled) => {
-		let doc = document.documentElement,
-			scrolled = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0),
+		console.log(windowScrolled);
+		let {reCalculateHeader} = this,
+			doc = document.documentElement,
 			_windowHeight = window.innerHeight,
-			_threshold = _windowHeight * 0.85,
+			_scrolling_threshold = ('indigo' in window) ? window.indigo.scrolling_offset : 19,
+			_threshold = _windowHeight,
 			header = 50;
 
 		if(this.fixedBrandingWrapper ) {
 			header = this.fixedBrandingWrapper.offsetHeight;
 		}
 
-		if (scrolled > 19 && scrolled < _threshold) {
-			//console.log('after scroll, before threshold', scrolled, windowScrolled);
+		if(windowScrolled > _scrolling_threshold && windowScrolled < _threshold) {
 			doc.classList.add('scrolling');
 			if(doc.classList.contains('scrolled')) {
 				doc.classList.remove('scrolled');
 			}
-			//console.log((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
 		}
 
-		if (scrolled >= (_threshold + header)) {
-			//console.log('after threshold', scrolled, windowScrolled);
+		if(windowScrolled >= (_threshold + header)) {
 			if(doc.classList.contains('scrolling')) {
 				doc.classList.remove('scrolling');
 			}
 			doc.classList.add('scrolled');
-			//console.log((window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0));
 		}
 
-		if(scrolled < 20) {
+		if(windowScrolled <= _scrolling_threshold) {
 			if(doc.classList.contains('scrolling')) {
 				doc.classList.remove('scrolling');
 			}
@@ -121,6 +119,14 @@ class pageOnScroll {
 		}
 	};
 
+	initialHeaderHeight = () => {
+		let self = this;
+		if(self.fixedBrandingWrapper ) {
+			let newHeight = self.fixedBrandingWrapper.offsetHeight+'px';
+			document.documentElement.style.setProperty('--initial-header-height', newHeight);
+		}
+	};
+
 
 	getCSSVar(property) {
 		return getComputedStyle(document.documentElement)
@@ -133,7 +139,7 @@ class pageOnScroll {
 
 	constructor() {
 		let docEle = document.documentElement;
-		let {headerScrollBg, reCalculateHeader, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
+		let {headerScrollBg, reCalculateHeader, initialHeaderHeight, bodyScrolled, hexToRgb, getCSSVar, getPosition} = this;
 		this.archiveTitle = document.querySelector('.archive-title');
 		this.fixedHeader = document.querySelector('.has-fixed-header');
 		//this.fixedBrandingWrapper = document.querySelector('.has-fixed-header.indigo-calculate-header .site-header-wrapping');
@@ -172,19 +178,21 @@ class pageOnScroll {
 		});
 
 		if(this.fixedBrandingWrapper || this.headerOverlaysContent) {
-			reCalculateHeader();
 
 			window.addEventListener("load", function() {
 				reCalculateHeader();
+				initialHeaderHeight();
 			});
 
 			let logo = document.querySelector('.custom-logo');
 			if(logo) {
 				logo.addEventListener('load', function() {
 					reCalculateHeader();
+					initialHeaderHeight();
 				});
 			}
-			window.addEventListener('resize', debounce(reCalculateHeader, 100));
+			window.addEventListener('resize', debounce(reCalculateHeader, 10));
+			window.addEventListener('resize', debounce(initialHeaderHeight, 100));
 			window.addEventListener('indigoCustomizerUpdate', reCalculateHeader);
 
 			const transition = document.querySelector('.custom-logo-link');
