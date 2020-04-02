@@ -18,9 +18,6 @@
 		padding-left: var(--content-gutter-x, $grid-gutter-width);
 		padding-right: var(--content-gutter-x, $grid-gutter-width);
 	}
-	.custom-logo-link {
-		max-height: 150px;
-	}
 	&-content-wrapper {
 		transition: opacity 400ms linear;
 		.site-loading &, .css-loading & {

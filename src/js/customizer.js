@@ -35,8 +35,8 @@
 	// Logo Max Width
 	wp.customize( 'logo_width', function( value ) {
 		value.bind( function( to ) {
-			console.log(to);
-			$( '.custom-logo-link' ).css( {'max-width': to+'px'} );
+			document.documentElement.style
+				.setProperty('--logo-width', to+'px');
 		} );
 	} );
 

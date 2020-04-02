@@ -142,15 +142,6 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 		// If we get this far, we have custom styles. Let's do this.
 		?>
 		<style type="text/css" id="indigo-header-css">
-			<?php
-
-			// Custom Logo Width
-			if(has_custom_logo() && get_theme_mod('logo_width')) { ?>
-				.custom-logo-link {
-					max-width: <?php echo get_theme_mod('logo_width').'px'; ?>;
-				}
-			<?php }
-			?>
 
 			:root {
 				<?php
