@@ -67,10 +67,8 @@ $colours: (
 	grey-light: #999999,
 	off-white: #f6f7f9,
 	white: #ffffff,
-	primary: #67c0c1,
-	primary-dark: darken(#67c0c1, 15%),
-	secondary: #8164a6,
-	secondary-dark: darken(#8164a6, 15%),
+	primary: var(--primary-color),
+	secondary: var(--secondary-color),
 	facebook: #3b5997,
 	twitter: #0084b4
 ) !default;

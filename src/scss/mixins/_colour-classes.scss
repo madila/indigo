@@ -3,7 +3,7 @@
   vertical-align: baseline;
   font-style: normal;
   text-decoration: none;
-  font-family: $font-family-base;
+  font-family: var(--headings-font-family, sans-serif);
   min-height: 1em;
   user-select: none;
   line-height: $input-line-height;
@@ -21,8 +21,6 @@
   @if ($colour != false) {
     color: $colour !important;
     border-color: darken($default-border-colour, 10%) !important;
-  } @else {
-    color: check-color($colour-hex) !important;
   }
   &:hover {
     @if ($bg-hover != false) {
@@ -32,8 +30,6 @@
     }
     @if ($colour-hover != false) {
       color: $colour-hover !important;
-    } @else {
-      color: check-color($colour-hex) !important;
     }
   }
   &:active, &:focus {
@@ -44,8 +40,6 @@
     }
     @if ($colour-hover != false) {
       color: $colour-hover !important;
-    } @else {
-      color: check-color($colour-hex) !important;
     }
   }
 }
@@ -67,12 +61,10 @@
   &:hover {
     background-color: $colour-hex !important;
     border-color: $default-border-colour !important;
-    color: check-color($colour-hex) !important;
   }
   &:focus, &:active {
     background-color: darken($colour-hex, 10%) !important;
     border-color: darken($default-border-colour, 10%) !important;
-    color: check-color($colour-hex) !important;
   }
 }
 
@@ -91,8 +83,4 @@
 
 @mixin background-class($colour-hex) {
   background-color: $colour-hex !important;
-  color: check-color($colour-hex);
-  &, & a {
-    color: check-color($colour-hex);
-  }
 }
