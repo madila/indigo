@@ -235,18 +235,19 @@ function indigo_scripts() {
 		wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
 	}
 
-	wp_localize_script('indigo-script', 'indigo', array(
+	wp_localize_script('indigo-script', 'indigo', apply_filters('indigo_js_global', array(
 		'assets_url' => get_template_directory_uri().'/js/',
+		'fullPageLicense' => get_theme_mod('full_page_license'),
 		'scrolling_offset' => apply_filters('indigo_scrolling_offset', 60)
-	));
+	)));
 
-	if( is_post_type_archive('jetpack-portfolio') ) {
+	//if( is_post_type_archive('jetpack-portfolio') ) {
 
-		wp_enqueue_style( 'fullpage-style', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', array(), get_indigo_version() );
-		wp_enqueue_script( 'fullpage-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', array(), get_indigo_version(), true );
-		wp_enqueue_script( 'fullpage-overflow-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/vendors/scrolloverflow.min.js', array('fullpage-script'), get_indigo_version(), true );
+		//wp_enqueue_style( 'fullpage-style', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.css', array(), get_indigo_version() );
+		//wp_enqueue_script( 'fullpage-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.min.js', array(), get_indigo_version(), true );
+		//wp_enqueue_script( 'fullpage-overflow-script', 'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/vendors/scrolloverflow.min.js', array('fullpage-script'), get_indigo_version(), true );
 
-	}
+	//}
 
 	wp_enqueue_script( 'indigo-script' );
 

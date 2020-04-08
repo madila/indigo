@@ -52,11 +52,11 @@
 		@include alignfull;
 	}
 
-	@media only screen and ( min-width: $container-default-width ) {
-		.alignfull {
-			width: 100vw !important;
-		}
+	.alignfull {
+		width: 100vw !important;
+	}
 
+	@media only screen and ( min-width: $container-default-width ) {
 		.alignwide {
 			@include alignwide;
 		}

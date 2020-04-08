@@ -20,6 +20,12 @@
 				display: block;
 				font-size: .85em;
 				padding-top: 0;
+				margin-bottom: .5rem;
+				padding-bottom: .5rem !important;
+				border-bottom-color:transparent;
+				&:hover {
+					border-bottom-color: #eee;
+				}
 			}
 		}
 	}
