@@ -68,6 +68,12 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			'editor-font-sizes',
 			array(
 				array(
+					'name'      => __( 'Small', 'indigo' ),
+					'shortName' => __( 'S', 'indigo' ),
+					'size'      => $font_size * 0.85,
+					'slug'      => 'small'
+				),
+				array(
 					'name'      => __( 'Normal', 'indigo' ),
 					'shortName' => __( 'N', 'indigo' ),
 					'size'      => $font_size,

@@ -45,7 +45,7 @@
 	</small><!-- .site-info -->
 </footer><!-- #colophon -->
 </div><!-- #page -->
-
+<?php get_sidebar('modal'); ?>
 <?php wp_footer(); ?>
 
 </body>
