@@ -19,8 +19,6 @@
 
 	menu = container.getElementsByTagName( 'ul' )[0];
 
-	console.log(menu);
-
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
 		button.style.display = 'none';
@@ -57,11 +55,17 @@
 	 * Sets or removes .focus class on an element.
 	 */
 	function toggleFocus(e) {
-		e.preventDefault();
 		let self = this;
+
+		if(self.tagName.toLowerCase() !== 'a') {
+			e.preventDefault();
+		} else {
+			return false;
+		}
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				if ( -1 !== self.className.indexOf( 'focus' ) ) {
