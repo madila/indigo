@@ -7,16 +7,17 @@ import debounce from "lodash/debounce";
  * navigation support for dropdown menus.
  */
 ( function() {
-	let container, button, menu, links, i, len;
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
+	let container, button, menu, submenu, links, i, len;
 
 	button = document.querySelector( '.menu-toggle' );
 
-	if ( 'undefined' === typeof button ) {
+	if ( 'undefined' === typeof button || 'undefined' === button.dataset.target ) {
+		return;
+	}
+
+	container = document.getElementById(button.dataset.target);
+	if ( ! container ) {
 		return;
 	}
 
@@ -119,4 +120,38 @@ import debounce from "lodash/debounce";
 			}
 		}
 	}( container ) );
+
+
+} )();
+
+
+/**
+ *
+ * Handles the first click on mobile for dropdowns.
+ */
+( function() {
+
+	let currentMenu, menuTrigger, menuItems, i, len;
+
+	menuItems = document.querySelectorAll( '.menu-item-has-children' );
+
+	console.log(menuItems);
+
+	if ( menuItems.length === 0 ) {
+		return;
+	}
+
+	for ( i = 0, len = menuItems.length; i < len; i++ ) {
+		let currentMenu, menuTrigger;
+
+		currentMenu = menuItems[i];
+		console.log(currentMenu);
+
+		 console.log(typeof currentMenu.children[0]);
+
+		 if(currentMenu.children[0].tagName !== 'a' || 'undefined' === currentMenu.children[0].href) {
+		 	return;
+		 }
+	}
+
 } )();

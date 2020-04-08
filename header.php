@@ -47,7 +47,7 @@
 					<?php endif; ?>
 
 					<?php if (has_nav_menu('site-navigation')) : ?>
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+						<button class="menu-toggle" data-target="site-navigation" aria-controls="primary-menu" aria-expanded="false">
 							<span></span>
 							<span class="screen-reader-text"><?php esc_html_e('Primary Menu', 'indigo'); ?></span>
 						</button>
