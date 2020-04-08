@@ -74,6 +74,13 @@
 #tertiary {
 	.widget-area {
 		display: flex;
+		flex-wrap: wrap;
+		.widget {
+			min-width: 33%;
+			max-width: 100%;
+			flex-basis: auto; /* default value */
+			flex-grow: 1;
+		}
 		> div, > section, > aside {
 			flex: 1;
 		}
