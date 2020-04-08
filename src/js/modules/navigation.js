@@ -31,7 +31,7 @@
 	}
 
 	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+		if ( -1 !== container.parentNode.className.indexOf( 'menu-toggled' ) ) {
 			container.parentNode.className = container.parentNode.className.replace( ' menu-toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
