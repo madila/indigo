@@ -1,5 +1,3 @@
-import debounce from "lodash/debounce";
-
 /**
  * File navigation.js.
  *
@@ -7,21 +5,21 @@ import debounce from "lodash/debounce";
  * navigation support for dropdown menus.
  */
 ( function() {
+	let container, button, menu, links, i, len;
 
-	let container, button, menu, submenu, links, i, len;
-
-	button = document.querySelector( '.menu-toggle' );
-
-	if ( 'undefined' === typeof button || 'undefined' === button.dataset.target ) {
-		return;
-	}
-
-	container = document.getElementById(button.dataset.target);
+	container = document.querySelector( '.main-navigation' );
 	if ( ! container ) {
 		return;
 	}
 
+	button = document.querySelectorAll( '.menu-toggle' )[0];
+	if ( 'undefined' === typeof button ) {
+		return;
+	}
+
 	menu = container.getElementsByTagName( 'ul' )[0];
+
+	console.log(menu);
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -34,26 +32,13 @@ import debounce from "lodash/debounce";
 		menu.className += ' nav-menu';
 	}
 
-	window.addEventListener('resize', debounce(function() {
-		if(window.innerWidth < 768) return;
-
-		let body = document.body;
-		if(-1!== body.className.indexOf('toggled')) {
-			body.className = body.className.replace(' menu-toggled', '');
-			button.setAttribute('aria-expanded', 'false');
-			menu.setAttribute('aria-expanded', 'false');
-		}
-
-	}, 100));
-
 	button.onclick = function() {
-		let body = document.body;
-		if ( -1 !== body.className.indexOf( 'toggled' ) ) {
-			body.className = body.className.replace( ' menu-toggled', '' );
+		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+			container.parentNode.className = container.parentNode.className.replace( ' menu-toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
-			body.className += ' menu-toggled';
+			container.parentNode.className += ' menu-toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
@@ -71,12 +56,12 @@ import debounce from "lodash/debounce";
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	function toggleFocus() {
+	function toggleFocus(e) {
+		e.preventDefault();
 		let self = this;
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
 				if ( -1 !== self.className.indexOf( 'focus' ) ) {
@@ -93,15 +78,15 @@ import debounce from "lodash/debounce";
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
-	( function( container ) {
-		let touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+	( function() {
+		let clickEvent = 'touchstart',
+			touchStartFn,
+			parentLink = document.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
 
-		if ( 'ontouchstart' in window ) {
+		if('ontouchstart' in window ) {
 			touchStartFn = function( e ) {
-				let menuItem = this.parentNode, i;
-
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
+				let menuItem = this.parentNode; // li.menu-item-has-children
+				if (!menuItem.classList.contains( 'focus' ) ) {
 					e.preventDefault();
 					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
 						if ( menuItem === menuItem.parentNode.children[i] ) {
@@ -120,38 +105,4 @@ import debounce from "lodash/debounce";
 			}
 		}
 	}( container ) );
-
-
-} )();
-
-
-/**
- *
- * Handles the first click on mobile for dropdowns.
- */
-( function() {
-
-	let currentMenu, menuTrigger, menuItems, i, len;
-
-	menuItems = document.querySelectorAll( '.menu-item-has-children' );
-
-	console.log(menuItems);
-
-	if ( menuItems.length === 0 ) {
-		return;
-	}
-
-	for ( i = 0, len = menuItems.length; i < len; i++ ) {
-		let currentMenu, menuTrigger;
-
-		currentMenu = menuItems[i];
-		console.log(currentMenu);
-
-		 console.log(typeof currentMenu.children[0]);
-
-		 if(currentMenu.children[0].tagName !== 'a' || 'undefined' === currentMenu.children[0].href) {
-		 	return;
-		 }
-	}
-
-} )();
+}() );
