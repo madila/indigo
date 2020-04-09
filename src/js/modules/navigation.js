@@ -31,12 +31,12 @@
 	}
 
 	button.onclick = function() {
-		if ( -1 !== container.parentNode.className.indexOf( 'menu-toggled' ) ) {
-			container.parentNode.className = container.parentNode.className.replace( ' menu-toggled', '' );
+		if ( -1 !== document.body.className.indexOf( 'menu-toggled' ) ) {
+			document.body.className = document.body.className.replace( ' menu-toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
-			container.parentNode.className += ' menu-toggled';
+			document.body.className += ' menu-toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
