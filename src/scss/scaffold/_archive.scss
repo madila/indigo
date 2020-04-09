@@ -6,3 +6,10 @@
 		padding-top: 1px;
 	}
 }
+
+
+.archive-description {
+	p {
+		@extend .has-medium-font-size;
+	}
+}

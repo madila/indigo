@@ -8,15 +8,18 @@ if(typeof DOMTokenList !== "function" || (!window.requestAnimationFrame) || !('C
 		)
 }
 
-
-window.addEventListener('load', function() {
-	let main = document.querySelector('.page-content');
-	if(main && main.hasChildNodes()) {
-		let firstChild = main.childNodes[0];
-		console.log(firstChild);
-
+document.addEventListener('DOMContentLoaded', function() {
+	let fullPageElement = document.querySelector('.full-page-container');
+	console.log(fullPageElement);
+	if(fullPageElement && 'fullPageLicense' in window.indigo) {
+		import(
+			/* webpackChunkName: "indigo-fullpage" */
+			'./modules/fullPageInit'
+			);
 	}
+
 });
+
 
 import "./modules/navigation";
 import "./modules/pageOnScroll";

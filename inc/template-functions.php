@@ -187,3 +187,38 @@ function indigo_new_excerpt_more($more) {
 	return '...';
 }
 add_filter('excerpt_more', 'indigo_new_excerpt_more');
+
+
+function indigo_remove_tax_name($title, $sep, $seplocation)
+{
+	if (is_tax()) {
+		$term_title = single_term_title('', false);
+
+		// Determines position of separator
+		if ('right' == $seplocation) {
+			$title = $term_title . " $sep ";
+		} else {
+			$title = " $sep " . $term_title;
+		}
+	}
+
+	return $title;
+}
+add_filter( 'wp_title', 'indigo_remove_tax_name', 10, 3 );
+
+
+add_filter( 'get_the_archive_title', 'indigo_archive_title');
+function indigo_archive_title($title) {
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+		} elseif ( is_tax() ) { //for custom post types
+			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+		} elseif (is_post_type_archive()) {
+			$title = post_type_archive_title( '', false );
+		}
+		return $title;
+}

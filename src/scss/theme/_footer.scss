@@ -18,8 +18,15 @@
 			padding-left: 0;
 			a {
 				display: block;
-				font-size: .85em;
-				padding-top: 0;
+				font-size: 1em;
+				margin-bottom: .5rem;
+				padding-bottom: .5rem !important;
+				border-bottom-color: transparent;
+				padding-top: .5rem;
+				font-weight: 300;
+				&:hover {
+					border-bottom-color: #eee;
+				}
 			}
 		}
 	}

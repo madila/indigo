@@ -333,6 +333,26 @@ function indigo_customize_register( $wp_customize ) {
 	);
 
 	/**
+	 * Full Page License
+	 */
+	$wp_customize->add_setting(
+		'full_page_license',
+		array(
+			'default'           => '',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control( 'full_page_license', array(
+		'type' => 'text',
+		'section' => 'title_tagline', // Add a default or your own section
+		'label' => __( 'Full Page License' ),
+		'description' => __( 'This will activate the full page option on some layouts.' ),
+	) );
+
+
+	/**
 	 * Base Typography
 	 */
 	$wp_customize->add_setting(

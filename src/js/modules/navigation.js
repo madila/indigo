@@ -1,5 +1,3 @@
-import debounce from "lodash/debounce";
-
 /**
  * File navigation.js.
  *
@@ -9,13 +7,12 @@ import debounce from "lodash/debounce";
 ( function() {
 	let container, button, menu, links, i, len;
 
-	container = document.getElementById( 'site-navigation' );
+	container = document.querySelector( '.main-navigation' );
 	if ( ! container ) {
 		return;
 	}
 
-	button = document.querySelector( '.menu-toggle' );
-
+	button = document.querySelectorAll( '.menu-toggle' )[0];
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
@@ -33,26 +30,13 @@ import debounce from "lodash/debounce";
 		menu.className += ' nav-menu';
 	}
 
-	window.addEventListener('resize', debounce(function() {
-		if(window.innerWidth < 768) return;
-
-		let body = document.body;
-		if(-1!== body.className.indexOf('toggled')) {
-			body.className = body.className.replace(' menu-toggled', '');
-			button.setAttribute('aria-expanded', 'false');
-			menu.setAttribute('aria-expanded', 'false');
-		}
-
-	}, 100));
-
 	button.onclick = function() {
-		let body = document.body;
-		if ( -1 !== body.className.indexOf( 'toggled' ) ) {
-			body.className = body.className.replace( ' menu-toggled', '' );
+		if ( -1 !== document.body.className.indexOf( 'menu-toggled' ) ) {
+			document.body.className = document.body.className.replace( ' menu-toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
-			body.className += ' menu-toggled';
+			document.body.className += ' menu-toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
@@ -70,8 +54,14 @@ import debounce from "lodash/debounce";
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	function toggleFocus() {
+	function toggleFocus(e) {
 		let self = this;
+
+		if(self.tagName.toLowerCase() !== 'a') {
+			e.preventDefault();
+		} else {
+			return false;
+		}
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
@@ -92,15 +82,15 @@ import debounce from "lodash/debounce";
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
-	( function( container ) {
-		let touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+	( function() {
+		let clickEvent = 'touchstart',
+			touchStartFn,
+			parentLink = document.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
 
-		if ( 'ontouchstart' in window ) {
+		if('ontouchstart' in window ) {
 			touchStartFn = function( e ) {
-				let menuItem = this.parentNode, i;
-
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
+				let menuItem = this.parentNode; // li.menu-item-has-children
+				if (!menuItem.classList.contains( 'focus' ) ) {
 					e.preventDefault();
 					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
 						if ( menuItem === menuItem.parentNode.children[i] ) {
@@ -119,4 +109,4 @@ import debounce from "lodash/debounce";
 			}
 		}
 	}( container ) );
-} )();
+}() );
