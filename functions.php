@@ -290,12 +290,6 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Filters to modify the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-filters.php';
-
-
-/**
  * Oembed functions.
  */
 require get_template_directory() . '/inc/oembed.php';
