@@ -79,10 +79,6 @@
 						a {
 							padding: 1.5rem 0;
 							text-align: center;
-
-							&:hover {
-								background-color: rgba(0, 0, 0, 0.055);
-							}
 						}
 					}
 				}
@@ -95,6 +91,7 @@
 
 .menu {
 	&-container {
+		transition: padding 400ms ease-in-out;
 		display: flex;
 		flex: 1;
 		overflow: visible;
