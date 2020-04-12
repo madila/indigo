@@ -222,3 +222,18 @@ function indigo_archive_title($title) {
 		}
 		return $title;
 }
+
+
+function get_page_content_for_archive() {
+	$page = false;
+	$post_type = get_post_type();
+	if ( $post_type )
+	{
+		$post_type_data = get_post_type_object( $post_type );
+		if(property_exists($post_type_data, 'has_archive') && $post_type_data->has_archive) {
+			$post_type_slug = $post_type_data->has_archive;
+			$page = get_page_by_path( $post_type_slug );
+		}
+	}
+	return $page;
+}
