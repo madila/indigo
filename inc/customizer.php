@@ -393,14 +393,14 @@ function indigo_customize_register( $wp_customize ) {
 	/**
 	 * Font Weight
 	 */
-	$wp_customize->add_setting( 'nav_font_weight', array(
+	$wp_customize->add_setting( 'base_font_weight', array(
 		'capability' => 'edit_theme_options',
 		'transport'         => 'postMessage',
 		'sanitize_callback' => 'indigo_sanitize_select',
 		'default' => '300',
 	) );
 
-	$wp_customize->add_control( 'nav_font_weight', array(
+	$wp_customize->add_control( 'base_font_weight', array(
 		'type' => 'select',
 		'section' => 'typography', // Add a default or your own section
 		'label' => __( 'Default Nav Font Weight' ),
