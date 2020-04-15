@@ -1,18 +1,23 @@
-.menu-item {
+li.menu-item {
 	a {
 		vertical-align: middle;
 		display: inline;
+		cursor: pointer;
+		color: #444;
+		font-family: var(--nav-font-family) sans-serif !important;
 	}
 	&.menu-item-has-children {
 		&:hover, &:focus-within {
 			.sub-menu {
+				max-height: 9999px;
 				overflow: visible;
+				opacity: 1;
+				transform: none;
 				li {
 					background-color: var(--header-bg-color);
 					z-index: 40;
 					a {
 						display: block;
-						font-family: var(--nav-font-family);
 					}
 				}
 			}
@@ -22,11 +27,14 @@
 		list-style: none;
 		padding-left: 0;
 		z-index: 300;
+		transform: translateY(5px);
+		transition: all 200ms linear;
 		.menu-collapse & {
 			@include media-breakpoint-up(lg) {
 				max-height: 0;
 				overflow: hidden;
 				position: absolute;
+				opacity: 0;
 				li {
 					position: relative;
 					z-index: 10;
