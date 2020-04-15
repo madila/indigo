@@ -27,10 +27,22 @@ function indigo_customize_register( $wp_customize ) {
 	 * Site Info
 	 */
 
+	$wp_customize->add_setting( 'indigo_header_info', array(
+		'capability' => 'edit_theme_options',
+		'default' => '',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'indigo_header_info', array(
+		'type' => 'textarea',
+		'section' => 'title_tagline',
+		'label' => __( 'Additional Header Information' ),
+	) );
+
 	$wp_customize->add_setting( 'indigo_site_info', array(
 		'capability' => 'edit_theme_options',
 		'default' => 'All rights reserved unless otherwise stated.',
-		'sanitize_callback' => 'sanitize_textarea_field',
+		'sanitize_callback' => 'wp_kses_post',
 	) );
 
 	$wp_customize->add_control( 'indigo_site_info', array(
