@@ -136,3 +136,12 @@ function indigo_child_color_palette($palette)
 }
 
 add_filter('indigo_color_palette', 'indigo_child_color_palette');
+
+/**
+ * Enqueue block editor style
+ */
+function indigo_child_block_editor_styles() {
+	wp_enqueue_style( 'indigo-child-block-editor-styles', get_stylesheet_directory_uri().'/block-editor-style.css', false, '1.0', 'screen' );
+}
+add_action( 'enqueue_block_editor_assets', 'indigo_child_block_editor_styles' );
+

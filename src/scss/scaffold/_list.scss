@@ -9,6 +9,10 @@ ul, ol {
   padding-left: 1.55em;
 }
 
+li {
+	line-height: var(--base-line-height, 1rem);
+}
+
 ol ol,
 ul ul,
 ol ul,

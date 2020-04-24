@@ -16,8 +16,7 @@ strong, b {
 // bottom margin to use `rem` units instead of `em`.
 p {
 	margin-top: 0;
-	margin-bottom: $spacer * 0.7;
-
+	margin-bottom: var(--content-gutter-y, $spacer * 0.7);
 }
 
 //
