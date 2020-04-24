@@ -200,9 +200,9 @@ function indigo_customize_register( $wp_customize ) {
 		'label' => __( 'Logo Size' ),
 		'description' => __( 'The maximum width of the logo.' ),
 		'input_attrs' => array(
-			'min' => 60,
+			'min' => 30,
 			'max' => 1000,
-			'step' => 10,
+			'step' => 5,
 			'suffix' => 'px'
 		),
 	) ));
@@ -401,6 +401,31 @@ function indigo_customize_register( $wp_customize ) {
 		'label' => __( 'Base Navigation Family' ),
 		'description' => __( 'Add the css slug of the default font family you want to use, eg. Helvetica.' ),
 	) );
+
+
+	/**
+	 * Font Size
+	 */
+	$wp_customize->add_setting(
+		'nav_font_size',
+		array(
+			'default'           => get_theme_mod('nav_font_size', 14),
+			'transport'         => 'postMessage'
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'nav_font_size', array(
+		'type' => 'range-value',
+		'section' => 'typography',
+		'label' => __( 'Nav Font Size' ),
+		'description' => __( 'Define the default font size of the navigation.' ),
+		'input_attrs' => array(
+			'min' => 12,
+			'max' => 25,
+			'step' => 1,
+			'suffix' => 'px'
+		),
+	)) );
 
 	/**
 	 * Font Weight

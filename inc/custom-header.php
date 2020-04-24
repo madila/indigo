@@ -57,6 +57,8 @@ function get_theme_mod_defaults() {
 		'bold_font_weight' => '600',
 		'base_line_height' => '1.3em',
 		'headings_font_weight' => '600',
+		'nav_font_weight' => '500',
+
 		'indigo_sidebar_alignment' => 'bottom',
 		'indigo_content_gutter_x' => '1rem',
 		'indigo_content_gutter_y' => '1rem',
@@ -170,6 +172,9 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 				<?php indigo_set_color_mod_css_var('header_textcolor', 'header-text-color'); ?>
 				<?php indigo_set_font_family_mod_css_var('base_font_family', 'base-font-family'); ?>
 				<?php indigo_set_font_family_mod_css_var('nav_font_family', 'nav-font-family'); ?>
+				<?php indigo_set_theme_mod_css_var('nav_font_weight', 'nav-font-weight'); ?>
+				<?php indigo_set_unit_css_var('px', 'nav_font_size', 'nav-font-size'); ?>
+
 				<?php indigo_set_unit_css_var('px', 'base_font_size', 'base-font-size'); ?>
 				<?php indigo_set_unit_css_var('px', 'mobile_font_size', 'mobile-font-size'); ?>
 				<?php indigo_set_font_family_mod_css_var('headings_font_family', 'headings-font-family'); ?>

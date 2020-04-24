@@ -5,6 +5,7 @@ li.menu-item {
 		cursor: pointer;
 		color: #444;
 		font-family: var(--nav-font-family) sans-serif !important;
+		font-weight: var(--nav-font-weight, 300);
 	}
 	&.menu-item-has-children {
 		&:hover, &:focus-within {
