@@ -1,14 +1,29 @@
 import fullpage from 'fullpage.js';
 
-console.log('loading fullpage...');
 
 let fullPageElement = document.querySelector('.full-page-container');
 if(fullPageElement && 'fullPageLicense' in window.indigo) {
-	console.log('passed test fullpage...');
-	new fullpage(fullPageElement, {
+
+	let fullPageConfig = {
 		licenseKey: window.indigo.fullPageLicense,
 		sectionSelector: '.wp-block-ampersand-panel-block',
 		autoScrolling:false
-	});
+	};
+	let childConfig = window.fullPageOptions || {};
+
+	console.log(childConfig);
+
+	const options = Object.assign(fullPageConfig, childConfig);
+
+	console.log(options);
+
+
+	let event = new Event('fullpage_init');
+
+	// Dispatch the event.
+	document.dispatchEvent(event);
+
+	new fullpage(fullPageElement, options);
+
 }
 
