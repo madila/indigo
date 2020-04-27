@@ -1,5 +1,5 @@
 import fullpage from 'fullpage.js';
-
+import scrollOverflow from 'fullpage.js/vendors/scrolloverflow';
 
 let fullPageElement = document.querySelector('.full-page-container');
 if(fullPageElement && 'fullPageLicense' in window.indigo) {
@@ -7,7 +7,6 @@ if(fullPageElement && 'fullPageLicense' in window.indigo) {
 	let fullPageConfig = {
 		licenseKey: window.indigo.fullPageLicense,
 		sectionSelector: '.wp-block-ampersand-panel-block',
-		autoScrolling:false
 	};
 	let childConfig = window.fullPageOptions || {};
 
