@@ -89,7 +89,7 @@ blockquote {
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 	margin-top: $headings-margin-top;
-	margin-bottom: $headings-margin-bottom;
+	margin-bottom: var(--content-gutter-y, $spacer * 0.7);
 	font-family: var(--headings-font-family, $headings-font-family);
 	font-weight: var(--headings-font-weight, $headings-font-weight);
 	line-height: var(--headings-line-height, $line-height-base);

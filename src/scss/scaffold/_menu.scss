@@ -3,8 +3,7 @@ li.menu-item {
 		vertical-align: middle;
 		display: inline;
 		cursor: pointer;
-		color: #444;
-		font-family: var(--nav-font-family) sans-serif !important;
+		font-family: var(--nav-font-family) var(--headings-font-family) serif !important;
 		font-weight: var(--nav-font-weight, 300);
 	}
 	&.menu-item-has-children {

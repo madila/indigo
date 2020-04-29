@@ -389,7 +389,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'nav_font_family',
 		array(
-			'default'           => 'var(--headings-font-family, sans-serif)',
+			'default'           => '',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field'
 		)

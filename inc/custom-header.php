@@ -40,7 +40,7 @@ function get_theme_mod_defaults() {
 		'header_bg_color' => '#555',
 		'header_textcolor' => '#ffffff',
 		'indigo_header_alignment' => 'center',
-
+		'nav_font_family' => 'var(--headings-font-family)',
 
 		'primary_color' => '#454545',
 		'primary_text_color' => '#ffffff',
@@ -71,7 +71,7 @@ function get_theme_mod_defaults() {
 
 function get_theme_mod_default($key) {
 	$defaults = get_theme_mod_defaults();
-	return (array_key_exists($key, $defaults)) ? get_theme_mod($key, $defaults[$key]) : false;
+	return (array_key_exists($key, $defaults)) ? get_theme_mod($key, $defaults[$key]) : get_theme_mod($key);
 }
 
 function indigo_set_theme_mod_css_var($option_id, $variable_name = null) {
@@ -110,8 +110,8 @@ function indigo_set_color_mod_css_var($option_id, $variable_name = null) {
 }
 
 function indigo_set_font_family_mod_css_var($option_id, $variable_name = null) {
-	if(get_theme_mod($option_id)) { ?>
-		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo add_default_font_stack(get_theme_mod($option_id)); ?> !important;
+	if(get_theme_mod_default($option_id)) { ?>
+		--<?php echo ($variable_name) ? $variable_name : $option_id; ?>: <?php echo add_default_font_stack(get_theme_mod_default($option_id)); ?> !important;
 	<?php }
 }
 
