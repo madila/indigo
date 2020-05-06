@@ -8,7 +8,16 @@ if(fullPageElement && 'fullPageLicense' in window.indigo) {
 		licenseKey: window.indigo.fullPageLicense,
 		sectionSelector: '.wp-block-ampersand-panel-block',
 	};
-	let childConfig = window.fullPageOptions || {};
+
+	let childConfig = {};
+
+	if('indigo' in window && 'fullPageOptions' in window.indigo) {
+		childConfig = window.indigo.fullPageOptions;
+	}
+
+	if('fullPageOptions' in window) {
+		childConfig = window.fullPageOptions;
+	}
 
 	console.log(childConfig);
 

@@ -82,19 +82,19 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 				array(
 					'name'      => __( 'Medium', 'indigo' ),
 					'shortName' => __( 'M', 'indigo' ),
-					'size'      => $font_size * 1.2,
+					'size'      => $font_size * 1.25,
 					'slug'      => 'medium'
 				),
 				array(
 					'name'      => __( 'Large', 'indigo' ),
 					'shortName' => __( 'L', 'indigo' ),
-					'size'      => $font_size * 1.4,
+					'size'      => $font_size * 1.5,
 					'slug'      => 'large'
 				),
 				array(
 					'name'      => __( 'Huge', 'indigo' ),
 					'shortName' => __( 'H', 'indigo' ),
-					'size'      => $font_size * 1.7,
+					'size'      => $font_size * 1.75,
 					'slug'      => 'huge'
 				)
 			)
@@ -244,9 +244,9 @@ function indigo_scripts() {
 	wp_localize_script('indigo-script', 'indigo', apply_filters('indigo_js_global', array(
 		'assets_url' => get_template_directory_uri().'/js/',
 		'fullPageLicense' => get_theme_mod('full_page_license'),
-		'scrolling_offset' => apply_filters('indigo_scrolling_offset', 60)
+		'scrolling_offset' => apply_filters('indigo_scrolling_offset', 60),
 	)));
-	
+
 
 	wp_enqueue_script( 'indigo-script' );
 
