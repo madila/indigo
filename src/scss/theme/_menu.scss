@@ -114,7 +114,7 @@
 		flex-grow: 1;
 		flex-shrink: 1;
 		flex-basis: auto;
-		&.current_page_item {
+		> &.current_page_item {
 			a {
 				font-weight: 400;
 				border-bottom: 1px solid var(--header-text-color, var(--base-color));

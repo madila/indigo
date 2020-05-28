@@ -16,6 +16,10 @@ $css-vars-use-native: true;
 	max-width: var(--content-width, $container-default-width);
 }
 
+.wp-block[data-align="full"], .wp-block[data-align="wide"] {
+	@include alignfull;
+}
+
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
 	max-width: var(--content-width-wide, $container-default-width+100);
@@ -23,8 +27,15 @@ $css-vars-use-native: true;
 
 /* Width of "full-wide" blocks */
 .wp-block[data-align="full"] {
-	max-width: none;
+	width: 100vw !important;
 }
+
+@media only screen and ( min-width: $container-default-width ) {
+	.alignwide {
+		@include alignwide;
+	}
+}
+
 
 
 html .editor-styles-wrapper {
