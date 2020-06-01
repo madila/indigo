@@ -66,7 +66,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 
 		add_theme_support(
 			'editor-font-sizes',
-			array(
+			apply_filters('indigo_font_sizes', array(
 				array(
 					'name'      => __( 'Small', 'indigo' ),
 					'shortName' => __( 'S', 'indigo' ),
@@ -97,7 +97,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 					'size'      => $font_size * 1.75,
 					'slug'      => 'huge'
 				)
-			)
+			))
 		);
 
 		add_theme_support( 'editor-color-palette',
