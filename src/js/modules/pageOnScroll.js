@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
 });
 
 
-
 class pageOnScroll {
 
 	/**
@@ -46,6 +45,23 @@ class pageOnScroll {
 		}
 		document.documentElement.style.setProperty('--header-text-color', this.headerTextColor);
 	};
+
+	whichTransitionEvent = () => {
+		let t;
+		let el = document.createElement('fakeelement');
+		let transitions = {
+			'transition':'transitionend',
+			'OTransition':'oTransitionEnd',
+			'MozTransition':'transitionend',
+			'WebkitTransition':'webkitTransitionEnd'
+		}
+
+		for(t in transitions){
+			if( el.style[t] !== undefined ){
+				return transitions[t];
+			}
+		}
+	}
 
 
 	headerScrollBg = () => {
@@ -189,6 +205,7 @@ class pageOnScroll {
 					initialHeaderHeight();
 				});
 			}
+
 			window.addEventListener('resize', debounce(reCalculateHeader, 10));
 			window.addEventListener('resize', debounce(initialHeaderHeight, 100));
 			window.addEventListener('indigoCustomizerUpdate', reCalculateHeader);
@@ -196,9 +213,17 @@ class pageOnScroll {
 			const transition = document.querySelector('.custom-logo-link');
 			if(transition) {
 				let self = this;
-				transition.addEventListener('transitionend', () => {
+				transition.addEventListener(self.whichTransitionEvent(), () => {
 					self.reCalculateHeader();
-					window.dispatchEvent(new Event('resize'));
+					let resizeEvent;
+					if(typeof(Event) === 'function') {
+						resizeEvent = new Event('resize');
+					} else{
+						resizeEvent = document.createEvent('resize');
+						resizeEvent.initEvent('resize', true, true);
+					}
+
+					window.dispatchEvent(resizeEvent);
 				});
 			}
 		}
