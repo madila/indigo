@@ -44,7 +44,7 @@
 	}
 	.has-header-contained & {
 		width: var(--content-width, 100%);
-		max-width: 100%;
+		max-width: 100vw;
 	}
 	.custom-logo-link {
 		display: block;
@@ -69,7 +69,7 @@
 			z-index: 300;
 			background: var(--header-bg-color);
 			color: var(--header-text-color, inherit);
-			width: 100%;
+			width: 100vw;
 			display: flex;
 			justify-content: center;
 			flex-wrap: wrap;
