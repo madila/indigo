@@ -40,8 +40,10 @@ class pageOnScroll {
 
 	doHeader = (fade, headerColor) => {
 		const {headerBgElements, headerBgColor, rgb2rgba} = this;
+		headerColor = (headerBgColor === null) ? headerColor : headerBgColor;
+		console.log(headerColor);
 		if (headerBgElements) {
-			headerBgElements.style.backgroundColor = rgb2rgba(headerBgColor.r, headerBgColor.g, headerBgColor.b, fade);
+			headerBgElements.style.backgroundColor = rgb2rgba(headerColor.r, headerColor.g, headerColor.b, fade);
 		}
 		document.documentElement.style.setProperty('--header-text-color', this.headerTextColor);
 	};
