@@ -3,9 +3,7 @@ import {debounce} from 'lodash';
 
 
 window.addEventListener('load', function() {
-	window.requestAnimationFrame(function() {
-		document.documentElement.classList.remove('site-loading');
-	});
+	document.documentElement.classList.remove('site-loading');
 });
 
 
