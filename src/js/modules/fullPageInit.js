@@ -5,6 +5,7 @@ let fullPageElement = document.querySelector('.full-page-container');
 if(fullPageElement && 'fullPageLicense' in window.indigo) {
 
 	let fullPageConfig = {
+		fitToSectionDelay: 0,
 		licenseKey: window.indigo.fullPageLicense,
 		sectionSelector: '.wp-block-ampersand-panel-block',
 	};
