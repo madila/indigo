@@ -166,10 +166,10 @@ function archive_columns_class($classes) {
 }
 add_filter('post_class', 'archive_columns_class');
 
-function archive_cover_columns() {
+function archive_cover_columns_value() {
 	return '2';
 }
-add_filter('archive_cover_columns', 'archive_columns_class');
+add_filter('archive_cover_columns', 'archive_cover_columns_value');
 
 function indigo_conditional_class($theme_mod, $class, $classes = '', $add_value_to_class = true) {
 	$new_class = [$classes];
