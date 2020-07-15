@@ -71,32 +71,32 @@ add_filter( 'body_class', 'indigo_body_classes' );
 
 
 function indigo_add_default_font() {
-		?>
-		<style>
-			@supports (font-variation-settings: normal) {
-				:root {
-					--base-font-family: 'Inter var', sans-serif;
-					--headings-font-family: 'Inter var', sans-serif;
-				}
-				@font-face {
-					font-family: 'Inter var';
-					font-weight: 100 900;
-					font-display: swap;
-					font-style: normal;
-					font-named-instance: 'Regular';
-					src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-roman.var.woff2?v=3.12"; ?>) format("woff2");
-				}
-				@font-face {
-					font-family: 'Inter var';
-					font-weight: 100 900;
-					font-display: swap;
-					font-style: italic;
-					font-named-instance: 'Italic';
-					src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-italic.var.woff2?v=3.12" ?>) format("woff2");
-				}
+	?>
+	<style>
+		@supports (font-variation-settings: normal) {
+			:root {
+				--base-font-family: 'Inter var', sans-serif;
+				--headings-font-family: 'Inter var', sans-serif;
 			}
-		</style>
-		<?php
+			@font-face {
+				font-family: 'Inter var';
+				font-weight: 100 900;
+				font-display: swap;
+				font-style: normal;
+				font-named-instance: 'Regular';
+				src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-roman.var.woff2?v=3.12"; ?>) format("woff2");
+			}
+			@font-face {
+				font-family: 'Inter var';
+				font-weight: 100 900;
+				font-display: swap;
+				font-style: italic;
+				font-named-instance: 'Italic';
+				src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-italic.var.woff2?v=3.12" ?>) format("woff2");
+			}
+		}
+	</style>
+	<?php
 }
 
 if(empty(get_theme_mod('base_font_family')) || get_theme_mod('base_font_family') === 'Inter var') {
@@ -154,7 +154,7 @@ function indigo_post_class($classes) {
 	} else {
 		$classes[] = 'has-no-cover-title';
 	}
-	 return $classes;
+	return $classes;
 }
 add_filter('post_class', 'indigo_post_class');
 
@@ -166,10 +166,10 @@ function archive_columns_class($classes) {
 }
 add_filter('post_class', 'archive_columns_class');
 
-function archive_cover_columns() {
+function archive_cover_columns_value() {
 	return '2';
 }
-add_filter('archive_cover_columns', 'archive_columns_class');
+add_filter('archive_cover_columns', 'archive_cover_columns_value');
 
 function indigo_conditional_class($theme_mod, $class, $classes = '', $add_value_to_class = true) {
 	$new_class = [$classes];
@@ -209,18 +209,18 @@ add_filter( 'wp_title', 'indigo_remove_tax_name', 10, 3 );
 
 add_filter( 'get_the_archive_title', 'indigo_archive_title');
 function indigo_archive_title($title) {
-		if ( is_category() ) {
-			$title = single_cat_title( '', false );
-		} elseif ( is_tag() ) {
-			$title = single_tag_title( '', false );
-		} elseif ( is_author() ) {
-			$title = '<span class="vcard">' . get_the_author() . '</span>' ;
-		} elseif ( is_tax() ) { //for custom post types
-			$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
-		} elseif (is_post_type_archive()) {
-			$title = post_type_archive_title( '', false );
-		}
-		return $title;
+	if ( is_category() ) {
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+	} elseif ( is_tax() ) { //for custom post types
+		$title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+	} elseif (is_post_type_archive()) {
+		$title = post_type_archive_title( '', false );
+	}
+	return $title;
 }
 
 
