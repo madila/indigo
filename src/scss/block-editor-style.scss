@@ -16,6 +16,12 @@ $css-vars-use-native: true;
 	max-width: var(--content-width, $container-default-width);
 }
 
+.wp-block {
+	&[data-align="full"] {
+		max-width: none;
+	}
+}
+
 .wp-block[data-align="full"], .wp-block[data-align="wide"] {
 	@include alignfull;
 }
