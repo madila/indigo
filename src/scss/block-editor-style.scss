@@ -22,22 +22,6 @@ $css-vars-use-native: true;
 	}
 }
 
-.wp-block[data-align="full"], .wp-block[data-align="wide"] {
-	@include alignfull;
-}
-
-/* Width of "wide" blocks */
-.wp-block[data-align="wide"] {
-	max-width: var(--content-width-wide, $container-default-width+100);
-}
-
-@media only screen and ( min-width: $container-default-width ) {
-	.alignwide {
-		@include alignwide;
-	}
-}
-
-
 
 html .editor-styles-wrapper {
 	box-sizing: border-box;
