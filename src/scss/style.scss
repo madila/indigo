@@ -35,3 +35,8 @@ $css-vars-use-native: true;
 @import "theme/all";
 @import "plugin/indigo-login";
 @import "~fullpage.js/dist/fullpage";
+
+
+.wp-block-group__inner-container {
+	padding: 1rem;
+}
