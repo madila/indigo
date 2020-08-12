@@ -562,6 +562,31 @@ function indigo_customize_register( $wp_customize ) {
 	 * Font Size
 	 */
 	$wp_customize->add_setting(
+		'base_letter_spacing',
+		array(
+			'default'           => get_theme_mod('base_letter_spacing', 0),
+			'transport'         => 'postMessage'
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'base_letter_spacing', array(
+		'type' => 'range-value',
+		'section' => 'typography',
+		'label' => __( 'Base Letter Spacing' ),
+		'description' => __( 'Define the default letter spacing for your typography.' ),
+		'input_attrs' => array(
+			'min' => 0,
+			'max' => 0.2,
+			'step' => 0.01,
+			'suffix' => 'em'
+		),
+	)) );
+
+
+	/**
+	 * Font Size
+	 */
+	$wp_customize->add_setting(
 		'base_font_size',
 		array(
 			'default'           => get_theme_mod('base_font_size', 14),

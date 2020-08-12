@@ -104,6 +104,13 @@
 		} );
 	} );
 
+	wp.customize( 'base_letter_spacing', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--base-letter-spacing', to+'em');
+		} );
+	} );
+
 	wp.customize( 'background_color', function( value ) {
 		value.bind( function( to ) {
 			document.documentElement.style

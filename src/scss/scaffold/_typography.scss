@@ -87,32 +87,6 @@ blockquote {
 // Typography
 //
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-	margin-top: $headings-margin-top;
-	margin-bottom: var(--content-gutter-y, $spacer * 0.7);
-	font-family: var(--headings-font-family, $headings-font-family);
-	font-weight: var(--headings-font-weight, $headings-font-weight);
-	line-height: var(--headings-line-height, $line-height-base);
-	color: $headings-color;
-	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
-}
-
-h1, h2, h3 {
-	a {
-		font-weight: var(--headings-font-weight, $headings-font-weight);
-		&, &:hover {
-			text-decoration: none;
-		}
-	}
-}
-
-h1, .h1 { font-size: $font-size-h1; }
-h2, .h2 { font-size: $font-size-h2; }
-h3, .h3 { font-size: $font-size-h3; }
-h4, .h4 { font-size: $font-size-h4; }
-h5, .h5 { font-size: $font-size-h5; }
-h6, .h6 { font-size: $font-size-h6; }
-
 header p {
 	@include lead();
 }

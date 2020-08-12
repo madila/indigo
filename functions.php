@@ -210,8 +210,8 @@ function indigo_widgets_init() {
 			'name'          => esc_html__( 'Sidebar', 'indigo' ),
 			'id'            => 'entry-sidebar',
 			'description'   => esc_html__( 'Can run vertically alongside the page entry or horizontally below it.', 'indigo' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
+			'before_widget' => '<section id="%1$s" class="widget %2$s wp-block-group has-text-color has-background"><div class="wp-block-group__inner-container">',
+			'after_widget'  => '</div></section>',
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
 		) );
