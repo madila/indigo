@@ -1,18 +1,11 @@
+.site-title, .site-description {
+	margin: 0;
+	.sr-only-header & {
+		@extend .screen-reader-text;
+	}
+}
+
 .site {
-	&-title {
-		font-family: var(--headings-font-family), sans-serif;
-		margin: 0;
-		.sr-only-header & {
-			@extend .screen-reader-text;
-		}
-	}
- 	&-description {
-		margin: 0;
-		font-size: 0.8rem;
-		.sr-only-header & {
-			@extend .screen-reader-text;
-		}
-	}
 	.site-header-container {
 		width: 100%;
 		.has-header-contained & {
