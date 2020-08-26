@@ -946,20 +946,20 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_show_single_title', array(
-		'default'    => false,
+		'default'    => true,
 		'capability' => 'edit_theme_options'
 	) );
 
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_show_single_title', array(
 		'label'      => __( 'Show the Title in Single Templates?', 'indigo' ),
-		'section'    => 'site_layout',
+		'section'    => 'archive_settings',
 		'type'       => 'checkbox'
 	) );
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_show_page_title', array(
-		'default'    => false,
+		'default'    => true,
 		'capability' => 'edit_theme_options'
 	) );
 
@@ -979,7 +979,7 @@ function indigo_customize_register( $wp_customize ) {
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_hide_post_thumbnail', array(
 		'label'      => __( 'Hide Single Page Post Thumbnail?', 'indigo' ),
-		'section'    => 'site_layout',
+		'section'    => 'archive_settings',
 		'type'       => 'checkbox'
 	) );
 
