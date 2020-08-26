@@ -141,6 +141,7 @@
 
 	wp.customize( 'nav_font_size', function( value ) {
 		value.bind( function( to ) {
+			console.log(to);
 			document.documentElement.style
 				.setProperty('--nav-font-size', to+'px');
 		} );
