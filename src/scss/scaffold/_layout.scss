@@ -14,7 +14,7 @@
 			width: 100%;
 		}
 	}
-	&-main, &-footer {
+	&-main {
 		padding-left: var(--content-gutter-x, $grid-gutter-width);
 		padding-right: var(--content-gutter-x, $grid-gutter-width);
 	}
