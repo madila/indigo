@@ -31,19 +31,5 @@ html .editor-styles-wrapper {
 	line-height: var(--base-line-height, $line-height-base);
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	background-color: var(--base-bg-color, $body-bg);
-	p {
-		font-size: var(--base-font-size, $root-font-size);
-		font-weight: var(--base-font-weight, $font-weight-base);
-		line-height: var(--base-line-height, $line-height-base);
-		@include media-breakpoint-down(sm) {
-			font-size: var(--mobile-font-size);
-		}
-	}
-	h1, h2, h3, h4, h5, h6 {
-		font-family: var(--headings-font-family, $headings-font-family);
-		font-weight: var(--headings-font-weight, $headings-font-weight);
-		line-height: var(--headings-line-height, $line-height-base);
-		letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
-	}
 	@import "block-editor/common";
 }

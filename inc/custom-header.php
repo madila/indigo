@@ -31,15 +31,15 @@ add_action( 'after_setup_theme', 'indigo_custom_header_setup' );
 
 function get_theme_mod_defaults() {
 	return apply_filters('indigo_theme_mod_defaults', array(
-		'background_color' => '#f6f7f9',
-		'indigo_text_color' => '#333',
+		'background_color' => '#ffffff',
+		'indigo_text_color' => '#222',
 		'content_width' => '960',
 		'content_width_wide' => '1060',
 		'logo_width' => '200px',
 
-		'header_bg_color' => '#555',
-		'header_textcolor' => '#ffffff',
-		'indigo_header_alignment' => 'center',
+		'header_bg_color' => '#ffffff',
+		'header_textcolor' => '#333333',
+		'indigo_header_alignment' => 'left',
 		'nav_font_family' => 'var(--headings-font-family)',
 
 		'primary_color' => '#454545',
@@ -52,11 +52,11 @@ function get_theme_mod_defaults() {
 
 		'base_font_size' => '16px',
 		'base_letter_spacing' => '0em',
-		'mobile_font_size' => '14px',
+		'mobile_font_size' => '16px',
 
 		'base_font_weight' => '300',
 		'bold_font_weight' => '600',
-		'base_line_height' => '1.3em',
+		'base_line_height' => '1.5em',
 		'headings_font_weight' => '600',
 		'nav_font_weight' => '500',
 

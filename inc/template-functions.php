@@ -37,7 +37,8 @@ function indigo_body_classes( $classes ) {
 		}
 	}
 
-	if(intval(get_theme_mod('indigo_contain_header'))) {
+
+	if(intval(get_theme_mod('indigo_contain_header', true))) {
 		$classes[] = 'has-header-contained';
 	}
 

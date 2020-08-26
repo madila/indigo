@@ -589,7 +589,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'base_font_size',
 		array(
-			'default'           => get_theme_mod('base_font_size', 14),
+			'default'           => get_theme_mod_default('base_font_size'),
 			'transport'         => 'postMessage'
 		)
 	);
@@ -827,7 +827,7 @@ function indigo_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'indigo_header_alignment', array(
 		'capability' => 'edit_theme_options',
 		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'center',
+		'default' => 'left',
 	) );
 
 	$wp_customize->add_control( 'indigo_header_alignment', array(
@@ -844,7 +844,7 @@ function indigo_customize_register( $wp_customize ) {
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_contain_header', array(
-		'default'    => false,
+		'default'    => true,
 		'capability' => 'edit_theme_options'
 	) );
 
