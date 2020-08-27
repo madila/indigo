@@ -120,7 +120,7 @@ article {
 		margin-bottom: 1rem;
 	}
 	&-meta, &-footer {
-		font-family: var(--headings-font-family, $headings-font-family);
+		font-family: var(--headings-font-family), $headings-font-family;
 		margin-bottom: var(--content-gutter-y, 1rem);
 		> span a {
 			@include pill();

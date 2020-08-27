@@ -1,7 +1,7 @@
 
 @mixin button() {
 	@include border-radius;
-	font-family: var(--headings-font-family, $headings-font-family);
+	font-family: var(--headings-font-family), $headings-font-family;
 	background-color: var(--primary-color, $body-color);
 	color: var(--primary-text-color, $body-color);
 	border: 1px solid var(--primary-text-color, $body-color);
@@ -22,7 +22,7 @@
 	padding: .1em .8em;
 	font-size: 0.8rem;
 	border: 1px solid;
-	font-family: var(--headings-font-family, $headings-font-family);
+	font-family: var(--headings-font-family), $headings-font-family;
 	@include border-radius;
 	display: inline-block;
 	a {

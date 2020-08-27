@@ -44,7 +44,7 @@ body {
 	font-weight: var(--base-font-weight, $font-weight-base);
 	color: var(--base-color, $base-color);;
 	overflow-x: hidden;
-	font-family: var(--base-font-family, $base-font-family);
+	font-family: var(--base-font-family), $base-font-family;
 	font-size: var(--base-font-size, $root-font-size);
 	line-height: var(--base-line-height, $line-height-base);
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);

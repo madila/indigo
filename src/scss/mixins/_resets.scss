@@ -1,6 +1,6 @@
 @mixin root() {
   box-sizing: border-box; // 1
-  font-family: var(--base-font-family, $base-font-family); // 2
+  font-family: var(--base-font-family), $base-font-family; // 2
   font-size: var(--base-font-size, $root-font-size);
   background-color: var(--base-bg-color, $body-bg);
   color: var(--base-color, $base-color);

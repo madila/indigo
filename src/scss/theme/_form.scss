@@ -1,6 +1,6 @@
 
 	form {
-		font-family: var(--base-font-family, sans-serif);
+		font-family: var(--base-font-family), $base-font-family;
 		font-size: 1rem;
 		input, textarea {
 			background-color: transparent;
