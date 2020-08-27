@@ -1,5 +1,10 @@
 
 .wp-block {
+	&-separator {
+		&.is-style-wide {
+			max-width: none;
+		}
+	}
 	&-buttons {
 		a {
 			text-decoration: none;
@@ -13,14 +18,12 @@
 		}
 		& &__inner-container {
 			max-width: var(--content-width, $container-default-width);
-			@include media-breakpoint-up(md) {
-				width: calc(100% - 4rem);
-			}
 			width: 100%;
 			padding-top: 3rem;
 			padding-bottom: 3rem;
-			padding-left: var(--content-gutter-x, 2rem);
-			padding-right: var(--content-gutter-x, 2rem);
+			padding-left: var(--content-gutter-x, 1rem);
+			padding-right: var(--content-gutter-x, 1rem);
+			box-sizing: border-box;
 		}
 	}
 	&-media-text {
@@ -60,6 +63,7 @@
 .coblocks-lightbox {
 	background-color: #333;
 }
+
 
 
 .wp-block-group {

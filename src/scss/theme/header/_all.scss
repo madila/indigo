@@ -3,6 +3,7 @@
 @import "scroll-bg";
 
 .site-title {
+	font-family: var(--headings-font-family), sans-serif;
 	margin: 0;
 	font-size: 2rem;
 	&:hover {
@@ -13,8 +14,11 @@
 	}
 }
 
+
+
 .site-description {
 	margin: 0;
+	font-size: 0.9rem;
 	.sr-only-desc & {
 		@include sr-only;
 	}
