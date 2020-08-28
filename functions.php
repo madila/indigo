@@ -227,6 +227,15 @@ function indigo_widgets_init() {
 			'after_title' => '</h4>',
 		));
 	}
+	register_sidebar( array(
+		'name'          => esc_html__( 'Pre Header Sidebar', 'indigo' ),
+		'id'            => 'pre-header',
+		'description'   => esc_html__( 'Will display in above the header.', 'indigo' ),
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
 }
 add_action( 'widgets_init', 'indigo_widgets_init' );
 
