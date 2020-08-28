@@ -15,8 +15,14 @@ strong, b {
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `rem` units instead of `em`.
 p {
+	font-size: var(--base-font-size, $root-font-size);
+	font-weight: var(--base-font-weight, $font-weight-base);
+	line-height: var(--base-line-height, $line-height-base);
 	margin-top: 0;
-	margin-bottom: var(--content-gutter-y, $spacer * 0.7);
+	margin-bottom: var(--content-gutter-y, $spacer);
+	@include media-breakpoint-down(sm) {
+		font-size: var(--mobile-font-size);
+	}
 }
 
 //
@@ -76,9 +82,6 @@ blockquote {
 	border-left: .2rem solid;
 	footer {
 		font-size: 80%;
-	}
-	p {
-		line-height: var(--base-line-height, $line-height-base);
 	}
 }
 

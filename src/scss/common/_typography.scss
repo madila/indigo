@@ -2,10 +2,6 @@
 // Headings
 //
 
-p {
-	margin-bottom: var(--content-gutter-y, 1rem);
-}
-
 .lead {
   @include lead();
 }
@@ -18,12 +14,6 @@ p {
   &, &:hover, &:visited, &:active, &:focus {
     text-decoration: none;
   }
-}
-
-p {
-	&.has-normal-font-size {
-		 font-size: var(--base-font-size) !important;
-	}
 }
 
 @each $name, $weight in $font-weights {

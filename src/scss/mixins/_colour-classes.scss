@@ -1,86 +1,98 @@
 @mixin default-button-style() {
-  cursor: pointer;
-  vertical-align: baseline;
-  font-style: normal;
-  text-decoration: none;
-  font-family: var(--headings-font-family), sans-serif;
-  min-height: 1em;
-  user-select: none;
-  line-height: $input-line-height;
-  overflow: visible; // Show the overflow in Edge
-  padding: $btn-padding;
-  transition: all 300ms ease-out;
-  display: inline-block;
-  @include border-radius();
-  @include antialias();
+	cursor: pointer;
+	vertical-align: baseline;
+	font-style: normal;
+	text-decoration: none;
+	font-family: $font-family-base;
+	min-height: 1em;
+	user-select: none;
+	line-height: $input-line-height;
+	overflow: visible; // Show the overflow in Edge
+	padding: $btn-padding;
+	transition: all 300ms ease-out;
+	display: inline-block;
+	@include border-radius();
+	@include antialias();
 }
 
 @mixin button-class($colour-hex, $colour: false, $bg-hover: false, $colour-hover: false) {
-  background: $colour-hex !important;
-  border: $default-border-colour $btn-border-width solid;
-  @if ($colour != false) {
-    color: $colour !important;
-    border-color: darken($default-border-colour, 10%) !important;
-  }
-  &:hover {
-    @if ($bg-hover != false) {
-      background-color: $bg-hover !important;
-    } @else {
-      background-color: darken($colour-hex, 10%) !important;
-    }
-    @if ($colour-hover != false) {
-      color: $colour-hover !important;
-    }
-  }
-  &:active, &:focus {
-    @if ($bg-hover != false) {
-      background-color: darken($bg-hover, 10%) !important;
-    } @else {
-      background-color: darken($colour-hex, 20%) !important;
-    }
-    @if ($colour-hover != false) {
-      color: $colour-hover !important;
-    }
-  }
+	background: $colour-hex !important;
+	border: $default-border-colour $btn-border-width solid;
+	@if ($colour != false) {
+		color: $colour !important;
+		border-color: darken($default-border-colour, 10%) !important;
+	} @else {
+		color: check-color($colour-hex) !important;
+	}
+	&:hover {
+		@if ($bg-hover != false) {
+			background-color: $bg-hover !important;
+		} @else {
+			background-color: darken($colour-hex, 10%) !important;
+		}
+		@if ($colour-hover != false) {
+			color: $colour-hover !important;
+		} @else {
+			color: check-color($colour-hex) !important;
+		}
+	}
+	&:active, &:focus {
+		@if ($bg-hover != false) {
+			background-color: darken($bg-hover, 10%) !important;
+		} @else {
+			background-color: darken($colour-hex, 20%) !important;
+		}
+		@if ($colour-hover != false) {
+			color: $colour-hover !important;
+		} @else {
+			color: check-color($colour-hex) !important;
+		}
+	}
 }
 
 @mixin button-text-class($colour-hex) {
-  color: $colour-hex !important;
-  background: transparent;
-  cursor: pointer;
-  &:hover, &:focus, &:active {
-    color: darken($colour-hex, 10%) !important;
-  }
+	color: $colour-hex !important;
+	background: transparent;
+	cursor: pointer;
+	&:hover, &:focus, &:active {
+		color: darken($colour-hex, 10%) !important;
+	}
 }
 
 @mixin button-text-hover-solid-class($colour-hex) {
-  color: $colour-hex !important;
-  background: transparent;
-  border: $default-border-colour $default-border-width solid;
-  cursor: pointer;
-  &:hover {
-    background-color: $colour-hex !important;
-    border-color: $default-border-colour !important;
-  }
-  &:focus, &:active {
-    background-color: darken($colour-hex, 10%) !important;
-    border-color: darken($default-border-colour, 10%) !important;
-  }
+	color: $colour-hex !important;
+	background: transparent;
+	border: $default-border-colour $default-border-width solid;
+	cursor: pointer;
+	&:hover {
+		background-color: $colour-hex !important;
+		border-color: $default-border-colour !important;
+		color: check-color($colour-hex) !important;
+	}
+	&:focus, &:active {
+		background-color: darken($colour-hex, 10%) !important;
+		border-color: darken($default-border-colour, 10%) !important;
+		color: check-color($colour-hex) !important;
+	}
 }
 
 @mixin text-class($colour-hex) {
-  hr {
-    border-color: $colour-hex;
-  }
-  color: $colour-hex !important;
-  svg {
-    fill: $colour-hex;
-  }
-  a {
-    color: $colour-hex;
-  }
+	hr {
+		border-color: $colour-hex;
+	}
+	color: $colour-hex !important;
+	svg {
+		fill: $colour-hex;
+	}
+	a {
+		color: $colour-hex;
+	}
 }
 
 @mixin background-class($colour-hex) {
-  background-color: $colour-hex !important;
+	background-color: $colour-hex !important;
+	color: check-color($colour-hex);
+	&, & a {
+		color: check-color($colour-hex);
+	}
 }
