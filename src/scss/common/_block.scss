@@ -69,12 +69,12 @@
 .wp-block-group {
 	&.has-background {
 		.wp-block-group__inner-container {
-			padding-left: var(--content-gutter-x, 1rem);
-			padding-right: var(--content-gutter-x, 1rem);
-			padding-top: var(--content-gutter-y, 1rem);
-			padding-bottom: var(--content-gutter-y, 1rem);
+			padding: var(--content-gutter-y, 1rem);
 			*:first-child {
 				margin-top: 0;
+			}
+			> *:last-child {
+				margin-bottom: 0;
 			}
 			.wp-block-columns {
 				padding-left: var(--content-gutter-x, 1rem);
