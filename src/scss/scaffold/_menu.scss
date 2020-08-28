@@ -13,12 +13,10 @@ li.menu-item {
 				overflow: visible;
 				opacity: 1;
 				transform: none;
+				box-shadow: 0 4px 4px rgba(0,0,0,0.2);
 				li {
 					background-color: var(--header-bg-color);
 					z-index: 40;
-					a {
-						display: block;
-					}
 				}
 			}
 		}
@@ -29,6 +27,12 @@ li.menu-item {
 		z-index: 300;
 		transform: translateY(5px);
 		transition: all 200ms linear;
+		li {
+			a {
+				display: block;
+				text-align: left;
+			}
+		}
 		.menu-collapse & {
 			@include media-breakpoint-up(lg) {
 				max-height: 0;
