@@ -35,6 +35,8 @@ h5 {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: var(--content-gutter-y);
 	font-family: var(--headings-font-family), $headings-font-family;
 	font-weight: var(--headings-font-weight, $headings-font-weight);
 	line-height: var(--headings-line-height, $line-height-base);

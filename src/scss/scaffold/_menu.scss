@@ -1,4 +1,10 @@
 li.menu-item {
+	&.current-menu-item, &.current-menu-parent {
+		> a {
+			font-weight: 600;
+			font-weight: var(--bold-font-weight, 500);
+		}
+	}
 	a {
 		vertical-align: middle;
 		display: inline;
@@ -7,6 +13,23 @@ li.menu-item {
 		font-weight: var(--nav-font-weight, 300);
 	}
 	&.menu-item-has-children {
+		> a {
+			padding-right: 1em;
+			&::after {
+				display: inline-block;
+				margin-left: .5em;
+				vertical-align: middle;
+				content: "";
+				border-top: .3em solid;
+				border-right: .3em solid transparent;
+				border-bottom: 0;
+				border-left: .3em solid transparent
+			}
+
+			&:empty::after {
+				margin-left: 0
+			}
+		}
 		&:hover {
 			.sub-menu {
 				max-height: 9999px;
