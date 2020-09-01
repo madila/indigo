@@ -28,7 +28,7 @@ function indigo_maintenance_redirect() {
 	}
 
 	// we do not redirect visitors or logged-in users that are not using /wp-admin/
-	if (is_user_logged_in() || is_admin()) {
+	if (is_user_logged_in() || is_admin() || is_privacy_policy()) {
 		return NULL;
 	}
 
@@ -59,3 +59,7 @@ add_filter('body_class', 'indigo_add_maintenance_class');
 add_action('template_redirect', 'indigo_maintenance_redirect');
 add_filter('template_include', 'indigo_maintenance_mode', 99);
 
+
+add_filter('indigo_login_whitelist_pages', function($pages) {
+	return ['terms-and-conditions'];
+});
