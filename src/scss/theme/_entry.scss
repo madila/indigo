@@ -12,6 +12,11 @@
 	article {
 		position: relative;
 		margin-bottom: var(--content-gutter-y, 1rem);
+
+		> header, > footer, > aside {
+			padding-left: var(--content-gutter-x,1rem);
+			padding-right: var(--content-gutter-x,1rem);
+		}
 		.indigo.archive-cols-1 & {
 			min-height: 300px;
 			max-height: 500px;
