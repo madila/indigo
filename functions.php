@@ -274,6 +274,12 @@ function indigo_block_editor_styles() {
 }
 add_action( 'enqueue_block_editor_assets', 'indigo_block_editor_styles' );
 
+/**
+ * Check if maintenance mode is enabled
+ */
+function indigo_is_maintenance() {
+	return (defined('WP_MAINTENANCE') && WP_MAINTENANCE);
+}
 
 
 /**
@@ -296,6 +302,12 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/oembed.php';
 
+/**
+ * Customizer additions.
+ */
+if(indigo_is_maintenance()) {
+	require get_template_directory() . '/inc/wp-maintenance.php';
+}
 
 /**
  * Customizer additions.
