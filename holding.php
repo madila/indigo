@@ -38,14 +38,15 @@
 
 				<main id="main" class="site-main">
 					<article class="full-height">
+						<div class="site-branding">
 						<?php
 						the_custom_logo();
 						if (is_front_page() && is_home()) :
 							?>
-							<div class="site-branding">
+
 								<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
 														  rel="home"><?php bloginfo('name'); ?></a></h1>
-							</div>
+
 						<?php
 						else :
 							?>
@@ -53,6 +54,9 @@
 							   rel="home"><?php bloginfo('name'); ?></a>
 						<?php
 						endif;
+						?>
+						</div>
+						<?php
 						$indigo_description = get_bloginfo('description', 'display');
 						if ($indigo_description || is_customize_preview()) :
 							?>
