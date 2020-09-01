@@ -5,6 +5,9 @@
 		position: relative;
 		align-self: center;
 		@include media-breakpoint-down(md) {
+			position: absolute;
+			top: 100%;
+			background-color: var(--header-bg-color);
 			.menu {
 				&-container {
 					margin-left: var(--content-no-gutter-x);
@@ -19,16 +22,7 @@
 					max-height: 0;
 					overflow: hidden;
 					align-items: flex-start;
-					position: absolute;
-
-					.has-fixed-header & {
-						position: relative;
-						top: 0;
-					}
-
-					top: 100%;
-					left: 0;
-
+					position: relative;
 					.menu-toggled & {
 						transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 100ms linear 100ms;
 						max-height: 100vh;
@@ -48,18 +42,6 @@
 							background-color: #f9f9f9;
 							border-bottom: 1px solid #e8e8e8;
 							position: relative;
-
-							&:before {
-								content: "";
-								width: .5rem;
-								height: .5rem;
-								border-top: .5rem solid #333;
-								border-left: .5rem solid transparent;
-								border-right: .5rem solid transparent;
-								position: absolute;
-								right: 1.5rem;
-								top: 1.9rem;
-							}
 
 							&.focus {
 								.sub-menu {
