@@ -5,6 +5,11 @@
 }
 
 .pre-header {
+	width: 100%;
+	z-index: 320;
+	.widget-area {
+		padding: 0 var(--content-gutter-x);
+	}
 	.wp-block-column {
 		&, &s {
 			margin: 0;

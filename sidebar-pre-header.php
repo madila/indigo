@@ -12,8 +12,8 @@ if ( ! is_active_sidebar( 'pre-header' ) ) {
 }
 ?>
 
-<aside class="pre-header">
-	<div class="widget-area">
+<aside class="pre-header p-absolute">
+	<div class="widget-area aligncontainer">
 		<?php dynamic_sidebar( 'pre-header' ); ?>
 	</div>
 </aside><!-- #secondary -->

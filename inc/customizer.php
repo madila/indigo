@@ -1004,7 +1004,7 @@ function indigo_customize_register( $wp_customize ) {
 		'input_attrs' => array(
 			'min' => 250,
 			'max' => 600,
-			'step' => 100,
+			'step' => 25,
 			'suffix' => 'px'
 		),
 	) ));
