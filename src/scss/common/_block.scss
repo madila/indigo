@@ -59,6 +59,18 @@
 
 
 .wp-block-group {
+	.entry-content > & {
+		&.alignfull {
+			.wp-block-group__inner-container {
+				width: var(--content-width);
+				margin-left: auto;
+				margin-right: auto;
+				padding-left: var(--content-gutter-x, 1rem);
+				padding-right: var(--content-gutter-x, 1rem);
+			}
+		}
+	}
+
 	&.has-background {
 		.wp-block-group__inner-container {
 			padding: var(--content-gutter-y, 1rem);
