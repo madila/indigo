@@ -13,6 +13,12 @@
 		position: relative;
 		margin-bottom: var(--content-gutter-y, 1rem);
 
+		&.has-post-thumbnail {
+			.indigo-archive-cover & {
+				color: #fff;
+			}
+		}
+
 		> header, > footer, > aside {
 			padding-left: var(--content-gutter-x,1rem);
 			padding-right: var(--content-gutter-x,1rem);
