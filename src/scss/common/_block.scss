@@ -26,14 +26,6 @@
 			box-sizing: border-box;
 		}
 	}
-	&-media-text {
-
-		&__content {
-			background-image: linear-gradient(45deg, rgba(255,255,255,0.3), transparent);
-			padding-top: 3rem;
-			padding-bottom: 1rem;
-		}
-	}
 	&-button {
 		font-family: var(--headings-font-family);
 		&:hover {
