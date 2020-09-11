@@ -7,7 +7,7 @@ li.menu-item {
 		font-weight: var(--nav-font-weight, 300);
 	}
 	&.menu-item-has-children {
-		&:hover, &:focus-within {
+		&:hover {
 			.sub-menu {
 				max-height: 9999px;
 				overflow: visible;

@@ -2,9 +2,7 @@ import objectFitImages from "object-fit-images";
 
 objectFitImages();
 
-
-// From
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Polyfill
+/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 // 1. String.prototype.trim polyfill
 if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+|[\s﻿]+$/g, ''); };
 (function(window){"use strict"; // prevent global namespace pollution
@@ -134,19 +132,19 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
 		if (!DOMTokenListProto.entries) DOMTokenListProto.entries = function(){
 			let nextIndex = 0, that = this;
 			return {next: function() {
-					return nextIndex<that.length ? {value: [nextIndex, that[nextIndex]], done: false} : {done: true};
+					return nextIndex<that.length ? {value: [nextIndex, that[nextIndex++]], done: false} : {done: true};
 				}};
 		};
 		if (!DOMTokenListProto.values) DOMTokenListProto.values = function(){
 			let nextIndex = 0, that = this;
 			return {next: function() {
-					return nextIndex<that.length ? {value: that[nextIndex], done: false} : {done: true};
+					return nextIndex<that.length ? {value: that[nextIndex++], done: false} : {done: true};
 				}};
 		};
 		if (!DOMTokenListProto.keys) DOMTokenListProto.keys = function(){
 			let nextIndex = 0, that = this;
 			return {next: function() {
-					return nextIndex<that.length ? {value: nextIndex, done: false} : {done: true};
+					return nextIndex<that.length ? {value: nextIndex++, done: false} : {done: true};
 				}};
 		};
 	})(window.DOMTokenList.prototype, window.document.createElement("div").classList);
@@ -183,29 +181,4 @@ if (!"".trim) String.prototype.trim = function(){ return this.replace(/^[\s﻿]+
             clearTimeout(id);
         };
 }());
-
-
-if (!('CSS' in window && CSS.supports('color', 'var(--body-color)'))) {
-	console.log('adding class');
-	let promise = Promise.resolve();
-	document.body.classList.add('css-loading');
-	import(
-		/* webpackChunkName: "css-vars-ponyfill" */
-		'css-vars-ponyfill'
-		)
-		.then(cssVars => {
-			cssVars.default({
-				onComplete: function() {
-					document.body.classList.remove('css-loading');
-					let branding = document.querySelector('.has-fixed-header.header-overlay-content .site-header-wrapping');
-					if(branding) {
-						window.requestAnimationFrame(function() {
-							document.querySelector('.site-header').style.height = branding.offsetHeight+'px';
-						})
-					}
-				}
-			});
-		});
-}
-
 

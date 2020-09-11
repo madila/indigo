@@ -5,10 +5,20 @@ let fullPageElement = document.querySelector('.full-page-container');
 if(fullPageElement && 'fullPageLicense' in window.indigo) {
 
 	let fullPageConfig = {
+		fitToSectionDelay: 0,
 		licenseKey: window.indigo.fullPageLicense,
 		sectionSelector: '.wp-block-ampersand-panel-block',
 	};
-	let childConfig = window.fullPageOptions || {};
+
+	let childConfig = {};
+
+	if('indigo' in window && 'fullPageOptions' in window.indigo) {
+		childConfig = window.indigo.fullPageOptions;
+	}
+
+	if('fullPageOptions' in window) {
+		childConfig = window.fullPageOptions;
+	}
 
 	console.log(childConfig);
 

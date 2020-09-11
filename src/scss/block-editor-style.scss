@@ -16,14 +16,10 @@ $css-vars-use-native: true;
 	max-width: var(--content-width, $container-default-width);
 }
 
-/* Width of "wide" blocks */
-.wp-block[data-align="wide"] {
-	max-width: var(--content-width-wide, $container-default-width+100);
-}
-
-/* Width of "full-wide" blocks */
-.wp-block[data-align="full"] {
-	max-width: none;
+.wp-block {
+	&[data-align="full"] {
+		max-width: none;
+	}
 }
 
 
@@ -39,6 +35,9 @@ html .editor-styles-wrapper {
 		font-size: var(--base-font-size, $root-font-size);
 		font-weight: var(--base-font-weight, $font-weight-base);
 		line-height: var(--base-line-height, $line-height-base);
+		@include media-breakpoint-down(sm) {
+			font-size: var(--mobile-font-size);
+		}
 	}
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--headings-font-family, $headings-font-family);

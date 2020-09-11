@@ -16,6 +16,17 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+	<script>
+		if (!Number.isNan) {
+			Object.defineProperty(Number, 'isNaN', {
+				value: function(value) {
+					return value !== value;
+				}
+			});
+		}
+	</script>
+	<script>window.MSInputMethodContext && document.documentMode && document.write('<script src="https://cdn.jsdelivr.net/npm/ie11-custom-properties@3.1.0/ie11CustomProperties.min.js"><\x2fscript>');</script>
 	<?php wp_head(); ?>
 </head>
 

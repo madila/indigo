@@ -47,18 +47,18 @@
 
 .wp-alignment-support {
 
-	.alignfull,
-	.alignwide {
+	.alignfull {
+
 		@include alignfull;
 	}
 
-	.alignfull {
-		width: 100vw !important;
-	}
+	.alignwide {
 
-	@media only screen and ( min-width: $container-default-width ) {
+		@include alignwide;
+
 		.alignwide {
-			@include alignwide;
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 
