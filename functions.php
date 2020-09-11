@@ -246,7 +246,7 @@ function indigo_scripts() {
 		'fullPageLicense' => get_theme_mod('full_page_license'),
 		'scrolling_offset' => apply_filters('indigo_scrolling_offset', 60)
 	)));
-	
+
 
 	wp_enqueue_script( 'indigo-script' );
 
