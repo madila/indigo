@@ -18,3 +18,17 @@
 		}
 	}
 }
+
+
+.wp-block {
+	&-navigation {
+		display: block;
+		width: 100%;
+		& &__container {
+			flex-direction: row;
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+}
