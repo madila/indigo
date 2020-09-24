@@ -5,9 +5,6 @@
 		position: relative;
 		align-self: center;
 		@include media-breakpoint-down(md) {
-			position: absolute;
-			top: 100%;
-			background-color: var(--header-bg-color);
 			.menu {
 				&-container {
 					margin-left: var(--content-no-gutter-x);

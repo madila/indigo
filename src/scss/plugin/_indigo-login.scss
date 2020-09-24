@@ -22,3 +22,17 @@ hr.simple-line {
 		}
 	}
 }
+
+
+.form-cols {
+	display: flex;
+	flex-direction: row;
+	.form-col {
+		width: calc(50% - .5rem);
+		margin-right: .5rem;
+		&:last-of-type {
+			width: 50%;
+			margin-right: 0;
+		}
+	}
+}
