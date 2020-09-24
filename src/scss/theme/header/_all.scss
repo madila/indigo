@@ -37,7 +37,7 @@
 	}
 	.menu-toggle {
 		position: absolute;
-		right: 0;
+		right: var(--content-gutter-x);
 		top: 50%;
 		transform: translateY(-50%);
 		padding: 0;
