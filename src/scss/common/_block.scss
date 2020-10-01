@@ -63,6 +63,7 @@
 		&.alignfull {
 			.wp-block-group__inner-container {
 				width: var(--content-width);
+				max-width: 100%;
 				margin-left: auto;
 				margin-right: auto;
 				padding-left: var(--content-gutter-x, 1rem);
