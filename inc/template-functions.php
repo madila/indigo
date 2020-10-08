@@ -23,8 +23,6 @@ function indigo_body_classes( $classes ) {
 
 	if(get_theme_mod('indigo_calculate_header') ) {
 		$classes[] = 'indigo-calculate-header';
-	} else {
-		$classes[] = 'indigo-header-overlays';
 	}
 
 	if(is_home() || is_archive()) {
@@ -50,7 +48,12 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'sr-only-desc';
 	}
 
-	$show_on_page = get_theme_mod('indigo_sidebar_direction');
+	// Adds a class of no-sidebar when there is no sidebar present.
+	$sidebar_direction = get_theme_mod('indigo_has_sticky_sidebar');
+	if(get_theme_mod('indigo_has_sticky_sidebar')) {
+		$classes[] = 'has-sticky-sidebar';
+	}
+
 	// Adds a class of no-sidebar when there is no sidebar present.
 	$sidebar_direction = get_theme_mod('indigo_sidebar_direction');
 	if($sidebar_direction && $sidebar_direction === 'vertical' ) {

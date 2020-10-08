@@ -11,12 +11,17 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php indigo_post_thumbnail(); ?>
+	<?php
+	if(!get_theme_mod('indigo_hide_post_thumbnail')) {
+		indigo_post_thumbnail();
+	} ?>
 
-	<?php $item = is_single() ? 'entry' : 'archive-entry'; ?>
-	<header class="<?php echo (!get_theme_mod('indigo_show_single_title')) ? 'screen-reader-'.$item.'-header screen-reader-text' : $item.'-header'; ?>">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	<?php
+	if(get_theme_mod('indigo_show_single_title')) : ?>
+		<header class="entry-header archive-entry">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .page-header -->
+	<?php endif; ?>
 
 	<div class="entry-content">
 		<?php

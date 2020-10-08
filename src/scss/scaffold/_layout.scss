@@ -45,7 +45,12 @@
 	#secondary {
 		grid-area: side;
 		position: relative;
-		height: 100%;
+		will-change: min-height;
+		.widget-area {
+			transform: translate(0, 0); /* For browsers don't support translate3d. */
+			transform: translate3d(0, 0, 0);
+			will-change: position, transform;
+		}
 	}
 
 	#primary {

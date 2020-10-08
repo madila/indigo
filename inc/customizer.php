@@ -1102,9 +1102,33 @@ function indigo_customize_register( $wp_customize ) {
 	) );
 
 	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_has_sticky_sidebar', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_has_sticky_sidebar', array(
+		'label'      => __( 'Enable Sticky Sidebar', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_content_sidebar_on_pages')
+	) );
+
+
+	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_content_sidebar_on_pages', array(
 		'default'    => false,
 		'capability' => 'edit_theme_options'
+	) );
+
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_content_sidebar_on_pages', array(
+		'label'      => __( 'Disable Sidebar on Pages', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_content_sidebar_on_pages')
 	) );
 
 	// Add settings for page title visibility
@@ -1118,14 +1142,6 @@ function indigo_customize_register( $wp_customize ) {
 		'label'      => __( 'Show Title on Pages', 'indigo' ),
 		'section'    => 'site_layout',
 		'type'       => 'checkbox'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'page Sidebarindigo_content_sidebar_on_pages', array(
-		'label'      => __( 'Disable ', 'indigo' ),
-		'section'    => 'site_layout',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_content_sidebar_on_pages')
 	) );
 
 	$wp_customize->add_setting( 'indigo_pre_footer_alignment', array(

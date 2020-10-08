@@ -24,7 +24,7 @@ import "./modules/navigation";
 import "./modules/pageOnScroll";
 
 document.addEventListener('DOMContentLoaded', function() {
-	let stickSidebarElement = document.querySelector('.vertical-sidebar #secondary');
+	let stickSidebarElement = document.querySelector('.has-sticky-sidebar #secondary');
 	if(stickSidebarElement) {
 		import(
 			/* webpackChunkName: "indigo-sidebarStick" */

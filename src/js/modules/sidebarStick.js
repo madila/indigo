@@ -1,43 +1,57 @@
-import StickySidebar from 'sticky-sidebar-v2';
+import StickySidebar from 'sticky-sidebar';
+import ResizeSensor from "css-element-queries";
 import {debounce} from 'lodash';
 
-window.stickySidebar = false;
-window.isPageTemplate = document.querySelector('.page-template-default');
+let isPageTemplate = document.querySelector('.page-template-default');
 
-let sidebarElement = document.querySelector('.vertical-sidebar #secondary');
+let sidebarElement = document.querySelector('.has-sticky-sidebar #secondary');
 
-if(sidebarElement && !window.isPageTemplate) {
+if(sidebarElement && !isPageTemplate) {
+
+	let stickySidebar = null;
+	let topSpacing = 0;
+
+	if(document.body.className.indexOf('has-fixed-header') > 0) {
+		topSpacing = function () {
+			return document.querySelector('.site-header').clientHeight;
+		};
+	}
+
+	if(document.body.className.indexOf('admin-bar') > 0) {
+		topSpacing = 50;
+	}
+
+
+	let options = {
+		containerSelector: '#primary',
+		resizeSensor: true,
+		innerWrapperSelector: '.widget-area',
+		topSpacing: topSpacing
+	};
+
 	function enableStickySidebar() {
-		console.log('enabling sticky sidebar');
-		window.stickySidebar = new StickySidebar('#secondary', {
-			containerSelector: '#primary',
-			innerWrapperSelector: '.widget-area',
-			topSpacing: function () {
-				return document.querySelector('.site-header').clientHeight;
-			},
-			bottomSpacing: 0
-		});
+		if(window.innerWidth < 769) return false;
+		stickySidebar = new StickySidebar('#secondary', options);
 	}
 
 	function reCalculateStickySidebar() {
-		if('stickySidebar' in window && window.stickySidebar) {
+		console.log(stickySidebar);
+		if(stickySidebar) {
 			if(window.innerWidth > 769) {
-				window.stickySidebar.updateSticky();
+				stickySidebar.updateSticky();
 			} else {
-				window.stickySidebar.destroy();
+				stickySidebar.destroy();
 			}
 		} else {
-			if(window.innerWidth > 769) {
-				enableStickySidebar();
-			}
+			enableStickySidebar();
 		}
-	};
-
-
-	if(window.innerWidth > 769) {
-		window.addEventListener('load', enableStickySidebar);
-		reCalculateStickySidebar();
 	}
+
+
+
+	window.addEventListener('load', enableStickySidebar);
+	reCalculateStickySidebar();
+
 
 	window.addEventListener('resize', debounce(reCalculateStickySidebar, 100));
 
