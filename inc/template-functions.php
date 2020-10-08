@@ -42,10 +42,6 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'has-header-contained';
 	}
 
-	if(intval(get_theme_mod('indigo_alignment_support'))) {
-		$classes[] = 'wp-alignment-support';
-	}
-
 	if(intval(get_theme_mod('indigo_sr_site_title'))) {
 		$classes[] = 'sr-only-title';
 	}
@@ -54,15 +50,19 @@ function indigo_body_classes( $classes ) {
 		$classes[] = 'sr-only-desc';
 	}
 
+	$show_on_page = get_theme_mod('indigo_sidebar_direction');
 	// Adds a class of no-sidebar when there is no sidebar present.
 	$sidebar_direction = get_theme_mod('indigo_sidebar_direction');
 	if($sidebar_direction && $sidebar_direction === 'vertical' ) {
 		$classes[] = 'vertical-sidebar';
 	}
 
-	if($sidebar_direction && $sidebar_direction !== 'none' ) {
+	if(!indigo_show_sidebar_on_pages() && $sidebar_direction && $sidebar_direction !== 'none' ) {
 		$classes[] = 'sidebar-'.(get_theme_mod('indigo_sidebar_alignment') ? get_theme_mod('indigo_sidebar_alignment') : get_theme_mod_default('indigo_sidebar_alignment'));
 	} else {
+		if(intval(get_theme_mod('indigo_alignment_support'))) {
+			$classes[] = 'wp-alignment-support';
+		}
 		$classes[] = 'no-sidebar';
 	}
 
@@ -70,6 +70,9 @@ function indigo_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'indigo_body_classes' );
 
+function indigo_show_sidebar_on_pages() {
+	return is_page() && get_theme_mod('indigo_content_sidebar_on_pages', true);
+}
 
 function indigo_add_default_font() {
 	?>

@@ -10,6 +10,10 @@
 if ( ! is_active_sidebar( 'entry-sidebar' ) || get_theme_mod('indigo_sidebar_alignment') === 'none' ) {
 	return;
 }
+
+if(indigo_show_sidebar_on_pages()) {
+	return;
+}
 ?>
 
 <aside id="secondary">

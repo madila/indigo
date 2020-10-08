@@ -35,7 +35,7 @@
 	grid-gap: var(--content-gutter-x, $grid-gutter-width);
 }
 
-.entry-content {
+.entry-content, .entry-header {
 	padding-left: var(--content-gutter-x, 1rem);
 	padding-right: var(--content-gutter-x, 1rem);
 }

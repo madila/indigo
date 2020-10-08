@@ -957,18 +957,6 @@ function indigo_customize_register( $wp_customize ) {
 		'type'       => 'checkbox'
 	) );
 
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_show_page_title', array(
-		'default'    => true,
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_show_page_title', array(
-		'label'      => __( 'Show Page titles?', 'indigo' ),
-		'section'    => 'site_layout',
-		'type'       => 'checkbox'
-	) );
 
 	// Add settings for output description
 	$wp_customize->add_setting( 'indigo_hide_post_thumbnail', array(
@@ -1057,7 +1045,7 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	)));
 
-	// Add settings for output description
+	// Add settings for alignment support
 	$wp_customize->add_setting( 'indigo_alignment_support', array(
 		'default'    => false,
 		'capability' => 'edit_theme_options'
@@ -1111,6 +1099,33 @@ function indigo_customize_register( $wp_customize ) {
 			'left' => __( 'Left' ),
 			'right' => __( 'Right' )
 		),
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_content_sidebar_on_pages', array(
+		'default'    => false,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add settings for page title visibility
+	$wp_customize->add_setting( 'indigo_show_page_title', array(
+		'default'    => true,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for page title visibility
+	$wp_customize->add_control( 'indigo_show_page_title', array(
+		'label'      => __( 'Show Title on Pages', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'page Sidebarindigo_content_sidebar_on_pages', array(
+		'label'      => __( 'Disable ', 'indigo' ),
+		'section'    => 'site_layout',
+		'type'       => 'checkbox',
+		'std'        => get_theme_mod('indigo_content_sidebar_on_pages')
 	) );
 
 	$wp_customize->add_setting( 'indigo_pre_footer_alignment', array(

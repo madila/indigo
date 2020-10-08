@@ -10,9 +10,15 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="<?php echo (!get_theme_mod('indigo_show_page_title')) ? 'screen-reader-page-header screen-reader-text' : 'page-header'; ?>">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	<?php
+	if(get_theme_mod('indigo_show_page_title')) : ?>
+		<header class="entry-header page-header">
+			<?php
+			the_archive_title( '<h1 class="entry-title page-title">', '</h1>' );
+			the_archive_description( '<div class="archive-description">', '</div>' );
+			?>
+		</header><!-- .page-header -->
+	<?php endif; ?>
 
 	<?php indigo_post_thumbnail(); ?>
 
