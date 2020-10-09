@@ -14,10 +14,6 @@
 			width: 100%;
 		}
 	}
-	&-main {
-		padding-left: var(--content-gutter-x, $grid-gutter-width);
-		padding-right: var(--content-gutter-x, $grid-gutter-width);
-	}
 	&-content-wrapper {
 		transition: opacity 400ms linear;
 		.site-loading &, .css-loading & {

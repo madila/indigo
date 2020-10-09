@@ -2,7 +2,6 @@ $css-vars-use-native: true;
 @import "_variables";
 @import "mixins/_mixins";
 @import "~css-vars";
-@import "css-variables";
 
 @import "common/common";
 
@@ -32,4 +31,5 @@ html .editor-styles-wrapper {
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	background-color: var(--base-bg-color, $body-bg);
 	@import "block-editor/common";
+	@import "common/block";
 }

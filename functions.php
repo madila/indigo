@@ -47,6 +47,9 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		 */
 		load_theme_textdomain( 'indigo', get_template_directory() . '/languages' );
 
+		// Add support for block units
+		add_theme_support( 'custom-units' );
+
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
