@@ -14,8 +14,7 @@
 	if(get_theme_mod('indigo_show_page_title')) : ?>
 		<header class="entry-header page-header">
 			<?php
-			the_archive_title( '<h1 class="entry-title page-title">', '</h1>' );
-			the_archive_description( '<div class="archive-description">', '</div>' );
+			the_title( '<h1 class="entry-title page-title">', '</h1>' );
 			?>
 		</header><!-- .page-header -->
 	<?php endif; ?>

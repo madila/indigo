@@ -132,13 +132,21 @@ article {
 	}
 	&-meta, &-footer {
 		font-family: var(--headings-font-family), $headings-font-family;
+		padding-bottom: var(--content-gutter-y, 1rem);
+		border-bottom: 1px solid #eee;
+		> span {
+			display: inline-block;
+			padding: .5rem 0;
+			margin-right: 1rem;
+		}
+	}
+	&-edit {
+		font-family: var(--headings-font-family), $headings-font-family;
 		margin-bottom: var(--content-gutter-y, 1rem);
-		> span a {
-			@include pill();
-			+ a {
-				margin-left: 1em;
+		> span {
+			a {
+				@include pill();
 			}
-
 		}
 	}
 	&-date {
