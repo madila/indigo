@@ -32,4 +32,5 @@ html .editor-styles-wrapper {
 	background-color: var(--base-bg-color, $body-bg);
 	@import "block-editor/common";
 	@import "common/block";
+	@import "theme/typography";
 }
