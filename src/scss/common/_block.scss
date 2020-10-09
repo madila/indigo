@@ -91,12 +91,13 @@
 		}
 	}
 	&.has-background {
+		margin-bottom:  var(--content-gutter-y, 1rem);
 		.wp-block-group__inner-container {
 			padding: var(--content-gutter-y, 1rem);
 			*:first-child {
 				margin-top: 0;
 			}
-			> *:last-child {
+			p:last-child {
 				margin-bottom: 0;
 			}
 			.wp-block-columns {
