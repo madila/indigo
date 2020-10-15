@@ -94,33 +94,6 @@
 	padding-top: 7rem;
 }
 
-article {
-
-		.entry-edit {
-			position: absolute;
-			z-index: 300;
-			max-width: 100%;
-			width: var(--content-width);
-			height: 0;
-			display: none;
-			.edit-link {
-				bottom: var(--content-gutter-y, 1rem);
-				position: absolute;
-				right: var(--content-gutter-x, 1rem);
-			}
-			.post-edit-link {
-				background-color: var(--primary-color);
-				color: var(--primary-text-color);
-			}
-		}
-		&:hover {
-			.entry-edit {
-				display: block;
-			}
-		}
-
-}
-
 .entry {
 	&-title {
 		a {
@@ -143,10 +116,29 @@ article {
 	&-edit {
 		font-family: var(--headings-font-family), $headings-font-family;
 		margin-bottom: var(--content-gutter-y, 1rem);
+		position: absolute;
+		z-index: 300;
+		max-width: 100%;
+		width: var(--content-width);
+		height: 0;
+		display: none;
+		.edit-link {
+			bottom: var(--content-gutter-y, 1rem);
+			position: absolute;
+			right: var(--content-gutter-x, 1rem);
+		}
+		.post-edit-link {
+			background-color: var(--primary-color);
+			color: var(--primary-text-color);
+		}
 		> span {
 			a {
 				@include pill();
 			}
+		}
+
+		article:hover & {
+			display: block;
 		}
 	}
 	&-date {

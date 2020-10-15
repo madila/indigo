@@ -96,7 +96,7 @@ endif;
 
 function indigo_edit_link() { ?>
 	<?php if ( get_edit_post_link() ) : ?>
-		<aside class="entry-footer entry-edit">
+		<aside class="entry-edit">
 			<?php
 			edit_post_link(
 				sprintf(
