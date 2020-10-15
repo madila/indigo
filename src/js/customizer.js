@@ -40,6 +40,13 @@
 		} );
 	} );
 
+	wp.customize( 'logo_width_mobile', function( value ) {
+		value.bind( function( to ) {
+			document.documentElement.style
+				.setProperty('--logo-width-mobile', to+'px');
+		} );
+	} );
+
 	// Content Width
 	wp.customize( 'content_width', function( value ) {
 		value.bind( function( to ) {
