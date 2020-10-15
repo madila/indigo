@@ -17,10 +17,13 @@ get_header();
 
 			<header class="<?php echo (!get_theme_mod('indigo_show_archive_title')) ? 'screen-reader-archive-header screen-reader-text' : 'archive-header'; ?>">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_title( '<h1 class="page-title archive-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
+
 			</header><!-- .page-header -->
+
+			<?php get_template_part('template-parts/content-breadcrumbs'); ?>
 
 			<?php
 			$archive_content = get_page_content_for_archive();

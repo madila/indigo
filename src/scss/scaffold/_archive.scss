@@ -1,4 +1,7 @@
 .archive-header, .entry-header {
+	width: 100%;
+	padding-left: var(--content-gutter-x);
+	padding-right: var(--content-gutter-x);
 	.indigo-calculate-header & {
 		margin-top: var(--header-height);
 		display: block;
