@@ -151,7 +151,7 @@ function indigo_has_cover_title() {
 	global $post;
 	if ( is_singular() || has_blocks() ) {
 		$blocks = parse_blocks( $post->post_content );
-		return (count($blocks) > 0 && $blocks[0]['blockName'] === 'core/cover' );
+		return (count($blocks) > 0 && in_array($blocks[0]['blockName'], array('core/cover')) );
 	}
 }
 

@@ -92,6 +92,9 @@
 			display: block;
 			width: var(--logo-width);
 			backface-visibility: hidden;
+			@include media-breakpoint-down(md) {
+				width: var(--logo-width-mobile);
+			}
 		}
 	}
 

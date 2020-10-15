@@ -208,6 +208,30 @@ function indigo_customize_register( $wp_customize ) {
 	) ));
 
 	/**
+	 * Logo width
+	 */
+	$wp_customize->add_setting(
+		'logo_width_mobile',
+		array(
+			'default'           => intval(get_theme_mod('logo_width_mobile', '250px')),
+			'transport'         => 'postMessage'
+		)
+	);
+
+	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'logo_width_mobile', array(
+		'type' => 'range-value',
+		'section' => 'title_tagline',
+		'label' => __( 'Mobile Logo Size' ),
+		'description' => __( 'The maximum width of the logo.' ),
+		'input_attrs' => array(
+			'min' => 30,
+			'max' => 1000,
+			'step' => 5,
+			'suffix' => 'px'
+		),
+	) ));
+
+	/**
 	 * Archive Settings
 	 */
 

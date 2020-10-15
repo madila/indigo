@@ -36,6 +36,7 @@ function get_theme_mod_defaults() {
 		'content_width' => '960',
 		'content_width_wide' => '1060',
 		'logo_width' => '200px',
+		'logo_width_mobile' => '100px',
 
 		'header_bg_color' => '#ffffff',
 		'header_textcolor' => '#333333',
@@ -151,6 +152,7 @@ if ( ! function_exists( 'indigo_header_style' ) ) :
 			:root {
 				<?php
 				indigo_set_unit_css_var('px', 'logo_width', 'logo-width');
+				indigo_set_unit_css_var('px', 'logo_width_mobile', 'logo-width-mobile');
 				if(!get_theme_mod('indigo_full_width_content')) {
 					indigo_set_unit_css_var('px', 'content_width', 'content-width');
 					indigo_set_unit_css_var('px', 'content_width_wide', 'content-width-wide');
