@@ -1,5 +1,11 @@
 
 .wp-block {
+	&-image {
+		margin-bottom: 0;
+		figure {
+			margin-bottom: var(--content-gutter-y, 1rem);
+		}
+	}
 	&-separator {
 		&.is-style-wide {
 			max-width: none;
