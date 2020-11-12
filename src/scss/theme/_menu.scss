@@ -126,14 +126,14 @@
 			line-height: 1em;
 			text-decoration: none;
 			display: block;
+			font-size: var(--nav-font-size, 1rem);
 			vertical-align: middle;
 			@include media-breakpoint-up(lg) {
 				white-space: nowrap;
 				display: inline-block;
 			}
 			border-bottom: 1px solid transparent;
-			letter-spacing: var(--base-letter-spacing);
-			font-size: 1rem;
+			letter-spacing: var(--base-letter-spacing, 0);
 			font-family: var(--headings-font-family, $headings-font-family);
 			&:hover {
 				border-bottom: 1px solid var(--header-text-color, --base-color);
