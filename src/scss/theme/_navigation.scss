@@ -38,6 +38,10 @@
 				text-decoration: none;
 				padding-left: 1rem;
 				padding-right: 1rem;
+				border: 1px solid #fff;
+				&:hover {
+					border: 1px solid transparent;
+				}
 			}
 		}
 		&-previous {
