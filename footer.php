@@ -13,7 +13,7 @@
 </div><!-- .site-content-wrapper -->
 </div><!-- .site-content -->
 <?php get_sidebar('pre-footer'); ?>
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer alignfull">
 	<?php
 	$copyright_notice = sprintf('Copyright &copy; %1s',
 		date( 'Y' )
