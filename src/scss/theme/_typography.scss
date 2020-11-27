@@ -7,7 +7,7 @@ html {
 
 a {
 	line-height: var(--base-line-height, $line-height-base);
-	font-weight: 500;
+	font-weight:  var(--base-font-weight, $font-weight-base);
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;

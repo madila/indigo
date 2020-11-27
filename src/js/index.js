@@ -23,17 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
 import "./modules/navigation";
 import "./modules/pageOnScroll";
 
-document.addEventListener('DOMContentLoaded', function() {
-	let stickSidebarElement = document.querySelector('.has-sticky-sidebar #secondary');
-	if(stickSidebarElement) {
-		import(
-			/* webpackChunkName: "indigo-sidebarStick" */
-			'./modules/sidebarStick'
-			);
-	}
-
-});
-
 //import "./modules/fixedHeader";
 //import "./modules/fullPageInit";
 

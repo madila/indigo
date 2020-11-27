@@ -1,7 +1,6 @@
 li.menu-item {
 	&.current-menu-item, &.current-menu-parent {
 		> a {
-			font-weight: 600;
 			font-weight: var(--bold-font-weight, 500);
 		}
 	}
