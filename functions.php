@@ -197,7 +197,7 @@ function get_indigo_version() {
 function indigo_reusable_blocks_admin_menu() {
 	add_menu_page( 'Reusable Blocks', 'Reusable Blocks', 'edit_posts', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
 }
-add_action( 'admin_menu', 'indigo_reusable_blocks_admin_menu' );
+//add_action( 'admin_menu', 'indigo_reusable_blocks_admin_menu' );
 
 /**
  * Register widget area.
