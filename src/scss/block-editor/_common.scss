@@ -4,3 +4,9 @@
 	color: var(--base-color, $base-color);
 	font-family: var(--base-font-family), $base-font-family;
 }
+
+.wp-block-button {
+	& &__link {
+		border-radius: var(--base-border-radius,3rem) !important;
+	}
+}
