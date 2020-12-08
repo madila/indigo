@@ -20,10 +20,10 @@
 	);
 	echo sprintf( '<p class="copyright-notice"><small>%1s %2s</small></p>',
 		(get_theme_mod('indigo_display_copyright') == '1') ? $copyright_notice : '',
-		apply_filters( 'indigo_site_info', get_option( 'indigo_site_info' ) )
+		apply_filters( 'indigo_site_info', get_theme_mod( 'indigo_site_info' ) )
 	);
 	?>
-	<?php if($site_info = get_option('indigo_site_info')) { ?>
+	<?php if($site_info = get_theme_mod('indigo_site_info')) { ?>
 		<p>
 			<small class="site-info">
 				<?php echo apply_filters('indigo_site_info', $site_info); ?>
