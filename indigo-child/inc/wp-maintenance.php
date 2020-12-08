@@ -41,7 +41,7 @@ if(!function_exists('ofc_framework_maintenance_redirect')) {
 				return null;
 			}
 
-			$front_page   = get_option( 'page_on_front' );
+			$front_page = get_option( 'page_on_front' );
 			$redirect_url = $front_page !== "0" ? get_permalink( $front_page ) : home_url( '/' );
 			wp_redirect( $redirect_url );
 			exit;
