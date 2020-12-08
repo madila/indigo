@@ -38,10 +38,10 @@
 			?>
 			<span class="sep"> | </span>
 		</a>
-		<?php
+		<span class="screen-reader-text"><?php
 		/* translators: 1: Theme name, 2: Theme author. */
-		printf( esc_html__( '%1$s developed by %2$s.', 'indigo' ), get_bloginfo('site_title'), '<a href="https://rubenmadila.com/" class="screen-reader-text">Rub&eacute;n Madila</a>' );
-		?>
+		printf( esc_html__( '%1$s developed by %2$s.', 'indigo' ), get_bloginfo('site_title'), '<a href="https://rubenmadila.com/">Rub&eacute;n Madila</a>' );
+			?></span>
 	</small><!-- .site-info -->
 </footer><!-- #colophon -->
 </div><!-- #page -->
