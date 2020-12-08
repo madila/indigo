@@ -23,13 +23,6 @@
 		apply_filters( 'indigo_site_info', get_theme_mod( 'indigo_site_info' ) )
 	);
 	?>
-	<?php if($site_info = get_theme_mod('indigo_site_info')) { ?>
-		<p>
-			<small class="site-info">
-				<?php echo apply_filters('indigo_site_info', $site_info); ?>
-			</small><!-- .site-info -->
-		</p>
-	<?php } ?>
 	<small class="site-theme-info has-text-align-center d-block">
 		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'indigo' ) ); ?>" class="screen-reader-text">
 			<?php
