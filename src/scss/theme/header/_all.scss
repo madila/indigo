@@ -72,7 +72,13 @@
 		.site-header-wrapping {
 			z-index: 300;
 			background: var(--header-bg-color);
-			color: var(--header-text-color, inherit);
+			color: var(--header-text-color, currentColor);
+			&, a {
+				color: var(--header-text-color, currentColor);
+			}
+			.custom-logo {
+				fill: var(--header-text-color, currentColor);
+			}
 			width: 100vw;
 			display: flex;
 			justify-content: center;
