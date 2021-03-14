@@ -4,6 +4,9 @@
 		align-items: center;
 		position: relative;
 		align-self: center;
+		.menu, ul, li, a {
+			background-color: inherit;
+		}
 		@include media-breakpoint-down(md) {
 			.menu {
 				&-container {
@@ -28,6 +31,8 @@
 
 						.menu-container {
 							padding-bottom: 7rem;
+							border-bottom: 1px solid #0087aa;
+							box-shadow: 0 8px 8px #0087aa3d;
 						}
 					}
 
@@ -48,10 +53,6 @@
 
 							.sub-menu {
 								display: none;
-								background-color: #f2f2f2;
-								li {
-									background-color: #f2f2f2;
-								}
 							}
 						}
 
@@ -76,7 +77,15 @@
 		overflow: visible;
 		justify-content: center;
 		height: 100%;
+		&.has-background {
+			margin-left: calc(50% - 50vw);
+			margin-right: calc(50% - 50vw);
+			max-width: 1000%;
+			width: auto;
+		}
 	}
+
+
 	margin-bottom: 0;
 	list-style-type: none;
 	padding-left: 0;
@@ -116,7 +125,7 @@
 			font-weight: var(--nav-font-weight);
 			font-family: var(--nav-font-family), $headings-font-family;
 			&:hover {
-				border-bottom: 1px solid var(--header-text-color, --base-color);
+				border-bottom: 1px solid inherit;
 			}
 		}
 	}

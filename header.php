@@ -72,7 +72,7 @@
 							'theme_location' => 'site-navigation',
 							'menu_id' => 'primary-menu',
 							'menu_class' => 'menu menu-collapse menu-row',
-							'container_class' => 'menu-container',
+							'container_class' => 'menu-container has-lemon-sorbet-color has-background has-dark-teal-background-color',
 							'fallback' => false
 						));
 						?>

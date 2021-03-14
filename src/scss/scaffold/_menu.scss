@@ -38,8 +38,10 @@ li.menu-item {
 				transform: none;
 				box-shadow: 0 4px 4px rgba(0,0,0,0.2);
 				li {
-					background-color: var(--header-bg-color);
 					z-index: 40;
+					a:hover {
+						background-color: rgba(0,0,0,0.1);
+					}
 				}
 			}
 		}

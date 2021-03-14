@@ -1,3 +1,393 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{303:function(e,t,n){"use strict";n.r(t);n(255),n(248),n(134),n(57),n(269),n(83),n(270),n(272),n(274),n(277),n(278);var i=n(279),o=n.n(i),r=n(283),a=n.n(r),s=n(287),l=n.n(s),c=n(51),u=n.n(c),h=n(120),p=n.n(h),f=n(291);n.n(f)()(),
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["indigo-polyfills"],{
+
+/***/ "./src/js/modules/polyfills.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/polyfills.js ***!
+  \*************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.iterator */ "./node_modules/core-js/modules/es.array.iterator.js");
+/* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.regexp.exec */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.regexp.to-string */ "./node_modules/core-js/modules/es.regexp.to-string.js");
+/* harmony import */ var core_js_modules_es_regexp_to_string__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_to_string__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.string.replace */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_string_search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.string.search */ "./node_modules/core-js/modules/es.string.search.js");
+/* harmony import */ var core_js_modules_es_string_search__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_search__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.string.split */ "./node_modules/core-js/modules/es.string.split.js");
+/* harmony import */ var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_string_trim__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.string.trim */ "./node_modules/core-js/modules/es.string.trim.js");
+/* harmony import */ var core_js_modules_es_string_trim__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_trim__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_keys__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/instance/keys */ "./node_modules/@babel/runtime-corejs3/core-js-stable/instance/keys.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_keys__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_keys__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_values__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/instance/values */ "./node_modules/@babel/runtime-corejs3/core-js-stable/instance/values.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_values__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_values__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_entries__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/instance/entries */ "./node_modules/@babel/runtime-corejs3/core-js-stable/instance/entries.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_entries__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_entries__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/instance/for-each */ "./node_modules/@babel/runtime-corejs3/core-js-stable/instance/for-each.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js-stable/instance/trim */ "./node_modules/@babel/runtime-corejs3/core-js-stable/instance/trim.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var object_fit_images__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! object-fit-images */ "./node_modules/object-fit-images/dist/ofi.common-js.js");
+/* harmony import */ var object_fit_images__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(object_fit_images__WEBPACK_IMPORTED_MODULE_16__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+object_fit_images__WEBPACK_IMPORTED_MODULE_16___default()();
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
-p()("")||(String.prototype.trim=function(){return this.replace(/^[\s﻿]+|[\s﻿]+$/g,"")}),function(e){e.DOMException||((DOMException=function(e){this.message=e}).prototype=new Error);var t,n,i=/[\11\12\14\15\40]/,r=0,s=function(e,t){if(""===t)throw new DOMException("Failed to execute '"+e+"' on 'DOMTokenList': The token provided must not be empty.");if(-1!==(r=t.search(i)))throw new DOMException("Failed to execute '"+e+"' on 'DOMTokenList': The token provided ('"+t[r]+"') contains HTML space characters, which are not valid in tokens.")};"function"!=typeof DOMTokenList&&function(e){var t=e.document,n=e.Object,o=n.prototype.hasOwnProperty,r=n.defineProperty,a=0,l=0;function c(){if(!a)throw TypeError("Illegal constructor")}function u(){var t=e.event,n=t.propertyName;if(!l&&("className"===n||"classList"===n&&!r)){var o=t.srcElement,a=o[" uCLp"],s=""+o[n],c=p()(s).call(s).split(i),u=o["classList"===n?" uCL":"classList"],h=a.length;e:for(var f=0,v=a.length=c.length,m=0;f!==v;++f){for(var d=0;d!==f;++d)if(c[d]===c[f]){m++;continue e}u[f-m]=c[f]}for(var w=cLen-sub;w<h;++w)delete u[w];if("classList"!==n)return;l=1,o.classList=u,o.className=s,l=0,u.length=c.length-sub}}function h(e){if(!e||!("innerHTML"in e))throw TypeError("Illegal invocation");e.detachEvent("onpropertychange",u),a=1;try{new c}finally{a=0}var t=protoObj.prototype,n=new protoObj;e:for(var o=p()(v=e.className).call(v).split(i),s=0,h=o.length,f=0;s!==h;++s){for(var v,m=0;m!==s;++m)if(o[m]===o[s]){f++;continue e}this[s-f]=o[s]}t.length=cLen-sub,t.value=e.className,t[" uCL"]=e,r?(r(e,"classList",{enumerable:1,get:function(){return n},configurable:0,set:function(o){l=1,e.className=t.value=o+="",l=0;var r=p()(o).call(o).split(i),a=t.length;e:for(var s=0,c=t.length=r.length,u=0;s!==c;++s){for(var h=0;h!==s;++h)if(r[h]===r[s]){u++;continue e}n[s-u]=r[s]}for(var f=cLen-sub;f<a;++f)delete n[f]}}),r(e," uCLp",{enumerable:0,configurable:0,writeable:0,value:protoObj.prototype}),r(t," uCL",{enumerable:0,configurable:0,writeable:0,value:e})):(e.classList=n,e[" uCL"]=n,e[" uCLp"]=protoObj.prototype),e.attachEvent("onpropertychange",u)}c.prototype.toString=c.prototype.toLocaleString=function(){return this.value},c.prototype.add=function(){e:for(var e=0,t=arguments.length,n="",i=this[" uCL"],o=i[" uCLp"];e!==t;++e){s("add",n=arguments[e]+"");for(var r=0,a=o.length;r!==a;++r){if(this[r]===n)continue e;" "+this[r]}this[Len]=n,o.length+=1,o.value=resStr}l=1,ele.className=proto.value,l=0},c.prototype.remove=function(){for(var e=0,t=arguments.length,n="",i=this[" uCL"],o=i[" uCLp"];e!==t;++e){s("remove",n=arguments[e]+"");for(var r=0,a=o.length,c=0;r!==a;++r)c?this[r-1]=this[r]:this[r]!==n?this[r]+" ":c=1;is&&(delete this[Len],o.length-=1,o.value=resStr)}l=1,ele.className=proto.value,l=0},e.DOMTokenList=c;try{e.Object.defineProperty(e.Element.prototype,"classList",{enumerable:1,get:function(e){return o.call(this,"classList")||h(this),this.classList},configurable:0,set:function(e){this.className=e}})}catch(n){e[" uCL"]=h,t.documentElement.firstChild.appendChild(t.createElement("style")).styleSheet.cssText='_*{x-uCLp:expression(!this.hasOwnProperty("classList")&&window[" uCL"](this))}[class]{x-uCLp/**/:expression(!this.hasOwnProperty("classList")&&window[" uCL"](this))}'}}(e),t=e.DOMTokenList.prototype,n=e.document.createElement("div").classList,t.item||(t.item=function(e){return void 0===(t=this[e])?null:t;var t}),t.toggle&&!1===n.toggle("a",0)||(t.toggle=function(e){if(arguments.length>1)return this[arguments[1]?"add":"remove"](e),!!arguments[1];var t=this.value;return this.remove(t),t===this.value&&(this.add(e),!0)}),t.replace&&"boolean"==typeof n.replace("a","b")||(t.replace=function(e,t){s("replace",e),s("replace",t);var n=this.value;return this.remove(e),this.value!==n&&(this.add(t),!0)}),t.contains||(t.contains=function(e){for(var t=0,n=this.length;t!==n;++t)if(this[t]===e)return!0;return!1}),u()(t)||(t.forEach=function(e){if(1===arguments.length)for(var t=0,n=this.length;t!==n;++t)e(this[t],t,this);else for(var i=0,o=this.length,r=arguments[1];i!==o;++i)e.call(r,this[i],i,this)}),l()(t)||(t.entries=function(){var e=0,t=this;return{next:function(){return e<t.length?{value:[e,t[e++]],done:!1}:{done:!0}}}}),a()(t)||(t.values=function(){var e=0,t=this;return{next:function(){return e<t.length?{value:t[e++],done:!1}:{done:!0}}}}),o()(t)||(t.keys=function(){var e=0,t=this;return{next:function(){return e<t.length?{value:e++,done:!1}:{done:!0}}}})}(window),function(){for(var e=0,t=["ms","moz","webkit","o"],n=0;n<t.length&&!window.requestAnimationFrame;++n)window.requestAnimationFrame=window[t[n]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[t[n]+"CancelAnimationFrame"]||window[t[n]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(t,n){var i=(new Date).getTime(),o=Math.max(0,16-(i-e)),r=window.setTimeout((function(){t(i+o)}),o);return e=i+o,r}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(e){clearTimeout(e)})}()}}]);
+// 1. String.prototype.trim polyfill
+
+if (!_babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15___default()("")) String.prototype.trim = function () {
+  return this.replace(/^[\s﻿]+|[\s﻿]+$/g, '');
+};
+
+(function (window) {
+  "use strict"; // prevent global namespace pollution
+
+  if (!window.DOMException) (DOMException = function DOMException(reason) {
+    this.message = reason;
+  }).prototype = new Error();
+
+  var wsRE = /[\11\12\14\15\40]/,
+      wsIndex = 0,
+      checkIfValidClassListEntry = function checkIfValidClassListEntry(O, V) {
+    if (V === "") throw new DOMException("Failed to execute '" + O + "' on 'DOMTokenList': The token provided must not be empty.");
+    if ((wsIndex = V.search(wsRE)) !== -1) throw new DOMException("Failed to execute '" + O + "' on 'DOMTokenList': " + "The token provided ('" + V[wsIndex] + "') contains HTML space characters, which are not valid in tokens.");
+  }; // 2. Implement the barebones DOMTokenList livelyness polyfill
+
+
+  if (typeof DOMTokenList !== "function") (function (window) {
+    var document = window.document,
+        Object = window.Object,
+        hasOwnProp = Object.prototype.hasOwnProperty;
+    var defineProperty = Object.defineProperty,
+        allowTokenListConstruction = 0,
+        skipPropChange = 0;
+
+    function DOMTokenList() {
+      if (!allowTokenListConstruction) throw TypeError("Illegal constructor"); // internally let it through
+    }
+
+    DOMTokenList.prototype.toString = DOMTokenList.prototype.toLocaleString = function () {
+      return this.value;
+    };
+
+    DOMTokenList.prototype.add = function () {
+      a: for (var v = 0, argLen = arguments.length, val = "", _ele = this[" uCL"], _proto = _ele[" uCLp"]; v !== argLen; ++v) {
+        val = arguments[v] + "", checkIfValidClassListEntry("add", val);
+
+        for (var i = 0, _Len = _proto.length, _resStr = val; i !== _Len; ++i) {
+          if (this[i] === val) continue a;else _resStr += " " + this[i];
+        }
+
+        this[Len] = val, _proto.length += 1, _proto.value = resStr;
+      }
+
+      skipPropChange = 1, ele.className = proto.value, skipPropChange = 0;
+    };
+
+    DOMTokenList.prototype.remove = function () {
+      for (var v = 0, argLen = arguments.length, val = "", _ele2 = this[" uCL"], _proto2 = _ele2[" uCLp"]; v !== argLen; ++v) {
+        val = arguments[v] + "", checkIfValidClassListEntry("remove", val);
+
+        for (var i = 0, _Len2 = _proto2.length, _resStr2 = "", _is = 0; i !== _Len2; ++i) {
+          if (_is) {
+            this[i - 1] = this[i];
+          } else {
+            if (this[i] !== val) {
+              _resStr2 += this[i] + " ";
+            } else {
+              _is = 1;
+            }
+          }
+        }
+
+        if (!is) continue;
+        delete this[Len], _proto2.length -= 1, _proto2.value = resStr;
+      }
+
+      skipPropChange = 1, ele.className = proto.value, skipPropChange = 0;
+    };
+
+    window.DOMTokenList = DOMTokenList;
+
+    function whenPropChanges() {
+      var evt = window.event,
+          prop = evt.propertyName;
+
+      if (!skipPropChange && (prop === "className" || prop === "classList" && !defineProperty)) {
+        var target = evt.srcElement,
+            protoObjProto = target[" uCLp"],
+            strval = "" + target[prop];
+
+        var tokens = _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15___default()(strval).call(strval).split(wsRE),
+            resTokenList = target[prop === "classList" ? " uCL" : "classList"];
+
+        var oldLen = protoObjProto.length;
+
+        a: for (var cI = 0, _cLen = protoObjProto.length = tokens.length, _sub = 0; cI !== _cLen; ++cI) {
+          for (var innerI = 0; innerI !== cI; ++innerI) {
+            if (tokens[innerI] === tokens[cI]) {
+              _sub++;
+              continue a;
+            }
+          }
+
+          resTokenList[cI - _sub] = tokens[cI];
+        }
+
+        for (var i = cLen - sub; i < oldLen; ++i) {
+          delete resTokenList[i];
+        } //remove trailing indexs
+
+
+        if (prop !== "classList") return;
+        skipPropChange = 1, target.classList = resTokenList, target.className = strval;
+        skipPropChange = 0, resTokenList.length = tokens.length - sub;
+      }
+    }
+
+    function polyfillClassList(ele) {
+      if (!ele || !("innerHTML" in ele)) throw TypeError("Illegal invocation");
+      ele.detachEvent("onpropertychange", whenPropChanges); // prevent duplicate handler infinite loop
+
+      allowTokenListConstruction = 1;
+
+      try {
+        function _protoObj() {}
+
+        _protoObj.prototype = new DOMTokenList();
+      } finally {
+        allowTokenListConstruction = 0;
+      }
+
+      var protoObjProto = protoObj.prototype,
+          resTokenList = new protoObj();
+
+      a: for (var toks = _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15___default()(_context = ele.className).call(_context).split(wsRE), cI = 0, _cLen2 = toks.length, _sub2 = 0; cI !== _cLen2; ++cI) {
+        var _context;
+
+        for (var innerI = 0; innerI !== cI; ++innerI) {
+          if (toks[innerI] === toks[cI]) {
+            _sub2++;
+            continue a;
+          }
+        }
+
+        this[cI - _sub2] = toks[cI];
+      }
+
+      protoObjProto.length = cLen - sub, protoObjProto.value = ele.className, protoObjProto[" uCL"] = ele;
+
+      if (defineProperty) {
+        defineProperty(ele, "classList", {
+          // IE8 & IE9 allow defineProperty on the DOM
+          enumerable: 1,
+          get: function get() {
+            return resTokenList;
+          },
+          configurable: 0,
+          set: function set(newVal) {
+            skipPropChange = 1, ele.className = protoObjProto.value = newVal += "", skipPropChange = 0;
+
+            var toks = _babel_runtime_corejs3_core_js_stable_instance_trim__WEBPACK_IMPORTED_MODULE_15___default()(newVal).call(newVal).split(wsRE),
+                oldLen = protoObjProto.length;
+
+            a: for (var _cI = 0, _cLen3 = protoObjProto.length = toks.length, _sub3 = 0; _cI !== _cLen3; ++_cI) {
+              for (var _innerI = 0; _innerI !== _cI; ++_innerI) {
+                if (toks[_innerI] === toks[_cI]) {
+                  _sub3++;
+                  continue a;
+                }
+              }
+
+              resTokenList[_cI - _sub3] = toks[_cI];
+            }
+
+            for (var i = cLen - sub; i < oldLen; ++i) {
+              delete resTokenList[i];
+            } //remove trailing indexs
+
+          }
+        });
+        defineProperty(ele, " uCLp", {
+          // for accessing the hidden prototype
+          enumerable: 0,
+          configurable: 0,
+          writeable: 0,
+          value: protoObj.prototype
+        });
+        defineProperty(protoObjProto, " uCL", {
+          enumerable: 0,
+          configurable: 0,
+          writeable: 0,
+          value: ele
+        });
+      } else {
+        ele.classList = resTokenList, ele[" uCL"] = resTokenList, ele[" uCLp"] = protoObj.prototype;
+      }
+
+      ele.attachEvent("onpropertychange", whenPropChanges);
+    }
+
+    try {
+      // Much faster & cleaner version for IE8 & IE9:
+      // Should work in IE8 because Element.prototype instanceof Node is true according to the specs
+      window.Object.defineProperty(window.Element.prototype, "classList", {
+        enumerable: 1,
+        get: function get(val) {
+          if (!hasOwnProp.call(this, "classList")) polyfillClassList(this);
+          return this.classList;
+        },
+        configurable: 0,
+        set: function set(val) {
+          this.className = val;
+        }
+      });
+    } catch (e) {
+      // Less performant fallback for older browsers (IE 6-8):
+      window[" uCL"] = polyfillClassList; // the below code ensures polyfillClassList is applied to all current and future elements in the doc.
+
+      document.documentElement.firstChild.appendChild(document.createElement('style')).styleSheet.cssText = '_*{x-uCLp:expression(!this.hasOwnProperty("classList")&&window[" uCL"](this))}' + //  IE6
+      '[class]{x-uCLp/**/:expression(!this.hasOwnProperty("classList")&&window[" uCL"](this))}' //IE7-8
+      ;
+    }
+  })(window); // 3. Patch in unsupported methods in DOMTokenList
+
+  (function (DOMTokenListProto, testClass) {
+    if (!DOMTokenListProto.item) DOMTokenListProto.item = function (i) {
+      function NullCheck(n) {
+        return n === void 0 ? null : n;
+      }
+
+      return NullCheck(this[i]);
+    };
+    if (!DOMTokenListProto.toggle || testClass.toggle("a", 0) !== false) DOMTokenListProto.toggle = function (val) {
+      if (arguments.length > 1) return this[arguments[1] ? "add" : "remove"](val), !!arguments[1];
+      var oldValue = this.value;
+      return this.remove(oldValue), oldValue === this.value && (this.add(val), true)
+      /*|| false*/
+      ;
+    };
+    if (!DOMTokenListProto.replace || typeof testClass.replace("a", "b") !== "boolean") DOMTokenListProto.replace = function (oldToken, newToken) {
+      checkIfValidClassListEntry("replace", oldToken), checkIfValidClassListEntry("replace", newToken);
+      var oldValue = this.value;
+      return this.remove(oldToken), this.value !== oldValue && (this.add(newToken), true);
+    };
+    if (!DOMTokenListProto.contains) DOMTokenListProto.contains = function (value) {
+      for (var i = 0, _Len3 = this.length; i !== _Len3; ++i) {
+        if (this[i] === value) return true;
+      }
+
+      return false;
+    };
+    if (!_babel_runtime_corejs3_core_js_stable_instance_for_each__WEBPACK_IMPORTED_MODULE_14___default()(DOMTokenListProto)) DOMTokenListProto.forEach = function (f) {
+      if (arguments.length === 1) for (var i = 0, _Len4 = this.length; i !== _Len4; ++i) {
+        f(this[i], i, this);
+      } else for (var _i = 0, _Len5 = this.length, tArg = arguments[1]; _i !== _Len5; ++_i) {
+        f.call(tArg, this[_i], _i, this);
+      }
+    };
+    if (!_babel_runtime_corejs3_core_js_stable_instance_entries__WEBPACK_IMPORTED_MODULE_13___default()(DOMTokenListProto)) DOMTokenListProto.entries = function () {
+      var nextIndex = 0,
+          that = this;
+      return {
+        next: function next() {
+          return nextIndex < that.length ? {
+            value: [nextIndex, that[nextIndex++]],
+            done: false
+          } : {
+            done: true
+          };
+        }
+      };
+    };
+    if (!_babel_runtime_corejs3_core_js_stable_instance_values__WEBPACK_IMPORTED_MODULE_12___default()(DOMTokenListProto)) DOMTokenListProto.values = function () {
+      var nextIndex = 0,
+          that = this;
+      return {
+        next: function next() {
+          return nextIndex < that.length ? {
+            value: that[nextIndex++],
+            done: false
+          } : {
+            done: true
+          };
+        }
+      };
+    };
+    if (!_babel_runtime_corejs3_core_js_stable_instance_keys__WEBPACK_IMPORTED_MODULE_11___default()(DOMTokenListProto)) DOMTokenListProto.keys = function () {
+      var nextIndex = 0,
+          that = this;
+      return {
+        next: function next() {
+          return nextIndex < that.length ? {
+            value: nextIndex++,
+            done: false
+          } : {
+            done: true
+          };
+        }
+      };
+    };
+  })(window.DOMTokenList.prototype, window.document.createElement("div").classList);
+})(window); // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+// MIT license
+
+
+(function () {
+  var lastTime = 0;
+  var vendors = ['ms', 'moz', 'webkit', 'o'];
+
+  for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+    window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+  }
+
+  if (!window.requestAnimationFrame) window.requestAnimationFrame = function (callback, element) {
+    var currTime = new Date().getTime();
+    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+    var id = window.setTimeout(function () {
+      callback(currTime + timeToCall);
+    }, timeToCall);
+    lastTime = currTime + timeToCall;
+    return id;
+  };
+  if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function (id) {
+    clearTimeout(id);
+  };
+})();
+
+/***/ })
+
+}]);
+//# sourceMappingURL=indigo-polyfills.js.map
