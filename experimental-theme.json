@@ -1,12 +1,5 @@
 {
   "settings": {
-    "supportsLayout": true,
-    "alignWide": true,
-    "defaults": {
-      "layout": {
-        "contentSize": "800px",
-        "wideSize": "1000px"
-      }
-    }
+    "supportsLayout": true
   }
 }
