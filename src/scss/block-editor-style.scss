@@ -16,11 +16,21 @@ $css-vars-use-native: true;
 }
 
 .wp-block {
-	&[data-align="full"] {
+	/* Width of "wide" blocks */
+	.wp-block[data-align="wide"] {
+		max-width: 80%;
+		width: auto;
+	}
+
+	/* Width of "full-wide" blocks */
+	.wp-block[data-align="full"] {
 		max-width: none;
 	}
+	&[data-align="center"] {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
-
 
 html .editor-styles-wrapper {
 	box-sizing: border-box;
@@ -30,6 +40,7 @@ html .editor-styles-wrapper {
 	line-height: var(--base-line-height, $line-height-base);
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	background-color: var(--base-bg-color, $body-bg);
+	font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
 	@import "block-editor/common";
 	@import "common/block";
 	@import "theme/typography";

@@ -49,25 +49,22 @@
 }
 
 
-.wp-alignment-support {
 
-	.alignfull {
+.alignfull {
 
-		@include alignfull;
-	}
-
-	.alignwide {
-
-		@include alignwide;
-
-		.alignwide {
-			margin-left: 0;
-			margin-right: 0;
-		}
-	}
+	@include alignfull;
 
 }
 
+.alignwide {
+
+	@include alignwide;
+
+	.alignwide {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
 
 .flex-column {
 	display: flex;
