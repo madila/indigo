@@ -61,9 +61,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		 */
 		add_theme_support( 'title-tag' );
 
-		if(get_theme_mod('indigo_alignment_support')) {
-			add_theme_support( 'align-wide' );
-		}
+		add_theme_support( 'align-wide' );
 
 		$font_size = get_theme_mod('base_font_size', 14);
 
@@ -170,6 +168,8 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		add_theme_support( 'responsive-embeds' );
+
+		add_theme_support( 'wp-block-styles'  );
 
 		/**
 		 * Add support for core custom logo.

@@ -4,3 +4,11 @@
 	color: var(--base-color, $base-color);
 	font-family: var(--base-font-family), $base-font-family;
 }
+
+.block-editor-block-list__block {
+	margin-top: var(--content-gutter-y, $grid-gutter-width);
+	margin-bottom: var(--content-gutter-y, $grid-gutter-width);
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--content-width, $container-default-width);
+}
