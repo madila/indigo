@@ -169,7 +169,7 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 
 		add_theme_support( 'responsive-embeds' );
 
-//		/add_theme_support( 'wp-block-styles'  );
+		add_theme_support( 'wp-block-styles'  );
 
 		/**
 		 * Add support for core custom logo.

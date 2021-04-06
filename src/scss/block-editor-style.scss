@@ -30,6 +30,11 @@ $css-vars-use-native: true;
 		margin-left: auto;
 		margin-right: auto;
 	}
+	&.is-content-justification-center {
+		> .wp-block-button:last-child {
+			margin-right: auto;
+		}
+	}
 }
 
 html .editor-styles-wrapper {

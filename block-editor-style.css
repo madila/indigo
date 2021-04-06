@@ -2058,6 +2058,8 @@
   .wp-block[data-align="center"] {
     margin-left: auto;
     margin-right: auto; }
+  .wp-block.is-content-justification-center > .wp-block-button:last-child {
+    margin-right: auto; }
 
 html .editor-styles-wrapper {
   -webkit-box-sizing: border-box;
