@@ -33,38 +33,6 @@ function indigo_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 
-	$wp_customize->add_control( 'indigo_header_info', array(
-		'type' => 'textarea',
-		'section' => 'title_tagline',
-		'label' => __( 'Additional Header Information' ),
-	) );
-
-	$wp_customize->add_setting( 'indigo_site_info', array(
-		'capability' => 'edit_theme_options',
-		'default' => 'All rights reserved unless otherwise stated.',
-		'sanitize_callback' => 'wp_kses_post',
-	) );
-
-	$wp_customize->add_control( 'indigo_site_info', array(
-		'type' => 'textarea',
-		'section' => 'title_tagline',
-		'label' => __( 'Additional Footer Information' ),
-	) );
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_display_copyright', array(
-		'default'    => 1,
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_display_copyright', array(
-		'label'      => __( 'Display copyright notice?', 'indigo' ),
-		'section'    => 'title_tagline',
-		'type'       => 'checkbox',
-		'std'        => 1
-	) );
-
 	/**
 	 * Typography Color
 	 */
@@ -231,18 +199,64 @@ function indigo_customize_register( $wp_customize ) {
 		),
 	) ));
 
+
 	/**
 	 * Archive Settings
 	 */
 
-	$wp_customize->add_section( 'archive_settings',
+	$wp_customize->add_section( 'footer_settings',
 		array(
-			'title'       => __( 'Archive Settings', 'indigo' ), //Visible title of section
+			'title'       => __( 'Site Footer', 'indigo' ), //Visible title of section
 			'priority'    => 25, //Determines what order this appears in
 			'capability'  => 'edit_theme_options', //Capability needed to tweak
 			'description' => __('Allows you to control the display of archives.', 'indigo'), //Descriptive tooltip
 		)
 	);
+
+
+	$wp_customize->add_setting( 'indigo_pre_footer_alignment', array(
+		'capability' => 'edit_theme_options',
+		'sanitize_callback' => 'indigo_sanitize_select',
+		'default' => 'none',
+	) );
+
+	$wp_customize->add_control( 'indigo_pre_footer_alignment', array(
+		'type' => 'select',
+		'section' => 'footer_settings', // Add a default or your own section
+		'label' => __( 'Pre Footer Alignment' ),
+		'description' => __( 'Select the display of the pre-footer sidebar.' ),
+		'choices' => array(
+			'none' => __( 'None (Always hidden)' ),
+			'column' => __( 'Column' ),
+			'row' => __( 'Row' )
+		),
+	) );
+
+	$wp_customize->add_setting( 'indigo_site_info', array(
+		'capability' => 'edit_theme_options',
+		'default' => 'All rights reserved unless otherwise stated.',
+		'sanitize_callback' => 'wp_kses_post',
+	) );
+
+	$wp_customize->add_control( 'indigo_site_info', array(
+		'type' => 'textarea',
+		'section' => 'footer_settings',
+		'label' => __( 'Additional Footer Information' ),
+	) );
+
+	// Add settings for output description
+	$wp_customize->add_setting( 'indigo_display_copyright', array(
+		'default'    => 1,
+		'capability' => 'edit_theme_options'
+	) );
+
+	// Add control and output for select field
+	$wp_customize->add_control( 'indigo_display_copyright', array(
+		'label'      => __( 'Display copyright notice?', 'indigo' ),
+		'section'    => 'footer_settings',
+		'type'       => 'checkbox',
+		'std'        => 1
+	) );
 
 
 	// Add settings for output description
@@ -254,105 +268,8 @@ function indigo_customize_register( $wp_customize ) {
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_show_archive_title', array(
 		'label'      => __( 'Show archive titles?', 'indigo' ),
-		'section'    => 'archive_settings',
+		'section'    => 'site_layout',
 		'type'       => 'checkbox'
-	) );
-
-	/**
-	 * Base Typography
-	 */
-	$wp_customize->add_setting(
-		'archive_alignment',
-		array(
-			'default'           => 'container',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-
-	$wp_customize->add_control( 'archive_alignment', array(
-		'type' => 'select',
-		'section' => 'archive_settings', // Add a default or your own section
-		'label' => __( 'Archive Alignment' ),
-		'description' => __( 'Choose the way the archive items should be display in.' ),
-		'choices' => array(
-			'contained' => __( 'Contained' ),
-			'full' => __( 'Full' ),
-			'wide' => __( 'Wide' )
-		),
-	) );
-
-	/**
-	 * Base Typography
-	 */
-	$wp_customize->add_setting(
-		'archive_item_display_in',
-		array(
-			'default'           => '',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-
-	$wp_customize->add_control( 'archive_item_display_in', array(
-		'type' => 'select',
-		'section' => 'archive_settings', // Add a default or your own section
-		'label' => __( 'Display in' ),
-		'description' => __( 'Choose the way the archive items should be display in.' ),
-		'choices' => array(
-			'columns' => __( 'Columns' ),
-			'rows' => __( 'Rows' )
-		),
-	) );
-
-	/**
-	 * Content Max Width
-	 */
-	$archive_columns = intval(get_theme_mod( 'indigo_archive_columns', '1' ));
-
-	$wp_customize->add_setting(
-		'indigo_archive_columns',
-		array(
-			'default'           => $archive_columns,
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'indigo_archive_columns', array(
-		'type' => 'range-value',
-		'section' => 'archive_settings',
-		'label' => __( 'Archive Columns' ),
-		'settings' => 'indigo_archive_columns',
-		'description' => __( 'The horizontal columns to show on archives.' ),
-		'input_attrs' => array(
-			'min' => 1,
-			'max' => 4,
-			'step' => 1,
-			'value' => $archive_columns
-		),
-	) ) );
-
-	/**
-	 * Base Typography
-	 */
-	$wp_customize->add_setting(
-		'archive_item_display_as',
-		array(
-			'default'           => '',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-
-	$wp_customize->add_control( 'archive_item_display_as', array(
-		'type' => 'select',
-		'section' => 'archive_settings', // Add a default or your own section
-		'label' => __( 'Display as' ),
-		'description' => __( 'Choose the way the archive items should be display as.' ),
-		'choices' => array(
-			'card' => __( 'Card' ),
-			'cover' => __( 'Cover' )
-		),
 	) );
 
 	/**
@@ -977,7 +894,7 @@ function indigo_customize_register( $wp_customize ) {
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_show_single_title', array(
 		'label'      => __( 'Show the Title in Single Templates?', 'indigo' ),
-		'section'    => 'archive_settings',
+		'section'    => 'site_layout',
 		'type'       => 'checkbox'
 	) );
 
@@ -991,35 +908,9 @@ function indigo_customize_register( $wp_customize ) {
 	// Add control and output for select field
 	$wp_customize->add_control( 'indigo_hide_post_thumbnail', array(
 		'label'      => __( 'Hide Single Page Post Thumbnail?', 'indigo' ),
-		'section'    => 'archive_settings',
+		'section'    => 'site_layout',
 		'type'       => 'checkbox'
 	) );
-
-
-	/**
-	 * Sidebar Width
-	 */
-
-	$wp_customize->add_setting(
-		'sidebar_width',
-		array(
-			'default'           => get_theme_mod( 'sidebar_width', '300' ),
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control( new Customizer_Range_Value_Control( $wp_customize, 'sidebar_width', array(
-		'type' => 'range-value',
-		'section' => 'site_layout',
-		'label' => __( 'Sidebar Width' ),
-		'description' => __( 'The width of the website sidebars.' ),
-		'input_attrs' => array(
-			'min' => 250,
-			'max' => 600,
-			'step' => 25,
-			'suffix' => 'px'
-		),
-	) ));
 
 	/**
 	 * Site Gutter X
@@ -1087,74 +978,6 @@ function indigo_customize_register( $wp_customize ) {
 	 * Theme
 	 */
 
-	$wp_customize->add_setting( 'indigo_sidebar_direction', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'none',
-	) );
-
-	$wp_customize->add_control( 'indigo_sidebar_direction', array(
-		'type' => 'select',
-		'section' => 'site_layout', // Add a default or your own section
-		'label' => __( 'Sidebar Direction' ),
-		'description' => __( 'Select the direction of the widgets.' ),
-		'choices' => array(
-			'none' => __( 'None' ),
-			'row' => __( 'Horizontal' ),
-			'vertical' => __( 'Alongside the content' ),
-			'column' => __( 'Bottom Columns' ),
-		),
-	) );
-
-	$wp_customize->add_setting( 'indigo_sidebar_alignment', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'none',
-	) );
-
-	$wp_customize->add_control( 'indigo_sidebar_alignment', array(
-		'type' => 'select',
-		'section' => 'site_layout', // Add a default or your own section
-		'label' => __( 'Content Sidebar Support' ),
-		'description' => __( 'Select the position of the main sidebar. If left or right, Full Width support will be disabled.' ),
-		'choices' => array(
-			'none' => __( 'None (Always hidden)' ),
-			'bottom' => __( 'Bottom' ),
-			'left' => __( 'Left' ),
-			'right' => __( 'Right' )
-		),
-	) );
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_has_sticky_sidebar', array(
-		'default'    => false,
-		'capability' => 'edit_theme_options'
-	) );
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_has_sticky_sidebar', array(
-		'label'      => __( 'Enable Sticky Sidebar', 'indigo' ),
-		'section'    => 'site_layout',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_content_sidebar_on_pages')
-	) );
-
-
-	// Add settings for output description
-	$wp_customize->add_setting( 'indigo_content_sidebar_on_pages', array(
-		'default'    => false,
-		'capability' => 'edit_theme_options'
-	) );
-
-
-	// Add control and output for select field
-	$wp_customize->add_control( 'indigo_content_sidebar_on_pages', array(
-		'label'      => __( 'Disable Sidebar on Pages', 'indigo' ),
-		'section'    => 'site_layout',
-		'type'       => 'checkbox',
-		'std'        => get_theme_mod('indigo_content_sidebar_on_pages')
-	) );
-
 	// Add settings for page title visibility
 	$wp_customize->add_setting( 'indigo_show_page_title', array(
 		'default'    => true,
@@ -1166,24 +989,6 @@ function indigo_customize_register( $wp_customize ) {
 		'label'      => __( 'Show Title on Pages', 'indigo' ),
 		'section'    => 'site_layout',
 		'type'       => 'checkbox'
-	) );
-
-	$wp_customize->add_setting( 'indigo_pre_footer_alignment', array(
-		'capability' => 'edit_theme_options',
-		'sanitize_callback' => 'indigo_sanitize_select',
-		'default' => 'none',
-	) );
-
-	$wp_customize->add_control( 'indigo_pre_footer_alignment', array(
-		'type' => 'select',
-		'section' => 'site_layout', // Add a default or your own section
-		'label' => __( 'Pre Footer Alignment' ),
-		'description' => __( 'Select the display of the pre-footer sidebar.' ),
-		'choices' => array(
-			'none' => __( 'None (Always hidden)' ),
-			'column' => __( 'Column' ),
-			'row' => __( 'Row' )
-		),
 	) );
 
 }

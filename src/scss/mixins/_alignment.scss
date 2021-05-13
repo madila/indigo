@@ -11,8 +11,8 @@
 @mixin alignwide {
 	width: 100%;
 	@media (min-width: $container-default-width) {
-		margin-left: calc(20% - 20vw);
-		margin-right: calc(20% - 20vw);
+		margin-left: calc(25% - 25vw);
+		margin-right: calc(25% - 25vw);
 		width: auto;
 		// We can't allow nested alignment wide
 		&.wp-block-gallery {
@@ -21,7 +21,6 @@
 		}
 	}
 }
-
 
 @mixin aligncontainer() {
 	width: var(--content-width, $container-default-width);

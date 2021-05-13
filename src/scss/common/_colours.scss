@@ -1,4 +1,11 @@
-@each $colour in map-keys($colours) {
-	$value: map-get($colours, $colour);
-	@include colour-classes($colour, $value);
+@each $name in map-keys($colours) {
+	$color: map-get($colours, $name);
+
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
 }
