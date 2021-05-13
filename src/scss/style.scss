@@ -4,7 +4,7 @@ Theme URI: http://indigo.rubenmadila.com/
 Author: Ruben Madila for Ollie Ford & Co
 Author URI: http://underscores.me/
 Description: Custom theme: Indigo, developed by Ruben Madila for Ollie Ford & Co
-Version: 1.5.0
+Version: 1.5.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: indigo
@@ -22,7 +22,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
 $css-vars-use-native: true;
-@import "~css-vars";
+@import "./../../node_modules/css-vars/css-vars";
 
 @import "mixins/mixins";
 
