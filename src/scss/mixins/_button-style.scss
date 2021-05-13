@@ -19,8 +19,9 @@
 @mixin pill() {
 	margin-top: .5em;
 	margin-bottom: .5em;
-	padding: .1em .8em;
+	padding: 1em 1.3em;
 	font-size: 0.8rem;
+	line-height: 1.2;
 	border: 1px solid;
 	font-family: var(--headings-font-family), $headings-font-family;
 	@include border-radius;

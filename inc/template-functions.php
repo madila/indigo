@@ -80,27 +80,9 @@ function indigo_show_sidebar_on_pages() {
 function indigo_add_default_font() {
 	?>
 	<style>
-		@supports (font-variation-settings: normal) {
-			:root {
-				--base-font-family: 'Inter var', sans-serif;
-				--headings-font-family: 'Inter var', sans-serif;
-			}
-			@font-face {
-				font-family: 'Inter var';
-				font-weight: 100 900;
-				font-display: swap;
-				font-style: normal;
-				font-named-instance: 'Regular';
-				src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-roman.var.woff2?v=3.12"; ?>) format("woff2");
-			}
-			@font-face {
-				font-family: 'Inter var';
-				font-weight: 100 900;
-				font-display: swap;
-				font-style: italic;
-				font-named-instance: 'Italic';
-				src: url(<?php echo get_template_directory_uri()."/webfonts/Inter-italic.var.woff2?v=3.12" ?>) format("woff2");
-			}
+		:root {
+			--base-font-family: 'Spartan', sans-serif;
+			--headings-font-family: 'Spartan', sans-serif;
 		}
 	</style>
 	<?php

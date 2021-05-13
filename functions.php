@@ -258,6 +258,9 @@ function indigo_scripts() {
 
 	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), get_indigo_version(), true );
 
+	wp_enqueue_style( 'indigo-webfont', 'https://fonts.googleapis.com/css2?family=Spartan:wght@100;400;600&display=swap', array(), get_indigo_version() );
+
+
 	if(get_template_directory() === get_stylesheet_directory()) {
 		wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
 	}
