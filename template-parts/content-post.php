@@ -17,7 +17,7 @@
 	} ?>
 
 	<?php
-	if(get_theme_mod('indigo_show_single_title')) : ?>
+	if(get_theme_mod('indigo_show_single_title') ) : ?>
 		<header class="entry-header archive-entry">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</header><!-- .page-header -->

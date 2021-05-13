@@ -59,6 +59,7 @@ function get_theme_mod_defaults() {
 		'bold_font_weight' => '600',
 		'base_line_height' => '1.5em',
 		'headings_font_weight' => '600',
+		'headings_line_height' => '1.2em',
 		'nav_font_weight' => '500',
 		'nav_font_size' => '16px',
 
