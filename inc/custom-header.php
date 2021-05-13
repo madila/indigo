@@ -51,7 +51,7 @@ function get_theme_mod_defaults() {
 		'sidebar_width' => 300,
 		'base_border_radius' => 0,
 
-		'base_font_size' => '16px',
+		'base_font_size' => '16',
 		'base_letter_spacing' => '0em',
 		'mobile_font_size' => '16px',
 
