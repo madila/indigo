@@ -305,7 +305,7 @@ ul ol {
   margin-bottom: 0; }
 
 dl dt {
-  font-weight: 500;
+  font-weight: var(--wp--custom--font-weight--normal);
   font-size: 1.25em;
   color: #777777; }
 
@@ -531,7 +531,6 @@ p {
 a {
   color: inherit;
   line-height: var(--wp--custom--line-height--body, 1.15);
-  font-weight: 500;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
@@ -2574,7 +2573,6 @@ html {
 
 a {
   line-height: var(--wp--custom--line-height--body, 1.15);
-  font-weight: 500;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }

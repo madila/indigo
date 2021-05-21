@@ -1749,7 +1749,6 @@ html .editor-styles-wrapper {
     font-size: var(--wp--preset--font-size--normal); }
   html .editor-styles-wrapper a {
     line-height: var(--wp--custom--line-height--body, 1.15);
-    font-weight: 500;
     text-decoration: none; }
     html .editor-styles-wrapper a:hover {
       text-decoration: underline; }

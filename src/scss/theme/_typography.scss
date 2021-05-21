@@ -4,7 +4,6 @@ html {
 
 a {
 	line-height: var(--wp--custom--line-height--body, $line-height-base);
-	font-weight: 500;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;

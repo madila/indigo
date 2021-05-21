@@ -23,7 +23,7 @@ ul ol {
 
 dl {
   dt {
-    font-weight: 500;
+    font-weight: var(--wp--custom--font-weight--normal);
     font-size: 1.25em;
     color: #777777;
   }

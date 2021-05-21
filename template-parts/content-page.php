@@ -10,18 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-	if(get_theme_mod('indigo_show_page_title')) : ?>
-		<header class="entry-header page-header">
-			<?php
-			the_title( '<h1 class="entry-title page-title">', '</h1>' );
-			?>
-		</header><!-- .page-header -->
-	<?php endif; ?>
 
-	<?php indigo_post_thumbnail(); ?>
-
-	<div class="entry-content">
 		<?php
 		the_content();
 
@@ -30,7 +19,6 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
 
 	<?php indigo_edit_link(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->
