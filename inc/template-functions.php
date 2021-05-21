@@ -77,23 +77,6 @@ function indigo_show_sidebar_on_pages() {
 	return is_page() && get_theme_mod('indigo_content_sidebar_on_pages', true);
 }
 
-function indigo_add_default_font() {
-	?>
-	<style>
-		:root {
-			--base-font-family: 'Spartan', sans-serif;
-			--headings-font-family: 'Spartan', sans-serif;
-		}
-	</style>
-	<?php
-}
-
-if(empty(get_theme_mod('base_font_family')) || get_theme_mod('base_font_family') === 'Inter var') {
-
-	add_action('wp_head', 'indigo_add_default_font');
-	add_action('admin_head', 'indigo_add_default_font');
-}
-
 add_filter('indigo_header_class', function($classes) {
 	$header_alignment = get_theme_mod('indigo_header_alignment');
 	$header_alignment = ($header_alignment) ? $header_alignment : get_theme_mod_default('indigo_header_alignment');

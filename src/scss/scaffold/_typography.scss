@@ -15,11 +15,11 @@ strong, b {
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `rem` units instead of `em`.
 p {
-	font-size: var(--base-font-size, $root-font-size);
+	font-size: var(--wp--preset--font-size--normal, $root-font-size);
 	font-weight: var(--base-font-weight, $font-weight-base);
-	line-height: var(--base-line-height, $line-height-base);
+	line-height: var(--wp--custom--line-height--body, $line-height-base);
 	margin-top: 0;
-	margin-bottom: var(--content-gutter-y, $spacer);
+	margin-bottom: var(--wp--custom--spacing--unit, $spacer);
 	@include media-breakpoint-down(sm) {
 		font-size: var(--mobile-font-size);
 	}
@@ -104,7 +104,7 @@ strong, b {
 // bottom margin to use `rem` units instead of `em`.
 p {
 	margin-top: 0;
-	margin-bottom: var(--content-gutter-y, $spacer);
+	margin-bottom: var(--wp--custom--spacing--unit, $spacer);
 
 }
 
@@ -171,7 +171,7 @@ blockquote {
 
 
 .text-heading {
-	font-family: var(--headings-font-family);
+	font-family: var(--wp--custom--font-primary);
 }
 
 .entry-content {

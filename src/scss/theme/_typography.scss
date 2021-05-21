@@ -1,12 +1,12 @@
 html {
-	font-size: var(--base-font-size);
+	font-size: var(--wp--preset--font-size--normal);
 	@include media-breakpoint-down(sm) {
 		font-size: var(--mobile-font-size);
 	}
 }
 
 a {
-	line-height: var(--base-line-height, $line-height-base);
+	line-height: var(--wp--custom--line-height--body, $line-height-base);
 	font-weight: 500;
 	text-decoration: none;
 	&:hover {
@@ -36,9 +36,9 @@ h5 {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
-	margin-bottom: var(--content-gutter-y);
-	font-family: var(--headings-font-family), $headings-font-family;
+	margin-bottom: var(--wp--custom--spacing--unit);
+	font-family: var(--wp--custom--font-primary), $headings-font-family;
 	font-weight: var(--headings-font-weight, $headings-font-weight);
-	line-height: var(--headings-line-height, $line-height-base);
+	line-height: var(--wp--custom--line-height--heading, $line-height-base);
 	letter-spacing: var(--headings-letter-spacing, $headings-letter-spacing);
 }

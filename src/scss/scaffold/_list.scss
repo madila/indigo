@@ -10,7 +10,7 @@ ul, ol {
 }
 
 li {
-	line-height: var(--base-line-height, 1rem);
+	line-height: var(--wp--custom--line-height--body, 1rem);
 }
 
 ol ol,

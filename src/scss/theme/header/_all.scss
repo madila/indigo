@@ -3,7 +3,7 @@
 @import "scroll-bg";
 
 .site-title {
-	font-family: var(--headings-font-family), sans-serif;
+	font-family: var(--wp--custom--font-primary), sans-serif;
 	margin: 0;
 	font-size: 2rem;
 	&:hover {
@@ -37,7 +37,7 @@
 	}
 	.menu-toggle {
 		position: absolute;
-		right: var(--content-gutter-x);
+		right: var(--wp--custom--spacing--unit);
 		top: 50%;
 		transform: translateY(-50%);
 		padding: 0;

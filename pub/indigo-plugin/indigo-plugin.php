@@ -10,7 +10,7 @@
  */
 
 
- function add_indigo_theme_typography() {
+function add_indigo_theme_typography() {
      ?>
      <link rel="stylesheet" href="https://use.typekit.net/wbp1ywb.css">
 	<style id="custom-indigo-styles">

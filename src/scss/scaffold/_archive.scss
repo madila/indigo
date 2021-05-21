@@ -1,7 +1,7 @@
 .archive-header, .entry-header {
 	width: 100%;
-	padding-left: var(--content-gutter-x);
-	padding-right: var(--content-gutter-x);
+	padding-left: var(--wp--custom--spacing--unit);
+	padding-right: var(--wp--custom--spacing--unit);
 	.indigo-calculate-header & {
 		margin-top: var(--header-height);
 		display: block;

@@ -1,7 +1,1650 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{248:function(e,t,i){"use strict";var n,s;"undefined"!=typeof window&&window,void 0===(s="function"==typeof(n=function(){if("undefined"==typeof window)return null;var e="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")(),t=e.requestAnimationFrame||e.mozRequestAnimationFrame||e.webkitRequestAnimationFrame||function(t){return e.setTimeout(t,20)},i=e.cancelAnimationFrame||e.mozCancelAnimationFrame||e.webkitCancelAnimationFrame||function(t){e.clearTimeout(t)};function n(e,t){var i=Object.prototype.toString.call(e),n="[object Array]"===i||"[object NodeList]"===i||"[object HTMLCollection]"===i||"[object Object]"===i||"undefined"!=typeof jQuery&&e instanceof jQuery||"undefined"!=typeof Elements&&e instanceof Elements,s=0,o=e.length;if(n)for(;s<o;s++)t(e[s]);else t(e)}function s(e){if(!e.getBoundingClientRect)return{width:e.offsetWidth,height:e.offsetHeight};var t=e.getBoundingClientRect();return{width:Math.round(t.width),height:Math.round(t.height)}}function o(e,t){Object.keys(t).forEach((function(i){e.style[i]=t[i]}))}var r=function(e,a){var d=0;function c(){var e,t,i=[];this.add=function(e){i.push(e)},this.call=function(n){for(e=0,t=i.length;e<t;e++)i[e].call(this,n)},this.remove=function(n){var s=[];for(e=0,t=i.length;e<t;e++)i[e]!==n&&s.push(i[e]);i=s},this.length=function(){return i.length}}function l(e,i){if(e)if(e.resizedAttached)e.resizedAttached.add(i);else{e.resizedAttached=new c,e.resizedAttached.add(i),e.resizeSensor=document.createElement("div"),e.resizeSensor.dir="ltr",e.resizeSensor.className="resize-sensor";var n={pointerEvents:"none",position:"absolute",left:"0px",top:"0px",right:"0px",bottom:"0px",overflow:"hidden",zIndex:"-1",visibility:"hidden",maxWidth:"100%"},r={position:"absolute",left:"0px",top:"0px",transition:"0s"};o(e.resizeSensor,n);var a=document.createElement("div");a.className="resize-sensor-expand",o(a,n);var l=document.createElement("div");o(l,r),a.appendChild(l);var h=document.createElement("div");h.className="resize-sensor-shrink",o(h,n);var p=document.createElement("div");o(p,r),o(p,{width:"200%",height:"200%"}),h.appendChild(p),e.resizeSensor.appendChild(a),e.resizeSensor.appendChild(h),e.appendChild(e.resizeSensor);var u=window.getComputedStyle(e),f=u?u.getPropertyValue("position"):null;"absolute"!==f&&"relative"!==f&&"fixed"!==f&&"sticky"!==f&&(e.style.position="relative");var m=!1,v=0,g=s(e),w=0,y=0,S=!0;d=0;var b=function(){if(S){if(0===e.offsetWidth&&0===e.offsetHeight)return void(d||(d=t((function(){d=0,b()}))));S=!1}var i,n;i=e.offsetWidth,n=e.offsetHeight,l.style.width=i+10+"px",l.style.height=n+10+"px",a.scrollLeft=i+10,a.scrollTop=n+10,h.scrollLeft=i+10,h.scrollTop=n+10};e.resizeSensor.resetSensor=b;var T=function(){v=0,m&&(w=g.width,y=g.height,e.resizedAttached&&e.resizedAttached.call(g))},E=function(){g=s(e),(m=g.width!==w||g.height!==y)&&!v&&(v=t(T)),b()},O=function(e,t,i){e.attachEvent?e.attachEvent("on"+t,i):e.addEventListener(t,i)};O(a,"scroll",E),O(h,"scroll",E),d=t((function(){d=0,b()}))}}n(e,(function(e){l(e,a)})),this.detach=function(t){d||(i(d),d=0),r.detach(e,t)},this.reset=function(){e.resizeSensor.resetSensor()}};if(r.reset=function(e){n(e,(function(e){e.resizeSensor.resetSensor()}))},r.detach=function(e,t){n(e,(function(e){e&&(e.resizedAttached&&"function"==typeof t&&(e.resizedAttached.remove(t),e.resizedAttached.length())||e.resizeSensor&&(e.contains(e.resizeSensor)&&e.removeChild(e.resizeSensor),delete e.resizeSensor,delete e.resizedAttached))}))},"undefined"!=typeof MutationObserver){var a=new MutationObserver((function(e){for(var t in e)if(e.hasOwnProperty(t))for(var i=e[t].addedNodes,n=0;n<i.length;n++)i[n].resizeSensor&&r.reset(i[n])}));document.addEventListener("DOMContentLoaded",(function(e){a.observe(document.body,{childList:!0,subtree:!0})}))}return r})?n.call(t,i,t,e):n)||(e.exports=s)},278:function(e,t,i){"use strict";
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~indigo-sidebarStick"],{
+
+/***/ "./node_modules/css-element-queries/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-element-queries/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+    ResizeSensor: __webpack_require__(/*! ./src/ResizeSensor */ "./node_modules/css-element-queries/src/ResizeSensor.js"),
+    ElementQueries: __webpack_require__(/*! ./src/ElementQueries */ "./node_modules/css-element-queries/src/ElementQueries.js")
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/css-element-queries/src/ElementQueries.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/css-element-queries/src/ElementQueries.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/**
+ * Copyright Marc J. Schmidt. See the LICENSE file at the top-level
+ * directory of this distribution and at
+ * https://github.com/marcj/css-element-queries/blob/master/LICENSE.
+ */
+(function (root, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! ./ResizeSensor.js */ "./node_modules/css-element-queries/src/ResizeSensor.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {}
+}(typeof window !== 'undefined' ? window : this, function (ResizeSensor) {
+
+    /**
+     *
+     * @type {Function}
+     * @constructor
+     */
+    var ElementQueries = function () {
+        //<style> element with our dynamically created styles
+        var cssStyleElement;
+
+        //all rules found for element queries
+        var allQueries = {};
+
+        //association map to identify which selector belongs to a element from the animationstart event.
+        var idToSelectorMapping = [];
+
+        /**
+         *
+         * @param element
+         * @returns {Number}
+         */
+        function getEmSize(element) {
+            if (!element) {
+                element = document.documentElement;
+            }
+            var fontSize = window.getComputedStyle(element, null).fontSize;
+            return parseFloat(fontSize) || 16;
+        }
+
+        /**
+         * Get element size
+         * @param {HTMLElement} element
+         * @returns {Object} {width, height}
+         */
+        function getElementSize(element) {
+            if (!element.getBoundingClientRect) {
+                return {
+                    width: element.offsetWidth,
+                    height: element.offsetHeight
+                }
+            }
+
+            var rect = element.getBoundingClientRect();
+            return {
+                width: Math.round(rect.width),
+                height: Math.round(rect.height)
+            }
+        }
+
+        /**
+         *
+         * @copyright https://github.com/Mr0grog/element-query/blob/master/LICENSE
+         *
+         * @param {HTMLElement} element
+         * @param {*} value
+         * @returns {*}
+         */
+        function convertToPx(element, value) {
+            var numbers = value.split(/\d/);
+            var units = numbers[numbers.length - 1];
+            value = parseFloat(value);
+            switch (units) {
+                case "px":
+                    return value;
+                case "em":
+                    return value * getEmSize(element);
+                case "rem":
+                    return value * getEmSize();
+                // Viewport units!
+                // According to http://quirksmode.org/mobile/tableViewport.html
+                // documentElement.clientWidth/Height gets us the most reliable info
+                case "vw":
+                    return value * document.documentElement.clientWidth / 100;
+                case "vh":
+                    return value * document.documentElement.clientHeight / 100;
+                case "vmin":
+                case "vmax":
+                    var vw = document.documentElement.clientWidth / 100;
+                    var vh = document.documentElement.clientHeight / 100;
+                    var chooser = Math[units === "vmin" ? "min" : "max"];
+                    return value * chooser(vw, vh);
+                default:
+                    return value;
+                // for now, not supporting physical units (since they are just a set number of px)
+                // or ex/ch (getting accurate measurements is hard)
+            }
+        }
+
+        /**
+         *
+         * @param {HTMLElement} element
+         * @param {String} id
+         * @constructor
+         */
+        function SetupInformation(element, id) {
+            this.element = element;
+            var key, option, elementSize, value, actualValue, attrValues, attrValue, attrName;
+
+            var attributes = ['min-width', 'min-height', 'max-width', 'max-height'];
+
+            /**
+             * Extracts the computed width/height and sets to min/max- attribute.
+             */
+            this.call = function () {
+                // extract current dimensions
+                elementSize = getElementSize(this.element);
+
+                attrValues = {};
+
+                for (key in allQueries[id]) {
+                    if (!allQueries[id].hasOwnProperty(key)) {
+                        continue;
+                    }
+                    option = allQueries[id][key];
+
+                    value = convertToPx(this.element, option.value);
+
+                    actualValue = option.property === 'width' ? elementSize.width : elementSize.height;
+                    attrName = option.mode + '-' + option.property;
+                    attrValue = '';
+
+                    if (option.mode === 'min' && actualValue >= value) {
+                        attrValue += option.value;
+                    }
+
+                    if (option.mode === 'max' && actualValue <= value) {
+                        attrValue += option.value;
+                    }
+
+                    if (!attrValues[attrName]) attrValues[attrName] = '';
+                    if (attrValue && -1 === (' ' + attrValues[attrName] + ' ').indexOf(' ' + attrValue + ' ')) {
+                        attrValues[attrName] += ' ' + attrValue;
+                    }
+                }
+
+                for (var k in attributes) {
+                    if (!attributes.hasOwnProperty(k)) continue;
+
+                    if (attrValues[attributes[k]]) {
+                        this.element.setAttribute(attributes[k], attrValues[attributes[k]].substr(1));
+                    } else {
+                        this.element.removeAttribute(attributes[k]);
+                    }
+                }
+            };
+        }
+
+        /**
+         * @param {HTMLElement} element
+         * @param {Object}      id
+         */
+        function setupElement(element, id) {
+            if (!element.elementQueriesSetupInformation) {
+                element.elementQueriesSetupInformation = new SetupInformation(element, id);
+            }
+
+            if (!element.elementQueriesSensor) {
+                element.elementQueriesSensor = new ResizeSensor(element, function () {
+                    element.elementQueriesSetupInformation.call();
+                });
+            }
+        }
+
+        /**
+         * Stores rules to the selector that should be applied once resized.
+         *
+         * @param {String} selector
+         * @param {String} mode min|max
+         * @param {String} property width|height
+         * @param {String} value
+         */
+        function queueQuery(selector, mode, property, value) {
+            if (typeof(allQueries[selector]) === 'undefined') {
+                allQueries[selector] = [];
+                // add animation to trigger animationstart event, so we know exactly when a element appears in the DOM
+
+                var id = idToSelectorMapping.length;
+                cssStyleElement.innerHTML += '\n' + selector + ' {animation: 0.1s element-queries;}';
+                cssStyleElement.innerHTML += '\n' + selector + ' > .resize-sensor {min-width: '+id+'px;}';
+                idToSelectorMapping.push(selector);
+            }
+
+            allQueries[selector].push({
+                mode: mode,
+                property: property,
+                value: value
+            });
+        }
+
+        function getQuery(container) {
+            var query;
+            if (document.querySelectorAll) query = (container) ? container.querySelectorAll.bind(container) : document.querySelectorAll.bind(document);
+            if (!query && 'undefined' !== typeof $$) query = $$;
+            if (!query && 'undefined' !== typeof jQuery) query = jQuery;
+
+            if (!query) {
+                throw 'No document.querySelectorAll, jQuery or Mootools\'s $$ found.';
+            }
+
+            return query;
+        }
+
+        /**
+         * If animationStart didn't catch a new element in the DOM, we can manually search for it
+         */
+        function findElementQueriesElements(container) {
+            var query = getQuery(container);
+
+            for (var selector in allQueries) if (allQueries.hasOwnProperty(selector)) {
+                // find all elements based on the extract query selector from the element query rule
+                var elements = query(selector, container);
+
+                for (var i = 0, j = elements.length; i < j; i++) {
+                    setupElement(elements[i], selector);
+                }
+            }
+        }
+
+        /**
+         *
+         * @param {HTMLElement} element
+         */
+        function attachResponsiveImage(element) {
+            var children = [];
+            var rules = [];
+            var sources = [];
+            var defaultImageId = 0;
+            var lastActiveImage = -1;
+            var loadedImages = [];
+
+            for (var i in element.children) {
+                if (!element.children.hasOwnProperty(i)) continue;
+
+                if (element.children[i].tagName && element.children[i].tagName.toLowerCase() === 'img') {
+                    children.push(element.children[i]);
+
+                    var minWidth = element.children[i].getAttribute('min-width') || element.children[i].getAttribute('data-min-width');
+                    //var minHeight = element.children[i].getAttribute('min-height') || element.children[i].getAttribute('data-min-height');
+                    var src = element.children[i].getAttribute('data-src') || element.children[i].getAttribute('url');
+
+                    sources.push(src);
+
+                    var rule = {
+                        minWidth: minWidth
+                    };
+
+                    rules.push(rule);
+
+                    if (!minWidth) {
+                        defaultImageId = children.length - 1;
+                        element.children[i].style.display = 'block';
+                    } else {
+                        element.children[i].style.display = 'none';
+                    }
+                }
+            }
+
+            lastActiveImage = defaultImageId;
+
+            function check() {
+                var imageToDisplay = false, i;
+
+                for (i in children) {
+                    if (!children.hasOwnProperty(i)) continue;
+
+                    if (rules[i].minWidth) {
+                        if (element.offsetWidth > rules[i].minWidth) {
+                            imageToDisplay = i;
+                        }
+                    }
+                }
+
+                if (!imageToDisplay) {
+                    //no rule matched, show default
+                    imageToDisplay = defaultImageId;
+                }
+
+                if (lastActiveImage !== imageToDisplay) {
+                    //image change
+
+                    if (!loadedImages[imageToDisplay]) {
+                        //image has not been loaded yet, we need to load the image first in memory to prevent flash of
+                        //no content
+
+                        var image = new Image();
+                        image.onload = function () {
+                            children[imageToDisplay].src = sources[imageToDisplay];
+
+                            children[lastActiveImage].style.display = 'none';
+                            children[imageToDisplay].style.display = 'block';
+
+                            loadedImages[imageToDisplay] = true;
+
+                            lastActiveImage = imageToDisplay;
+                        };
+
+                        image.src = sources[imageToDisplay];
+                    } else {
+                        children[lastActiveImage].style.display = 'none';
+                        children[imageToDisplay].style.display = 'block';
+                        lastActiveImage = imageToDisplay;
+                    }
+                } else {
+                    //make sure for initial check call the .src is set correctly
+                    children[imageToDisplay].src = sources[imageToDisplay];
+                }
+            }
+
+            element.resizeSensorInstance = new ResizeSensor(element, check);
+            check();
+        }
+
+        function findResponsiveImages() {
+            var query = getQuery();
+
+            var elements = query('[data-responsive-image],[responsive-image]');
+            for (var i = 0, j = elements.length; i < j; i++) {
+                attachResponsiveImage(elements[i]);
+            }
+        }
+
+        var regex = /,?[\s\t]*([^,\n]*?)((?:\[[\s\t]*?(?:min|max)-(?:width|height)[\s\t]*?[~$\^]?=[\s\t]*?"[^"]*?"[\s\t]*?])+)([^,\n\s\{]*)/mgi;
+        var attrRegex = /\[[\s\t]*?(min|max)-(width|height)[\s\t]*?[~$\^]?=[\s\t]*?"([^"]*?)"[\s\t]*?]/mgi;
+
+        /**
+         * @param {String} css
+         */
+        function extractQuery(css) {
+            var match, smatch, attrs, attrMatch;
+
+            css = css.replace(/'/g, '"');
+            while (null !== (match = regex.exec(css))) {
+                smatch = match[1] + match[3];
+                attrs = match[2];
+
+                while (null !== (attrMatch = attrRegex.exec(attrs))) {
+                    queueQuery(smatch, attrMatch[1], attrMatch[2], attrMatch[3]);
+                }
+            }
+        }
+
+        /**
+         * @param {CssRule[]|String} rules
+         */
+        function readRules(rules) {
+            var selector = '';
+
+            if (!rules) {
+                return;
+            }
+
+            if ('string' === typeof rules) {
+                rules = rules.toLowerCase();
+                if (-1 !== rules.indexOf('min-width') || -1 !== rules.indexOf('max-width')) {
+                    extractQuery(rules);
+                }
+            } else {
+                for (var i = 0, j = rules.length; i < j; i++) {
+                    if (1 === rules[i].type) {
+                        selector = rules[i].selectorText || rules[i].cssText;
+                        if (-1 !== selector.indexOf('min-height') || -1 !== selector.indexOf('max-height')) {
+                            extractQuery(selector);
+                        } else if (-1 !== selector.indexOf('min-width') || -1 !== selector.indexOf('max-width')) {
+                            extractQuery(selector);
+                        }
+                    } else if (4 === rules[i].type) {
+                        readRules(rules[i].cssRules || rules[i].rules);
+                    } else if (3 === rules[i].type) {
+                        if(rules[i].styleSheet.hasOwnProperty("cssRules")) {
+                            readRules(rules[i].styleSheet.cssRules);
+                        }
+                    }
+                }
+            }
+        }
+
+        var defaultCssInjected = false;
+
+        /**
+         * Searches all css rules and setups the event listener to all elements with element query rules..
+         */
+        this.init = function () {
+            var animationStart = 'animationstart';
+            if (typeof document.documentElement.style['webkitAnimationName'] !== 'undefined') {
+                animationStart = 'webkitAnimationStart';
+            } else if (typeof document.documentElement.style['MozAnimationName'] !== 'undefined') {
+                animationStart = 'mozanimationstart';
+            } else if (typeof document.documentElement.style['OAnimationName'] !== 'undefined') {
+                animationStart = 'oanimationstart';
+            }
+
+            document.body.addEventListener(animationStart, function (e) {
+                var element = e.target;
+                var styles = element && window.getComputedStyle(element, null);
+                var animationName = styles && styles.getPropertyValue('animation-name');
+                var requiresSetup = animationName && (-1 !== animationName.indexOf('element-queries'));
+
+                if (requiresSetup) {
+                    element.elementQueriesSensor = new ResizeSensor(element, function () {
+                        if (element.elementQueriesSetupInformation) {
+                            element.elementQueriesSetupInformation.call();
+                        }
+                    });
+
+                    var sensorStyles = window.getComputedStyle(element.resizeSensor, null);
+                    var id = sensorStyles.getPropertyValue('min-width');
+                    id = parseInt(id.replace('px', ''));
+                    setupElement(e.target, idToSelectorMapping[id]);
+                }
+            });
+
+            if (!defaultCssInjected) {
+                cssStyleElement = document.createElement('style');
+                cssStyleElement.type = 'text/css';
+                cssStyleElement.innerHTML = '[responsive-image] > img, [data-responsive-image] {overflow: hidden; padding: 0; } [responsive-image] > img, [data-responsive-image] > img {width: 100%;}';
+
+                //safari wants at least one rule in keyframes to start working
+                cssStyleElement.innerHTML += '\n@keyframes element-queries { 0% { visibility: inherit; } }';
+                document.getElementsByTagName('head')[0].appendChild(cssStyleElement);
+                defaultCssInjected = true;
+            }
+
+            for (var i = 0, j = document.styleSheets.length; i < j; i++) {
+                try {
+                    if (document.styleSheets[i].href && 0 === document.styleSheets[i].href.indexOf('file://')) {
+                        console.warn("CssElementQueries: unable to parse local css files, " + document.styleSheets[i].href);
+                    }
+
+                    readRules(document.styleSheets[i].cssRules || document.styleSheets[i].rules || document.styleSheets[i].cssText);
+                } catch (e) {
+                }
+            }
+
+            findResponsiveImages();
+        };
+
+        /**
+         * Go through all collected rules (readRules()) and attach the resize-listener.
+         * Not necessary to call it manually, since we detect automatically when new elements
+         * are available in the DOM. However, sometimes handy for dirty DOM modifications.
+         *
+         * @param {HTMLElement} container only elements of the container are considered (document.body if not set)
+         */
+        this.findElementQueriesElements = function (container) {
+            findElementQueriesElements(container);
+        };
+
+        this.update = function () {
+            this.init();
+        };
+    };
+
+    ElementQueries.update = function () {
+        ElementQueries.instance.update();
+    };
+
+    /**
+     * Removes all sensor and elementquery information from the element.
+     *
+     * @param {HTMLElement} element
+     */
+    ElementQueries.detach = function (element) {
+        if (element.elementQueriesSetupInformation) {
+            //element queries
+            element.elementQueriesSensor.detach();
+            delete element.elementQueriesSetupInformation;
+            delete element.elementQueriesSensor;
+
+        } else if (element.resizeSensorInstance) {
+            //responsive image
+
+            element.resizeSensorInstance.detach();
+            delete element.resizeSensorInstance;
+        }
+    };
+
+    ElementQueries.init = function () {
+        if (!ElementQueries.instance) {
+            ElementQueries.instance = new ElementQueries();
+        }
+
+        ElementQueries.instance.init();
+    };
+
+    var domLoaded = function (callback) {
+        /* Mozilla, Chrome, Opera */
+        if (document.addEventListener) {
+            document.addEventListener('DOMContentLoaded', callback, false);
+        }
+        /* Safari, iCab, Konqueror */
+        else if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+            var DOMLoadTimer = setInterval(function () {
+                if (/loaded|complete/i.test(document.readyState)) {
+                    callback();
+                    clearInterval(DOMLoadTimer);
+                }
+            }, 10);
+        }
+        /* Other web browsers */
+        else window.onload = callback;
+    };
+
+    ElementQueries.findElementQueriesElements = function (container) {
+        ElementQueries.instance.findElementQueriesElements(container);
+    };
+
+    ElementQueries.listen = function () {
+        domLoaded(ElementQueries.init);
+    };
+
+    return ElementQueries;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/css-element-queries/src/ResizeSensor.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/css-element-queries/src/ResizeSensor.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/**
+ * Copyright Marc J. Schmidt. See the LICENSE file at the top-level
+ * directory of this distribution and at
+ * https://github.com/marcj/css-element-queries/blob/master/LICENSE.
+ */
+(function (root, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {}
+}(typeof window !== 'undefined' ? window : this, function () {
+
+    // Make sure it does not throw in a SSR (Server Side Rendering) situation
+    if (typeof window === "undefined") {
+        return null;
+    }
+    // https://github.com/Semantic-Org/Semantic-UI/issues/3855
+    // https://github.com/marcj/css-element-queries/issues/257
+    var globalWindow = typeof window != 'undefined' && window.Math == Math
+        ? window
+        : typeof self != 'undefined' && self.Math == Math
+            ? self
+            : Function('return this')();
+    // Only used for the dirty checking, so the event callback count is limited to max 1 call per fps per sensor.
+    // In combination with the event based resize sensor this saves cpu time, because the sensor is too fast and
+    // would generate too many unnecessary events.
+    var requestAnimationFrame = globalWindow.requestAnimationFrame ||
+        globalWindow.mozRequestAnimationFrame ||
+        globalWindow.webkitRequestAnimationFrame ||
+        function (fn) {
+            return globalWindow.setTimeout(fn, 20);
+        };
+
+    var cancelAnimationFrame = globalWindow.cancelAnimationFrame ||
+        globalWindow.mozCancelAnimationFrame ||
+        globalWindow.webkitCancelAnimationFrame ||
+        function (timer) {
+            globalWindow.clearTimeout(timer);
+        };
+
+    /**
+     * Iterate over each of the provided element(s).
+     *
+     * @param {HTMLElement|HTMLElement[]} elements
+     * @param {Function}                  callback
+     */
+    function forEachElement(elements, callback){
+        var elementsType = Object.prototype.toString.call(elements);
+        var isCollectionTyped = ('[object Array]' === elementsType
+            || ('[object NodeList]' === elementsType)
+            || ('[object HTMLCollection]' === elementsType)
+            || ('[object Object]' === elementsType)
+            || ('undefined' !== typeof jQuery && elements instanceof jQuery) //jquery
+            || ('undefined' !== typeof Elements && elements instanceof Elements) //mootools
+        );
+        var i = 0, j = elements.length;
+        if (isCollectionTyped) {
+            for (; i < j; i++) {
+                callback(elements[i]);
+            }
+        } else {
+            callback(elements);
+        }
+    }
+
+    /**
+    * Get element size
+    * @param {HTMLElement} element
+    * @returns {Object} {width, height}
+    */
+    function getElementSize(element) {
+        if (!element.getBoundingClientRect) {
+            return {
+                width: element.offsetWidth,
+                height: element.offsetHeight
+            }
+        }
+
+        var rect = element.getBoundingClientRect();
+        return {
+            width: Math.round(rect.width),
+            height: Math.round(rect.height)
+        }
+    }
+
+    /**
+     * Apply CSS styles to element.
+     *
+     * @param {HTMLElement} element
+     * @param {Object} style
+     */
+    function setStyle(element, style) {
+        Object.keys(style).forEach(function(key) {
+            element.style[key] = style[key];
+        });
+    }
+
+    /**
+     * Class for dimension change detection.
+     *
+     * @param {Element|Element[]|Elements|jQuery} element
+     * @param {Function} callback
+     *
+     * @constructor
+     */
+    var ResizeSensor = function(element, callback) {
+        //Is used when checking in reset() only for invisible elements
+        var lastAnimationFrameForInvisibleCheck = 0;
+
+        /**
+         *
+         * @constructor
+         */
+        function EventQueue() {
+            var q = [];
+            this.add = function(ev) {
+                q.push(ev);
+            };
+
+            var i, j;
+            this.call = function(sizeInfo) {
+                for (i = 0, j = q.length; i < j; i++) {
+                    q[i].call(this, sizeInfo);
+                }
+            };
+
+            this.remove = function(ev) {
+                var newQueue = [];
+                for(i = 0, j = q.length; i < j; i++) {
+                    if(q[i] !== ev) newQueue.push(q[i]);
+                }
+                q = newQueue;
+            };
+
+            this.length = function() {
+                return q.length;
+            }
+        }
+
+        /**
+         *
+         * @param {HTMLElement} element
+         * @param {Function}    resized
+         */
+        function attachResizeEvent(element, resized) {
+            if (!element) return;
+            if (element.resizedAttached) {
+                element.resizedAttached.add(resized);
+                return;
+            }
+
+            element.resizedAttached = new EventQueue();
+            element.resizedAttached.add(resized);
+
+            element.resizeSensor = document.createElement('div');
+            element.resizeSensor.dir = 'ltr';
+            element.resizeSensor.className = 'resize-sensor';
+
+            var style = {
+                pointerEvents: 'none',
+                position: 'absolute',
+                left: '0px',
+                top: '0px',
+                right: '0px',
+                bottom: '0px',
+                overflow: 'hidden',
+                zIndex: '-1',
+                visibility: 'hidden',
+                maxWidth: '100%'
+            };
+            var styleChild = {
+                position: 'absolute',
+                left: '0px',
+                top: '0px',
+                transition: '0s',
+            };
+
+            setStyle(element.resizeSensor, style);
+
+            var expand = document.createElement('div');
+            expand.className = 'resize-sensor-expand';
+            setStyle(expand, style);
+
+            var expandChild = document.createElement('div');
+            setStyle(expandChild, styleChild);
+            expand.appendChild(expandChild);
+
+            var shrink = document.createElement('div');
+            shrink.className = 'resize-sensor-shrink';
+            setStyle(shrink, style);
+
+            var shrinkChild = document.createElement('div');
+            setStyle(shrinkChild, styleChild);
+            setStyle(shrinkChild, { width: '200%', height: '200%' });
+            shrink.appendChild(shrinkChild);
+
+            element.resizeSensor.appendChild(expand);
+            element.resizeSensor.appendChild(shrink);
+            element.appendChild(element.resizeSensor);
+
+            var computedStyle = window.getComputedStyle(element);
+            var position = computedStyle ? computedStyle.getPropertyValue('position') : null;
+            if ('absolute' !== position && 'relative' !== position && 'fixed' !== position && 'sticky' !== position) {
+                element.style.position = 'relative';
+            }
+
+            var dirty = false;
+
+            //last request animation frame id used in onscroll event
+            var rafId = 0;
+            var size = getElementSize(element);
+            var lastWidth = 0;
+            var lastHeight = 0;
+            var initialHiddenCheck = true;
+            lastAnimationFrameForInvisibleCheck = 0;
+
+            var resetExpandShrink = function () {
+                var width = element.offsetWidth;
+                var height = element.offsetHeight;
+
+                expandChild.style.width = (width + 10) + 'px';
+                expandChild.style.height = (height + 10) + 'px';
+
+                expand.scrollLeft = width + 10;
+                expand.scrollTop = height + 10;
+
+                shrink.scrollLeft = width + 10;
+                shrink.scrollTop = height + 10;
+            };
+
+            var reset = function() {
+                // Check if element is hidden
+                if (initialHiddenCheck) {
+                    var invisible = element.offsetWidth === 0 && element.offsetHeight === 0;
+                    if (invisible) {
+                        // Check in next frame
+                        if (!lastAnimationFrameForInvisibleCheck){
+                            lastAnimationFrameForInvisibleCheck = requestAnimationFrame(function(){
+                                lastAnimationFrameForInvisibleCheck = 0;
+                                reset();
+                            });
+                        }
+
+                        return;
+                    } else {
+                        // Stop checking
+                        initialHiddenCheck = false;
+                    }
+                }
+
+                resetExpandShrink();
+            };
+            element.resizeSensor.resetSensor = reset;
+
+            var onResized = function() {
+                rafId = 0;
+
+                if (!dirty) return;
+
+                lastWidth = size.width;
+                lastHeight = size.height;
+
+                if (element.resizedAttached) {
+                    element.resizedAttached.call(size);
+                }
+            };
+
+            var onScroll = function() {
+                size = getElementSize(element);
+                dirty = size.width !== lastWidth || size.height !== lastHeight;
+
+                if (dirty && !rafId) {
+                    rafId = requestAnimationFrame(onResized);
+                }
+
+                reset();
+            };
+
+            var addEvent = function(el, name, cb) {
+                if (el.attachEvent) {
+                    el.attachEvent('on' + name, cb);
+                } else {
+                    el.addEventListener(name, cb);
+                }
+            };
+
+            addEvent(expand, 'scroll', onScroll);
+            addEvent(shrink, 'scroll', onScroll);
+
+            // Fix for custom Elements and invisible elements
+            lastAnimationFrameForInvisibleCheck = requestAnimationFrame(function(){
+                lastAnimationFrameForInvisibleCheck = 0;
+                reset();
+            });
+        }
+
+        forEachElement(element, function(elem){
+            attachResizeEvent(elem, callback);
+        });
+
+        this.detach = function(ev) {
+            // clean up the unfinished animation frame to prevent a potential endless requestAnimationFrame of reset
+            if (!lastAnimationFrameForInvisibleCheck) {
+                cancelAnimationFrame(lastAnimationFrameForInvisibleCheck);
+                lastAnimationFrameForInvisibleCheck = 0;
+            }
+            ResizeSensor.detach(element, ev);
+        };
+
+        this.reset = function() {
+            element.resizeSensor.resetSensor();
+        };
+    };
+
+    ResizeSensor.reset = function(element) {
+        forEachElement(element, function(elem){
+            elem.resizeSensor.resetSensor();
+        });
+    };
+
+    ResizeSensor.detach = function(element, ev) {
+        forEachElement(element, function(elem){
+            if (!elem) return;
+            if(elem.resizedAttached && typeof ev === "function"){
+                elem.resizedAttached.remove(ev);
+                if(elem.resizedAttached.length()) return;
+            }
+            if (elem.resizeSensor) {
+                if (elem.contains(elem.resizeSensor)) {
+                    elem.removeChild(elem.resizeSensor);
+                }
+                delete elem.resizeSensor;
+                delete elem.resizedAttached;
+            }
+        });
+    };
+
+    if (typeof MutationObserver !== "undefined") {
+        var observer = new MutationObserver(function (mutations) {
+            for (var i in mutations) {
+                if (mutations.hasOwnProperty(i)) {
+                    var items = mutations[i].addedNodes;
+                    for (var j = 0; j < items.length; j++) {
+                        if (items[j].resizeSensor) {
+                            ResizeSensor.reset(items[j]);
+                        }
+                    }
+                }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
+        });
+    }
+
+    return ResizeSensor;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/sticky-sidebar/src/sticky-sidebar.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/sticky-sidebar/src/sticky-sidebar.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /**
  * Sticky Sidebar JavaScript Plugin.
  * @version 3.3.1
  * @author Ahmed Bouhuolia <a.bouhuolia@gmail.com>
  * @license The MIT License (MIT)
- */const n=(()=>{const e=".stickySidebar",t={topSpacing:0,bottomSpacing:0,containerSelector:!1,innerWrapperSelector:".inner-wrapper-sticky",stickyClass:"is-affixed",resizeSensor:!0,minWidth:!1};class i{constructor(e,n={}){if(this.options=i.extend(t,n),this.sidebar="string"==typeof e?document.querySelector(e):e,void 0===this.sidebar)throw new Error("There is no specific sidebar element.");this.sidebarInner=!1,this.container=this.sidebar.parentElement,this.affixedType="STATIC",this.direction="down",this.support={transform:!1,transform3d:!1},this._initialized=!1,this._reStyle=!1,this._breakpoint=!1,this._resizeListeners=[],this.dimensions={translateY:0,topSpacing:0,lastTopSpacing:0,bottomSpacing:0,lastBottomSpacing:0,sidebarHeight:0,sidebarWidth:0,containerTop:0,containerHeight:0,viewportHeight:0,viewportTop:0,lastViewportTop:0},["handleEvent"].forEach(e=>{this[e]=this[e].bind(this)}),this.initialize()}initialize(){if(this._setSupportFeatures(),this.options.innerWrapperSelector&&(this.sidebarInner=this.sidebar.querySelector(this.options.innerWrapperSelector),null===this.sidebarInner&&(this.sidebarInner=!1)),!this.sidebarInner){let e=document.createElement("div");for(e.setAttribute("class","inner-wrapper-sticky"),this.sidebar.appendChild(e);this.sidebar.firstChild!=e;)e.appendChild(this.sidebar.firstChild);this.sidebarInner=this.sidebar.querySelector(".inner-wrapper-sticky")}if(this.options.containerSelector){let e=document.querySelectorAll(this.options.containerSelector);if(e=Array.prototype.slice.call(e),e.forEach((e,t)=>{e.contains(this.sidebar)&&(this.container=e)}),!e.length)throw new Error("The container does not contains on the sidebar.")}"function"!=typeof this.options.topSpacing&&(this.options.topSpacing=parseInt(this.options.topSpacing)||0),"function"!=typeof this.options.bottomSpacing&&(this.options.bottomSpacing=parseInt(this.options.bottomSpacing)||0),this._widthBreakpoint(),this.calcDimensions(),this.stickyPosition(),this.bindEvents(),this._initialized=!0}bindEvents(){window.addEventListener("resize",this,{passive:!0,capture:!1}),window.addEventListener("scroll",this,{passive:!0,capture:!1}),this.sidebar.addEventListener("update"+e,this),this.options.resizeSensor&&"undefined"!=typeof ResizeSensor&&(new ResizeSensor(this.sidebarInner,this.handleEvent),new ResizeSensor(this.container,this.handleEvent))}handleEvent(e){this.updateSticky(e)}calcDimensions(){if(!this._breakpoint){var e=this.dimensions;e.containerTop=i.offsetRelative(this.container).top,e.containerHeight=this.container.clientHeight,e.containerBottom=e.containerTop+e.containerHeight,e.sidebarHeight=this.sidebarInner.offsetHeight,e.sidebarWidth=this.sidebar.offsetWidth,e.viewportHeight=window.innerHeight,this._calcDimensionsWithScroll()}}_calcDimensionsWithScroll(){var e=this.dimensions;e.sidebarLeft=i.offsetRelative(this.sidebar).left,e.viewportTop=document.documentElement.scrollTop||document.body.scrollTop,e.viewportBottom=e.viewportTop+e.viewportHeight,e.viewportLeft=document.documentElement.scrollLeft||document.body.scrollLeft,e.topSpacing=this.options.topSpacing,e.bottomSpacing=this.options.bottomSpacing,"function"==typeof e.topSpacing&&(e.topSpacing=parseInt(e.topSpacing(this.sidebar))||0),"function"==typeof e.bottomSpacing&&(e.bottomSpacing=parseInt(e.bottomSpacing(this.sidebar))||0),"VIEWPORT-TOP"===this.affixedType?e.topSpacing<e.lastTopSpacing&&(e.translateY+=e.lastTopSpacing-e.topSpacing,this._reStyle=!0):"VIEWPORT-BOTTOM"===this.affixedType&&e.bottomSpacing<e.lastBottomSpacing&&(e.translateY+=e.lastBottomSpacing-e.bottomSpacing,this._reStyle=!0),e.lastTopSpacing=e.topSpacing,e.lastBottomSpacing=e.bottomSpacing}isSidebarFitsViewport(){return this.dimensions.sidebarHeight<this.dimensions.viewportHeight}observeScrollDir(){var e=this.dimensions;if(e.lastViewportTop!==e.viewportTop){var t="down"===this.direction?Math.min:Math.max;e.viewportTop===t(e.viewportTop,e.lastViewportTop)&&(this.direction="down"===this.direction?"up":"down")}}getAffixType(){var e=this.dimensions,t=!1;this._calcDimensionsWithScroll();var i=e.sidebarHeight+e.containerTop,n=e.viewportTop+e.topSpacing,s=e.viewportBottom-e.bottomSpacing;return"up"===this.direction?n<=e.containerTop?(e.translateY=0,t="STATIC"):n<=e.translateY+e.containerTop?(e.translateY=n-e.containerTop,t="VIEWPORT-TOP"):!this.isSidebarFitsViewport()&&e.containerTop<=n&&(t="VIEWPORT-UNBOTTOM"):this.isSidebarFitsViewport()?e.sidebarHeight+n>=e.containerBottom?(e.translateY=e.containerBottom-i,t="CONTAINER-BOTTOM"):n>=e.containerTop&&(e.translateY=n-e.containerTop,t="VIEWPORT-TOP"):e.containerBottom<=s?(e.translateY=e.containerBottom-i,t="CONTAINER-BOTTOM"):i+e.translateY<=s?(e.translateY=s-i,t="VIEWPORT-BOTTOM"):e.containerTop+e.translateY<=n&&(t="VIEWPORT-UNBOTTOM"),e.translateY=Math.max(0,e.translateY),e.translateY=Math.min(e.containerHeight,e.translateY),e.lastViewportTop=e.viewportTop,t}_getStyle(e){if(void 0!==e){var t={inner:{},outer:{}},n=this.dimensions;switch(e){case"VIEWPORT-TOP":t.inner={position:"fixed",top:n.topSpacing,left:n.sidebarLeft-n.viewportLeft,width:n.sidebarWidth};break;case"VIEWPORT-BOTTOM":t.inner={position:"fixed",top:"auto",left:n.sidebarLeft,bottom:n.bottomSpacing,width:n.sidebarWidth};break;case"CONTAINER-BOTTOM":case"VIEWPORT-UNBOTTOM":let e=this._getTranslate(0,n.translateY+"px");t.inner=e?{transform:e}:{position:"absolute",top:n.translateY,width:n.sidebarWidth}}switch(e){case"VIEWPORT-TOP":case"VIEWPORT-BOTTOM":case"VIEWPORT-UNBOTTOM":case"CONTAINER-BOTTOM":t.outer={height:n.sidebarHeight,position:"relative"}}return t.outer=i.extend({height:"",position:""},t.outer),t.inner=i.extend({position:"relative",top:"",left:"",bottom:"",width:"",transform:this._getTranslate()},t.inner),t}}stickyPosition(t){if(!this._breakpoint){t=this._reStyle||t||!1;this.options.topSpacing,this.options.bottomSpacing;var n=this.getAffixType(),s=this._getStyle(n);if((this.affixedType!=n||t)&&n){let t="affix."+n.toLowerCase().replace("viewport-","")+e;i.eventTrigger(this.sidebar,t),"STATIC"===n?i.removeClass(this.sidebar,this.options.stickyClass):i.addClass(this.sidebar,this.options.stickyClass);for(let e in s.outer){s.outer[e];this.sidebar.style[e]=s.outer[e]}for(let e in s.inner){let t="number"==typeof s.inner[e]?"px":"";this.sidebarInner.style[e]=s.inner[e]+t}let o="affixed."+n.toLowerCase().replace("viewport-","")+e;i.eventTrigger(this.sidebar,o)}else this._initialized&&(this.sidebarInner.style.left=s.inner.left);this.affixedType=n}}_widthBreakpoint(){window.innerWidth<=this.options.minWidth?(this._breakpoint=!0,this.affixedType="STATIC",this.sidebar.removeAttribute("style"),i.removeClass(this.sidebar,this.options.stickyClass),this.sidebarInner.removeAttribute("style")):this._breakpoint=!1}updateSticky(e={}){this._running||(this._running=!0,(e=>{requestAnimationFrame(()=>{switch(e){case"scroll":this._calcDimensionsWithScroll(),this.observeScrollDir(),this.stickyPosition();break;case"resize":default:this._widthBreakpoint(),this.calcDimensions(),this.stickyPosition(!0)}this._running=!1})})(e.type))}_setSupportFeatures(){var e=this.support;e.transform=i.supportTransform(),e.transform3d=i.supportTransform(!0)}_getTranslate(e=0,t=0,i=0){return this.support.transform3d?"translate3d("+e+", "+t+", "+i+")":!!this.support.translate&&"translate("+e+", "+t+")"}destroy(){window.removeEventListener("resize",this,{caption:!1}),window.removeEventListener("scroll",this,{caption:!1}),this.sidebar.classList.remove(this.options.stickyClass),this.sidebar.style.minHeight="",this.sidebar.removeEventListener("update"+e,this);var t={inner:{},outer:{}};t.inner={position:"",top:"",left:"",bottom:"",width:"",transform:""},t.outer={height:"",position:""};for(let e in t.outer)this.sidebar.style[e]=t.outer[e];for(let e in t.inner)this.sidebarInner.style[e]=t.inner[e];this.options.resizeSensor&&"undefined"!=typeof ResizeSensor&&(ResizeSensor.detach(this.sidebarInner,this.handleEvent),ResizeSensor.detach(this.container,this.handleEvent))}static supportTransform(e){var t=!1,i=e?"perspective":"transform",n=i.charAt(0).toUpperCase()+i.slice(1),s=document.createElement("support").style;return(i+" "+["Webkit","Moz","O","ms"].join(n+" ")+n).split(" ").forEach((function(e,i){if(void 0!==s[e])return t=e,!1})),t}static eventTrigger(e,t,i){try{var n=new CustomEvent(t,{detail:i})}catch(e){(n=document.createEvent("CustomEvent")).initCustomEvent(t,!0,!0,i)}e.dispatchEvent(n)}static extend(e,t){var i={};for(let n in e)void 0!==t[n]?i[n]=t[n]:i[n]=e[n];return i}static offsetRelative(e){var t={left:0,top:0};do{let i=e.offsetTop,n=e.offsetLeft;isNaN(i)||(t.top+=i),isNaN(n)||(t.left+=n),e="BODY"===e.tagName?e.parentElement:e.offsetParent}while(e);return t}static addClass(e,t){i.hasClass(e,t)||(e.classList?e.classList.add(t):e.className+=" "+t)}static removeClass(e,t){i.hasClass(e,t)&&(e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp("(^|\\b)"+t.split(" ").join("|")+"(\\b|$)","gi")," "))}static hasClass(e,t){return e.classList?e.classList.contains(t):new RegExp("(^| )"+t+"( |$)","gi").test(e.className)}}return i})();t.a=n,window.StickySidebar=n},279:function(e,t,i){e.exports={ResizeSensor:i(248),ElementQueries:i(280)}},280:function(e,t,i){"use strict";var n,s,o;"undefined"!=typeof window&&window,s=[i(248)],void 0===(o="function"==typeof(n=function(e){var t=function(){var t,i={},n=[];function s(e){e||(e=document.documentElement);var t=window.getComputedStyle(e,null).fontSize;return parseFloat(t)||16}function o(e,t){var i=t.split(/\d/),n=i[i.length-1];switch(t=parseFloat(t),n){case"px":return t;case"em":return t*s(e);case"rem":return t*s();case"vw":return t*document.documentElement.clientWidth/100;case"vh":return t*document.documentElement.clientHeight/100;case"vmin":case"vmax":var o=document.documentElement.clientWidth/100,r=document.documentElement.clientHeight/100;return t*(0,Math["vmin"===n?"min":"max"])(o,r);default:return t}}function r(e,t){var n,s,r,a,d,c,l,h;this.element=e;var p=["min-width","min-height","max-width","max-height"];this.call=function(){for(n in r=function(e){if(!e.getBoundingClientRect)return{width:e.offsetWidth,height:e.offsetHeight};var t=e.getBoundingClientRect();return{width:Math.round(t.width),height:Math.round(t.height)}}(this.element),c={},i[t])i[t].hasOwnProperty(n)&&(s=i[t][n],a=o(this.element,s.value),d="width"===s.property?r.width:r.height,h=s.mode+"-"+s.property,l="","min"===s.mode&&d>=a&&(l+=s.value),"max"===s.mode&&d<=a&&(l+=s.value),c[h]||(c[h]=""),l&&-1===(" "+c[h]+" ").indexOf(" "+l+" ")&&(c[h]+=" "+l));for(var e in p)p.hasOwnProperty(e)&&(c[p[e]]?this.element.setAttribute(p[e],c[p[e]].substr(1)):this.element.removeAttribute(p[e]))}}function a(t,i){t.elementQueriesSetupInformation||(t.elementQueriesSetupInformation=new r(t,i)),t.elementQueriesSensor||(t.elementQueriesSensor=new e(t,(function(){t.elementQueriesSetupInformation.call()})))}function d(e,s,o,r){if(void 0===i[e]){i[e]=[];var a=n.length;t.innerHTML+="\n"+e+" {animation: 0.1s element-queries;}",t.innerHTML+="\n"+e+" > .resize-sensor {min-width: "+a+"px;}",n.push(e)}i[e].push({mode:s,property:o,value:r})}function c(e){var t;if(document.querySelectorAll&&(t=e?e.querySelectorAll.bind(e):document.querySelectorAll.bind(document)),t||"undefined"==typeof $$||(t=$$),t||"undefined"==typeof jQuery||(t=jQuery),!t)throw"No document.querySelectorAll, jQuery or Mootools's $$ found.";return t}function l(t){var i=[],n=[],s=[],o=0,r=-1,a=[];for(var d in t.children)if(t.children.hasOwnProperty(d)&&t.children[d].tagName&&"img"===t.children[d].tagName.toLowerCase()){i.push(t.children[d]);var c=t.children[d].getAttribute("min-width")||t.children[d].getAttribute("data-min-width"),l=t.children[d].getAttribute("data-src")||t.children[d].getAttribute("url");s.push(l);var h={minWidth:c};n.push(h),c?t.children[d].style.display="none":(o=i.length-1,t.children[d].style.display="block")}function p(){var e,d=!1;for(e in i)i.hasOwnProperty(e)&&n[e].minWidth&&t.offsetWidth>n[e].minWidth&&(d=e);if(d||(d=o),r!==d)if(a[d])i[r].style.display="none",i[d].style.display="block",r=d;else{var c=new Image;c.onload=function(){i[d].src=s[d],i[r].style.display="none",i[d].style.display="block",a[d]=!0,r=d},c.src=s[d]}else i[d].src=s[d]}r=o,t.resizeSensorInstance=new e(t,p),p()}var h=/,?[\s\t]*([^,\n]*?)((?:\[[\s\t]*?(?:min|max)-(?:width|height)[\s\t]*?[~$\^]?=[\s\t]*?"[^"]*?"[\s\t]*?])+)([^,\n\s\{]*)/gim,p=/\[[\s\t]*?(min|max)-(width|height)[\s\t]*?[~$\^]?=[\s\t]*?"([^"]*?)"[\s\t]*?]/gim;function u(e){var t,i,n,s;for(e=e.replace(/'/g,'"');null!==(t=h.exec(e));)for(i=t[1]+t[3],n=t[2];null!==(s=p.exec(n));)d(i,s[1],s[2],s[3])}function f(e){var t="";if(e)if("string"==typeof e)-1===(e=e.toLowerCase()).indexOf("min-width")&&-1===e.indexOf("max-width")||u(e);else for(var i=0,n=e.length;i<n;i++)1===e[i].type?-1!==(t=e[i].selectorText||e[i].cssText).indexOf("min-height")||-1!==t.indexOf("max-height")?u(t):-1===t.indexOf("min-width")&&-1===t.indexOf("max-width")||u(t):4===e[i].type?f(e[i].cssRules||e[i].rules):3===e[i].type&&e[i].styleSheet.hasOwnProperty("cssRules")&&f(e[i].styleSheet.cssRules)}var m=!1;this.init=function(){var i="animationstart";void 0!==document.documentElement.style.webkitAnimationName?i="webkitAnimationStart":void 0!==document.documentElement.style.MozAnimationName?i="mozanimationstart":void 0!==document.documentElement.style.OAnimationName&&(i="oanimationstart"),document.body.addEventListener(i,(function(t){var i=t.target,s=i&&window.getComputedStyle(i,null),o=s&&s.getPropertyValue("animation-name");if(o&&-1!==o.indexOf("element-queries")){i.elementQueriesSensor=new e(i,(function(){i.elementQueriesSetupInformation&&i.elementQueriesSetupInformation.call()}));var r=window.getComputedStyle(i.resizeSensor,null).getPropertyValue("min-width");r=parseInt(r.replace("px","")),a(t.target,n[r])}})),m||((t=document.createElement("style")).type="text/css",t.innerHTML="[responsive-image] > img, [data-responsive-image] {overflow: hidden; padding: 0; } [responsive-image] > img, [data-responsive-image] > img {width: 100%;}",t.innerHTML+="\n@keyframes element-queries { 0% { visibility: inherit; } }",document.getElementsByTagName("head")[0].appendChild(t),m=!0);for(var s=0,o=document.styleSheets.length;s<o;s++)try{document.styleSheets[s].href&&0===document.styleSheets[s].href.indexOf("file://")&&console.warn("CssElementQueries: unable to parse local css files, "+document.styleSheets[s].href),f(document.styleSheets[s].cssRules||document.styleSheets[s].rules||document.styleSheets[s].cssText)}catch(e){}!function(){for(var e=c()("[data-responsive-image],[responsive-image]"),t=0,i=e.length;t<i;t++)l(e[t])}()},this.findElementQueriesElements=function(e){!function(e){var t=c(e);for(var n in i)if(i.hasOwnProperty(n))for(var s=t(n,e),o=0,r=s.length;o<r;o++)a(s[o],n)}(e)},this.update=function(){this.init()}};return t.update=function(){t.instance.update()},t.detach=function(e){e.elementQueriesSetupInformation?(e.elementQueriesSensor.detach(),delete e.elementQueriesSetupInformation,delete e.elementQueriesSensor):e.resizeSensorInstance&&(e.resizeSensorInstance.detach(),delete e.resizeSensorInstance)},t.init=function(){t.instance||(t.instance=new t),t.instance.init()},t.findElementQueriesElements=function(e){t.instance.findElementQueriesElements(e)},t.listen=function(){!function(e){if(document.addEventListener)document.addEventListener("DOMContentLoaded",e,!1);else if(/KHTML|WebKit|iCab/i.test(navigator.userAgent))var t=setInterval((function(){/loaded|complete/i.test(document.readyState)&&(e(),clearInterval(t))}),10);else window.onload=e}(t.init)},t})?n.apply(t,s):n)||(e.exports=o)}}]);
+ */
+const StickySidebar = (() => {
+  
+    // ---------------------------------
+    // # Define Constants
+    // ---------------------------------
+    //
+    const EVENT_KEY = '.stickySidebar';
+    const VERSION   = '3.3.1';
+  
+    const DEFAULTS = {
+      
+      /**
+       * Additional top spacing of the element when it becomes sticky.
+       * @type {Numeric|Function}
+       */
+      topSpacing: 0,
+  
+      /**
+       * Additional bottom spacing of the element when it becomes sticky.
+       * @type {Numeric|Function}
+       */
+      bottomSpacing: 0,
+  
+      /**
+       * Container sidebar selector to know what the beginning and end of sticky element.
+       * @type {String|False}
+       */
+      containerSelector: false,
+  
+      /**
+       * Inner wrapper selector.
+       * @type {String}
+       */
+      innerWrapperSelector: '.inner-wrapper-sticky',
+  
+      /**
+       * The name of CSS class to apply to elements when they have become stuck.
+       * @type {String|False}
+       */
+      stickyClass: 'is-affixed',
+  
+      /**
+       * Detect when sidebar and its container change height so re-calculate their dimensions.
+       * @type {Boolean}
+       */
+      resizeSensor: true,
+  
+      /**
+       * The sidebar returns to its normal position if its width below this value.
+       * @type {Numeric}
+       */
+      minWidth: false
+    };
+  
+    // ---------------------------------
+    // # Class Definition
+    // ---------------------------------
+    //
+    /**
+     * Sticky Sidebar Class.
+     * @public
+     */
+    class StickySidebar{
+  
+      /**
+       * Sticky Sidebar Constructor.
+       * @constructor
+       * @param {HTMLElement|String} sidebar - The sidebar element or sidebar selector.
+       * @param {Object} options - The options of sticky sidebar.
+       */
+      constructor(sidebar, options = {}){
+        this.options = StickySidebar.extend(DEFAULTS, options);
+  
+        // Sidebar element query if there's no one, throw error.
+        this.sidebar = ('string' === typeof sidebar ) ? document.querySelector(sidebar) : sidebar;
+        if( 'undefined' === typeof this.sidebar )
+          throw new Error("There is no specific sidebar element.");
+  
+        this.sidebarInner = false;
+        this.container = this.sidebar.parentElement;
+  
+        // Current Affix Type of sidebar element.
+        this.affixedType = 'STATIC';
+        this.direction = 'down';
+        this.support = {
+          transform:   false,
+          transform3d: false
+        };
+  
+        this._initialized = false;
+        this._reStyle = false;
+        this._breakpoint = false;
+        this._resizeListeners = [];
+        
+        // Dimensions of sidebar, container and screen viewport.
+        this.dimensions = {
+          translateY: 0,
+          topSpacing: 0,
+          lastTopSpacing: 0,
+          bottomSpacing: 0,
+          lastBottomSpacing: 0,
+          sidebarHeight: 0,
+          sidebarWidth: 0,
+          containerTop: 0,
+          containerHeight: 0,
+          viewportHeight: 0,
+          viewportTop: 0, 
+          lastViewportTop: 0,
+        };
+  
+        // Bind event handlers for referencability.
+        ['handleEvent'].forEach( (method) => {
+          this[method] = this[method].bind(this);
+        });
+  
+        // Initialize sticky sidebar for first time.
+        this.initialize();
+      }
+  
+      /**
+       * Initializes the sticky sidebar by adding inner wrapper, define its container, 
+       * min-width breakpoint, calculating dimensions, adding helper classes and inline style.
+       * @private
+       */
+      initialize(){
+        this._setSupportFeatures();
+  
+        // Get sticky sidebar inner wrapper, if not found, will create one.
+        if( this.options.innerWrapperSelector ){
+          this.sidebarInner = this.sidebar.querySelector(this.options.innerWrapperSelector);
+  
+          if( null === this.sidebarInner )
+            this.sidebarInner = false;
+        }
+        
+        if( ! this.sidebarInner ){
+          let wrapper = document.createElement('div');
+          wrapper.setAttribute('class', 'inner-wrapper-sticky');
+          this.sidebar.appendChild(wrapper);
+  
+          while( this.sidebar.firstChild != wrapper )
+            wrapper.appendChild(this.sidebar.firstChild);
+  
+          this.sidebarInner = this.sidebar.querySelector('.inner-wrapper-sticky');
+        }
+  
+        // Container wrapper of the sidebar.
+        if( this.options.containerSelector ){
+          let containers = document.querySelectorAll(this.options.containerSelector);
+          containers = Array.prototype.slice.call(containers);
+  
+          containers.forEach((container, item) => {
+            if( ! container.contains(this.sidebar) ) return;
+            this.container = container;
+          });
+  
+          if( ! containers.length )
+            throw new Error("The container does not contains on the sidebar.");
+        }
+        
+        // If top/bottom spacing is not function parse value to integer.
+        if( 'function' !== typeof this.options.topSpacing )
+          this.options.topSpacing = parseInt(this.options.topSpacing) || 0;
+  
+        if( 'function' !== typeof this.options.bottomSpacing )
+          this.options.bottomSpacing = parseInt(this.options.bottomSpacing) || 0;
+            
+        // Breakdown sticky sidebar if screen width below `options.minWidth`.
+        this._widthBreakpoint();
+  
+        // Calculate dimensions of sidebar, container and viewport.
+        this.calcDimensions();
+  
+        // Affix sidebar in proper position.
+        this.stickyPosition();
+  
+        // Bind all events.
+        this.bindEvents();
+        
+        // Inform other properties the sticky sidebar is initialized.
+        this._initialized = true;
+      }
+  
+      /**
+       * Bind all events of sticky sidebar plugin.
+       * @protected
+       */
+      bindEvents(){
+        window.addEventListener('resize', this, {passive: true, capture: false});
+        window.addEventListener('scroll', this, {passive: true, capture: false});
+  
+        this.sidebar.addEventListener('update' + EVENT_KEY, this);
+  
+        if( this.options.resizeSensor && 'undefined' !== typeof ResizeSensor ){
+          new ResizeSensor(this.sidebarInner, this.handleEvent);
+          new ResizeSensor(this.container, this.handleEvent);
+        }
+      }
+  
+      /**
+       * Handles all events of the plugin.
+       * @param {Object} event - Event object passed from listener.
+       */
+      handleEvent(event){
+        this.updateSticky(event);
+      }
+  
+      /**
+       * Calculates dimensions of sidebar, container and screen viewpoint
+       * @public
+       */
+      calcDimensions(){
+        if( this._breakpoint ) return;
+        var dims = this.dimensions;
+  
+        // Container of sticky sidebar dimensions.
+        dims.containerTop    = StickySidebar.offsetRelative(this.container).top;
+        dims.containerHeight = this.container.clientHeight;
+        dims.containerBottom = dims.containerTop + dims.containerHeight;
+  
+        // Sidebar dimensions.
+        dims.sidebarHeight = this.sidebarInner.offsetHeight;
+        dims.sidebarWidth  = this.sidebar.offsetWidth;
+        
+        // Screen viewport dimensions.
+        dims.viewportHeight = window.innerHeight;
+  
+        this._calcDimensionsWithScroll();
+      }
+  
+      /**
+       * Some dimensions values need to be up-to-date when scrolling the page.
+       * @private
+       */
+      _calcDimensionsWithScroll(){
+        var dims = this.dimensions;
+  
+        dims.sidebarLeft = StickySidebar.offsetRelative(this.sidebar).left;
+  
+        dims.viewportTop    = document.documentElement.scrollTop || document.body.scrollTop;
+        dims.viewportBottom = dims.viewportTop + dims.viewportHeight;
+        dims.viewportLeft   = document.documentElement.scrollLeft || document.body.scrollLeft;
+  
+        dims.topSpacing    = this.options.topSpacing;
+        dims.bottomSpacing = this.options.bottomSpacing;
+  
+        if( 'function' === typeof dims.topSpacing )
+            dims.topSpacing = parseInt(dims.topSpacing(this.sidebar)) || 0;
+  
+        if( 'function' === typeof dims.bottomSpacing )
+            dims.bottomSpacing = parseInt(dims.bottomSpacing(this.sidebar)) || 0;
+        
+        if( 'VIEWPORT-TOP' === this.affixedType ){
+          // Adjust translate Y in the case decrease top spacing value.
+          if( dims.topSpacing < dims.lastTopSpacing ){
+            dims.translateY += dims.lastTopSpacing - dims.topSpacing;
+            this._reStyle = true; 
+          }
+        
+        } else if( 'VIEWPORT-BOTTOM' === this.affixedType ){
+          // Adjust translate Y in the case decrease bottom spacing value.
+          if( dims.bottomSpacing < dims.lastBottomSpacing ){
+            dims.translateY += dims.lastBottomSpacing - dims.bottomSpacing;
+            this._reStyle = true;
+          }
+        }
+        
+        dims.lastTopSpacing    = dims.topSpacing;
+        dims.lastBottomSpacing = dims.bottomSpacing;
+      }
+      
+      /**
+       * Determine whether the sidebar is bigger than viewport.
+       * @public
+       * @return {Boolean}
+       */
+      isSidebarFitsViewport(){
+        return this.dimensions.sidebarHeight < this.dimensions.viewportHeight;
+      }
+  
+      /**
+       * Observe browser scrolling direction top and down.
+       */
+      observeScrollDir(){
+        var dims = this.dimensions;
+        if( dims.lastViewportTop === dims.viewportTop ) return;
+  
+        var furthest = 'down' === this.direction ? Math.min : Math.max;
+        
+        // If the browser is scrolling not in the same direction.
+        if( dims.viewportTop === furthest(dims.viewportTop, dims.lastViewportTop) )
+          this.direction = 'down' === this.direction ?  'up' : 'down';
+      }
+  
+      /**
+       * Gets affix type of sidebar according to current scrollTop and scrollLeft.
+       * Holds all logical affix of the sidebar when scrolling up and down and when sidebar 
+       * is bigger than viewport and vice versa.
+       * @public
+       * @return {String|False} - Proper affix type.
+       */
+      getAffixType(){
+        var dims = this.dimensions, affixType = false;
+  
+        this._calcDimensionsWithScroll();
+  
+        var sidebarBottom = dims.sidebarHeight + dims.containerTop;
+        var colliderTop = dims.viewportTop + dims.topSpacing;
+        var colliderBottom = dims.viewportBottom - dims.bottomSpacing;
+  
+        // When browser is scrolling top.
+        if( 'up' === this.direction ){
+          if( colliderTop <= dims.containerTop ){
+            dims.translateY = 0;
+            affixType = 'STATIC';
+  
+          } else if( colliderTop <= dims.translateY + dims.containerTop ){
+            dims.translateY = colliderTop - dims.containerTop;
+            affixType = 'VIEWPORT-TOP';
+  
+          } else if( ! this.isSidebarFitsViewport() && dims.containerTop <= colliderTop ){
+            affixType = 'VIEWPORT-UNBOTTOM';
+          }
+        // When browser is scrolling up.
+        } else {
+          // When sidebar element is not bigger than screen viewport.
+          if( this.isSidebarFitsViewport() ){
+  
+            if( dims.sidebarHeight + colliderTop >= dims.containerBottom ){
+              dims.translateY = dims.containerBottom - sidebarBottom;
+              affixType = 'CONTAINER-BOTTOM'; 
+  
+            } else if( colliderTop >= dims.containerTop ){
+              dims.translateY = colliderTop - dims.containerTop;
+              affixType = 'VIEWPORT-TOP';
+            }
+          // When sidebar element is bigger than screen viewport.
+          } else {
+      
+            if( dims.containerBottom <= colliderBottom ){
+              dims.translateY = dims.containerBottom - sidebarBottom; 
+              affixType = 'CONTAINER-BOTTOM';    
+  
+            } else if( sidebarBottom + dims.translateY <= colliderBottom ){
+              dims.translateY = colliderBottom - sidebarBottom;
+              affixType = 'VIEWPORT-BOTTOM';
+            
+            } else if( dims.containerTop + dims.translateY <= colliderTop ){
+              affixType = 'VIEWPORT-UNBOTTOM';
+            }
+          }
+        }
+  
+        // Make sure the translate Y is not bigger than container height.
+        dims.translateY = Math.max(0, dims.translateY);
+        dims.translateY = Math.min(dims.containerHeight, dims.translateY);
+  
+        dims.lastViewportTop = dims.viewportTop;
+        return affixType;
+      }
+  
+      /**
+       * Gets inline style of sticky sidebar wrapper and inner wrapper according 
+       * to its affix type.
+       * @private
+       * @param {String} affixType - Affix type of sticky sidebar.
+       * @return {Object}
+       */
+      _getStyle(affixType){
+        if( 'undefined' === typeof affixType ) return;
+  
+        var style = {inner: {}, outer: {}};
+        var dims = this.dimensions;
+  
+        switch( affixType ){
+          case 'VIEWPORT-TOP':
+            style.inner = {position: 'fixed', top: dims.topSpacing,
+                  left: dims.sidebarLeft - dims.viewportLeft, width: dims.sidebarWidth};
+            break;
+          case 'VIEWPORT-BOTTOM':
+            style.inner = {position: 'fixed', top: 'auto', left: dims.sidebarLeft,
+                  bottom: dims.bottomSpacing, width: dims.sidebarWidth};
+            break;
+          case 'CONTAINER-BOTTOM':
+          case 'VIEWPORT-UNBOTTOM':
+            let translate = this._getTranslate(0, dims.translateY + 'px');
+            
+            if( translate )
+              style.inner = {transform: translate};
+            else 
+              style.inner = {position: 'absolute', top: dims.translateY, width: dims.sidebarWidth};
+            break;
+        }
+        
+        switch( affixType ){
+          case 'VIEWPORT-TOP':
+          case 'VIEWPORT-BOTTOM':
+          case 'VIEWPORT-UNBOTTOM':
+          case 'CONTAINER-BOTTOM':
+            style.outer = {height: dims.sidebarHeight, position: 'relative'};
+            break;
+        }
+  
+        style.outer = StickySidebar.extend({height: '', position: ''}, style.outer);
+        style.inner = StickySidebar.extend({position: 'relative', top: '', left: '',
+            bottom: '', width: '',  transform: this._getTranslate()}, style.inner);
+  
+        return style;
+      }
+     
+      /**
+       * Cause the sidebar to be sticky according to affix type by adding inline
+       * style, adding helper class and trigger events.
+       * @function
+       * @protected
+       * @param {string} force - Update sticky sidebar position by force.
+       */
+      stickyPosition(force){
+        if( this._breakpoint ) return;
+  
+        force = this._reStyle || force || false;
+        
+        var offsetTop = this.options.topSpacing;
+        var offsetBottom = this.options.bottomSpacing;
+  
+        var affixType = this.getAffixType();
+        var style = this._getStyle(affixType);
+        
+        if( (this.affixedType != affixType || force) && affixType ){
+          let affixEvent = 'affix.' + affixType.toLowerCase().replace('viewport-', '') + EVENT_KEY;
+          StickySidebar.eventTrigger(this.sidebar, affixEvent);
+  
+          if( 'STATIC' === affixType )
+            StickySidebar.removeClass(this.sidebar, this.options.stickyClass);
+          else
+            StickySidebar.addClass(this.sidebar, this.options.stickyClass);
+          
+          for( let key in style.outer ){
+            let _unit = ('number' === typeof style.outer[key]) ? 'px' : '';
+            this.sidebar.style[key] = style.outer[key];
+          }
+  
+          for( let key in style.inner ){
+            let _unit = ('number' === typeof style.inner[key]) ? 'px' : '';
+            this.sidebarInner.style[key] = style.inner[key] + _unit;
+          }
+          
+          let affixedEvent = 'affixed.'+ affixType.toLowerCase().replace('viewport-', '') + EVENT_KEY;
+          StickySidebar.eventTrigger(this.sidebar, affixedEvent);
+        } else {
+          if( this._initialized ) this.sidebarInner.style.left = style.inner.left;
+        }
+  
+        this.affixedType = affixType;
+      }
+  
+      /**
+       * Breakdown sticky sidebar when window width is below `options.minWidth` value.
+       * @protected
+       */
+      _widthBreakpoint(){
+  
+        if( window.innerWidth <= this.options.minWidth ){
+          this._breakpoint = true;
+          this.affixedType = 'STATIC';
+  
+          this.sidebar.removeAttribute('style');
+          StickySidebar.removeClass(this.sidebar, this.options.stickyClass);
+          this.sidebarInner.removeAttribute('style');
+        } else {
+          this._breakpoint = false;
+        }
+      }
+  
+      /**
+       * Switches between functions stack for each event type, if there's no 
+       * event, it will re-initialize sticky sidebar.
+       * @public
+       */
+      updateSticky(event = {}){
+        if( this._running ) return;
+        this._running = true;
+  
+        ((eventType) => {
+
+          requestAnimationFrame(() => {
+            switch( eventType ){
+              // When browser is scrolling and re-calculate just dimensions
+              // within scroll. 
+              case 'scroll':
+                this._calcDimensionsWithScroll();
+                this.observeScrollDir();
+                this.stickyPosition();
+                break;
+  
+              // When browser is resizing or there's no event, observe width
+              // breakpoint and re-calculate dimensions.
+              case 'resize':
+              default: 
+                this._widthBreakpoint();
+                this.calcDimensions();
+                this.stickyPosition(true);
+                break;
+            }
+            this._running = false;
+          });
+        })(event.type);
+      }
+  
+      /**
+       * Set browser support features to the public property.
+       * @private
+       */
+      _setSupportFeatures(){
+        var support = this.support;
+  
+        support.transform = StickySidebar.supportTransform();
+        support.transform3d = StickySidebar.supportTransform(true);
+      }
+  
+      /**
+       * Get translate value, if the browser supports transfrom3d, it will adopt it.
+       * and the same with translate. if browser doesn't support both return false.
+       * @param {Number} y - Value of Y-axis.
+       * @param {Number} x - Value of X-axis.
+       * @param {Number} z - Value of Z-axis.
+       * @return {String|False}
+       */
+      _getTranslate(y = 0, x = 0, z = 0){
+        if( this.support.transform3d ) return 'translate3d(' + y +', '+ x +', '+ z +')';
+        else if( this.support.translate ) return 'translate('+ y +', '+ x +')';
+        else return false;
+      }
+  
+      /**
+       * Destroy sticky sidebar plugin.
+       * @public
+       */
+      destroy(){
+        window.removeEventListener('resize', this, {caption: false});
+        window.removeEventListener('scroll', this, {caption: false});
+  
+        this.sidebar.classList.remove(this.options.stickyClass);
+        this.sidebar.style.minHeight = '';
+  
+        this.sidebar.removeEventListener('update' + EVENT_KEY, this);
+  
+        var styleReset = {inner: {}, outer: {}};
+  
+        styleReset.inner = {position: '', top: '', left: '', bottom: '', width: '',  transform: ''};
+        styleReset.outer = {height: '', position: ''};
+  
+        for( let key in styleReset.outer )
+          this.sidebar.style[key] = styleReset.outer[key];
+  
+        for( let key in styleReset.inner )
+          this.sidebarInner.style[key] = styleReset.inner[key];
+  
+        if( this.options.resizeSensor && 'undefined' !== typeof ResizeSensor ){
+          ResizeSensor.detach(this.sidebarInner, this.handleEvent);
+          ResizeSensor.detach(this.container, this.handleEvent);
+        }
+      }
+  
+      /**
+       * Determine if the browser supports CSS transform feature.
+       * @function
+       * @static
+       * @param {Boolean} transform3d - Detect transform with translate3d.
+       * @return {String}
+       */
+      static supportTransform(transform3d){
+        var result = false,
+            property = (transform3d) ? 'perspective' : 'transform',
+            upper = property.charAt(0).toUpperCase() + property.slice(1),
+            prefixes = ['Webkit', 'Moz', 'O', 'ms'],
+            support = document.createElement('support'),
+            style = support.style;
+  
+        (property + ' ' + prefixes.join(upper + ' ') + upper).split(' ').forEach(function(property, i) {
+          if (style[property] !== undefined) {
+            result = property;
+            return false;
+          }
+        });
+        return result;
+      }
+  
+      /**
+       * Trigger custom event.
+       * @static
+       * @param {DOMObject} element - Target element on the DOM.
+       * @param {String} eventName - Event name.
+       * @param {Object} data - 
+       */
+      static eventTrigger(element, eventName, data){
+        try{
+          var event = new CustomEvent(eventName, {detail: data});
+        } catch(e){
+          var event = document.createEvent('CustomEvent');
+          event.initCustomEvent(eventName, true, true, data);
+        }
+        element.dispatchEvent(event);
+      }
+  
+      /**
+       * Extend options object with defaults.
+       * @function
+       * @static
+       */
+      static extend(defaults, options){
+        var results = {};
+        for( let key in defaults ){
+          if( 'undefined' !== typeof options[key] ) results[key] = options[key];
+          else results[key] = defaults[key];
+        }
+        return results;
+      }
+  
+      /**
+       * Get current coordinates left and top of specific element.
+       * @static
+       */
+      static offsetRelative(element){
+        var result = {left: 0, top: 0};
+
+        do{
+          let offsetTop = element.offsetTop;
+          let offsetLeft = element.offsetLeft;
+  
+          if( ! isNaN(offsetTop) )
+            result.top += offsetTop;
+  
+          if( ! isNaN(offsetLeft) )
+            result.left += offsetLeft;
+
+          element = ( 'BODY' === element.tagName ) ?
+                      element.parentElement : element.offsetParent;
+        } while(element)
+        return result;
+      }
+  
+      /**
+       * Add specific class name to specific element.
+       * @static 
+       * @param {ObjectDOM} element 
+       * @param {String} className 
+       */
+      static addClass(element, className){
+        if( ! StickySidebar.hasClass(element, className) ){
+          if (element.classList)
+            element.classList.add(className);
+          else
+            element.className += ' ' + className;
+        }
+      }
+      
+      /**
+       * Remove specific class name to specific element
+       * @static
+       * @param {ObjectDOM} element 
+       * @param {String} className 
+       */
+      static removeClass(element, className){
+        if( StickySidebar.hasClass(element, className) ){
+          if (element.classList)
+            element.classList.remove(className);
+          else
+            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+      }
+
+      /**
+       * Determine weather the element has specific class name.
+       * @static
+       * @param {ObjectDOM} element 
+       * @param {String} className 
+       */
+      static hasClass(element, className){
+        if (element.classList)
+          return element.classList.contains(className);
+        else
+          return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+      }
+    }
+  
+    return StickySidebar;
+  })();
+  
+  /* harmony default export */ __webpack_exports__["default"] = (StickySidebar);
+  
+  // Global
+  // -------------------------
+  window.StickySidebar = StickySidebar;
+
+/***/ })
+
+}]);
+//# sourceMappingURL=vendors~indigo-sidebarStick.js.map
