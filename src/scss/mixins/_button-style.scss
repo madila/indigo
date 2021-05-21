@@ -1,7 +1,7 @@
 
 @mixin button() {
 	@include border-radius;
-	font-family: var(--wp--custom--font-primary), $headings-font-family;
+	font-family: var(--wp--preset--font-family--cursive), $headings-font-family;
 	background-color: var(--primary-color, $body-color);
 	color: var(--primary-text-color, $body-color);
 	border: 1px solid var(--primary-text-color, $body-color);

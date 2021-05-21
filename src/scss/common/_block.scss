@@ -52,16 +52,11 @@
 		}
 	}
 	&-button {
-		font-family: var(--wp--custom--font-primary);
+		font-family: var(--wp--preset--font-family--cursive);
 		&:hover {
 			text-decoration: none;
 		}
 	}
-	/*
-	&-columns {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-	}*/
 	&-group__inner-container {
 		.wp-block-columns {
 			margin-left: -1rem;
