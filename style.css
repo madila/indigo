@@ -289,8 +289,8 @@ progress {
 ol,
 ul,
 dl {
-  margin-top: var(----wp--custom--spacing--vertical);
-  margin-bottom: var(----wp--custom--spacing--vertical); }
+  margin-top: var(--wp--custom--spacing--vertical);
+  margin-bottom: var(--wp--custom--spacing--vertical); }
 
 ul, ol {
   padding-left: 1.55em; }
@@ -530,6 +530,9 @@ p {
 
 a {
   color: inherit;
+  line-height: var(--wp--custom--line-height--body, 1.15);
+  font-weight: 500;
+  text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
 

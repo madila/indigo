@@ -31,6 +31,9 @@ p {
 
 a {
 	color: inherit;
+	line-height: var(--wp--custom--line-height--body, 1.15);
+	font-weight: 500;
+	text-decoration: none;
 	background-color: transparent; // Remove the gray background on active links in IE 10.
 	-webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
 }
