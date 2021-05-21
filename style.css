@@ -4,7 +4,7 @@ Theme URI: http://indigo.rubenmadila.com/
 Author: Ruben Madila for Ollie Ford & Co
 Author URI: http://underscores.me/
 Description: Custom theme: Indigo, developed by Ruben Madila for Ollie Ford & Co
-Version: 1.5.3
+Version: 1.5.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: indigo
@@ -289,8 +289,8 @@ progress {
 ol,
 ul,
 dl {
-  margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-top: var(----wp--custom--spacing--vertical);
+  margin-bottom: var(----wp--custom--spacing--vertical); }
 
 ul, ol {
   padding-left: 1.55em; }
@@ -2595,7 +2595,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: var(--wp--custom--spacing--unit);
   font-family: var(--wp--custom--font-primary), "Epilogue", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: var(--wp--custom--font-weight--normal, 600);
+  font-weight: var(--wp--custom--font-weight--bold, 600);
   line-height: var(--wp--custom--line-height--heading, 1.15); }
 
 .main-navigation {

@@ -1,8 +1,8 @@
 ol,
 ul,
 dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
+  margin-top: var(----wp--custom--spacing--vertical);
+  margin-bottom: var(----wp--custom--spacing--vertical);
 }
 
 ul, ol {

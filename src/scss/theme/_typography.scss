@@ -35,6 +35,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
 	margin-bottom: var(--wp--custom--spacing--unit);
 	font-family: var(--wp--custom--font-primary), $headings-font-family;
-	font-weight: var(--wp--custom--font-weight--normal, $headings-font-weight);
+	font-weight: var(--wp--custom--font-weight--bold, $headings-font-weight);
 	line-height: var(--wp--custom--line-height--heading, $line-height-base);
 }
