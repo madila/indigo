@@ -2287,48 +2287,6 @@ p.has-small-font-size {
       padding-left: var(--wp--custom--spacing--unit, 1rem);
       padding-right: var(--wp--custom--spacing--unit, 1rem); }
 
-.has-black-color {
-  color: #000; }
-
-.has-black-background-color {
-  background-color: #000; }
-
-.has-dark-grey-color {
-  color: #333333; }
-
-.has-dark-grey-background-color {
-  background-color: #333333; }
-
-.has-brand-green-color {
-  color: #008951; }
-
-.has-brand-green-background-color {
-  background-color: #008951; }
-
-.has-logo-green-color {
-  color: #999999; }
-
-.has-logo-green-background-color {
-  background-color: #999999; }
-
-.has-light-grey-color {
-  color: #f6f7f9; }
-
-.has-light-grey-background-color {
-  background-color: #f6f7f9; }
-
-.has-navy-blue-color {
-  color: #3b5997; }
-
-.has-navy-blue-background-color {
-  background-color: #3b5997; }
-
-.has-electric-blue-color {
-  color: #0084b4; }
-
-.has-electric-blue-background-color {
-  background-color: #0084b4; }
-
 .site-header-center .site-header-container {
   -ms-flex-line-pack: start;
       align-content: flex-start;
@@ -2610,9 +2568,6 @@ p.has-small-font-size {
 
 html {
   font-size: var(--wp--preset--font-size--normal); }
-  @media (max-width: 767px) {
-    html {
-      font-size: var(--mobile-font-size); } }
 
 a {
   line-height: var(--wp--custom--line-height--body, 1.15);
@@ -2640,9 +2595,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: var(--wp--custom--spacing--unit);
   font-family: var(--wp--custom--font-primary), "Epilogue", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: var(--headings-font-weight, 600);
-  line-height: var(--wp--custom--line-height--heading, 1.15);
-  letter-spacing: var(--headings-letter-spacing, 0em); }
+  font-weight: var(--wp--custom--font-weight--normal, 600);
+  line-height: var(--wp--custom--line-height--heading, 1.15); }
 
 .main-navigation {
   display: -webkit-inline-box;

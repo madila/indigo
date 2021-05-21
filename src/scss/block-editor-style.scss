@@ -30,7 +30,6 @@ html .editor-styles-wrapper {
 	line-height: var(--wp--custom--line-height--body, $line-height-base);
 	letter-spacing: var(--base-letter-spacing, $base-letter-spacing);
 	background-color: var(--base-bg-color, $body-bg);
-	@import "block-editor/common";
 	@import "common/block";
 	@import "theme/typography";
 }
