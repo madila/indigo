@@ -118,6 +118,84 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		add_theme_support( 'editor-styles' );
 
 		add_editor_style(indigo_get_font_url());
+
+		$font_size = get_theme_mod('base_font_size', 14);
+
+		add_theme_support(
+			'editor-font-sizes',
+			apply_filters('indigo_font_sizes', array(
+				array(
+					'name'      => __( 'Small', 'indigo' ),
+					'shortName' => __( 'S', 'indigo' ),
+					'size'      => $font_size * 0.85,
+					'slug'      => 'small'
+				),
+				array(
+					'name'      => __( 'Normal', 'indigo' ),
+					'shortName' => __( 'N', 'indigo' ),
+					'size'      => $font_size,
+					'slug'      => 'normal'
+				),
+				array(
+					'name'      => __( 'Medium', 'indigo' ),
+					'shortName' => __( 'M', 'indigo' ),
+					'size'      => $font_size * 1.25,
+					'slug'      => 'medium'
+				),
+				array(
+					'name'      => __( 'Large', 'indigo' ),
+					'shortName' => __( 'L', 'indigo' ),
+					'size'      => $font_size * 1.5,
+					'slug'      => 'large'
+				),
+				array(
+					'name'      => __( 'Huge', 'indigo' ),
+					'shortName' => __( 'H', 'indigo' ),
+					'size'      => $font_size * 1.75,
+					'slug'      => 'huge'
+				)
+			))
+		);
+
+		add_theme_support( 'editor-color-palette',
+			apply_filters('indigo_color_palette', array(
+				array(
+					'name' => __( 'brand-green', 'indigo' ),
+					'slug' => 'brand-green',
+					'color' => '#008951',
+				),
+				array(
+					'name' => __( 'logo green', 'indigo' ),
+					'slug' => 'logo-green',
+					'color' => '#7bc043',
+				),
+				array(
+					'name' => __( 'black', 'indigo' ),
+					'slug' => 'black',
+					'color' => '#000000',
+				),
+				array(
+					'name' => __( 'dark grey', 'indigo' ),
+					'slug' => 'dark-grey',
+					'color' => '#333333',
+				),
+				array(
+					'name' => __( 'light grey', 'indigo' ),
+					'slug' => 'light-grey',
+					'color' => '#f6f7f9',
+				),
+				array(
+					'name' => __( 'electric blue', 'indigo' ),
+					'slug' => 'electric-blue',
+					'color' => '#0084b4',
+				),
+				array(
+					'name' => __( 'navy blue', 'indigo' ),
+					'slug' => 'navy-blue',
+					'color' => '#3b5997',
+				),
+			))
+		);
 	}
 endif;
 add_action( 'after_setup_theme', 'indigo_setup' );
