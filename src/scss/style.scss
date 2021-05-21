@@ -36,4 +36,5 @@ $css-vars-use-native: true;
 @import "plugin/indigo-login";
 @import "plugin/wp-maintenance";
 @import "plugin/gdpr";
-@import "~fullpage.js/dist/fullpage";
+
+@import "blocks/all";

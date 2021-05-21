@@ -1,0 +1,14 @@
+.wp-block-post-featured-image {
+	> a {
+		height: 25vw;
+		min-height: 35vh;
+		overflow: hidden;
+		display: flex;
+		img {
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			display: flex;
+		}
+	}
+}

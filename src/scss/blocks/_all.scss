@@ -1,0 +1,20 @@
+.wp-block-cover,
+.wp-block-columns {
+	margin-bottom: calc(var(--wp--custom--spacing--vertical) * 2);
+}
+
+.wp-block-query-loop.is-flex-container {
+	.wp-block-post-featured-image {
+		margin-bottom: 0;
+		flex: 0;
+	}
+	li {
+		display: flex;
+		flex-direction: column;
+		.wp-block-group {
+			flex: 1;
+		}
+	}
+}
+
+@import "wp-block-post-featured-image";

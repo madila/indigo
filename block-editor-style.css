@@ -1752,22 +1752,15 @@ html .editor-styles-wrapper {
     text-decoration: none; }
     html .editor-styles-wrapper a:hover {
       text-decoration: underline; }
-  html .editor-styles-wrapper h1 {
-    font-size: 2rem; }
-  html .editor-styles-wrapper h2 {
-    font-size: 1.8rem; }
-  html .editor-styles-wrapper h3 {
-    font-size: 1.5rem; }
-  html .editor-styles-wrapper h4 {
-    font-size: 1.3rem; }
-  html .editor-styles-wrapper h5 {
-    font-size: 1rem; }
   html .editor-styles-wrapper h1, html .editor-styles-wrapper h2, html .editor-styles-wrapper h3, html .editor-styles-wrapper h4, html .editor-styles-wrapper h5, html .editor-styles-wrapper h6 {
     margin-top: 0;
     margin-bottom: var(--wp--custom--spacing--unit);
-    font-family: var(--wp--custom--font-primary), "Epilogue", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: var(--wp--custom--font-weight--bold, 600);
+    font-family: var(--wp--preset--font-family--cursive), "Epilogue", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: var(--wp--custom--font-weight--normal, 600);
     line-height: var(--wp--custom--line-height--heading, 1.15); }
+
+.wp-block[data-align=full] > [class^="wp-container"] .wp-block {
+  max-width: none; }
 
 
 /*# sourceMappingURL=block-editor-style.css.map*/

@@ -71,16 +71,16 @@
             "name": "System Font"
           },
           {
-            "fontFamily": "'Nunito Sans', Helvetica Neue, Helvetica, Arial, sans-serif",
-            "slug": "Nunito"
+            "fontFamily": "'Work Sans', Helvetica Neue, Helvetica, Arial, sans-serif",
+            "slug": "primary"
           },
           {
-            "fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
-            "slug": "helvetica-arial"
+            "fontFamily": "'Abril Fatface',Helvetica Neue, Helvetica, Arial, sans-serif",
+            "slug": "cursive"
           },
           {
-            "fontFamily": "Geneva, Tahoma, Verdana, sans-serif",
-            "slug": "geneva-verdana"
+            "fontFamily": "'Big Shoulders Display', Tahoma, Verdana, sans-serif",
+            "slug": "big-shoulder"
           },
           {
             "fontFamily": "Cambria, Georgia, serif",
@@ -96,7 +96,7 @@
         "customPadding": true
       },
       "custom": {
-        "font-primary": "'Nunito Sans','Helvetica Neue', sans-serif",
+        "font-primary": "'Work Sans','Helvetica Neue', sans-serif",
         "line-height": {
           "body": 1.7,
           "heading": 1.3,

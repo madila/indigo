@@ -32,4 +32,13 @@ html .editor-styles-wrapper {
 	background-color: var(--base-bg-color, $body-bg);
 	@import "common/block";
 	@import "theme/typography";
+
+}
+
+.wp-block[data-align=full] {
+ > [class^="wp-container"] {
+	 .wp-block {
+		 max-width: none;
+	 }
+ }
 }

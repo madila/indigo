@@ -9,7 +9,8 @@ li.menu-item {
 		vertical-align: middle;
 		display: inline;
 		cursor: pointer;
-		font-family: var(--nav-font-family), var(--wp--custom--font-primary), serif !important;
+		text-transform: uppercase;
+		font-family: var(--wp--preset--font-family--primary), serif !important;
 		font-weight: var(--nav-font-weight, 300);
 	}
 	&.menu-item-has-children {
