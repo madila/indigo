@@ -9,6 +9,9 @@
 
 require_once "inc/composer.php";
 
+function indigo_get_font_url() {
+	return 'https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Work+Sans:ital,wght@0,100;0,200;0,400;1,100;1,200&display=swap';
+}
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -66,87 +69,6 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 		// Add support for Block Styles.
 		add_theme_support( 'wp-block-styles' );
 
-		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
-
-		$font_size = get_theme_mod('base_font_size', 14);
-
-		add_theme_support(
-			'editor-font-sizes',
-			apply_filters('indigo_font_sizes', array(
-				array(
-					'name'      => __( 'Small', 'indigo' ),
-					'shortName' => __( 'S', 'indigo' ),
-					'size'      => $font_size * 0.85,
-					'slug'      => 'small'
-				),
-				array(
-					'name'      => __( 'Normal', 'indigo' ),
-					'shortName' => __( 'N', 'indigo' ),
-					'size'      => $font_size,
-					'slug'      => 'normal'
-				),
-				array(
-					'name'      => __( 'Medium', 'indigo' ),
-					'shortName' => __( 'M', 'indigo' ),
-					'size'      => $font_size * 1.25,
-					'slug'      => 'medium'
-				),
-				array(
-					'name'      => __( 'Large', 'indigo' ),
-					'shortName' => __( 'L', 'indigo' ),
-					'size'      => $font_size * 1.5,
-					'slug'      => 'large'
-				),
-				array(
-					'name'      => __( 'Huge', 'indigo' ),
-					'shortName' => __( 'H', 'indigo' ),
-					'size'      => $font_size * 1.75,
-					'slug'      => 'huge'
-				)
-			))
-		);
-
-		add_theme_support( 'editor-color-palette',
-			apply_filters('indigo_color_palette', array(
-				array(
-					'name' => __( 'brand-green', 'indigo' ),
-					'slug' => 'brand-green',
-					'color' => '#008951',
-				),
-				array(
-					'name' => __( 'logo green', 'indigo' ),
-					'slug' => 'logo-green',
-					'color' => '#7bc043',
-				),
-				array(
-					'name' => __( 'black', 'indigo' ),
-					'slug' => 'black',
-					'color' => '#000000',
-				),
-				array(
-					'name' => __( 'dark grey', 'indigo' ),
-					'slug' => 'dark-grey',
-					'color' => '#333333',
-				),
-				array(
-					'name' => __( 'light grey', 'indigo' ),
-					'slug' => 'light-grey',
-					'color' => '#f6f7f9',
-				),
-				array(
-					'name' => __( 'electric blue', 'indigo' ),
-					'slug' => 'electric-blue',
-					'color' => '#0084b4',
-				),
-				array(
-					'name' => __( 'navy blue', 'indigo' ),
-					'slug' => 'navy-blue',
-					'color' => '#3b5997',
-				),
-			))
-		);
-
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -192,6 +114,10 @@ if ( ! function_exists( 'indigo_setup' ) ) :
 			'flex-height' => true,
 		) );
 
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+
+		add_editor_style(indigo_get_font_url());
 	}
 endif;
 add_action( 'after_setup_theme', 'indigo_setup' );
@@ -258,8 +184,7 @@ function indigo_scripts() {
 
 	wp_register_script( 'indigo-script', get_template_directory_uri() . '/js/scripts.js', array(), get_indigo_version(), true );
 
-	wp_enqueue_style( 'indigo-webfont', 'https://fonts.googleapis.com/css2?family=Spartan:wght@100;400;600&display=swap', array(), get_indigo_version() );
-
+	wp_enqueue_style( 'indigo-webfont', indigo_get_font_url(), array(), null );
 
 	if(get_template_directory() === get_stylesheet_directory()) {
 		wp_enqueue_style( 'indigo-style', get_stylesheet_uri(), array(), get_indigo_version() );
