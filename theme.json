@@ -67,28 +67,20 @@
         "fontFamilies": [
           {
             "fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-            "slug": "system-font",
-            "name": "System Font"
+            "slug": "heading",
+            "name": "Heading Font"
           },
           {
-            "fontFamily": "usual, Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "quasimoda, Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "primary"
           },
           {
-            "fontFamily": "rosella-engraved,Helvetica Neue, Helvetica, Arial, sans-serif",
-            "slug": "cursive"
+            "fontFamily": "quasimoda,Helvetica Neue, Helvetica, Arial, sans-serif",
+            "slug": "button"
           },
           {
             "fontFamily": "bodega-sans, Tahoma, Verdana, sans-serif",
             "slug": "navigation"
-          },
-          {
-            "fontFamily": "Cambria, Georgia, serif",
-            "slug": "cambria-georgia"
-          },
-          {
-            "fontFamily": "Hoefler Text, Baskerville Old Face, Garamond, Times New Roman, serif",
-            "slug": "hoefler-times-new-roman"
           }
         ]
       },
@@ -96,7 +88,7 @@
         "customPadding": true
       },
       "custom": {
-        "font-primary": "usual,'Helvetica Neue', sans-serif",
+        "font-primary": "quasimoda,'Helvetica Neue', sans-serif",
         "line-height": {
           "body": 1.7,
           "heading": 1.5,
