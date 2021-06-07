@@ -40,27 +40,27 @@
           },
           {
             "slug": "medium",
-            "size": "1.6rem",
+            "size": "1.75rem",
             "name": "Medium"
           },
           {
             "slug": "large",
-            "size": "2.4rem",
+            "size": "2.2rem",
             "name": "Large"
           },
           {
             "slug": "extra-large",
-            "size": "2.6rem",
+            "size": "2.5rem",
             "name": "Extra large"
           },
           {
             "slug": "huge",
-            "size": "5rem",
+            "size": "3rem",
             "name": "Huge"
           },
           {
             "slug": "gigantic",
-            "size": "8rem",
+            "size": "5rem",
             "name": "Gigantic"
           }
         ],
@@ -71,16 +71,16 @@
             "name": "System Font"
           },
           {
-            "fontFamily": "bodega-sans, Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "usual, Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "primary"
           },
           {
-            "fontFamily": "bodega-sans,Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "rosella-engraved,Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "cursive"
           },
           {
             "fontFamily": "bodega-sans, Tahoma, Verdana, sans-serif",
-            "slug": "big-shoulder"
+            "slug": "navigation"
           },
           {
             "fontFamily": "Cambria, Georgia, serif",
@@ -96,7 +96,7 @@
         "customPadding": true
       },
       "custom": {
-        "font-primary": "bodega-sans,'Helvetica Neue', sans-serif",
+        "font-primary": "usual,'Helvetica Neue', sans-serif",
         "line-height": {
           "body": 1.7,
           "heading": 1.5,

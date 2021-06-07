@@ -55,7 +55,7 @@ function get_theme_mod_defaults() {
 		'base_letter_spacing' => '0em',
 		'mobile_font_size' => '16px',
 
-		'base_font_weight' => '300',
+		'base_font_weight' => '200',
 		'bold_font_weight' => '600',
 		'base_line_height' => '1.5em',
 		'headings_font_weight' => '600',
