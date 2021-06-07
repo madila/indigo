@@ -71,15 +71,15 @@
             "name": "System Font"
           },
           {
-            "fontFamily": "'Work Sans', Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "bodega-sans, Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "primary"
           },
           {
-            "fontFamily": "'Abril Fatface',Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "bodega-sans,Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "cursive"
           },
           {
-            "fontFamily": "'Big Shoulders Display', Tahoma, Verdana, sans-serif",
+            "fontFamily": "bodega-sans, Tahoma, Verdana, sans-serif",
             "slug": "big-shoulder"
           },
           {
@@ -96,7 +96,7 @@
         "customPadding": true
       },
       "custom": {
-        "font-primary": "'Work Sans','Helvetica Neue', sans-serif",
+        "font-primary": "bodega-sans,'Helvetica Neue', sans-serif",
         "line-height": {
           "body": 1.7,
           "heading": 1.5,
