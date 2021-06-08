@@ -26,8 +26,13 @@ function indigo_body_classes( $classes ) {
 	}
 
 	if(is_home() || is_archive()) {
-		$classes[] = 'indigo-archive-'.get_theme_mod('archive_item_display_in');
-		$classes[] = 'indigo-archive-'.get_theme_mod('archive_item_display_as');
+		if ( $display_in = get_theme_mod( 'archive_item_display_in' ) ) {
+			$classes[] = 'indigo-archive-' . $display_in;
+		}
+		if ( $display_as = get_theme_mod( 'archive_item_display_as' ) ) {
+			$classes[] = 'indigo-archive-' . $display_as;
+		}
+		$classes[] = 'indigo-archive';
 		$archive_columns = get_theme_mod('indigo_archive_columns');
 		if($archive_columns > 0) {
 			$classes[] = 'indigo-archive-cols-'.$archive_columns;

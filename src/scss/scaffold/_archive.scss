@@ -1,7 +1,5 @@
 .archive-header, .entry-header {
 	width: 100%;
-	padding-left: var(--wp--custom--spacing--unit);
-	padding-right: var(--wp--custom--spacing--unit);
 	.indigo-calculate-header & {
 		margin-top: var(--header-height);
 		display: block;
@@ -10,6 +8,15 @@
 	}
 }
 
+
+.archive {
+	&-title {
+		border-bottom: 1px solid #ddd;
+		text-align: center;
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+	}
+}
 
 .archive-description {
 	p {

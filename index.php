@@ -24,7 +24,7 @@ get_header();
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header class="<?php echo (!get_theme_mod('indigo_show_archive_title')) ? 'screen-reader-archive-header screen-reader-text' : 'archive-header'; ?>">
-					<h1 class="page-title"><?php single_post_title(); ?></h1>
+					<h1 class="archive-title"><?php single_post_title(); ?></h1>
 				</header>
 				<?php
             endif; ?>
@@ -40,7 +40,7 @@ get_header();
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
 
-				get_template_part( 'template-parts/content', is_single() ? get_post_type() : 'search' );
+				get_template_part( 'template-parts/content', is_single() ? get_post_type() : 'archive' );
 
 			endwhile;
 

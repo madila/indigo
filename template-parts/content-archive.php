@@ -30,7 +30,9 @@
 
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>
-			<a href="<?php the_permalink(); ?>" class="moretag"><?php echo apply_filters('indigo_moretag_text', 'Continue Reading'); ?></a>
+			<div class="wp-read-more wp-block-buttons is-content-justification-left has-small-font-size">
+				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-logo-green-color has-text-color" href="<?php the_permalink(); ?>">Read more</a></div>
+			</div>
 		</div><!-- .entry-summary -->
 	</div>
 

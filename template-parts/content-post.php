@@ -19,8 +19,12 @@
 	<?php
 	if(get_theme_mod('indigo_show_single_title') ) : ?>
 		<header class="entry-header archive-entry">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-		</header><!-- .page-header -->
+			<?php if ( is_singular() ) : ?>
+				<?php the_title( '<h1 class="entry-title default-max-width">', '</h1>' ); ?>
+			<?php else : ?>
+				<?php the_title( sprintf( '<h2 class="entry-title default-max-width"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+			<?php endif; ?>
+		</header><!-- .entry-header -->
 	<?php endif; ?>
 
 	<div class="entry-content">

@@ -15,7 +15,7 @@
 <?php get_sidebar('pre-footer'); ?>
 <footer id="colophon" class="site-footer">
 	<?php
-	$copyright_notice = sprintf('Copyright &copy; %1s',
+	$copyright_notice = sprintf('Copyright &copy; &nbsp; %1s',
 		date( 'Y' )
 	);
 
