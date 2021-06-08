@@ -15,7 +15,7 @@
 <?php get_sidebar('pre-footer'); ?>
 <footer id="colophon" class="site-footer">
 	<?php
-	$copyright_notice = sprintf('Copyright &copy; &nbsp; %1s',
+	$copyright_notice = sprintf('Copyright &copy; %1s',
 		date( 'Y' )
 	);
 
@@ -27,7 +27,7 @@
 	<small class="site-theme-info has-text-align-center d-block">
 		<span><?php
 		/* translators: 1: Theme name, 2: Theme author. */
-		printf( esc_html__( '%1$s developed by %2$s.', 'indigo' ), get_bloginfo('site_title'), '<a href="https://ollieford.co.uk/">Ollie Ford &amp; &nbsp; Co</a>' );
+		printf( esc_html__( '%1$s developed by %2$s.', 'indigo' ), get_bloginfo('site_title'), '<a href="https://ollieford.co.uk/">Ollie Ford &amp; Co</a>' );
 			?></span>
 	</small><!-- .site-info -->
 </footer><!-- #colophon -->
