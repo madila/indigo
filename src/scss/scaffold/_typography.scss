@@ -205,3 +205,12 @@ p {
 		font-size: 0.85rem !important;
 	}
 }
+
+
+.h1.site-title {
+	font-family: var(--wp--preset--font-family--navigation);
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	font-size: 3rem;
+	font-weight: 400;
+}
