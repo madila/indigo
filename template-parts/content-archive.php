@@ -31,7 +31,7 @@
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>
 			<div class="wp-read-more wp-block-buttons is-content-justification-left has-small-font-size">
-				<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-logo-green-color has-text-color" href="<?php the_permalink(); ?>">Read more</a></div>
+				<div class="wp-block-button"><a class="wp-block-button__link has-logo-green-background-color has-background has-light-grey-color has-text-color" href="<?php the_permalink(); ?>"><strong>Read more</strong></a></div>
 			</div>
 		</div><!-- .entry-summary -->
 	</div>
