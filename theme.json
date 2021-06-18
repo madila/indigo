@@ -66,20 +66,20 @@
         ],
         "fontFamilies": [
           {
-            "fontFamily": "rosella-engraved,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+            "fontFamily": "condor,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
             "slug": "heading",
             "name": "Heading Font"
           },
           {
-            "fontFamily": "quasimoda, Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "mrs-eaves, Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "primary"
           },
           {
-            "fontFamily": "quasimoda,Helvetica Neue, Helvetica, Arial, sans-serif",
+            "fontFamily": "mrs-eaves,Helvetica Neue, Helvetica, Arial, sans-serif",
             "slug": "button"
           },
           {
-            "fontFamily": "bodega-sans, Tahoma, Verdana, sans-serif",
+            "fontFamily": "mrs-eaves, Tahoma, Verdana, sans-serif",
             "slug": "navigation"
           }
         ]
@@ -88,9 +88,9 @@
         "customPadding": true
       },
       "custom": {
-        "font-primary": "quasimoda,'Helvetica Neue', sans-serif",
+        "font-primary": "mrs-eaves,'Helvetica Neue', sans-serif",
         "line-height": {
-          "body": 1.7,
+          "body": 1.4,
           "heading": 1.5,
           "page-title": 1.1
         },

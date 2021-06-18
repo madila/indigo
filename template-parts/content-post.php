@@ -31,6 +31,15 @@
 		<?php
 		the_content();
 
+		 if ( 'post' === get_post_type() ) : ?>
+		<div class="entry-meta">
+			<?php
+			indigo_posted_on();
+			indigo_posted_by();
+			?>
+		</div><!-- .entry-meta -->
+		<?php endif;
+
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'indigo' ),
 			'after'  => '</div>',
