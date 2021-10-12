@@ -1,3 +1,3 @@
-$css-vars-use-native: true;
-@import "_variables";
-@import "mixins/_mixins";
+@import "variables";
+@import "css-variables";
+@import "mixins/mixins";

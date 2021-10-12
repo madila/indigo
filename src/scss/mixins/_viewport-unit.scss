@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin viewport-unit($property, $value, $important: null) {
   #{$property}: $value;
 
@@ -18,10 +20,10 @@
       $device-query: "#{$device-query} and (device-width: #{$device-width})";
       $device-query: "#{$device-query} and (device-height: #{$device-height})";
 
-      $percent: $value / ($value * 0 + 1); // see https://github.com/sass/sass/issues/533
+      $percent: math.div($value, ($value * 0 + 1)); // see https://github.com/sass/sass/issues/533
 
-      $percent-width: $device-width * $percent / 100;
-      $percent-height: $device-height * $percent / 100;
+      $percent-width: math.div($device-width * $percent, 100);
+      $percent-height: math.div($device-height * $percent, 100);
 
       @if ($unit == vmin or $unit == vmax) {
         @media #{$device-query} {

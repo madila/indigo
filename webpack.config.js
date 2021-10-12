@@ -50,8 +50,7 @@ module.exports = (env, argv) => {
 			{
 				loader: MiniCssExtractPlugin.loader,
 				options: {
-					publicPath:  path.resolve(__dirname),
-					hmr: argv.mode === 'development',
+					publicPath:  path.resolve(__dirname)
 				},
 			},
 			'css-loader',

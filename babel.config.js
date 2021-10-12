@@ -22,7 +22,7 @@ const plugins = [
 			"useESModules": false
 		}
 	],
-	[require("@babel/plugin-proposal-class-properties"), { loose: true }]
+	[require("@babel/plugin-proposal-class-properties"), { loose: false }]
 ];
 
 module.exports = { presets, plugins };

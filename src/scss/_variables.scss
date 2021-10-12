@@ -16,6 +16,7 @@
 // Colours
 // Buttons
 
+
 // Utilities
 
 @mixin _assert-ascending($map, $map-name) {
@@ -245,8 +246,8 @@ $btn-padding: map-get($spacers, 1) map-get($spacers, 2) !default;
 
 $default-table-border: $default-border-width solid !default;
 
-$header-height: 8rem !default
-$header-height-md: 7rem !default
+$header-height: 8rem !default;
+$header-height-md: 7rem !default;
 $footer-height: 6rem !default;
 
 
@@ -310,5 +311,4 @@ $adminbar-recovery-exit-background: $menu-bubble-background !default;
 $adminbar-recovery-exit-background-alt: mix(black, $adminbar-recovery-exit-background, 10%) !default;
 
 $menu-customizer-text: mix( $base-color, $text-color, 40% ) !default;
-
 

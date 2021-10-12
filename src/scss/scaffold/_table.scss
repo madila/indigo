@@ -1,6 +1,10 @@
+@use "sass:math";
+
 //
 // Tables
 //
+
+
 
 table {
   width: 100%;
@@ -9,7 +13,7 @@ table {
 }
 
 td, th {
-  padding: $spacer / 2;
+  padding: math.div($spacer, 2);
   border: $default-table-border;
 }
 
