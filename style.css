@@ -26,7 +26,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*
  * Typography
  */
-body {
+:root {
   --base-color: ;
   --base-color-darker: #000;
   --base-bg-color: ;
