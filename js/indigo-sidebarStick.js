@@ -1,1 +1,70 @@
-"use strict";(self.webpackChunkindigo=self.webpackChunkindigo||[]).push([[919],{3866:function(e,n,i){i.r(n);var r=i(4689),t=(i(9843),i(6486)),d=document.querySelector(".page-template-default");if(document.querySelector(".has-sticky-sidebar #secondary")&&!d){var o=null,a=0;document.body.className.indexOf("has-fixed-header")>0&&(a=function(){return document.querySelector(".site-header").clientHeight}),document.body.className.indexOf("admin-bar")>0&&(a=50);var c={containerSelector:"#primary",resizeSensor:!0,innerWrapperSelector:".widget-area",topSpacing:a};function e(){if(window.innerWidth<769)return!1;o=new r.Z("#secondary",c)}function n(){console.log(o),o?window.innerWidth>769?o.updateSticky():o.destroy():e()}window.addEventListener("load",e),n(),window.addEventListener("resize",(0,t.debounce)(n,100))}}}]);
+"use strict";
+(self["webpackChunkindigo"] = self["webpackChunkindigo"] || []).push([["indigo-sidebarStick"],{
+
+/***/ "./src/js/modules/sidebarStick.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/sidebarStick.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var sticky_sidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sticky-sidebar */ "./node_modules/sticky-sidebar/src/sticky-sidebar.js");
+/* harmony import */ var css_element_queries__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! css-element-queries */ "./node_modules/css-element-queries/index.js");
+/* harmony import */ var css_element_queries__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(css_element_queries__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var isPageTemplate = document.querySelector('.page-template-default');
+var sidebarElement = document.querySelector('.has-sticky-sidebar #secondary');
+
+if (sidebarElement && !isPageTemplate) {
+  var stickySidebar = null;
+  var topSpacing = 0;
+
+  if (document.body.className.indexOf('has-fixed-header') > 0) {
+    topSpacing = function topSpacing() {
+      return document.querySelector('.site-header').clientHeight;
+    };
+  }
+
+  if (document.body.className.indexOf('admin-bar') > 0) {
+    topSpacing = 50;
+  }
+
+  var options = {
+    containerSelector: '#primary',
+    resizeSensor: true,
+    innerWrapperSelector: '.widget-area',
+    topSpacing: topSpacing
+  };
+
+  function enableStickySidebar() {
+    if (window.innerWidth < 769) return false;
+    stickySidebar = new sticky_sidebar__WEBPACK_IMPORTED_MODULE_0__["default"]('#secondary', options);
+  }
+
+  function reCalculateStickySidebar() {
+    console.log(stickySidebar);
+
+    if (stickySidebar) {
+      if (window.innerWidth > 769) {
+        stickySidebar.updateSticky();
+      } else {
+        stickySidebar.destroy();
+      }
+    } else {
+      enableStickySidebar();
+    }
+  }
+
+  window.addEventListener('load', enableStickySidebar);
+  reCalculateStickySidebar();
+  window.addEventListener('resize', (0,lodash__WEBPACK_IMPORTED_MODULE_2__.debounce)(reCalculateStickySidebar, 100));
+}
+
+/***/ })
+
+}]);
+//# sourceMappingURL=indigo-sidebarStick.js.map

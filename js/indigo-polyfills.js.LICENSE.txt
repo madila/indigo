@@ -1,3 +1,0 @@
-/*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
-
-/*! npm.im/object-fit-images 3.2.4 */

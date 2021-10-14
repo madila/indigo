@@ -1,1 +1,21 @@
-body{--base-color: $body-color;--base-color-darker: $body-color-darker;--base-bg-color: $body-bg;--nav-font-family: $base-font-family;--mobile-font-size: $root-font-size * 0.9;--base-letter-spacing: $base-letter-spacing;--sidebar-width: $sidebar-default-width;--content-width: $container-default-width;--content-width-wide: $container-default-width;--base-border-radius: $default-border-radius;--footer-height: $footer-height}
+/*!***************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/editor-style.scss ***!
+  \***************************************************************************************************************************************************************/
+/*
+ * Typography
+ */
+body {
+  --base-color: ;
+  --base-color-darker: #000;
+  --base-bg-color: ;
+  --nav-font-family: Epilogue, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --mobile-font-size: 14.4px;
+  --base-letter-spacing: 0em;
+  --sidebar-width: 300px;
+  --content-width: 960px;
+  --content-width-wide: 960px;
+  --base-border-radius: 3rem;
+  --footer-height: 6rem;
+}
+
+/*# sourceMappingURL=editor-style.css.map*/

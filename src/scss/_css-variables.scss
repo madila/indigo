@@ -1,13 +1,13 @@
 body {
-	--base-color: $body-color;
-	--base-color-darker: $body-color-darker;
-	--base-bg-color: $body-bg;
-	--nav-font-family: $base-font-family;
-	--mobile-font-size: $root-font-size * 0.9;
-	--base-letter-spacing: $base-letter-spacing;
-	--sidebar-width: $sidebar-default-width;
-	--content-width: $container-default-width;
-	--content-width-wide: $container-default-width;
-	--base-border-radius: $default-border-radius;
-	--footer-height: $footer-height;
+	--base-color: #{$body-color};
+	--base-color-darker: #{$body-color-darker};
+	--base-bg-color: #{$body-bg};
+	--nav-font-family: #{$base-font-family};
+	--mobile-font-size: #{$root-font-size * 0.9};
+	--base-letter-spacing: #{$base-letter-spacing};
+	--sidebar-width: #{$sidebar-default-width};
+	--content-width: #{$container-default-width};
+	--content-width-wide: #{$container-default-width};
+	--base-border-radius: #{$default-border-radius};
+	--footer-height: #{$footer-height};
 };
